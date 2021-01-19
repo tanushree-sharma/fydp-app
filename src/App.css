@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root{
   --sidebar-flex:1.5;
@@ -14,7 +14,8 @@
   }
 
 body{
-  font-family: 'Raleway';
+  font-family: 'Montserrat', sans-serif;
+
   }
 
 .App{
@@ -49,4 +50,59 @@ nav ul li{
 /* css for active class */
 .active{
 font-weight: bolder;
+}
+
+#mainGraphic {
+  position: absolute;
+  width: 490px;
+  height: 350px;
+  left: 570px;
+  top: 145px;
+}
+
+#mainText {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 34px;
+  color: black;
+  position: relative;
+  left: 14.83%;
+  right: 59.37%;
+  top: 28.26%;
+  bottom: 55.21%;
+
+}
+#mainSubText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #80807F;
+
+  position: relative;
+  left: 14.83%;
+  right: 61.42%;
+  top: 28.62%;
+  bottom: 46.48%;
+}
+
+#startButton {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  position: absolute;
+  width: 150px;
+  height: 45px;
+  left: 63px;
+  top: 323px;
+  border-radius: 55px;
+  background-color: #F6D673;
+  border: none;
+  outline: none;
+}
+
+#startButton:active {
+  background: #80807F;
+  color: white;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
 }

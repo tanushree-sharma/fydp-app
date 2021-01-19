@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+
+
 import {
   BrowserRouter as Router,
   Route,
   } from "react-router-dom";
   import Navbar from './components/Navbar';
+  import MainHomepage from './components/mainHomepage';
 
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -18,7 +21,8 @@ function App() {
   return (
     <Router>
     <div className="App">
-    <Navbar />
+      <MainHomepage />
+      <Navbar />
     </div>
     </Router>
   );
