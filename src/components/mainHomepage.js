@@ -6,7 +6,7 @@ console.log(graphic)
 class mainHomepage extends Component {
     render() {
         return (
-        <div>
+        <div id="main">
             {/* Your Html/JSX code goes here */}
             <h1 id="mainText">Unlock your potential </h1>
             <h1 id="mainText"> solar savings</h1>

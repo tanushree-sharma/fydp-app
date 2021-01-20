@@ -8,6 +8,7 @@ import {
   } from "react-router-dom";
   import Navbar from './components/Navbar';
   import MainHomepage from './components/mainHomepage';
+  import ScrollHompage from './components/scrollHomepage';
 
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -22,7 +23,8 @@ function App() {
     <Router>
     <div className="App">
       <MainHomepage />
-      <Navbar />
+      {/* <Navbar /> */}
+      <ScrollHompage />
     </div>
     </Router>
   );
