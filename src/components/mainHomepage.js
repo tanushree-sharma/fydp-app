@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import graphic from '../homePageGraphic.png'
+import graphic from '../homepageGraphic.png'
 
 console.log(graphic)
 
