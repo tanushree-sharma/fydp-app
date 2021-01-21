@@ -127,12 +127,20 @@ font-weight: bolder;
    outline: none;
 }
 
+#scrollArrow {
+  position: absolute;
+  color: #F6D673;
+  left: 45%;
+  top: 40%;
+
+}
+
 #customAnalysisIcon {
   position: absolute;
   width: 125.31px;
   height: 120px;
   left: 17%;
-  top: 122%;
+  top: 61%;
 }
 #customAnalysisLabel{
   font-family: 'Montserrat', sans-serif;
@@ -150,14 +158,14 @@ font-weight: bolder;
   width: 209px;
   height: 40px;
   left: 14%;
-  top: 140%;
+  top: 71%;
 }
 #customAnalysisDesc {
   position: absolute;
   width: 214px;
   height: 92px;
   left: 13%;
-  top: 150%;
+  top: 75%;
 
   font-family: Roboto;
   font-style: normal;
@@ -175,7 +183,7 @@ font-weight: bolder;
   width: 140px;
   height: 120px;
   left: 44%;
-  top: 122%;
+  top: 61%;
 }
 #longTermSavingsLabel {
   font-family: 'Montserrat', sans-serif;
@@ -193,7 +201,7 @@ font-weight: bolder;
   width: 209px;
   height: 40px;
   left: 41%;
-  top: 140%;
+  top: 71%;
   white-space: nowrap;
 }
 #longTermSavingsDesc {
@@ -201,7 +209,7 @@ font-weight: bolder;
   width: 214px;
   height: 92px;
   left: 41%;
-  top: 150%;
+  top: 75%;
 
   font-family: Roboto;
   font-style: normal;
@@ -219,7 +227,7 @@ font-weight: bolder;
   width: 111.81px;
   height: 120px;
   left: 73%;
-  top: 122%;
+  top: 61%;
 }
 #carbonFootprintLabel{
   font-family: 'Montserrat', sans-serif;
@@ -237,7 +245,7 @@ font-weight: bolder;
   width: 209px;
   height: 40px;
   left: 70%;
-  top: 140%;
+  top: 71%;
   white-space: nowrap;
 }
 #carbonFootprintDesc {
@@ -245,7 +253,7 @@ font-weight: bolder;
   width: 214px;
   height: 92px;
   left: 70%;
-  top: 150%;
+  top: 75%;
 
   font-family: Roboto;
   font-style: normal;
@@ -269,7 +277,7 @@ font-weight: bolder;
   width: 160px;
   height: 45px;
   left: 44%;
-  top: 173%;
+  top: 87%;
 
   border-radius: 55px;
   background-color: #F6D673;
@@ -286,4 +294,21 @@ font-weight: bolder;
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;
    outline: none;
+}
+
+#scrollArrow {
+    width: 70px;
+    height: 35px;
+    position: absolute;
+    left: 45%;
+    top: 40%;
+}
+
+#scrollTo {
+  position: absolute;
+  width: 125.31px;
+  height: 120px;
+  left: 0%;
+  top: 121%;
+  color: white;
 }
