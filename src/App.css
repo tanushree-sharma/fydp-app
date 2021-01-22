@@ -62,8 +62,8 @@ font-weight: bolder;
 
 #mainGraphic {
   position: absolute;
-  width: 490px;
-  height: 350px;
+  width: 45%;
+  height: 30%;
   left: 53%;
   top: 10%;
 }
@@ -72,8 +72,8 @@ font-weight: bolder;
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 40px;
-  line-height: 56px;
+  font-size: 3.5vw;
+  line-height: 4vw;
   color: black;
   position: relative;
   left: 5%;
@@ -83,31 +83,31 @@ font-weight: bolder;
 }
 #mainSubText {
   font-family: 'Roboto';
-  font-size: 18px;
+  font-size: 1.5vw;
   font-style: normal;
   font-weight: 100;
-  line-height: 32px;
+  line-height: 2vw;
   color: #80807F;
 
   position: relative;
   left: 5%;
   right: 61.42%;
-  top: 13%;
+  top: 13.5%;
   bottom: 46.48%;
 }
 #startButton {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 45px;
+  font-size: 1.5vw;
+  line-height: 1.5vw;
 
   position: absolute;
-  width: 160px;
-  height: 45px;
+  width: 15%;
+  height: 4%;
   left: 5%;
   right: 61.42%;
-  top: 30%;
+  top: 27%;
   bottom: 46.48%;
 
   border-radius: 55px;
@@ -128,26 +128,33 @@ font-weight: bolder;
 }
 
 #scrollArrow {
+  width: 7%;
+  height: 3%;
   position: absolute;
-  color: #F6D673;
-  left: 45%;
+  left: 47%;
   top: 40%;
+}
 
+#scrollTo {
+position: absolute;
+left: 0%;
+top: 121%;
+color: white;
 }
 
 #customAnalysisIcon {
   position: absolute;
-  width: 125.31px;
-  height: 120px;
-  left: 17%;
+  width: 12%;
+  height: 10.5%;
+  left: 16.5%;
   top: 61%;
 }
 #customAnalysisLabel{
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
-  line-height: 31px;
+  font-size: 2vw;
+  line-height: 2vw;
   display: flex;
   align-items: center;
   text-align: center;
@@ -159,19 +166,20 @@ font-weight: bolder;
   height: 40px;
   left: 14%;
   top: 71%;
+  white-space: nowrap;
 }
 #customAnalysisDesc {
   position: absolute;
-  width: 214px;
-  height: 92px;
+  width: 17vw;
+  height: 25vh;
   left: 13%;
   top: 75%;
 
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.3vw;
+  line-height: 1.5vw;
   text-align: center;
 
   color: #000000;
@@ -180,17 +188,17 @@ font-weight: bolder;
 
 #longTermSavingsIcon {
   position: absolute;
-  width: 140px;
-  height: 120px;
-  left: 44%;
-  top: 61%;
+  width: 13%;
+  height: 10%;
+  left: 43.5%;
+  top: 61.5%;
 }
 #longTermSavingsLabel {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
-  line-height: 31px;
+  font-size: 2vw;
+  line-height: 2vw;
   display: flex;
   align-items: center;
   text-align: center;
@@ -206,16 +214,16 @@ font-weight: bolder;
 }
 #longTermSavingsDesc {
   position: absolute;
-  width: 214px;
-  height: 92px;
+  width: 17vw;
+  height: 25vh;
   left: 41%;
   top: 75%;
 
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.3vw;
+  line-height: 1.5vw;
   text-align: center;
 
   color: #000000;
@@ -224,17 +232,17 @@ font-weight: bolder;
 
 #carbonFootprintIcon {
   position: absolute;
-  width: 111.81px;
-  height: 120px;
-  left: 73%;
-  top: 61%;
+  width: 11.5%;
+  height: 10%;
+  left: 72%;
+  top: 61.5%;
 }
 #carbonFootprintLabel{
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
-  line-height: 31px;
+  font-size: 2vw;
+  line-height: 2vw;
   display: flex;
   align-items: center;
   text-align: center;
@@ -250,32 +258,31 @@ font-weight: bolder;
 }
 #carbonFootprintDesc {
   position: absolute;
-  width: 214px;
-  height: 92px;
-  left: 70%;
+  width: 17vw;
+  height: 25vh;
+  left: 69%;
   top: 75%;
 
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.3vw;
+  line-height: 1.5vw;
   text-align: center;
 
   color: #000000;
-
 }
 
 #startButton2 {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 45px;
+  font-size: 1.5vw;
+  line-height: 1.5vw;
 
   position: absolute;
-  width: 160px;
-  height: 45px;
+  width: 15%;
+  height: 4%;
   left: 44%;
   top: 87%;
 
@@ -294,21 +301,4 @@ font-weight: bolder;
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;
    outline: none;
-}
-
-#scrollArrow {
-    width: 70px;
-    height: 35px;
-    position: absolute;
-    left: 45%;
-    top: 40%;
-}
-
-#scrollTo {
-  position: absolute;
-  width: 125.31px;
-  height: 120px;
-  left: 0%;
-  top: 121%;
-  color: white;
 }
