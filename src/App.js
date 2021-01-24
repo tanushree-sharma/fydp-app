@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+
+
 import {
   BrowserRouter as Router,
-  Route,
+  Route, Switch
   } from "react-router-dom";
   import Navbar from './components/Navbar';
+  import MainHomepage from './components/mainHomepage';
+  import ScrollTo from './components/scrollTo';
+  import Form from './components/form';
+
 
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -18,7 +24,14 @@ function App() {
   return (
     <Router>
     <div className="App">
-    <Navbar />
+      {/* <Navbar /> */}
+      <ScrollTo />
+
+      <Switch>
+        <Route path="/form" component={Form}/>
+        <Route path="/" component={MainHomepage}/>
+
+      </Switch>
     </div>
     </Router>
   );
