@@ -27,7 +27,7 @@ class mainHomepage extends Component {
 
             <img src={graphic} alt ="graphic" id="mainGraphic"/>
 
-            <Link to="scrollTo" spy={true} smooth={true}> <img src={scrollArrow} alt="scroll" id="scrollArrow"/> </Link>
+            <Link to="scrollTo" spy={true} smooth={true}> <img src={scrollArrow} alt="scroll" id="scrollArrow" class="bounce"/> </Link>
 
             {/* scrolled content */}
             <img src={customAnalysis} alt ="Custom Analysis" id="customAnalysisIcon"/>
