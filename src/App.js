@@ -38,5 +38,4 @@ function App() {
 }
 
 export default App;
-
-    //<p>The current time is {currentTime}.</p>
+//    <p>The current time is {currentTime}.</p>

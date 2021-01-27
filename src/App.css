@@ -4,8 +4,8 @@
 :root{
   --sidebar-flex:1.5;
   --condiv-flex:6;
-  --fontsize-p:1.2rem;
-  --fontsize-nav:1.6rem;
+  --fontsize-p:1.1rem;
+  --fontsize-nav:0.9rem;
   --typing-font:3rem;
   }
 
@@ -16,7 +16,6 @@
 
 body{
   font-family: 'Mulish', sans-serif;
-
   }
 
 .App{
@@ -28,26 +27,40 @@ body{
 
   /* .condiv class is for the right side content container*/
 .condiv{
-  padding: 100px ;
+  padding: 50px ;
   background-color: #f4f5f9;
   flex:var(--condiv-flex);
   }
   
 nav{
 flex:var(--sidebar-flex);
-background: rgb(238,103,143);
+background: rgb(255, 255, 255);
+height: 8%;
 }
-
-nav ul
-{
+nav img{
+  width: 6rem;
+  position: absolute;
+  left:30px;
+  top:25px;
+}
+nav ul{
   font-size:var(--fontsize-nav) ;
   text-align: center;
   list-style-type: none;
   text-decoration: none;
   color: white !important;
+  overflow: hidden;
+  transform: rotate(180deg);
 }
 nav ul li{
-  margin:40px;
+  margin:30px;
+  float: left;
+  transform: rotate(-180deg);
+}
+a
+{
+  text-decoration: none;
+  color: #80807f;
 }
 /* css for active class */
 .active{
@@ -309,4 +322,14 @@ color: white;
   background: #faebbc;
   color: black;
   outline: none;
+}
+
+.active:after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: -25%;
+  width: 150%;
+  height: 4px;
+  background-color: #abb8d4;
 }
