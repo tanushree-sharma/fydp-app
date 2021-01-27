@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Navitem from './Navitem';
+import Navitem from './Navitem'
+import logo from '../logo.png';
 
 class Navbar extends Component {
     constructor(props)
@@ -14,7 +15,7 @@ class Navbar extends Component {
         if(this.state.NavItemActive.length>0){
         document.getElementById(this.state.NavItemActive).classList.remove('active');
         }
-        this.setState({'NavItemId':x},()=>{
+        this.setState({'NavItemActive':x},()=>{
         document.getElementById(this.state.NavItemActive).classList.add('active');
         });
     };
@@ -22,9 +23,12 @@ class Navbar extends Component {
     render() {
         return (
             <nav>
+            <img src={logo} className="logo" alt="logo"></img>
             <ul>
-            <Navitem item="Home" tolink="/" activec={this.activeitem}> </Navitem>
-            <Navitem item="About" tolink="/about" activec={this.activeitem}> </Navitem>
+            <Navitem item="About Us" tolink="/about_us" activec={this.activeitem}></Navitem>
+            <Navitem item="Solar FAQ" tolink="/faq" activec={this.activeitem}></Navitem>
+            <Navitem item="Start Saving" tolink="/start_saving" activec={this.activeitem}></Navitem>
+            <Navitem item="Home" tolink="/" activec={this.activeitem}></Navitem>
             </ul>
             </nav>
             )
