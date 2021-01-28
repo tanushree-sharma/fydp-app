@@ -1,22 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-:root{
-  --sidebar-flex:1.5;
-  --condiv-flex:6;
-  --fontsize-p:1.1rem;
-  --fontsize-nav:0.9rem;
-  --typing-font:3rem;
-  }
-
- * {
-  margin:0;
-  padding: 0;
-  }
-
-body{
-  font-family: 'Mulish', sans-serif;
-  }
 
 .App{
   display: flex;
@@ -25,48 +9,65 @@ body{
   min-height: 100vh;
   }
 
-  /* .condiv class is for the right side content container*/
-.condiv{
-  padding: 50px ;
-  background-color: #f4f5f9;
-  flex:var(--condiv-flex);
+* {
+    margin:0;
+    padding: 0;
+    }
+
+.sticky{
+  height: 50px;
+  line-height: 80px;
+  margin-top: 1%;
+  padding-left: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 9998!important;
   }
-  
-nav{
-flex:var(--sidebar-flex);
-background: rgb(255, 255, 255);
-height: 8%;
-}
-nav img{
-  width: 6rem;
+
+.nav{
   position: absolute;
-  left:30px;
-  top:25px;
-}
-nav ul{
-  font-size:var(--fontsize-nav) ;
-  text-align: center;
-  list-style-type: none;
-  text-decoration: none;
-  color: white !important;
-  overflow: hidden;
-  transform: rotate(180deg);
-}
-nav ul li{
-  margin:30px;
-  float: left;
-  transform: rotate(-180deg);
-}
-a
-{
-  text-decoration: none;
-  color: #80807f;
-}
-/* css for active class */
-.active{
-font-weight: bolder;
+  background-color:white;
+  font-size: 1.3vw;
+  font-family: 'Roboto';
+  }
+
+.logo{
+  position: absolute;
+  margin-top: 1.4%;
+  margin-left: 3%;
+    }
+
+ul.nav-right {
+    width:100vw;
+    list-style:none;
+    text-align:right;
+    font-family: sans-serif; 
+    margin-right: 4%;
+    float: right;
+    overflow-x:hidden;
 }
 
+.nav-right li { 
+  display:inline-block;
+  width:10%;
+  margin:0;
+  padding:0;
+}
+.nav-right a {
+  text-align:center;
+  margin:0;
+  display:block;
+  text-decoration:none;
+  color: #80807f;
+}
+
+.scrolled{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+}
 #main {
   position: relative;
   width: 100%;
@@ -324,12 +325,4 @@ color: white;
   outline: none;
 }
 
-.active:after {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: -25%;
-  width: 150%;
-  height: 4px;
-  background-color: #abb8d4;
-}
+

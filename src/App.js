@@ -24,13 +24,12 @@ function App() {
   return (
     <Router>
     <div className="App">
-      {/* <Navbar /> */}
+       <Navbar />
       <ScrollTo />
 
       <Switch>
         <Route path="/form" component={Form}/>
         <Route path="/" component={MainHomepage}/>
-
       </Switch>
     </div>
     </Router>
