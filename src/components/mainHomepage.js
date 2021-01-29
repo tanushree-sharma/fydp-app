@@ -21,7 +21,7 @@ class mainHomepage extends Component {
             <p id="mainSubText"> Streamlining the decision making process for </p>
             <p id="mainSubText"> residential solar energy investement </p>
             
-            <form action="/form">
+            <form action="/start-saving">
                 <button type="submit" id="startButton"> Start Saving </button>
             </form>
 
@@ -43,7 +43,7 @@ class mainHomepage extends Component {
             <p id="longTermSavingsDesc"> We’ll give you full visibility into long-term cost savings and the payback period for your unique system. </p>
             <p id="carbonFootprintDesc"> Discover how leveraging solar energy impacts your hoursehold carbon footprint over time. </p>
 
-            <form action="/form">
+            <form action="/start-saving">
                 <button type="submit" id="startButton2"> Start Saving </button>
             </form>
 

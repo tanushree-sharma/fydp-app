@@ -9,7 +9,7 @@ import {
   import Navbar from './components/Navbar';
   import MainHomepage from './components/mainHomepage';
   import ScrollTo from './components/scrollTo';
-  import Form from './components/form';
+  import StartSaving from './components/startSaving';
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
       <ScrollTo />
 
       <Switch>
-        <Route path="/form" component={Form}/>
+        <Route path="/start-saving" component={StartSaving}/>
         <Route path="/" component={MainHomepage}/>
       </Switch>
     </div>
