@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { browserHistory } from 'react-router';
 
 class startSaving extends Component {
     render() {
@@ -24,16 +25,24 @@ class startSaving extends Component {
           for(i = 1; i <= total; i += 1)
           {
             document.getElementById('tabs-' + i).style.display = 'none';
+            document.getElementById('tabs' + i).style.fontWeight = 400; 
           }
           document.getElementById('tabs-' + selected).style.display = 'block';
+          document.getElementById('tabs' + selected).style.fontWeight = 600;
         }
+        
+        // fix back button error by keeping track of how many tab toggles there have been
+        // and then go back that number of pages to get back to home
+        //https://stackoverflow.com/questions/22641154/javascript-going-back-multiple-times-in-history
+
+            
 
         return (
             <div class="Panel">
                 <nav>
                     <ul class="Tabs">
-                        <li class="Tabs__tab active Tab" id="tabs1" onClick={() => { showTab(1,2);}}><a href="#">Solar</a></li>
-                        <li class="Tabs__tab Tab" id="tabs2" onClick={() => { showTab(2,2);}}><a href="#">Solar + Battery</a></li>
+                        <li class="Tabs__tab active Tab" id="tabs1" onClick={() => { showTab(1,2);}}><a href="javascript:;">Solar</a></li>
+                        <li class="Tabs__tab Tab" id="tabs2" onClick={() => { showTab(2,2);}}><a href="javascript:;">Solar + Battery</a></li>
                         <hr id="tab-underline"></hr>
                         <li class="Tabs__presentation-slider" role="presentation"></li>
                     </ul>
