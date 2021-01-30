@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
-import Navitem from './Navitem';
+import logo from '../logo.png';
 
 class Navbar extends Component {
-    constructor(props)
-    {
-        super(props);
-        this.state={
-            'NavItemActive':''
-        }
-    }
-    activeitem=(x)=>
-    {
-        if(this.state.NavItemActive.length>0){
-        document.getElementById(this.state.NavItemActive).classList.remove('active');
-        }
-        this.setState({'NavItemId':x},()=>{
-        document.getElementById(this.state.NavItemActive).classList.add('active');
-        });
-    };
-   
+
+    
     render() {
         return (
-            <nav>
-            <ul>
-            <Navitem item="Home" tolink="/" activec={this.activeitem}> </Navitem>
-            <Navitem item="About" tolink="/about" activec={this.activeitem}> </Navitem>
-            </ul>
-            </nav>
-            )
-        }
+            <div class="sticky">
+                <div class="nav">
+                    <img src={logo} class="logo" alt="logo" width="100px"></img>
+                    <ul class="nav-right">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/start-saving">Start Saving</a></li>
+                        <li><a href="/faq">Solar FAQ</a></li>
+                        <li><a href="/about">About Us</a></li>   
+                    </ul>
+                </div>
+            </div>
+        );
+    }
     }
     
 export default Navbar

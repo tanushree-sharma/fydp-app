@@ -9,7 +9,7 @@ import {
   import Navbar from './components/Navbar';
   import MainHomepage from './components/mainHomepage';
   import ScrollTo from './components/scrollTo';
-  import Form from './components/form';
+  import StartSaving from './components/startSaving';
 
 
 function App() {
@@ -24,13 +24,12 @@ function App() {
   return (
     <Router>
     <div className="App">
-      {/* <Navbar /> */}
+       <Navbar />
       <ScrollTo />
 
       <Switch>
-        <Route path="/form" component={Form}/>
+        <Route path="/start-saving" component={StartSaving}/>
         <Route path="/" component={MainHomepage}/>
-
       </Switch>
     </div>
     </Router>
@@ -38,5 +37,4 @@ function App() {
 }
 
 export default App;
-
-    //<p>The current time is {currentTime}.</p>
+//    <p>The current time is {currentTime}.</p>

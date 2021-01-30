@@ -1,22 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-:root{
-  --sidebar-flex:1.5;
-  --condiv-flex:6;
-  --fontsize-p:1.2rem;
-  --fontsize-nav:1.6rem;
-  --typing-font:3rem;
-  }
+@use postcss-nested;
 
  * {
   margin:0;
   padding: 0;
-  }
-
-body{
-  font-family: 'Mulish', sans-serif;
-
   }
 
 .App{
@@ -26,34 +14,60 @@ body{
   min-height: 100vh;
   }
 
-  /* .condiv class is for the right side content container*/
-.condiv{
-  padding: 100px ;
-  background-color: #f4f5f9;
-  flex:var(--condiv-flex);
+.sticky{
+  height: 50px;
+  line-height: 80px;
+  margin-top: 1%;
+  padding-left: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 9998!important;
   }
-  
-nav{
-flex:var(--sidebar-flex);
-background: rgb(238,103,143);
+
+.nav{
+  position: absolute;
+  background-color:white;
+  font-size: 1.3vw;
+  font-family: 'Roboto';
+  }
+
+.logo{
+  position: absolute;
+  margin-top: 1.4%;
+  margin-left: 3%;
+    }
+
+ul.nav-right {
+    width:100vw;
+    list-style:none;
+    text-align:right;
+    font-family: sans-serif; 
+    margin-right: 4%;
+    float: right;
+    overflow-x:hidden;
 }
 
-nav ul
-{
-  font-size:var(--fontsize-nav) ;
-  text-align: center;
-  list-style-type: none;
-  text-decoration: none;
-  color: white !important;
+.nav-right li { 
+  display:inline-block;
+  width:10%;
+  margin:0;
+  padding:0;
 }
-nav ul li{
-  margin:40px;
-}
-/* css for active class */
-.active{
-font-weight: bolder;
+.nav-right a {
+  text-align:center;
+  margin:0;
+  display:block;
+  text-decoration:none;
+  color: #80807f;
 }
 
+.scrolled{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+}
 #main {
   position: relative;
   width: 100%;
@@ -309,4 +323,160 @@ color: white;
   background: #faebbc;
   color: black;
   outline: none;
+}
+
+.Panel {
+  position: absolute;
+	width: 100%;
+	max-width: 80vw;
+  margin: 5vw auto;
+  
+  top: 10%;
+  left: 10%;
+}
+
+.Panel__body {
+		background-color:white;
+    padding: 25vh 5vw;
+	}
+
+.Tabs {
+	position: relative;
+  background-color: #fff;
+}
+
+.Tabs:after {
+		content: ' ';
+		display: table;
+		clear: both;
+	}
+
+.Tabs {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.Tabs__tab {
+		float: left;
+		width: 50%;
+		text-align: center;
+}
+
+.Tabs__tab:first-child.active ~ .Tabs__presentation-slider {
+			transform: translateX(0) scaleX(0.5);
+}
+
+.Tabs__tab:nth-child(2).active ~ .Tabs__presentation-slider {
+			transform: translateX(50%) scaleX(0.5);
+}
+
+.Tabs__presentation-slider {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 0.8vh;
+		background-color: #5c77ac;
+		transform-origin: 0 0;
+		transition: transform .25s;
+	}
+
+#tab-underline {
+  border: 0.1vh solid #80807F;
+}
+
+.Tab {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-size: 1.6vw;
+  font-weight: 600;
+  line-height: 5vh;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.Tab > a {
+		display: block;
+		padding: 2.5vh 5vw;
+		text-decoration: none;
+		color: black;
+		transition: color .15s;
+	}
+
+.tabContent{
+  display:none;
+}
+
+#tabs-1 {
+  display: block;
+}
+#tabs2 {
+  font-weight: 400;
+}
+
+#solar-subtext {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2vw;
+  line-height: 5.5vh;
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  color: #80807F;
+
+  position: absolute; 
+  top: 16%;
+  left: 14.5%;
+}
+#battery-subtext {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2vw;
+  line-height: 5.5vh;
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  color: #80807F;
+
+  position: absolute; 
+  top: 16%;
+  left: 66.5%;
+}
+#form-desc {
+  position: absolute;
+  width: 70vw;
+  height: 32px;
+  left: 6%;
+  top: 28%;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2vw;
+  line-height: 5vh;
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  color: #000000;
+}
+#form-desc2 {
+  position: absolute;
+  width: 70vw;
+  height: 32px;
+  left: 6.5%;
+  top: 32%;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2vw;
+  line-height: 5vh;
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  color: #000000;
 }
