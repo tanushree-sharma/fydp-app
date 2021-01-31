@@ -480,3 +480,25 @@ color: white;
 
   color: #000000;
 }
+
+.footer {
+  position: absolute;
+  clear: both;
+  bottom: 2%;
+  color: #80807F;
+  font-family: 'Mulish';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  width: 100%;
+
+}
+
+.footer-left {
+  width:100vw;
+  list-style:none;
+  text-align:left;
+  margin-left: 3%;
+  float: left;
+  overflow-x:hidden;
+}
