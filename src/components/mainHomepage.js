@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import {Link} from 'react-scroll'
-import graphic from '../homePageGraphic.png'
+import graphic from '../homepageGraphic.png'
 import carbonFootprint from '../carbonFootprintIcon.png'
 import customAnalysis from '../customAnalysisIcon.png'
 import longTermSavings from '../longTermSavingsIcon.png'
 import scrollArrow from '../ScrollArrow.png';
+import Footer from '../components/Footer';
 
 console.log(graphic)
 console.log(carbonFootprint)
@@ -46,6 +47,8 @@ class mainHomepage extends Component {
             <form action="/start-saving">
                 <button type="submit" id="startButton2"> Start Saving </button>
             </form>
+
+            <Footer />
 
         </div>
         )
