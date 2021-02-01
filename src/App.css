@@ -12,6 +12,7 @@
   width: 100vw;
   height: 200vh;
   min-height: 100vh;
+  overflow-x: hidden;
   }
 
 .sticky{
