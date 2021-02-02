@@ -1,68 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 @use postcss-nested;
 
- * {
-  margin:0;
+* {
+  margin: 0;
   padding: 0;
-  }
+}
 
-.App{
+.App {
   display: flex;
   width: 100vw;
   height: 200vh;
   min-height: 100vh;
-  }
+}
 
-.sticky{
-  height: 50px;
-  line-height: 80px;
+.sticky {
+  height: 5.86vh;
+  line-height: 9.38vh;
   margin-top: 1%;
+  /* !!!!change padding to % */
   padding-left: 10px;
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
-  z-index: 9998!important;
-  }
+  top: 0%;
+  z-index: 9998 !important;
+}
 
-.nav{
+.nav {
   position: absolute;
-  background-color:white;
+  background-color: white;
   font-size: 1.3vw;
-  font-family: 'Roboto';
-  }
+  font-family: "Roboto";
+}
 
-.logo{
+.logo {
   position: absolute;
   margin-top: 1.4%;
   margin-left: 3%;
-    }
+}
 
 ul.nav-right {
-    width:100vw;
-    list-style:none;
-    text-align:right;
-    font-family: sans-serif; 
-    margin-right: 4%;
-    float: right;
-    overflow-x:hidden;
+  width: 100vw;
+  list-style: none;
+  text-align: right;
+  font-family: sans-serif;
+  margin-right: 4%;
+  float: right;
+  overflow-x: hidden;
 }
 
-.nav-right li { 
-  display:inline-block;
-  width:10%;
-  margin:0;
-  padding:0;
+.nav-right li {
+  display: inline-block;
+  width: 10%;
+  margin: 0;
+  padding: 0;
 }
 .nav-right a {
-  text-align:center;
-  margin:0;
-  display:block;
-  text-decoration:none;
+  text-align: center;
+  margin: 0;
+  display: block;
+  text-decoration: none;
   color: #80807f;
 }
 
-.scrolled{
+.scrolled {
   position: fixed;
   top: 0;
   left: 0;
@@ -83,7 +85,7 @@ ul.nav-right {
 }
 
 #mainText {
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 3.5vw;
@@ -96,12 +98,12 @@ ul.nav-right {
   bottom: 55.21%;
 }
 #mainSubText {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 1.5vw;
   font-style: normal;
   font-weight: 100;
   line-height: 2vw;
-  color: #80807F;
+  color: #80807f;
 
   position: relative;
   left: 5%;
@@ -110,7 +112,7 @@ ul.nav-right {
   bottom: 46.48%;
 }
 #startButton {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 1.5vw;
@@ -124,8 +126,8 @@ ul.nav-right {
   top: 26%;
   bottom: 46.48%;
 
-  border-radius: 55px;
-  background-color: #F6D673;
+  border-radius: 3.214vw;
+  background-color: #f6d673;
   border: none;
   outline: none;
   text-align: center;
@@ -155,16 +157,22 @@ ul.nav-right {
 }
 
 @keyframes bounce {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.17vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 #scrollTo {
-position: absolute;
-left: 0%;
-top: 121%;
-color: white;
+  position: absolute;
+  left: 0%;
+  top: 121%;
+  color: white;
 }
 
 #customAnalysisIcon {
@@ -174,8 +182,8 @@ color: white;
   left: 14.7%;
   top: 61.5%;
 }
-#customAnalysisLabel{
-  font-family: 'Mulish', sans-serif;
+#customAnalysisLabel {
+  font-family: "Mulish", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 2vw;
@@ -184,11 +192,11 @@ color: white;
   align-items: center;
   text-align: center;
 
-  color: #5C77AC;
+  color: #5c77ac;
 
   position: absolute;
-  width: 209px;
-  height: 40px;
+  width: 12.215vw;
+  height: 4.69vh;
   left: 12.5%;
   top: 71%;
   white-space: nowrap;
@@ -208,7 +216,6 @@ color: white;
   text-align: center;
 
   color: #000000;
-
 }
 
 #longTermSavingsIcon {
@@ -219,7 +226,7 @@ color: white;
   top: 61.5%;
 }
 #longTermSavingsLabel {
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 2vw;
@@ -228,11 +235,11 @@ color: white;
   align-items: center;
   text-align: center;
 
-  color: #5C77AC;
+  color: #5c77ac;
 
   position: absolute;
-  width: 209px;
-  height: 40px;
+  width: 12.215vw;
+  height: 4.69vh;
   left: 41.5%;
   top: 71%;
   white-space: nowrap;
@@ -252,7 +259,6 @@ color: white;
   text-align: center;
 
   color: #000000;
-
 }
 
 #carbonFootprintIcon {
@@ -262,8 +268,8 @@ color: white;
   left: 75.5%;
   top: 60.5%;
 }
-#carbonFootprintLabel{
-  font-family: 'Mulish', sans-serif;
+#carbonFootprintLabel {
+  font-family: "Mulish", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 2vw;
@@ -272,11 +278,11 @@ color: white;
   align-items: center;
   text-align: center;
 
-  color: #5C77AC;
+  color: #5c77ac;
 
   position: absolute;
-  width: 209px;
-  height: 40px;
+  width: 12.215vw;
+  height: 4.69vh;
   left: 73.5%;
   top: 71%;
   white-space: nowrap;
@@ -299,7 +305,7 @@ color: white;
 }
 
 #startButton2 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 1.5vw;
@@ -311,8 +317,8 @@ color: white;
   left: 43.5%;
   top: 87%;
 
-  border-radius: 55px;
-  background-color: #F6D673;
+  border-radius: 3.215vw;
+  background-color: #f6d673;
   border: none;
   outline: none;
   text-align: center;
@@ -327,67 +333,67 @@ color: white;
 
 .Panel {
   position: absolute;
-	width: 100%;
-	max-width: 80vw;
+  width: 100%;
+  max-width: 80vw;
   margin: 5vw auto;
-  
+
   top: 10%;
   left: 10%;
 }
 
 .Panel__body {
-		background-color:white;
-    padding: 25vh 5vw;
-	}
+  background-color: white;
+  padding: 25vh 5vw;
+}
 
 .Tabs {
-	position: relative;
+  position: relative;
   background-color: #fff;
 }
 
 .Tabs:after {
-		content: ' ';
-		display: table;
-		clear: both;
-	}
+  content: " ";
+  display: table;
+  clear: both;
+}
 
 .Tabs {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .Tabs__tab {
-		float: left;
-		width: 50%;
-		text-align: center;
+  float: left;
+  width: 50%;
+  text-align: center;
 }
 
 .Tabs__tab:first-child.active ~ .Tabs__presentation-slider {
-			transform: translateX(0) scaleX(0.5);
+  transform: translateX(0) scaleX(0.5);
 }
 
 .Tabs__tab:nth-child(2).active ~ .Tabs__presentation-slider {
-			transform: translateX(50%) scaleX(0.5);
+  transform: translateX(50%) scaleX(0.5);
 }
 
 .Tabs__presentation-slider {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 0.8vh;
-		background-color: #5c77ac;
-		transform-origin: 0 0;
-		transition: transform .25s;
-	}
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.8vh;
+  background-color: #5c77ac;
+  transform-origin: 0 0;
+  transition: transform 0.25s;
+}
 
 #tab-underline {
-  border: 0.1vh solid #80807F;
+  border: 0.1vh solid #80807f;
 }
 
 .Tab {
-  font-family: 'Mulish';
+  font-family: "Mulish";
   font-style: normal;
   font-size: 1.6vw;
   font-weight: 600;
@@ -398,15 +404,15 @@ color: white;
 }
 
 .Tab > a {
-		display: block;
-		padding: 2.5vh 5vw;
-		text-decoration: none;
-		color: black;
-		transition: color .15s;
-	}
+  display: block;
+  padding: 2.5vh 5vw;
+  text-decoration: none;
+  color: black;
+  transition: color 0.15s;
+}
 
-.tabContent{
-  display:none;
+.tabContent {
+  display: none;
 }
 
 #tabs-1 {
@@ -425,9 +431,9 @@ color: white;
   text-align: center;
   letter-spacing: 0.1em;
 
-  color: #80807F;
+  color: #80807f;
 
-  position: absolute; 
+  position: absolute;
   top: 16%;
   left: 14.5%;
 }
@@ -440,19 +446,18 @@ color: white;
   text-align: center;
   letter-spacing: 0.1em;
 
-  color: #80807F;
+  color: #80807f;
 
-  position: absolute; 
+  position: absolute;
   top: 16%;
   left: 66.5%;
 }
 #form-desc {
   position: absolute;
   width: 70vw;
-  height: 32px;
+  height: 3.76vh;
   left: 6%;
   top: 28%;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -460,13 +465,12 @@ color: white;
   line-height: 5vh;
   text-align: center;
   letter-spacing: 0.1em;
-
   color: #000000;
 }
 #form-desc2 {
   position: absolute;
   width: 70vw;
-  height: 32px;
+  height: 3.76vh;
   left: 6.5%;
   top: 32%;
 
@@ -485,20 +489,197 @@ color: white;
   position: absolute;
   clear: both;
   bottom: 2%;
-  color: #80807F;
-  font-family: 'Mulish';
+  color: #80807f;
+  font-family: "Mulish";
   font-weight: 500;
-  font-size: 18px;
-  line-height: 23px;
+  font-size: 1vw;
+  line-height: 5vh;
   width: 100%;
-
 }
 
 .footer-left {
-  width:100vw;
-  list-style:none;
-  text-align:left;
+  width: 100vw;
+  list-style: none;
+  text-align: left;
   margin-left: 3%;
   float: left;
-  overflow-x:hidden;
+  overflow-x: hidden;
+}
+
+.field-titles {
+  position: absolute;
+  width: 12vw;
+  height: 3.2vh;
+  left: 40%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.9375vw;
+  line-height: 2.097vh;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+
+.field-inputs {
+  position: absolute;
+  width: 11vw;
+  height: 2.7vh;
+  left: 60%;
+  background: #ffffff;
+  border: 0.2vh solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 0.309vw;
+  padding-left: 0.5%;
+}
+
+.field-inputs::placeholder {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  color: #80807f;
+}
+
+#postal-text {
+  position: absolute;
+  width: 11vw;
+  height: 2.7vh;
+  left: 62%;
+  font-size: 0.57vw;
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 200;
+  color: #80807f;
+  top: 55%;
+}
+
+#postal-code {
+  top: 50%;
+}
+
+#roof-size {
+  top: 60%;
+}
+
+#elec-usage {
+  top: 78%;
+}
+
+#month {
+  top: 88%;
+}
+
+#heating-type {
+  top: 98%;
+}
+
+#budget1 {
+  top: 116%;
+}
+
+#budget2 {
+  top: 142%;
+}
+
+#storage-capacity {
+  top: 116%;
+}
+
+#dod {
+  top: 126%;
+}
+
+.formSectionTitles {
+  position: absolute;
+  width: 10vw;
+  height: 2.5vh;
+  left: 17%;
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.25vw;
+  line-height: 2.5vh;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  color: #80807f;
+}
+
+.qGraphic {
+  position: absolute;
+  width: 1.3vw;
+  left: 57.25%;
+  height: 2.3vh;
+}
+
+#home-specs {
+  top: 55%;
+}
+
+#energy-usage {
+  top: 88%;
+}
+
+#initial-inv1 {
+  top: 116%;
+}
+
+#initial-inv2 {
+  top: 142%;
+}
+
+#battery-specs {
+  top: 121%;
+}
+
+#q1 {
+  top: 60.5%;
+}
+
+#q2 {
+  top: 88.5%;
+}
+
+#q3 {
+  top: 78%;
+}
+
+#q4 {
+  top: 116%;
+}
+
+#q5 {
+  top: 126%;
+}
+
+.resultsButton {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5vw;
+  line-height: 1.5vw;
+
+  position: absolute;
+  width: 19%;
+  height: 10%;
+  left: 43.5%;
+
+  border-radius: 5.844vw;
+  background-color: #f6d673;
+  border: none;
+  outline: none;
+  text-align: center;
+  display: inline-block;
+}
+
+#results-button1 {
+  top: 140%;
+}
+
+#results-button2 {
+  top: 160%;
+}
+#resultsButton:hover {
+  background: #faebbc;
+  color: black;
+  outline: none;
 }
