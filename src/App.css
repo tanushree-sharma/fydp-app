@@ -13,40 +13,40 @@
   height: 200vh;
   min-height: 100vh;
   overflow-x: hidden;
-  }
+}
 
 .sticky{
   height: 50px;
   line-height: 80px;
-  margin-top: 1%;
-  padding-left: 10px;
   position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0px;
   z-index: 9998!important;
-  }
+}
 
 .nav{
   position: absolute;
   background-color:white;
-  font-size: 1.3vw;
+  font-size: 1.4vw;
   font-family: 'Roboto';
-  }
+}
 
 .logo{
   position: absolute;
-  margin-top: 1.4%;
-  margin-left: 3%;
-    }
+  margin-top: 1%;
+  margin-left: 5%;
+  width: 9vw;
 
+}
+  
 ul.nav-right {
-    width:100vw;
-    list-style:none;
-    text-align:right;
-    font-family: sans-serif; 
-    margin-right: 4%;
-    float: right;
-    overflow-x:hidden;
+  width:100vw;
+  list-style:none;
+  text-align:right;
+  font-family: sans-serif; 
+  margin-right: 4%;
+  float: right;
+  overflow-x:hidden;
 }
 
 .nav-right li { 

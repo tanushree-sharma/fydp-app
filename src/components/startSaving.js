@@ -30,11 +30,6 @@ class startSaving extends Component {
           document.getElementById('tabs-' + selected).style.display = 'block';
           document.getElementById('tabs' + selected).style.fontWeight = 600;
         }
-        
-        // fix back button error by keeping track of how many tab toggles there have been
-        // and then go back that number of pages to get back to home
-        //https://stackoverflow.com/questions/22641154/javascript-going-back-multiple-times-in-history
-
             
 
         return (

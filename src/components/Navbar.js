@@ -8,7 +8,7 @@ class Navbar extends Component {
         return (
             <div class="sticky">
                 <div class="nav">
-                    <img src={logo} class="logo" alt="logo" width="100px"></img>
+                    <a href="/"> <img src={logo} class="logo" alt="logo"></img> </a>
                     <ul class="nav-right">
                         <li><a href="/">Home</a></li>
                         <li><a href="/start-saving">Start Saving</a></li>
