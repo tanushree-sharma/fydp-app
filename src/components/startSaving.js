@@ -3,7 +3,6 @@ import { browserHistory } from 'react-router';
 
 class startSaving extends Component {
     render() {
-        
         var tabs = document.getElementsByClassName('Tab');
         window.addEventListener('load',function(){
             Array.prototype.forEach.call(tabs, function(tab) {
