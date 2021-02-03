@@ -27,7 +27,7 @@
 .navs{
   position: absolute;
   background-color:white;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   font-family: 'Roboto';
   top: 3%;
   }
@@ -65,14 +65,14 @@ ul.nav-right {
 }
 
 .nav-right a:hover {
-  color: #5C77AC;
+  color: #80807F;
 }
 
 .nav-right a.selected {
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 11px;
-  color:#5C77AC;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 6px solid #ABB8D4;
+  color:#80807F;
 }
 
 .scrolled{
