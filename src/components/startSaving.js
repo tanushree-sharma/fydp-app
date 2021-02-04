@@ -168,7 +168,13 @@ class startSaving extends Component {
                         <div class="value-button" id="decrease" onClick={() => { decreaseValue();}} value="Decrease Value">-</div>  
                         <div class="value-button" id="increase" onClick={() => { increaseValue();}} value="Increase Value">+</div>
                         </form>
-
+                        
+                        {/*
+                        <form action="/get-text" method="POST">
+                            <input type="text" name="test"></input>
+                            <input type="submit" value="Go"></input>
+                        </form>
+                        */}
 
                 </div>
 
