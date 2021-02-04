@@ -1,5 +1,7 @@
 import time
 from flask import Flask
+import solarModel
+import solarBatteryModel
 
 app = Flask(__name__)
 
