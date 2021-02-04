@@ -457,11 +457,11 @@ ul.nav-right {
   width: 70vw;
   height: 3.76vh;
   left: 6%;
-  top: 28%;
+  top: 27%;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   line-height: 5vh;
   text-align: center;
   letter-spacing: 0.1em;
@@ -472,12 +472,12 @@ ul.nav-right {
   width: 70vw;
   height: 3.76vh;
   left: 6.5%;
-  top: 32%;
+  top: 31%;
 
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   line-height: 5vh;
   text-align: center;
   letter-spacing: 0.1em;
@@ -509,30 +509,26 @@ ul.nav-right {
 .field-titles {
   position: absolute;
   width: 12vw;
-  height: 3.2vh;
-  left: 40%;
+  height: 2.4vh;
+  left: 41%;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 0.9375vw;
+  font-size: 0.9775vw;
   line-height: 2.097vh;
   letter-spacing: 0.05em;
   color: #000000;
-}
-
-.field-inputs {
-  position: absolute;
-  width: 11vw;
-  height: 2.7vh;
-  left: 60%;
-  background: #ffffff;
-  border: 0.2vh solid #e5e5e5;
-  box-sizing: border-box;
-  border-radius: 0.309vw;
-  padding-left: 0.5%;
+  text-align: left;
 }
 
 .field-inputs::placeholder {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  color: #80807f;
+}
+
+.dropdownFormat {
   font-family: Roboto;
   font-style: italic;
   font-weight: 400;
@@ -543,8 +539,8 @@ ul.nav-right {
   position: absolute;
   width: 11vw;
   height: 2.7vh;
-  left: 62%;
-  font-size: 0.57vw;
+  left: 64.5%;
+  font-size: 0.8vw;
   font-family: Roboto;
   font-style: italic;
   font-weight: 200;
@@ -553,22 +549,62 @@ ul.nav-right {
 }
 
 #postal-code {
+  top: 50.5%;
+}
+
+#postal-code-input1 {
+  top: 50%;
+}
+
+#postal-code-input2 {
   top: 50%;
 }
 
 #roof-size {
+  top: 60.5%;
+}
+
+#roof-size-input1 {
+  top: 60%;
+}
+
+#roof-size-input2 {
   top: 60%;
 }
 
 #elec-usage {
-  top: 78%;
+  top: 79%;
 }
 
-#month {
+#elec-usage-input1 {
+  top: 78.5%;
+}
+
+#elec-usage-input2 {
+  top: 78.5%;
+}
+
+#month-title {
+  top: 89%;
+}
+
+#month-input1 {
   top: 88%;
 }
 
-#heating-type {
+#month-input2 {
+  top: 88%;
+}
+
+#heating-type-title {
+  top: 98.5%;
+}
+
+#heating-input1 {
+  top: 98%;
+}
+
+#heating-input2 {
   top: 98%;
 }
 
@@ -580,19 +616,34 @@ ul.nav-right {
   top: 142%;
 }
 
+#budget1title {
+  top: 116.5%;
+}
+
+#budget2title {
+  top: 142.5%;
+}
+
 #storage-capacity {
+  top: 116.5%;
+}
+
+#storage-capacity-input {
   top: 116%;
 }
 
 #dod {
-  top: 126%;
+  top: 126.5%;
 }
 
+#dod-input {
+  top: 126%;
+}
 .formSectionTitles {
   position: absolute;
   width: 10vw;
   height: 2.5vh;
-  left: 17%;
+  left: 20%;
   font-family: Mulish;
   font-style: normal;
   font-weight: 600;
@@ -640,27 +691,27 @@ ul.nav-right {
 }
 
 #q3 {
-  top: 78%;
+  top: 78.5%;
 }
 
 #q4 {
-  top: 116%;
+  top: 116.5%;
 }
 
 #q5 {
-  top: 126%;
+  top: 126.5%;
 }
 
 .resultsButton {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   line-height: 1.5vw;
 
   position: absolute;
-  width: 19%;
-  height: 10%;
+  width: 17%;
+  height: 8%;
   left: 43.5%;
 
   border-radius: 5.844vw;
@@ -678,8 +729,200 @@ ul.nav-right {
 #results-button2 {
   top: 160%;
 }
-#resultsButton:hover {
+#results-button1:hover {
   background: #faebbc;
   color: black;
   outline: none;
+}
+
+#results-button2:hover {
+  background: #faebbc;
+  color: black;
+  outline: none;
+}
+
+form {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.value-button {
+  position: absolute;
+  display: inline-block;
+  border: 0.2vh solid #e5e5e5;
+  margin: 0px;
+  width: 11vw;
+  height: 2.7vh;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+  top: 116%;
+  background: #ffffff;
+  border-radius: 0.309vw;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+form #decrease {
+  left: 73.9%;
+  border-radius: 0 0 0 0;
+  width: 2.11vw;
+  top: 116%;
+  height: 2.6vh;
+  background: #e5e5e5;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 100;
+}
+
+#dollar1 {
+  top: 142%;
+}
+
+.dollar-text {
+  left: 76.75%;
+  border-radius: 0.309vw 0 0 0.309vw;
+  width: 2.11vw;
+  height: 2.6vh;
+  background: #e5e5e5;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 100;
+}
+
+#decrease:hover {
+  /* background: #80807f; */
+  background: #ffffff;
+  color: black;
+  outline: none;
+}
+
+form #increase {
+  left: 76.75%;
+  width: 2.11vw;
+  border-radius: 0 0.309vw 0.309vw 0;
+  top: 116%;
+  height: 2.6vh;
+  background: #e5e5e5;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 100;
+  /* box-shadow: 0 0 0 1px; */
+}
+
+#increase:hover {
+  /* background: #80807f; */
+  background: #ffffff;
+  color: black;
+  outline: none;
+}
+
+#decrease2:hover {
+  /* background: #80807f; */
+  background: #ffffff;
+  color: black;
+  outline: none;
+}
+form #decrease2 {
+  left: 73.9%;
+  border-radius: 0 0 0 0;
+  width: 2.11vw;
+  top: 142%;
+  height: 2.6vh;
+  background: #e5e5e5;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 100;
+}
+
+#increase2:hover {
+  /* background: #80807f; */
+  background: #ffffff;
+  color: black;
+  outline: none;
+}
+
+form #increase2 {
+  left: 76.75%;
+  width: 2.11vw;
+  border-radius: 0 0.309vw 0.309vw 0;
+  top: 142%;
+  height: 2.6vh;
+  background: #e5e5e5;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 100;
+  /* box-shadow: 0 0 0 1px; */
+}
+
+form #input-wrap {
+  margin: 0px;
+  padding: 0px;
+}
+
+#number {
+  text-align: left;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  width: 12vw;
+  height: 2.7vh;
+  top: 140%;
+  left: 60%;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.field-inputs {
+  position: absolute;
+  width: 13vw;
+  height: 3vh;
+  left: 63%;
+  background: #ffffff;
+  border: 0.2vh solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 0.309vw;
+  padding-left: 0.5%;
+}
+
+.budegt-container1 {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  order: 3;
+  width: 11vw;
+  height: 2.7vh;
+}
+
+.dropdown-inputs {
+  position: absolute;
+  width: 13vw;
+  height: 3vh;
+  left: 63%;
+  background: #ffffff;
+  border: 0.2vh solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 0.309vw;
+  padding-left: 0.5%;
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  color: #80807f;
+}
+
+.dropdown-inputs select {
+  display: none;
 }

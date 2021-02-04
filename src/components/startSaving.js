@@ -39,9 +39,42 @@ class startSaving extends Component {
         // and then go back that number of pages to get back to home
         //https://stackoverflow.com/questions/22641154/javascript-going-back-multiple-times-in-history
 
-            
-       
 
+        function increaseValue() {
+            var value = parseInt(document.getElementById('budget1').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value = value+500;
+            document.getElementById('budget1').value = value;
+          }
+
+          function decreaseValue() {
+            var value = parseInt(document.getElementById('budget1').value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value>=500) {
+                value = value-500;
+            }
+            document.getElementById('budget1').value = value;
+          }
+          
+
+          function increaseValue2() {
+            var value = parseInt(document.getElementById('budget2').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value = value+500;
+            document.getElementById('budget2').value = value;
+          }
+
+          function decreaseValue2() {
+            var value = parseInt(document.getElementById('budget2').value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value>=500) {
+                value = value-500;
+            }
+            document.getElementById('budget2').value = value;
+          }
+          
+        
+    
         return (
             <div class="Panel">
                 <nav>
@@ -63,7 +96,7 @@ class startSaving extends Component {
                
                <div class ="Panel__body tabContent" id ="tabs-1">
 
-                    <p class = "formSectionTitles" id ="home-sepcs" >Home Specs</p>
+                    <p class = "formSectionTitles" id ="home-specs" >Home Specs</p>
                     <p class = "formSectionTitles" id ="energy-usage" >Energy Usage</p>
                     <p class = "formSectionTitles" id ="initial-inv1" >Initial Investment</p>
                     <p id="postal-text">We only need the first 3 digits</p>
@@ -72,34 +105,56 @@ class startSaving extends Component {
                     <img src={graphic} alt ="graphic" class ="qGraphic" id="q2"/>
                     <img src={graphic} alt ="graphic" class ="qGraphic" id="q3"/>
 
+                    
                     <form>
                         <label> 
                            <p class = "field-titles" id="postal-code" > Postal Code:  </p>  
-                              <input class = "field-inputs" id="postal-code"type="text" name="postal_code" placeholder="M3N"/>
+                              <input class = "field-inputs" id="postal-code-input1"type="text" name="postal_code" placeholder="M3N"/>
                         </label>
 
                         <label> 
                             <p class = "field-titles" id="roof-size" > Roof Size (Sqft):  </p>   
-                             <input class = "field-inputs" id="roof-size"type="text" name="roof_size" placeholder="2000"/>
+                             <input class = "field-inputs" id="roof-size-input1"type="text" name="roof_size" placeholder="2000"/>
                         </label>
 
                         <label> 
                             <p class = "field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>   
-                                <input class = "field-inputs" id="elec-usage"type="text" name="elec-usage" placeholder="2000"/>
-                            </label>
+                                <input class = "field-inputs" id="elec-usage-input1"type="text" name="elec-usage" placeholder="2000"/>
+                        </label>
+
+                      
+
+                        <label>
+                            <p class = "field-titles" id="month-title" > Month:</p>  
+                            <select name="month" id="month-input1" class="dropdown-inputs">
+                            <option value="0">Select month</option>
+                            <option value="1">01 - January</option>
+                            <option value="2">02 - February</option>
+                            <option value="3">03 - March</option>
+                            <option value="4">04 - April</option>
+                            <option value="5">05 - May</option>
+                            <option value="6">06 - June</option>
+                            <option value="7">07 - July</option>
+                            <option value="8">08 - August</option>
+                            <option value="9">09 - September</option>
+                            <option value="10">10 - October</option>
+                            <option value="11">11 - November</option>
+                            <option value="12">12 - December</option>
+                            </select>
+                        </label>
+                    
 
                         <label> 
-                            <p class = "field-titles" id="month" > Month:</p>   
-                            <input class = "field-inputs" id="month"type="text" name="month" placeholder="change"/>
+                            <p class = "field-titles" id="heating-type-title" > Type of Heating:</p>   
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
+                            <option value="0">Select heating</option>
+                            <option value="1">Electric</option>
+                            <option value="2">Natural Gas</option>
+                            </select>
                         </label>
 
                         <label> 
-                            <p class = "field-titles" id="heating-type" > Type of Heating:</p>   
-                            <input class = "field-inputs" id="heating-type"type="text" name="month" placeholder="change"/>
-                        </label>
-
-                        <label> 
-                            <p class = "field-titles" id="budget1" > Budget (CAD):</p>   
+                            <p class = "field-titles" id="budget1title" > Budget (CAD):</p>   
                             <input class = "field-inputs" id="budget1"type="text" name="budget" placeholder="10000"/>
                         </label>
 
@@ -109,6 +164,11 @@ class startSaving extends Component {
                              <button type="submit" class="resultsButton" id="results-button1"> Generate Results </button>
                         </form>
 
+                        <form>
+                        <div class="value-button" id="decrease" onClick={() => { decreaseValue();}} value="Decrease Value">-</div>  
+                        <div class="value-button" id="increase" onClick={() => { increaseValue();}} value="Increase Value">+</div>
+                        </form>
+
 
                 </div>
 
@@ -116,7 +176,7 @@ class startSaving extends Component {
 
                 <div class ="Panel__body tabContent" id ="tabs-2">
 
-                        <p class = "formSectionTitles" id ="home-sepcs" >Home Specs</p>
+                        <p class = "formSectionTitles" id ="home-specs" >Home Specs</p>
                         <p class = "formSectionTitles" id ="energy-usage" >Energy Usage</p>
                         <p class = "formSectionTitles" id ="initial-inv2" >Initial Investment</p>
                         <p class = "formSectionTitles" id ="battery-specs" >Battery Specs</p>
@@ -130,43 +190,61 @@ class startSaving extends Component {
                         <form>
                             <label> 
                             <p class = "field-titles" id="postal-code" > Postal Code:  </p>  
-                                <input class = "field-inputs" id="postal-code"type="text" name="postal_code" placeholder="M3N"/>
+                                <input class = "field-inputs" id="postal-code-input2"type="text" name="postal_code" placeholder="M3N"/>
                             </label>
 
                             <label> 
                             <p class = "field-titles" id="roof-size" > Roof Size (Sqft):  </p>   
-                            <input class = "field-inputs" id="roof-size"type="text" name="roof_size" placeholder="2000"/>
+                            <input class = "field-inputs" id="roof-size-input2"type="text" name="roof_size" placeholder="2000"/>
                             </label>
                             
                             <label> 
                             <p class = "field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>   
-                            <input class = "field-inputs" id="elec-usage"type="text" name="elec-usage" placeholder="2000"/>
+                            <input class = "field-inputs" id="elec-usage-input2"type="text" name="elec-usage" placeholder="2000"/>
                             </label>
 
 
                             <label> 
-                            <p class = "field-titles" id="month" > Month:</p>   
-                            <input class = "field-inputs" id="month"type="text" name="month" placeholder="change"/>
-                            </label>
+                            <p class = "field-titles" id="month-title" > Month:</p>   
+                            <select name="month" id="month-input2" class="dropdown-inputs">
+                            <option value="0">Select month</option>
+                            <option value="1">01 - January</option>
+                            <option value="2">02 - February</option>
+                            <option value="3">03 - March</option>
+                            <option value="4">04 - April</option>
+                            <option value="5">05 - May</option>
+                            <option value="6">06 - June</option>
+                            <option value="7">07 - July</option>
+                            <option value="8">08 - August</option>
+                            <option value="9">09 - September</option>
+                            <option value="10">10 - October</option>
+                            <option value="11">11 - November</option>
+                            <option value="12">12 - December</option>
+                            </select>
+                        </label>
+
 
                             <label> 
-                            <p class = "field-titles" id="heating-type" > Type of Heating:</p>   
-                            <input class = "field-inputs" id="heating-type"type="text" name="heating_type" placeholder="change"/>
+                            <p class = "field-titles" id="heating-type-title" > Type of Heating:</p>   
+                            <select name="heating-type" id="heating-input2" class="dropdown-inputs">
+                            <option value="0">Select heating</option>
+                            <option value="1">Electric</option>
+                            <option value="2">Natural Gas</option>
+                            </select>
                             </label>
-
                 
                             <label> 
                             <p class = "field-titles" id="storage-capacity" > Storage Capacity (kWh):</p>   
-                            <input class = "field-inputs" id="storage-capacity"type="text" name="storage_capacity" placeholder="2000"/>
+                            <input class = "field-inputs" id="storage-capacity-input"type="text" name="storage_capacity" placeholder="2000"/>
                             </label>
 
                             <label> 
                             <p class = "field-titles" id="dod" > Depth of Discharge:</p>   
-                            <input class = "field-inputs" id="dod" type="text" name="dod" placeholder="95"/>
+                            <input class = "field-inputs" id="dod-input" type="text" name="dod" placeholder="95"/>
                             </label>
 
                             <label> 
-                            <p class = "field-titles" id="budget2" > Budget (CAD):</p>   
+                            <p class = "field-titles" id="budget2title" > Budget (CAD):</p>   
                             <input class = "field-inputs" id="budget2"type="text" name="budget" placeholder="10000"/>
                             </label>
                             </form>
@@ -175,6 +253,15 @@ class startSaving extends Component {
                              <button type="submit" class="resultsButton"id="results-button2"> Generate Results </button>
                         </form>
                         
+                        <form>
+                        <div class="value-button" id="decrease2" onClick={() => { decreaseValue2();}} value="Decrease Value">-</div>  
+                        <div class="value-button" id="increase2" onClick={() => { increaseValue2();}} value="Increase Value">+</div>
+                        </form>
+
+                       
+                    
+                    
+
                         </div>
 
                      
