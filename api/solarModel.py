@@ -1,18 +1,16 @@
-from mip import *
 import math
 import numpy as np
 from pulp import *
 
-# defining parameters
-E0 = 5000000  # seasonal electricity usage (Wh) from user
-month = 4 # electricity usage month from user
-heating = "electric" # dependent on user input electric or natural gas
-postal_code = 'M2N' # first 3 digits of postal code
-B = 19000  # budget from user
-Ar = 1700  # area of the roof (ft^2) from user
+def solve(postalCode, roofSize, usage, month, heating, budget):
+    # defining parameters
+    E0 = int(usage) * 1000  # seasonal electricity usage (Wh) from user
+    month = int(month) # electricity usage month from user
+    heating = heating # dependent on user input electric or natural gas
+    postal_code = postalCode # first 3 digits of postal code
+    B = int(budget)  # budget from user
+    Ar = int(roofSize)  # area of the roof (ft^2) from user
 
-
-def solar(postal_code, Ar, E0, month, heating, B):
     # seasonal electricity usage (Wh) with trend
     # if heating is electric, summer demand is inflated by 30% and winter is inflated by 298%
     if heating == "electric":
@@ -120,5 +118,5 @@ def solar(postal_code, Ar, E0, month, heating, B):
     print("Optimal Number of Watts to Install: ", y.varValue * P)
     print("Total Capital Cost: $", y.varValue*C + F)
 
-
-solar(postal_code, Ar, E0, month, heating, B)
+    # returning optimal number of solar panels
+    return(y.varValue*P)
