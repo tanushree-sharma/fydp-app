@@ -91,11 +91,15 @@ class startSaving extends Component {
                     <p class = "formSectionTitles" id ="energy-usage" >Energy Usage</p>
                     <p class = "formSectionTitles" id ="initial-inv1" >Initial Investment</p>
                     <p id="postal-text">We only need the first 3 digits</p>
-               
-                    <img src={graphic} alt ="graphic" class ="qGraphic" id="q1"/>
-                    <img src={graphic} alt ="graphic" class ="qGraphic" id="q2"/>
-                    <img src={graphic} alt ="graphic" class ="qGraphic" id="q3"/>
-
+                    <div class="help-tip" id="q1">
+                        <p><b>Tip:</b> estimate your roof size by dividing sqaurefootage of your home by the number of storeys.</p>
+                    </div>
+                    <div class="help-tip" id="q2">
+                        <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
+                    </div>
+                    <div class="help-tip" id="q3">
+                        <p>Select the month your electricity bill is from.</p>
+                    </div>
                     
                     <form>
                         <label> 
@@ -173,11 +177,21 @@ class startSaving extends Component {
                         <p class = "formSectionTitles" id ="battery-specs" >Battery Specs</p>
                         <p id="postal-text">We only need the first 3 digits</p>
 
-                        <img src={graphic} alt ="graphic" class ="qGraphic" id="q1"/>
-                        <img src={graphic} alt ="graphic" class ="qGraphic" id="q2"/>
-                        <img src={graphic} alt ="graphic" class ="qGraphic" id="q3"/>
-                        <img src={graphic} alt ="graphic" class ="qGraphic" id="q4"/>
-                        <img src={graphic} alt ="graphic" class ="qGraphic" id="q5"/>
+                        <div class="help-tip" id="q1">
+                            <p><b>Tip:</b> estimate your roof size by dividing sqaurefootage of your home by the number of storeys.</p>
+                        </div>
+                        <div class="help-tip" id="q2">
+                            <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
+                        </div>
+                        <div class="help-tip" id="q3">
+                            <p>Select the month your electricity bill is from.</p>
+                        </div>
+                        <div class="help-tip" id="q4">
+                            <p>What is the nameplate storage capacity of your home battery?</p>
+                        </div>
+                        <div class="help-tip" id="q5">
+                            <p>The DoD should be listed under your battery specifications.</p>
+                        </div>
                         <form>
                             <label> 
                             <p class = "field-titles" id="postal-code" > Postal Code:  </p>  
