@@ -57,6 +57,12 @@ class startSaving extends Component {
                 <p id="form-desc2"> In the case where you are not able to retrieve a field, we will use a default value for the analysis.</p>
 
                 <p class="Panel__body tabContent" id="tabs-1"> Solar Form </p>
+                
+                <form action="/get-text" method="POST">
+                    <input type="text" name="test"></input>
+                    <input type="submit" value="Go"></input>
+                </form>
+
                 <p class="Panel__body tabContent" id="tabs-2"> Solar + Battery Form </p>
 
             </div>

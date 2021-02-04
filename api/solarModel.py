@@ -2,9 +2,25 @@ from mip import *
 import math
 import numpy as np
 from pulp import *
+from flask import Flask, request, render_template
+
+#app = Flask(__name__)
+
+#@app.route('/')
+#def index():
+#    return render_template('startSaving.js')
+
+#@app.route('/get-text', methods=['GET', 'POST'])
+#def foo():
+#    E0 = request.form['test']
+
+#if __name__ == '__main__':
+#    app.run()
+
+print request.POST['test']
 
 # defining parameters
-E0 = 5000000  # seasonal electricity usage (Wh) from user
+#E0 = 5000000  # seasonal electricity usage (Wh) from user
 month = 4 # electricity usage month from user
 heating = "electric" # dependent on user input electric or natural gas
 postal_code = 'M2N' # first 3 digits of postal code
@@ -119,6 +135,7 @@ def solar(postal_code, Ar, E0, month, heating, B):
     print("Optimal Number of Solar Panels: ", y.varValue)
     print("Optimal Number of Watts to Install: ", y.varValue * P)
     print("Total Capital Cost: $", y.varValue*C + F)
+    print(E0)
 
 
 solar(postal_code, Ar, E0, month, heating, B)
