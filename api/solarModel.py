@@ -2,7 +2,7 @@ from mip import *
 import math
 import numpy as np
 from pulp import *
-from flask import Flask, request, render_template
+#from flask import Flask, request, render_template
 
 #app = Flask(__name__)
 
@@ -17,10 +17,10 @@ from flask import Flask, request, render_template
 #if __name__ == '__main__':
 #    app.run()
 
-print request.POST['test']
+#print request.POST['test']
 
 # defining parameters
-#E0 = 5000000  # seasonal electricity usage (Wh) from user
+E0 = 5000000  # seasonal electricity usage (Wh) from user
 month = 4 # electricity usage month from user
 heating = "electric" # dependent on user input electric or natural gas
 postal_code = 'M2N' # first 3 digits of postal code
