@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import { browserHistory } from 'react-router';
-import Select from "react-dropdown-select";
-import { UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
 import graphic from '../question_img.png'
-import Footer from '../components/Footer';
 
 class startSaving extends Component {
     render() {
