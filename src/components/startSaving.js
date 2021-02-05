@@ -92,13 +92,13 @@ class startSaving extends Component {
                     <p class = "formSectionTitles" id ="initial-inv1" >Initial Investment</p>
                     <p id="postal-text">We only need the first 3 digits</p>
                     <div class="help-tip" id="q1">
-                        <p><b>Tip:</b> estimate your roof size by dividing sqaurefootage of your home by the number of storeys.</p>
+                        <p><b>Tip:</b> estimate your roof size by dividing sqaure footage of your home by the number of storeys.</p>
                     </div>
                     <div class="help-tip" id="q2">
-                        <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
+                        <p>Select the month your electricity bill is from.</p>
                     </div>
                     <div class="help-tip" id="q3">
-                        <p>Select the month your electricity bill is from.</p>
+                        <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
                     </div>
                     
                     <form>
@@ -178,13 +178,13 @@ class startSaving extends Component {
                         <p id="postal-text">We only need the first 3 digits</p>
 
                         <div class="help-tip" id="q1">
-                            <p><b>Tip:</b> estimate your roof size by dividing sqaurefootage of your home by the number of storeys.</p>
+                            <p><b>Tip:</b> estimate your roof size by dividing sqaure footage of your home by the number of storeys.</p>
                         </div>
                         <div class="help-tip" id="q2">
-                            <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
+                            <p>Select the month your electricity bill is from.</p>
                         </div>
                         <div class="help-tip" id="q3">
-                            <p>Select the month your electricity bill is from.</p>
+                            <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
                         </div>
                         <div class="help-tip" id="q4">
                             <p>What is the nameplate storage capacity of your home battery?</p>
