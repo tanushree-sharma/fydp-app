@@ -99,6 +99,20 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
                             <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" />
+                    <div class="help-tip" id="q1">
+                        <p><b>Tip:</b> estimate your roof size by dividing sqaure footage of your home by the number of storeys.</p>
+                    </div>
+                    <div class="help-tip" id="q2">
+                        <p>Select the month your electricity bill is from.</p>
+                    </div>
+                    <div class="help-tip" id="q3">
+                        <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
+                    </div>
+                    
+                    <form>
+                        <label> 
+                           <p class = "field-titles" id="postal-code" > Postal Code:  </p>  
+                              <input class = "field-inputs" id="postal-code-input1"type="text" name="postal_code" placeholder="M3N"/>
                         </label>
 
                         <label>
@@ -197,6 +211,40 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
+                        <div class="help-tip" id="q1">
+                            <p><b>Tip:</b> estimate your roof size by dividing sqaure footage of your home by the number of storeys.</p>
+                        </div>
+                        <div class="help-tip" id="q2">
+                            <p>Select the month your electricity bill is from.</p>
+                        </div>
+                        <div class="help-tip" id="q3">
+                            <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
+                        </div>
+                        <div class="help-tip" id="q4">
+                            <p>What is the nameplate storage capacity of your home battery?</p>
+                        </div>
+                        <div class="help-tip" id="q5">
+                            <p>The DoD should be listed under your battery specifications.</p>
+                        </div>
+                        <form>
+                            <label> 
+                            <p class = "field-titles" id="postal-code" > Postal Code:  </p>  
+                                <input class = "field-inputs" id="postal-code-input2"type="text" name="postal_code" placeholder="M3N"/>
+                            </label>
+
+                            <label> 
+                            <p class = "field-titles" id="roof-size" > Roof Size (Sqft):  </p>   
+                            <input class = "field-inputs" id="roof-size-input2"type="text" name="roof_size" placeholder="2000"/>
+                            </label>
+                            
+                            <label> 
+                            <p class = "field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>   
+                            <input class = "field-inputs" id="elec-usage-input2"type="text" name="elec-usage" placeholder="2000"/>
+                            </label>
+
+
+                            <label> 
+                            <p class = "field-titles" id="month-title" > Month:</p>   
                             <select name="month" id="month-input2" class="dropdown-inputs">
                                 <option value="0">Select month</option>
                                 <option value="1">01 - January</option>
