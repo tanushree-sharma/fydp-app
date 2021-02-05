@@ -29,7 +29,7 @@ def run_model():
     reducedCO2 = solution[8]
     treesPlanted = solution[9]
 
-    return render_template('Results.js', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
+    return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
     springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted)
 
 @app.route('/batteryModel', methods=['POST'])
@@ -56,7 +56,7 @@ def run_BattteryModel():
     reducedCO2 = solution[8]
     treesPlanted = solution[9]
 
-    return render_template('Results.js', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
+    return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
     springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted)
 
 if __name__ == '__main__':
