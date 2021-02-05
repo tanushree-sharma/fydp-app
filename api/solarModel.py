@@ -6,24 +6,24 @@ def solve(postalCode, roofSize, usage, month, heating, budget):
     # defining parameters
     E0 = int(usage) * 1000  # seasonal electricity usage (Wh) from user
     month = int(month) # electricity usage month from user
-    heating = heating # dependent on user input electric or natural gas
-    postal_code = postalCode # first 3 digits of postal code
+    heating = int(heating) # dependent on user input electric or natural gas
+    postal_code = postalCode.upper() # first 3 digits of postal code
     B = int(budget)  # budget from user
     Ar = int(roofSize)  # area of the roof (ft^2) from user
 
     # seasonal electricity usage (Wh) with trend
     # if heating is electric, summer demand is inflated by 30% and winter is inflated by 298%
-    if heating == "electric":
-        if month == 0 or month == 1 or month == 11: # winter months
+    if heating == 1:
+        if month == 1 or month == 2 or month == 12: # winter months
             E = [[(E0/2.98), (E0/2.98*(1.3)), (E0/2.98), E0]]
-        elif month == 5 or month == 6 or month == 7: # summer months
+        elif month == 6 or month == 7 or month == 8: # summer months
             E = [[E0/1.3, E0, E0/1.3, E0/1.3*(2.98)]]
         else:
             E = [[E0, (E0*1.3), E0, (E0*2.98)]]
 
     # if heating is natural gas, summer is inflated by 30% and fall, winter, summer are same
     else:
-        if month == 5 or month == 6 or month == 7: # summer months
+        if month == 6 or month == 7 or month == 8: # summer months
             E = [[E0/1.3, E0, E0/1.3, E0/1.3]]
         else:
             E = [[E0, (E0*1.3), E0, E0]]
@@ -118,5 +118,89 @@ def solve(postalCode, roofSize, usage, month, heating, budget):
     print("Optimal Number of Watts to Install: ", y.varValue * P)
     print("Total Capital Cost: $", y.varValue*C + F)
 
-    # returning optimal number of solar panels
-    return(y.varValue*P)
+    # returning values needed for front end in a list
+    numPanels = y.varValue
+    installationSize = round((y.varValue * P) / 1000,1)
+    capitalCost = math.ceil(y.varValue * C + F)
+    
+    # calculating payback period
+    costsWithoutSolar = []
+    for t in range(T):
+        costsWithoutSolarYearly = 0
+        for s in range(S):
+            costsWithoutSolarYearly = costsWithoutSolarYearly + E[t][s] * G[t][s]
+        costsWithoutSolar.append(costsWithoutSolarYearly)
+    # print(costsWithoutSolar)
+    costsWithSolar = []
+    for t in range(T):
+        costsWithSolarYearly = 0
+        for s in range(S):
+            onPeakCost = max(0, ((0.35*E[t][s]) - ((numPanels * P * H[s] * 24 * L[s]) * (1 - d[t][s]))) * G[t][s])
+            offPeakCost = (0.65*E[t][s]) * J[t][s]
+            costsWithSolarYearly = costsWithSolarYearly + onPeakCost + offPeakCost
+        costsWithSolar.append(costsWithSolarYearly)
+    # print(costsWithSolar)
+
+    # payback period (line graph)
+    year = []
+    for t in range(T):
+        year.append(t)
+
+    savings = []
+    for t in range(T):
+        savings.append(costsWithoutSolar[t] - costsWithSolar[t])
+    # print(np.sum(savings)) # total savings
+
+    yoySavings = [capitalCost]
+    for t in range(1, T):
+        yoySavings.append(max(0,yoySavings[t-1] - savings[t-1]))
+
+    # calculating slope of the line (y2-y1)/(x2-x1)
+    slope = (yoySavings[1]-yoySavings[0])/(1-0)
+    #print(slope)
+
+    paybackPeriod = math.ceil((-1 * capitalCost) / slope)
+    totalSavings = math.floor(np.sum(savings))
+
+    # calculating average monthly savings by season
+    springCostWithoutSolar = np.mean(E[t][0]) * np.mean(G[t][0])
+    summerCostWithoutSolar = np.mean(E[t][1]) * np.mean(G[t][1])
+    fallCostWithoutSolar = np.mean(E[t][2]) * np.mean(G[t][2])
+    winterCostWithoutSolar = np.mean(E[t][3]) * np.mean(G[t][3])
+    # calculating on-peak spend per season
+    springOnPeakCost = max(0, np.mean(((0.35*E[t][0]) - ((numPanels * P * H[0] * 24 * L[0]) * (1 - d[t][0]))) * G[t][0]))
+    summerOnPeakCost = max(0, np.mean(((0.35*E[t][1]) - ((numPanels * P * H[1] * 24 * L[1]) * (1 - d[t][1]))) * G[t][1]))
+    fallOnPeakCost = max(0, np.mean(((0.35*E[t][2]) - ((numPanels * P * H[2] * 24 * L[2]) * (1 - d[t][2]))) * G[t][2]))
+    winterOnPeakCost = max(0, np.mean(((0.35*E[t][3]) - ((numPanels * P * H[3] * 24 * L[3]) * (1 - d[t][3]))) * G[t][3]))
+    
+    # calculating off-peak spend per season
+    springOffPeakCost = np.mean(((0.65*E[t][0])) * J[t][0])
+    summerOffPeakCost = np.mean(((0.65*E[t][1])) * J[t][1])
+    fallOffPeakCost = np.mean(((0.65*E[t][2])) * J[t][2])
+    winterOffPeakCost = np.mean(((0.65*E[t][3])) * J[t][3])
+    
+    springCostWithSolar = springOnPeakCost + springOffPeakCost
+    summerCostWithSolar = summerOnPeakCost + summerOffPeakCost
+    fallCostWithSolar = fallOnPeakCost + fallOffPeakCost
+    winterCostWithSolar = winterOnPeakCost + winterOffPeakCost
+
+    springSavings = math.floor(max(0, springCostWithoutSolar - springCostWithSolar) / 3)
+    summerSavings = math.floor(max(0, summerCostWithoutSolar - summerCostWithSolar) / 3)
+    fallSavings = math.floor(max(0, fallCostWithoutSolar - fallCostWithSolar) / 3)
+    winterSavings = math.floor(max(0, winterCostWithoutSolar - winterCostWithSolar) / 3)
+
+    # calculating environmental impact
+    demandWithSolar = []
+    for t in range(T):
+        demandWithSolarYearly = 0
+        for s in range(S):
+            demandWithSolarYearly = demandWithSolarYearly + max(0, (E[t][s] - ((numPanels * P * H[s] *24 * L[s]) * (1 - d[t][s]))))
+        demandWithSolar.append(demandWithSolarYearly)
+
+    reducedCO2 = round(((np.sum(E) * 0.0003916) - (np.sum(demandWithSolar) * 0.0003916))/1000,1) # kg converted to tonnes
+    treesPlanted = math.ceil(reducedCO2 * (1/0.907185) * 64)
+    
+
+    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted]
+
+    return(solution) 
