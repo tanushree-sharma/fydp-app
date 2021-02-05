@@ -694,6 +694,69 @@ ul.nav-right {
 #battery-specs {
   top: 121%;
 }
+.help-tip{
+  position: absolute;
+  text-align: center;
+  background-color: #f6d673;
+  border-radius: 50%;
+  width: 1.3vw;
+  height: 1.3vw;
+  font-size: 0.8vw;
+  line-height: 1.33vw;
+  font-family: "Roboto";
+  cursor: default;
+  left: 57.25%;
+}
+.help-tip:before{
+  content:'?';
+  font-weight: bold;
+  color:#80807f;
+}
+.help-tip:hover p{
+  display:block;
+  transform-origin: 100% 0%;
+
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.help-tip p{    /* The tooltip    */
+  display: none;
+  text-align: center;
+  background-color: #E5E5E5;
+  border-radius: 10px;
+  padding: 50%;
+  width: 18vw;
+  position: absolute;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -7px;
+  color: #000;
+  font-family: "Roboto";
+  letter-spacing: 0.06em;
+  font-size: 1vw;
+  line-height: 1.4;
+  z-index: 9998 !important;
+}
+
+.help-tip p:before{ /* The pointer of the tooltip */
+  position: absolute;
+  content: '';
+  width:0;
+  height: 0;
+  border:6px solid transparent;
+  border-bottom-color:#E5E5E5;
+  right:10px;
+  top:-10px;
+}
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+  width:100%;
+  height:40px;
+  content:'';
+  position: absolute;
+  top:-40px;
+  left:0;
+}
 
 #q1 {
   top: 60.5%;
@@ -938,4 +1001,23 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .dropdown-inputs select {
   display: none;
+}
+
+/* CSS animation for inline hekp tips*/
+
+@-webkit-keyframes fadeIn {
+  0% { 
+      opacity:0; 
+      transform: scale(0.6);
+  }
+
+  100% {
+      opacity:100%;
+      transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:100%; }
 }
