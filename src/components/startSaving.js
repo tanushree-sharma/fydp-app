@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import graphic from '../question_img.png'
 
-
 class startSaving extends Component {
     render() {
         var tabs = document.getElementsByClassName('Tab');
@@ -64,6 +63,7 @@ class startSaving extends Component {
         }
 
 
+
         return (
             <div class="Panel">
                 <nav>
@@ -89,11 +89,15 @@ class startSaving extends Component {
                     <p class="formSectionTitles" id="energy-usage" >Energy Usage</p>
                     <p class="formSectionTitles" id="initial-inv1" >Initial Investment</p>
                     <p id="postal-text">We only need the first 3 digits</p>
-
-                    <img src={graphic} alt="graphic" class="qGraphic" id="q1" />
-                    <img src={graphic} alt="graphic" class="qGraphic" id="q2" />
-                    <img src={graphic} alt="graphic" class="qGraphic" id="q3" />
-
+                    <div class="help-tip" id="q1">
+                        <p><b>Tip:</b> estimate your roof size by dividing sqaure footage of your home by the number of storeys.</p>
+                    </div>
+                    <div class="help-tip" id="q2">
+                        <p>Select the month your electricity bill is from.</p>
+                    </div>
+                    <div class="help-tip" id="q3">
+                        <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
+                    </div>
 
                     <form action="/solarModel" method="POST">
                         <label>
@@ -149,9 +153,7 @@ class startSaving extends Component {
 
 
 
-
                         <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" />
-
 
                         <form>
                             <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
@@ -172,11 +174,21 @@ class startSaving extends Component {
                     <p class="formSectionTitles" id="battery-specs" >Battery Specs</p>
                     <p id="postal-text">We only need the first 3 digits</p>
 
-                    <img src={graphic} alt="graphic" class="qGraphic" id="q1" />
-                    <img src={graphic} alt="graphic" class="qGraphic" id="q2" />
-                    <img src={graphic} alt="graphic" class="qGraphic" id="q3" />
-                    <img src={graphic} alt="graphic" class="qGraphic" id="q4" />
-                    <img src={graphic} alt="graphic" class="qGraphic" id="q5" />
+                    <div class="help-tip" id="q1">
+                        <p><b>Tip:</b> estimate your roof size by dividing sqaure footage of your home by the number of storeys.</p>
+                    </div>
+                    <div class="help-tip" id="q2">
+                        <p>Select the month your electricity bill is from.</p>
+                    </div>
+                    <div class="help-tip" id="q3">
+                        <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
+                    </div>
+                    <div class="help-tip" id="q4">
+                        <p>What is the nameplate storage capacity of your home battery?</p>
+                    </div>
+                    <div class="help-tip" id="q5">
+                        <p>The DoD should be listed under your battery specifications.</p>
+                    </div>
 
                     <form action="/batteryModel" method="POST">
                         <label>
@@ -240,9 +252,7 @@ class startSaving extends Component {
                         </label>
 
 
-
                         <input type="submit" class="resultsButton" id="results-button2" value="Generate Results"/>
-
 
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
@@ -258,6 +268,5 @@ class startSaving extends Component {
         )
     }
 }
-
 
 export default startSaving
