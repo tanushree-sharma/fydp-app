@@ -117,6 +117,7 @@ def solve(postalCode, roofSize, usage, month, heating, budget):
     print("Optimal Number of Solar Panels: ", y.varValue)
     print("Optimal Number of Watts to Install: ", y.varValue * P)
     print("Total Capital Cost: $", y.varValue*C + F)
+    print(E0)
 
     # returning values needed for front end in a list
     numPanels = y.varValue

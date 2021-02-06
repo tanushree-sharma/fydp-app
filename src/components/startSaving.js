@@ -159,8 +159,8 @@ class startSaving extends Component {
                             <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase" onClick={() => { increaseValue(); }} value="Increase Value">+</div>
                         </form>
-                    </form>
 
+                    </form>
 
                 </div>
 
@@ -259,9 +259,6 @@ class startSaving extends Component {
                             <div class="value-button" id="increase2" onClick={() => { increaseValue2(); }} value="Increase Value">+</div>
                         </form>
                     </form>
-
-
-
 
 
                 </div>
