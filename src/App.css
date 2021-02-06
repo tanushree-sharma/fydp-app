@@ -13,41 +13,42 @@
   width: 100vw;
   height: 200vh;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-.sticky {
-  height: 5.86vh;
-  line-height: 9.38vh;
-  margin-top: 1%;
-  /* !!!!change padding to % */
-  padding-left: 10px;
+.sticky{
+  height: 50px;
+  line-height: 80px;
   position: -webkit-sticky;
-  position: sticky;
-  top: 0%;
-  z-index: 9998 !important;
-}
+  position: fixed;
+  top: 0px;
+  z-index: 9998!important;
+  }
 
-.nav {
+.navs{
   position: absolute;
   background-color: white;
   font-size: 1.3vw;
-  font-family: "Roboto";
-}
+  font-family: 'Roboto';
+  top: 3%;
+  }
 
-.logo {
+#logo{
   position: absolute;
-  margin-top: 1.4%;
-  margin-left: 3%;
+  margin-top: 1%;
+  margin-left: 5.5%;
+  width: 9vw;
 }
 
 ul.nav-right {
-  width: 100vw;
-  list-style: none;
-  text-align: right;
-  font-family: sans-serif;
-  margin-right: 4%;
-  float: right;
-  overflow-x: hidden;
+    width:100vw;
+    list-style:none;
+    text-align:right;
+    font-family: "Mulish"; 
+    font-weight: 300;
+    margin-right: 4%;
+    float: right;
+    overflow-x:hidden;
 }
 
 .nav-right li {
@@ -64,7 +65,19 @@ ul.nav-right {
   color: #80807f;
 }
 
-.scrolled {
+.nav-right a:hover {
+  color: #80807F;
+}
+
+.nav-right a.selected {
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 2.5em;
+  border-bottom: 6px solid #ABB8D4;
+  color:#80807F;
+}
+
+.scrolled{
   position: fixed;
   top: 0;
   left: 0;
