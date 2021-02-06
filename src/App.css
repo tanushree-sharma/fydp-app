@@ -92,9 +92,9 @@ ul.nav-right {
 
 #mainGraphic {
   position: absolute;
-  width: 50vw;
+  width: 53vw;
   height: 70vh;
-  left: 48%;
+  left: 46%;
   top: 1%;
 }
 
@@ -116,7 +116,7 @@ ul.nav-right {
   font-size: 1.5vw;
   font-style: normal;
   font-weight: 100;
-  line-height: 2vw;
+  line-height: 2.2vw;
   color: #80807f;
 
   position: relative;
