@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-@use postcss-nested;
-
 * {
   margin: 0;
   padding: 0;
@@ -1047,7 +1045,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: none;
 }
 
-/* CSS animation for inline hekp tips*/
+/* CSS animation for inline help tips*/
 
 @-webkit-keyframes fadeIn {
   0% { 
@@ -1064,4 +1062,10 @@ input[type="number"]::-webkit-outer-spin-button {
 @keyframes fadeIn {
   0% { opacity:0; }
   100% { opacity:100%; }
+}
+
+#toni {
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }

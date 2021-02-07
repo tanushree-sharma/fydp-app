@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='../App.css') }}">
-    <title> soli </title>
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title> SOLI. </title>
 </head>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+    #title {
+        position: absolute;
+        width: 627px;
+        height: 58px;
+        left: 367px;
+        top: 176px;
+
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 56px;
+        /* or 140% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.1em;
+
+        color: #000000;
+    }
+</style>
+
+
 <body>
-    <h1> Success! </h1>
-    <p> installation size: {{installationSize}} kWh </p>
+    <h1 id="title"> Your Solar Analysis </h1>
+    <p id="toni"> installation size: {{installationSize}} kWh </p>
     <p> capital cost: ${{capitalCost}} </p>
     <p> payback period: {{paybackPeriod}} years</p>
     <p> total savings: ${{totalSavings}} over a 25 year time horizon</p>
@@ -18,8 +51,6 @@
     <p> carbon emissions reduced by {{reducedCO2}} metric tonnes </p>
     <p> trees planted: {{treesPlanted}} trees </p>
 
-
-
-    <a href="/"> Back to Start </a>
 </body>
+
 </html>
