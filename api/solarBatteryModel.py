@@ -228,6 +228,14 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     reducedCO2 = round(((np.sum(E) * 0.0003916) - (np.sum(demandWithSolar) * 0.0003916))/1000,1) # kg converted to tonnes
     treesPlanted = math.ceil(reducedCO2 * (1/0.907185) * 64)
     
+    capitalCost = format(capitalCost, ',')
+    totalSavings = format(totalSavings, ',')
+    springSavings = format(springSavings, ',')
+    summerSavings = format(summerSavings, ',')
+    fallSavings = format(fallSavings, ',')
+    winterSavings = format(winterSavings, ',')
+    reducedCO2 = format(reducedCO2, ',')
+    treesPlanted = format(treesPlanted, ',')
 
     solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted]
 
