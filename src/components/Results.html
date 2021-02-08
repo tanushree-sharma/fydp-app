@@ -14,6 +14,12 @@
         padding: 0;
     }
 
+    html, body {
+        margin: 0;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     .App {
         display: flex;
         width: 100vw;
@@ -795,7 +801,7 @@
     
     #system-size-title {
         position: absolute;
-        width: 27vw;
+        width: 30vw;
         height: 3vh;
         left: 13%;
         top: 25%;
@@ -841,6 +847,8 @@
         color: black;
 
         text-align: center;
+
+        padding-bottom: 2%;
     }
     #system-kW {
         font-family: "Roboto";
@@ -915,12 +923,12 @@
     .season-savings-container {
         position: absolute;
         top: 75%;
-        left: 11%;
+        left: 13%;
         margin: 20px auto;
         width:22vw;
         height:20vh;
         display:grid;
-        grid-template-columns: 14vw 14vw;
+        grid-template-columns: 10vw 10vw;
         white-space: nowrap;
         
     }
@@ -965,11 +973,10 @@
 
     #environmental-title {
         position: absolute;
-        width: 15vw;
+        width: 25vw;
         height: 3vh;
         left: 12.8%;
         top: 105%;
-
 
         font-family: "Mulish";
         font-style: normal;
@@ -981,14 +988,25 @@
         color: #5C77AC;
     }
 
-    #carbon-footprint {
+    .carbon-footprint {
         position: absolute;
-        left: 20%;
-        top: 115%;
+        left: 17%;
+        top: 113%;
         width: 30vw;
         height: 10vh;
+
+        display: inline-block;
+
+
     }
-    #carbon-upper {
+    .carbon-footprint #carbon-text {
+        width: 25vw;
+        height: 10vh;
+
+        float: left;
+
+    }
+    #carbon-text #carbon-upper {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 300;
@@ -996,12 +1014,12 @@
         text-align: left;
         letter-spacing: 0.05em;
 
-        padding-left: 5%;
+        padding-left: 7%;
         padding-bottom: 2%;
 
         color: black;
     }
-    #carbon-data {
+    #carbon-text #carbon-data {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 500;
@@ -1009,28 +1027,33 @@
         letter-spacing: 0.05em;
         color: black;
 
-        padding-left: 5%;
+        padding-left: 7%;
+
         text-align: left;
     }
-    #carbon-lower {
-        position: absolute;
-        top: 52%;
-        left: 22%;
+    #carbon-text #carbon-lower {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 300;
         font-size: 2vh;
         text-align: left;
         letter-spacing: 0.05em;
-
-        padding-left: 5%;
-        padding-bottom: 2%;
-
         color: black;
     }
+    .carbon-footprint #carbon-icon {
+        width: 5vw;
+        height: 10vh;
+        margin-left: 25vw;
+
+    }
+    #carbon-icon #co2{
+        padding-left: 5%;
+        width: 4vw;
+    }
+
     #equal {
         position: absolute;
-        top: 117%;
+        top: 115%;
         left: 49.5%;
 
         font-family: "Mulish";
@@ -1040,15 +1063,23 @@
 
         color: black;
     }
-    #trees {
+
+    .trees {
         position: absolute;
         left: 52%;
-        top: 115%;
+        top: 113%;
         width: 25vw;
         height: 10vh;
 
+        display: inline-block;
     }
-    #trees-data {
+    .trees #trees-text {
+        width: 20vw;
+        height: 10vh;
+
+        float: left;
+    }
+    #trees-text #trees-data {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 500;
@@ -1056,36 +1087,30 @@
         letter-spacing: 0.05em;
         color: black;
 
-        padding-top: 3%;
-        padding-left: 5%;
+        padding-left: 7%;
+        margin: auto;
+        padding: 3.5%;
+
         text-align: left;
     }
-    #tree-text {
-        position: relative;
-        top: -40%;
-        left: 23%;
+    #trees-text #trees-subtext {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 300;
         font-size: 2vh;
         text-align: left;
         letter-spacing: 0.05em;
-
-        padding-left: 5%;
-        padding-bottom: 2%;
-
         color: black;
     }
-    #plant{
-        position: absolute;
-        top: 113.5%;
-        left: 69%;
+    .trees #trees-icon {
         width: 5vw;
+        height: 10vh;
+        margin-left: 20vw;
+
     }
-    #co2{
-        position: absolute;
-        top: 115%;
-        left: 43%;
+    #trees-icon #plant{
+        padding-left: 5%;
+        padding-top: 4%;
         width: 4vw;
     }
 
@@ -1221,18 +1246,27 @@
 
     <!-- environmental impact -->
     <p id="environmental-title"> Environmental Impact </p>
-    <div id="carbon-footprint">
-        <p id="carbon-upper"> reduce energy carbon emissions by </p>
-        <p id="carbon-data"> {{reducedCO2}} </p>
-        <p id="carbon-lower"> metric tonnes</p>
+    <div class="carbon-footprint">
+        <div id="carbon-text">
+            <p id="carbon-upper"> reduce energy carbon emissions by </p>
+            <p id="carbon-data"> {{reducedCO2}} <span id="carbon-lower"> metric tonnes </span></p>
+        </div>
+        <div id="carbon-icon">
+            <img src="{{ url_for('static',filename='co2.png') }}" id = "co2" alt="co2">
+        </div>
     </div>
-    <img src="{{ url_for('static',filename='co2.png') }}" id = "co2" alt="co2"> 
+    
     <p id="equal"> = </p>
-    <div id="trees">
-        <p id="trees-data"> {{treesPlanted}} </p>
-        <p id="tree-text"> tree plantings </p>
+
+    <div class="trees">
+        <div id="trees-text">
+            <p id="trees-data"> {{treesPlanted}} <span id="trees-subtext"> tree plantings </span></p>
+        </div> 
+        <div id="trees-icon">
+            <img src="{{ url_for('static',filename='handplant.png') }}" id = "plant" alt="plant">
+        </div>
     </div>
-    <img src="{{ url_for('static',filename='handplant.png') }}" id = "plant" alt="plant">
+    
 
     <!-- save results -->
     <button id="return"  onClick="history.go(-1)"> Go Back </button>
