@@ -2,54 +2,1569 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <title> SOLI. </title>
+    <title> Soli </title>
 </head>
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-    #title {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .App {
+        display: flex;
+        width: 100vw;
+        height: 200vh;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .sticky {
+        height: 50px;
+        line-height: 80px;
+        position: -webkit-sticky;
+        position: fixed;
+        top: 0px;
+        z-index: 9998 !important;
+    }
+
+    .navs {
         position: absolute;
-        width: 627px;
-        height: 58px;
-        left: 367px;
-        top: 176px;
+        background-color: white;
+        font-size: 1.3vw;
+        font-family: 'Roboto';
+        top: 0%;
+    }
 
-        font-family: Mulish;
+    #logo {
+        position: absolute;
+        margin-top: 1.5%;
+        margin-left: 5.5%;
+        width: 9vw;
+    }
+
+    ul.nav-right {
+        width: 100vw;
+        list-style: none;
+        text-align: right;
+        font-family: "Mulish";
+        font-weight: 300;
+        margin-right: 4%;
+        float: right;
+        overflow-x: hidden;
+    }
+
+    .nav-right li {
+        display: inline-block;
+        width: 10%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-right a {
+        text-align: center;
+        margin: 0;
+        display: block;
+        text-decoration: none;
+        color: #80807f;
+    }
+
+    .nav-right a:hover {
+        color: #80807F;
+    }
+
+    .nav-right a.selected {
+        font-weight: 600;
+        text-decoration: none;
+        line-height: 2.5em;
+        border-bottom: 6px solid #ABB8D4;
+        color: #80807F;
+    }
+
+    .scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: lightblue;
+    }
+
+    #main {
+        position: relative;
+        top: 4%;
+        width: 100%;
+        height: 100%;
+    }
+
+    #mainGraphic {
+        position: absolute;
+        width: 53vw;
+        height: 70vh;
+        left: 46%;
+        top: 1%;
+    }
+
+    #mainText {
+        font-family: "Mulish", sans-serif;
         font-style: normal;
-        font-weight: bold;
-        font-size: 40px;
-        line-height: 56px;
-        /* or 140% */
+        font-weight: 700;
+        font-size: 3.5vw;
+        line-height: 4vw;
+        color: black;
+        position: relative;
+        left: 5%;
+        right: 55%;
+        top: 13%;
+        bottom: 55.21%;
+    }
 
+    #mainSubText {
+        font-family: "Roboto";
+        font-size: 1.5vw;
+        font-style: normal;
+        font-weight: 100;
+        line-height: 2.2vw;
+        color: #80807f;
+
+        position: relative;
+        left: 5%;
+        right: 61.42%;
+        top: 13.5%;
+        bottom: 46.48%;
+    }
+
+    #startButton {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.5vw;
+        line-height: 1.5vw;
+
+        position: absolute;
+        width: 15%;
+        height: 4%;
+        left: 5%;
+        right: 61.42%;
+        top: 26%;
+        bottom: 46.48%;
+
+        border-radius: 3.214vw;
+        background-color: #f6d673;
+        border: none;
+        outline: none;
+        text-align: center;
+        display: inline-block;
+    }
+
+    #startButton:hover {
+        background: #faebbc;
+        color: black;
+        outline: none;
+    }
+
+    #scrollArrow {
+        width: 7vw;
+        height: 5vh;
+        position: absolute;
+        left: 47%;
+        top: 40%;
+
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+    }
+
+    .bounce {
+        animation-name: bounce;
+        animation-timing-function: linear;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-1.17vh);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    #scrollTo {
+        position: absolute;
+        left: 0%;
+        top: 121%;
+        color: white;
+    }
+
+    #customAnalysisIcon {
+        position: absolute;
+        width: 12vw;
+        height: 20vh;
+        left: 8%;
+        top: 61.5%;
+    }
+
+    #customAnalysisLabel {
+        font-family: "Mulish", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vw;
+        line-height: 2vw;
         display: flex;
         align-items: center;
+        text-align: center;
+
+        color: #5c77ac;
+
+        position: absolute;
+        width: 12.215vw;
+        height: 4.69vh;
+        left: 5.5%;
+        top: 71%;
+        white-space: nowrap;
+    }
+
+    #customAnalysisDesc {
+        position: absolute;
+        width: 16vw;
+        height: 25vh;
+        left: 5.8%;
+        top: 75%;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.3vw;
+        line-height: 1.5vw;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    #longTermSavingsIcon {
+        position: absolute;
+        width: 13vw;
+        height: 20vh;
+        left: 31.5%;
+        top: 61.5%;
+    }
+
+    #longTermSavingsLabel {
+        font-family: "Mulish", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vw;
+        line-height: 2vw;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #5c77ac;
+
+        position: absolute;
+        width: 12.215vw;
+        height: 4.69vh;
+        left: 29%;
+        top: 71%;
+        white-space: nowrap;
+    }
+
+    #longTermSavingsDesc {
+        position: absolute;
+        width: 16vw;
+        height: 25vh;
+        left: 30.3%;
+        top: 75%;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.3vw;
+        line-height: 1.5vw;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    #carbonFootprintIcon {
+        position: absolute;
+        width: 12vw;
+        height: 21vh;
+        left: 57%;
+        top: 60.5%;
+    }
+
+    #carbonFootprintLabel {
+        font-family: "Mulish", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vw;
+        line-height: 2vw;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #5c77ac;
+
+        position: absolute;
+        width: 12.215vw;
+        height: 4.69vh;
+        left: 54.5%;
+        top: 71%;
+        white-space: nowrap;
+    }
+
+    #carbonFootprintDesc {
+        position: absolute;
+        width: 16vw;
+        height: 25vh;
+        left: 55%;
+        top: 75%;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.3vw;
+        line-height: 1.5vw;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    #integrateStorageIcon {
+        position: absolute;
+        width: 13vw;
+        height: 23vh;
+        left: 80%;
+        top: 60.5%;
+    }
+
+    #integrateStorageLabel {
+        font-family: "Mulish", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vw;
+        line-height: 2vw;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #5c77ac;
+
+        position: absolute;
+        width: 12.215vw;
+        height: 4.69vh;
+        left: 78%;
+        top: 71%;
+        white-space: nowrap;
+    }
+
+    #integrateStorageDesc {
+        position: absolute;
+        width: 16vw;
+        height: 25vh;
+        left: 78.8%;
+        top: 75%;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.3vw;
+        line-height: 1.5vw;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    #startButton2 {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.5vw;
+        line-height: 1.5vw;
+
+        position: absolute;
+        width: 15%;
+        height: 4%;
+        left: 43.5%;
+        top: 87%;
+
+        border-radius: 3.215vw;
+        background-color: #f6d673;
+        border: none;
+        outline: none;
+        text-align: center;
+        display: inline-block;
+    }
+
+    #startButton2:hover {
+        background: #faebbc;
+        color: black;
+        outline: none;
+    }
+
+    .Panel {
+        position: absolute;
+        width: 100%;
+        max-width: 80vw;
+        margin: 5vw auto;
+
+        top: 10%;
+        left: 10%;
+    }
+
+    .Panel__body {
+        background-color: white;
+        padding: 25vh 5vw;
+    }
+
+    .Tabs {
+        position: relative;
+        background-color: #fff;
+    }
+
+    .Tabs:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+
+    .Tabs {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .Tabs__tab {
+        float: left;
+        width: 50%;
+        text-align: center;
+    }
+
+    .Tabs__tab:first-child.active~.Tabs__presentation-slider {
+        transform: translateX(0) scaleX(0.5);
+    }
+
+    .Tabs__tab:nth-child(2).active~.Tabs__presentation-slider {
+        transform: translateX(50%) scaleX(0.5);
+    }
+
+    .Tabs__presentation-slider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.8vh;
+        background-color: #5c77ac;
+        transform-origin: 0 0;
+        transition: transform 0.25s;
+    }
+
+    #tab-underline {
+        border: 0.1vh solid #80807f;
+    }
+
+    .Tab {
+        font-family: "Mulish";
+        font-style: normal;
+        font-size: 1.6vw;
+        font-weight: 600;
+        line-height: 5vh;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.1em;
+    }
+
+    .Tab>a {
+        display: block;
+        padding: 2.5vh 5vw;
+        text-decoration: none;
+        color: black;
+        transition: color 0.15s;
+    }
+
+    .tabContent {
+        display: none;
+    }
+
+    #tabs-1 {
+        display: block;
+    }
+
+    #tabs2 {
+        font-weight: 400;
+    }
+
+    #solar-subtext {
+        font-family: Roboto;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 1.2vw;
+        line-height: 5.5vh;
+        text-align: center;
+        letter-spacing: 0.1em;
+
+        color: #80807f;
+
+        position: absolute;
+        top: 16%;
+        left: 14.5%;
+    }
+
+    #battery-subtext {
+        font-family: Roboto;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 1.2vw;
+        line-height: 5.5vh;
+        text-align: center;
+        letter-spacing: 0.1em;
+
+        color: #80807f;
+
+        position: absolute;
+        top: 16%;
+        left: 66.5%;
+    }
+
+    #form-desc {
+        position: absolute;
+        width: 70vw;
+        height: 3.76vh;
+        left: 6%;
+        top: 27%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.1vw;
+        line-height: 5vh;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #000000;
+    }
+
+    #form-desc2 {
+        position: absolute;
+        width: 70vw;
+        height: 3.76vh;
+        left: 6.5%;
+        top: 31%;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.1vw;
+        line-height: 5vh;
         text-align: center;
         letter-spacing: 0.1em;
 
         color: #000000;
     }
+
+    .footer {
+        position: absolute;
+        clear: both;
+        bottom: -50%;
+        color: #80807f;
+        font-family: "Mulish";
+        font-weight: 500;
+        font-size: 1vw;
+        line-height: 5vh;
+        width: 100%;
+    }
+
+    .footer-left {
+        width: 100vw;
+        list-style: none;
+        text-align: left;
+        margin-left: 3%;
+        float: left;
+        overflow-x: hidden;
+    }
+
+    .field-titles {
+        position: absolute;
+        width: 12vw;
+        height: 2.4vh;
+        left: 41%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 0.9775vw;
+        line-height: 2.097vh;
+        letter-spacing: 0.05em;
+        color: #000000;
+        text-align: left;
+    }
+
+    .field-inputs::placeholder {
+        font-family: Roboto;
+        font-style: italic;
+        font-weight: 400;
+        color: #80807f;
+    }
+
+    .dropdownFormat {
+        font-family: Roboto;
+        font-style: italic;
+        font-weight: 400;
+        color: #80807f;
+    }
+
+    #postal-text {
+        position: absolute;
+        width: 11vw;
+        height: 2.7vh;
+        left: 64.5%;
+        font-size: 0.8vw;
+        font-family: Roboto;
+        font-style: italic;
+        font-weight: 200;
+        color: #80807f;
+        top: 55%;
+    }
+
+    #postal-code {
+        top: 50.5%;
+    }
+
+    #postal-code-input1 {
+        top: 50%;
+    }
+
+    #postal-code-input2 {
+        top: 50%;
+    }
+
+    #roof-size {
+        top: 60.5%;
+    }
+
+    #roof-size-input1 {
+        top: 60%;
+    }
+
+    #roof-size-input2 {
+        top: 60%;
+    }
+
+    #elec-usage {
+        top: 79%;
+    }
+
+    #elec-usage-input1 {
+        top: 78.5%;
+    }
+
+    #elec-usage-input2 {
+        top: 78.5%;
+    }
+
+    #month-title {
+        top: 89%;
+    }
+
+    #month-input1 {
+        top: 88%;
+    }
+
+    #month-input2 {
+        top: 88%;
+    }
+
+    #heating-type-title {
+        top: 98.5%;
+    }
+
+    #heating-input1 {
+        top: 98%;
+    }
+
+    #heating-input2 {
+        top: 98%;
+    }
+
+    #budget1 {
+        top: 116%;
+    }
+
+    #budget2 {
+        top: 142%;
+    }
+
+    #budget1title {
+        top: 116.5%;
+    }
+
+    #budget2title {
+        top: 142.5%;
+    }
+
+    #storage-capacity {
+        top: 116.5%;
+    }
+
+    #storage-capacity-input {
+        top: 116%;
+    }
+
+    #dod {
+        top: 126.5%;
+    }
+
+    #dod-input {
+        top: 126%;
+    }
+
+    .formSectionTitles {
+        position: absolute;
+        width: 10vw;
+        height: 2.5vh;
+        left: 20%;
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.25vw;
+        line-height: 2.5vh;
+        /* identical to box height */
+        display: flex;
+        align-items: center;
+        color: #80807f;
+    }
+
+    .qGraphic {
+        position: absolute;
+        width: 1.3vw;
+        left: 57.25%;
+        height: 2.3vh;
+    }
+
+    #home-specs {
+        top: 55%;
+    }
+
+    #energy-usage {
+        top: 88%;
+    }
+
+    #initial-inv1 {
+        top: 116%;
+    }
+
+    #initial-inv2 {
+        top: 142%;
+    }
+
+    #battery-specs {
+        top: 121%;
+    }
+
+    .help-tip {
+        position: absolute;
+        text-align: center;
+        background-color: #f6d673;
+        border-radius: 50%;
+        width: 1.3vw;
+        height: 1.3vw;
+        font-size: 0.8vw;
+        line-height: 1.33vw;
+        font-family: "Roboto";
+        cursor: default;
+        left: 57.25%;
+    }
+
+    .help-tip:before {
+        content: '?';
+        font-weight: bold;
+        color: #80807f;
+    }
+
+    .help-tip:hover p {
+        display: block;
+        transform-origin: 100% 0%;
+
+        -webkit-animation: fadeIn 0.3s ease-in-out;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .help-tip p {
+        /* The tooltip    */
+        display: none;
+        text-align: center;
+        background-color: #E5E5E5;
+        border-radius: 10px;
+        padding: 50%;
+        width: 18vw;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        right: -7px;
+        color: #000;
+        font-family: "Roboto";
+        letter-spacing: 0.06em;
+        font-size: 1vw;
+        line-height: 1.4;
+        z-index: 9998 !important;
+    }
+
+    .help-tip p:before {
+        /* The pointer of the tooltip */
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #E5E5E5;
+        right: 10px;
+        top: -10px;
+    }
+
+    .help-tip p:after {
+        /* Prevents the tooltip from being hidden */
+        width: 100%;
+        height: 40px;
+        content: '';
+        position: absolute;
+        top: -40px;
+        left: 0;
+    }
+
+    #q1 {
+        top: 60.5%;
+    }
+
+    #q2 {
+        top: 88.5%;
+    }
+
+    #q3 {
+        top: 78.5%;
+    }
+
+    #q4 {
+        top: 116.5%;
+    }
+
+    #q5 {
+        top: 126.5%;
+    }
+
+    .resultsButton {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.3vw;
+        line-height: 1.5vw;
+
+        position: absolute;
+        width: 17%;
+        height: 8%;
+        left: 43.5%;
+
+        border-radius: 5.844vw;
+        background-color: #f6d673;
+        border: none;
+        outline: none;
+        text-align: center;
+        display: inline-block;
+    }
+
+    #results-button1 {
+        top: 140%;
+    }
+
+    #results-button2 {
+        top: 160%;
+    }
+
+    #results-button1:hover {
+        background: #faebbc;
+        color: black;
+        outline: none;
+    }
+
+    #results-button2:hover {
+        background: #faebbc;
+        color: black;
+        outline: none;
+    }
+
+    form {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .value-button {
+        position: absolute;
+        display: inline-block;
+        border: 0.2vh solid #e5e5e5;
+        margin: 0px;
+        width: 11vw;
+        height: 2.7vh;
+        text-align: center;
+        vertical-align: middle;
+        padding: 0;
+        top: 116%;
+        background: #ffffff;
+        border-radius: 0.309vw;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .value-button:hover {
+        cursor: pointer;
+    }
+
+    form #decrease {
+        left: 73.9%;
+        border-radius: 0 0 0 0;
+        width: 2.11vw;
+        top: 116%;
+        height: 2.6vh;
+        background: #e5e5e5;
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: 100;
+    }
+
+    #dollar1 {
+        top: 142%;
+    }
+
+    .dollar-text {
+        left: 76.75%;
+        border-radius: 0.309vw 0 0 0.309vw;
+        width: 2.11vw;
+        height: 2.6vh;
+        background: #e5e5e5;
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: 100;
+    }
+
+    #decrease:hover {
+        /* background: #80807f; */
+        background: #ffffff;
+        color: black;
+        outline: none;
+    }
+
+    form #increase {
+        left: 76.75%;
+        width: 2.11vw;
+        border-radius: 0 0.309vw 0.309vw 0;
+        top: 116%;
+        height: 2.6vh;
+        background: #e5e5e5;
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: 100;
+        /* box-shadow: 0 0 0 1px; */
+    }
+
+    #increase:hover {
+        /* background: #80807f; */
+        background: #ffffff;
+        color: black;
+        outline: none;
+    }
+
+    #decrease2:hover {
+        /* background: #80807f; */
+        background: #ffffff;
+        color: black;
+        outline: none;
+    }
+
+    form #decrease2 {
+        left: 73.9%;
+        border-radius: 0 0 0 0;
+        width: 2.11vw;
+        top: 142%;
+        height: 2.6vh;
+        background: #e5e5e5;
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: 100;
+    }
+
+    #increase2:hover {
+        /* background: #80807f; */
+        background: #ffffff;
+        color: black;
+        outline: none;
+    }
+
+    form #increase2 {
+        left: 76.75%;
+        width: 2.11vw;
+        border-radius: 0 0.309vw 0.309vw 0;
+        top: 142%;
+        height: 2.6vh;
+        background: #e5e5e5;
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: 100;
+        /* box-shadow: 0 0 0 1px; */
+    }
+
+    form #input-wrap {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #number {
+        text-align: left;
+        border: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        width: 12vw;
+        height: 2.7vh;
+        top: 140%;
+        left: 60%;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .field-inputs {
+        position: absolute;
+        width: 13vw;
+        height: 3vh;
+        left: 63%;
+        background: #ffffff;
+        border: 0.2vh solid #e5e5e5;
+        box-sizing: border-box;
+        border-radius: 0.309vw;
+        padding-left: 0.5%;
+    }
+
+    .budegt-container1 {
+        display: flex;
+        /* or inline-flex */
+        flex-direction: row;
+        order: 3;
+        width: 11vw;
+        height: 2.7vh;
+    }
+
+    .dropdown-inputs {
+        position: absolute;
+        width: 13vw;
+        height: 3vh;
+        left: 63%;
+        background: #ffffff;
+        border: 0.2vh solid #e5e5e5;
+        box-sizing: border-box;
+        border-radius: 0.309vw;
+        padding-left: 0.5%;
+        font-family: Roboto;
+        font-style: italic;
+        font-weight: 400;
+        color: #80807f;
+    }
+
+    .dropdown-inputs select {
+        display: none;
+    }
+
+    /* CSS animation for inline help tips*/
+
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.6);
+        }
+
+        100% {
+            opacity: 100%;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    #results-title {
+        position: absolute;
+        width: 80vw;
+        height: 5vh;
+        left: 9.7%;
+        top: 15%;
+
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 3vh;
+
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.1em;
+
+
+        color: #000000;
+        border-bottom: 0.8vh solid #5c77ac;
+    }
+    
+    #system-size-title {
+        position: absolute;
+        width: 27vw;
+        height: 3vh;
+        left: 13%;
+        top: 25%;
+
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.5vh;
+        align-items: center;
+        text-align: left;
+
+        color: #5C77AC;
+    }
+
+    .system-container {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        color: black;
+        width: 70%;
+        top: 30%;
+        left: 15%;
+    }
+    .system-container div {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        color: #C26C49;
+
+        width: 100%;
+        padding: 1vh;
+    }
+
+    .system-container .system-data {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 5vh;
+        letter-spacing: 0.05em;
+        color: black;
+
+        text-align: center;
+    }
+    #system-kW {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        color: black;
+    }
+    #system-years {        
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        color: black;
+    }
+
+    #savings-title {
+        position: absolute;
+        width: 7vw;
+        height: 3vh;
+        left: 13%;
+        top: 50%;
+
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.5vh;
+        align-items: center;
+        text-align: left;
+
+        color: #5C77AC;
+    }
+    .savings {
+        position: absolute;
+        top: 57%;
+        left: 14%;
+        text-align: center;
+    }
+    .savings #total-savings {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 5vh;
+        letter-spacing: 0.05em;
+        color: black;
+
+        text-align: center;
+    }
+    .savings #savings-subtext {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        color: black;
+    }
+    #season-savings-title {
+        position: absolute;
+        width: 13%;
+        top: 70%;
+        left: 14.5%;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        color: #C26C49;
+    }
+    .season-savings-container {
+        position: absolute;
+        top: 75%;
+        left: 11%;
+        margin: 20px auto;
+        width:22vw;
+        height:20vh;
+        display:grid;
+        grid-template-columns: 14vw 14vw;
+        white-space: nowrap;
+        
+    }
+    .season-savings-container .season {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: left;
+
+        padding-left: 2%;
+        padding-bottom: 7%;
+    
+        color: black;
+    }
+    .season-savings-container .season-savings {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.5vh;
+        text-align: left;
+
+        padding-left: 10%;
+
+        color: black;
+    }
+    .season-savings-container .seasonal-units {
+        font-weight: normal;
+        font-size: 1.5vh;
+        text-align: left;
+    }
+
+    #placeholderGraph {
+        position: absolute;
+        border: solid 1px black;
+        top: 50%;
+        left: 40%;
+        width: 45vw;
+        height: 43vh;
+    }
+
+    #environmental-title {
+        position: absolute;
+        width: 15vw;
+        height: 3vh;
+        left: 12.8%;
+        top: 105%;
+
+
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.5vh;
+        align-items: center;
+        text-align: left;
+
+        color: #5C77AC;
+    }
+
+    #carbon-footprint {
+        position: absolute;
+        left: 21%;
+        top: 115%;
+        width: 30vw;
+        height: 10vh;
+    }
+    #carbon-upper {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2vh;
+        text-align: left;
+        letter-spacing: 0.05em;
+
+        padding-left: 5%;
+        padding-bottom: 2%;
+
+        color: black;
+    }
+    #carbon-data {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 5vh;
+        letter-spacing: 0.05em;
+        color: black;
+
+        padding-left: 5%;
+        text-align: left;
+    }
+    #carbon-lower {
+        position: absolute;
+        top: 52%;
+        left: 15%;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2vh;
+        text-align: left;
+        letter-spacing: 0.05em;
+
+        padding-left: 5%;
+        padding-bottom: 2%;
+
+        color: black;
+    }
+    #equal {
+        position: absolute;
+        top: 117%;
+        left: 51.7%;
+
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 3.5vh;
+
+        color: black;
+    }
+    #trees {
+        position: absolute;
+        left: 54%;
+        top: 115%;
+        width: 25vw;
+        height: 10vh;
+
+    }
+    #trees-data {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 5vh;
+        letter-spacing: 0.05em;
+        color: black;
+
+        padding-top: 3%;
+        padding-left: 5%;
+        text-align: left;
+    }
+    #tree-text {
+        position: relative;
+        top: -40%;
+        left: 23%;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2vh;
+        text-align: left;
+        letter-spacing: 0.05em;
+
+        padding-left: 5%;
+        padding-bottom: 2%;
+
+        color: black;
+    }
+    #return {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.3vw;
+        line-height: 1.5vw;
+
+        position: absolute;
+        width: 15%;
+        height: 7%;
+        top: 135%;
+        left: 31.5%;
+
+        border-radius: 5.844vw;
+        background-color: #C4C4C4;
+        border: none;
+        outline: none;
+        text-align: center;
+        display: inline-block;
+    }
+    #download {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.3vw;
+        line-height: 1.5vw;
+
+        position: absolute;
+        width: 15%;
+        height: 7%;
+        top: 135%;
+        left: 53%;
+
+        border-radius: 5.844vw;
+        background-color: #f6d673;
+        border: none;
+        outline: none;
+        text-align: center;
+        display: inline-block;
+    }
+
 </style>
 
 
 <body>
-    <h1 id="title"> Your Solar Analysis </h1>
-    <p id="toni"> installation size: {{installationSize}} kWh </p>
-    <p> capital cost: ${{capitalCost}} </p>
-    <p> payback period: {{paybackPeriod}} years</p>
-    <p> total savings: ${{totalSavings}} over a 25 year time horizon</p>
-    <p> spring savings: ${{springSavings}}/month</p>
-    <p> summer savings: ${{summerSavings}}/month</p>
-    <p> fall savings: ${{fallSavings}}/month</p>
-    <p> winter savings: ${{winterSavings}}/month</p>
-    <p> carbon emissions reduced by {{reducedCO2}} metric tonnes </p>
-    <p> trees planted: {{treesPlanted}} trees </p>
+    <script>
+        function show_image(src, width, height, alt) {
+            var img = document.createElement("img");
+            img.src = src;
+            img.width = width;
+            img.height = height;
+            img.alt = alt;
+
+            console.log("image created");
+            // This next line will just add it to the <body> tag
+            document.body.appendChild(img);
+        }
+    </script>
+    <!-- nav bar -->
+    <script>
+        window.onload = function () {
+            var homeID = document.getElementById("home");
+            var formID = document.getElementById("form");
+            var faqID = document.getElementById("faq");
+            var aboutID = document.getElementById("about");
+            homeID.classList.remove("selected");
+            formID.classList.add("selected");
+            faqID.classList.remove("selected");
+            aboutID.classList.remove("selected");
+        }
+    </script>
+    <div class="sticky">
+        <div class="navs">
+            <a href="/"> <img src="../logo.png" id="logo" alt="logo"></img> </a>
+            <ul class="nav-right">
+                <li><a href="/" id="home">Home</a></li>
+                <li><a href="/start-saving" id="form">Start Saving</a></li>
+                <li><a href="/faq" id="faq">Solar FAQ</a></li>
+                <li><a href="/about" id="about">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- title -->
+    <p id="results-title"> Your Solar Analysis </p>
+
+    <!-- recommended system size -->
+    <p id="system-size-title"> Recommended System Specifications </p>
+    <div class="system-container">
+        <div>
+            <p class="system-data"> {{installationSize}} <span id="system-kW"> kW </span></p>
+            <p> Installation Size </p>
+        </div>
+        <div>
+            <p class="system-data"> ${{capitalCost}} </p>
+            <p> Upfront Cost </p>
+        </div>
+        <div>
+            <p class="system-data"> {{paybackPeriod}} <span id="system-years"> years </span></p>
+            <p> Payback Period </p>
+        </div>
+    </div>
+
+    <!-- savings -->
+    <p id="savings-title"> Savings </p>
+    <div class="savings">
+        <p id="total-savings"> ${{totalSavings}} </p>
+        <p id="savings-subtext"> over 25-year time horizon</p>
+    </div>
+    <p id="season-savings-title"> Average Monthly Savings by Season </p>
+    <div class="season-savings-container">
+        <div>
+            <p class="season"> Spring </p>
+            <p class="season-savings"> ${{springSavings}} <span class="seasonal-units"> /month </span> </p>
+        </div>
+        <div>
+            <p class="season"> Summer </p>
+            <p class="season-savings"> ${{summerSavings}} <span class="seasonal-units"> /month </span> </p>
+        </div>
+        <div>
+            <p class="season"> Fall </p>
+            <p class="season-savings"> ${{fallSavings}} <span class="seasonal-units"> /month </span> </p>
+        </div>
+        <div>
+            <p class="season"> Winter </p>
+            <p class="season-savings"> ${{winterSavings}} <span class="seasonal-units"> /month </span> </p>
+        </div>
+    </div>
+    <div id="placeholderGraph"> <p> graph </p></div>
+
+    <!-- environmental impact -->
+    <p id="environmental-title"> Environmental Impact </p>
+    <div id="carbon-footprint">
+        <p id="carbon-upper"> reduce energy carbon emissions by </p>
+        <p id="carbon-data"> {{reducedCO2}} </p>
+        <p id="carbon-lower"> metric tonnes</p>
+    </div>
+    <p id="equal"> = </p>
+    <div id="trees">
+        <p id="trees-data"> {{treesPlanted}} </p>
+        <p id="tree-text"> tree plantings </p>
+    </div>
+
+    <!-- save results -->
+    <button id="return"  onClick="history.go(-1)"> Go Back </button>
+    <button id="download"> Download </button>
+
+    <!-- footer -->
+    <div class="footer">
+        <p class="footer-left">
+            <a>SoliⒸ2020</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            <a>Management Engineering Capstone Design Project</a>
+        </p>
+    </div>
+
+
 
 </body>
 
