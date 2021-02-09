@@ -3,6 +3,28 @@
 
 <head>
     <title> Soli </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script>
+        $( window ).on( "load", function() {
+            console.log( "window loaded" );
+            var doc = new jsPDF();
+                var specialElementHandlers = {
+                    '#editor': function (element, renderer) {
+                        return true;
+                    }
+                };
+
+                $('#cmd').click(function () {
+                    doc.fromHTML($('#content').html(), 15, 15, {
+                        'width': 100,
+                            'elementHandlers': specialElementHandlers
+                    });
+                    doc.save('Soli-Analysis.pdf');
+                });
+            });
+    </script>
+
 </head>
 
 <style>
@@ -1138,7 +1160,7 @@
         text-align: center;
         display: inline-block;
     }
-    #download {
+    .download {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 600;
@@ -1163,6 +1185,7 @@
 
 
 <body>
+
     <script>
         function show_image(src, width, height, alt) {
             var img = document.createElement("img");
@@ -1201,81 +1224,83 @@
         </div>
     </div>
 
-    <!-- title -->
-    <p id="results-title"> Your Solar Analysis </p>
+    <div id="content">
+        <!-- title -->
+        <p id="results-title"> Your Solar Analysis </p>
 
-    <!-- recommended system size -->
-    <p id="system-size-title"> Recommended System Specifications </p>
-    <div class="system-container">
-        <div>
-            <p class="system-data"> {{installationSize}} <span id="system-kW"> kW </span></p>
-            <p> Installation Size </p>
+        <!-- recommended system size -->
+        <p id="system-size-title"> Recommended System Specifications </p>
+        <div class="system-container">
+            <div>
+                <p class="system-data"> {{installationSize}} <span id="system-kW"> kW </span></p>
+                <p> Installation Size </p>
+            </div>
+            <div>
+                <p class="system-data"> ${{capitalCost}} </p>
+                <p> Initial Investment </p>
+            </div>
+            <div>
+                <p class="system-data"> {{paybackPeriod}} <span id="system-years"> years </span></p>
+                <p> Payback Period </p>
+            </div>
         </div>
-        <div>
-            <p class="system-data"> ${{capitalCost}} </p>
-            <p> Initial Investment </p>
-        </div>
-        <div>
-            <p class="system-data"> {{paybackPeriod}} <span id="system-years"> years </span></p>
-            <p> Payback Period </p>
-        </div>
-    </div>
 
-    <!-- savings -->
-    <p id="savings-title"> Savings </p>
-    <div class="savings">
-        <p id="total-savings"> ${{totalSavings}} </p>
-        <p id="savings-subtext"> over 25-year time horizon</p>
-    </div>
-    <p id="season-savings-title"> Average Monthly Savings by Season </p>
-    <div class="season-savings-container">
-        <div>
-            <p class="season"> Spring </p>
-            <p class="season-savings"> ${{springSavings}} <span class="seasonal-units"> /month </span> </p>
+        <!-- savings -->
+        <p id="savings-title"> Savings </p>
+        <div class="savings">
+            <p id="total-savings"> ${{totalSavings}} </p>
+            <p id="savings-subtext"> over 25-year time horizon</p>
         </div>
-        <div>
-            <p class="season"> Summer </p>
-            <p class="season-savings"> ${{summerSavings}} <span class="seasonal-units"> /month </span> </p>
+        <p id="season-savings-title"> Average Monthly Savings by Season </p>
+        <div class="season-savings-container">
+            <div>
+                <p class="season"> Spring </p>
+                <p class="season-savings"> ${{springSavings}} <span class="seasonal-units"> /month </span> </p>
+            </div>
+            <div>
+                <p class="season"> Summer </p>
+                <p class="season-savings"> ${{summerSavings}} <span class="seasonal-units"> /month </span> </p>
+            </div>
+            <div>
+                <p class="season"> Fall </p>
+                <p class="season-savings"> ${{fallSavings}} <span class="seasonal-units"> /month </span> </p>
+            </div>
+            <div>
+                <p class="season"> Winter </p>
+                <p class="season-savings"> ${{winterSavings}} <span class="seasonal-units"> /month </span> </p>
+            </div>
         </div>
-        <div>
-            <p class="season"> Fall </p>
-            <p class="season-savings"> ${{fallSavings}} <span class="seasonal-units"> /month </span> </p>
-        </div>
-        <div>
-            <p class="season"> Winter </p>
-            <p class="season-savings"> ${{winterSavings}} <span class="seasonal-units"> /month </span> </p>
-        </div>
-    </div>
-    <img src="{{ url_for('static',filename='tempgraph.png') }}" id = "placeholderGraph" alt="carbonsavings"></div>
+        <img src="{{ url_for('static',filename='tempgraph.png') }}" id = "placeholderGraph" alt="carbonsavings"></div>
 
-    <!-- environmental impact -->
-    <p id="environmental-title"> Environmental Impact </p>
-    <div class="carbon-footprint">
-        <div id="carbon-text">
-            <p id="carbon-upper"> reduce energy carbon emissions by </p>
-            <p id="carbon-data"> {{reducedCO2}} <span id="carbon-lower"> metric tonnes </span></p>
+        <!-- environmental impact -->
+        <p id="environmental-title"> Environmental Impact </p>
+        <div class="carbon-footprint">
+            <div id="carbon-text">
+                <p id="carbon-upper"> reduce energy carbon emissions by </p>
+                <p id="carbon-data"> {{reducedCO2}} <span id="carbon-lower"> metric tonnes </span></p>
+            </div>
+            <div id="carbon-icon">
+                <img src="{{ url_for('static',filename='co2.png') }}" id = "co2" alt="co2">
+            </div>
         </div>
-        <div id="carbon-icon">
-            <img src="{{ url_for('static',filename='co2.png') }}" id = "co2" alt="co2">
-        </div>
-    </div>
-    
-    <p id="equal"> = </p>
+        
+        <p id="equal"> = </p>
 
-    <div class="trees">
-        <div id="trees-text">
-            <p id="trees-data"> {{treesPlanted}} <span id="trees-subtext"> tree plantings </span></p>
-        </div> 
-        <div id="trees-icon">
-            <img src="{{ url_for('static',filename='handplant.png') }}" id = "plant" alt="plant">
+        <div class="trees">
+            <div id="trees-text">
+                <p id="trees-data"> {{treesPlanted}} <span id="trees-subtext"> tree plantings </span></p>
+            </div> 
+            <div id="trees-icon">
+                <img src="{{ url_for('static',filename='handplant.png') }}" id = "plant" alt="plant">
+            </div>
         </div>
     </div>
-    
+    <div id="editor"></div>
 
     <!-- save results -->
+    <button id="cmd" class="download"> Download </button>
     <button id="return"  onClick="history.go(-1)"> Go Back </button>
-    <button id="download"> Download </button>
-
+    
     <!-- footer -->
     <div class="footer">
         <p class="footer-left">
