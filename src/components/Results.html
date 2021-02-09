@@ -17,10 +17,12 @@
 
                 $('#cmd').click(function () {
                     doc.fromHTML($('#content').html(), 15, 15, {
-                        'width': 100,
+                        'width': 170,
                             'elementHandlers': specialElementHandlers
                     });
-                    doc.save('Soli-Analysis.pdf');
+                    setTimeout(function () {
+                        doc.save('Soli-Analysis.pdf');
+                    }, 50);
                 });
             });
     </script>
