@@ -10,8 +10,6 @@
   display: flex;
   width: 100vw;
   height: 200vh;
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
 .sticky{
@@ -28,7 +26,7 @@
   background-color: white;
   font-size: 1.3vw;
   font-family: 'Roboto';
-  top: 3%;
+  top: 0%;
   }
 
 #logo{
@@ -86,6 +84,8 @@ ul.nav-right {
   top: 4%;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
+  
 }
 
 #mainGraphic {
