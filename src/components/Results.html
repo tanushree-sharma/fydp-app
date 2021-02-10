@@ -3,28 +3,9 @@
 
 <head>
     <title> Soli </title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script>
-        $( window ).on( "load", function() {
-            console.log( "window loaded" );
-            var doc = new jsPDF();
-                var specialElementHandlers = {
-                    '#editor': function (element, renderer) {
-                        return true;
-                    }
-                };
-
-                $('#cmd').click(function () {
-                    doc.fromHTML($('#content').html(), 15, 15, {
-                        'width': 100,
-                            'elementHandlers': specialElementHandlers
-                    });
-                    doc.save('Soli-Analysis.pdf');
-                });
-            });
-    </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script type="text/javascript" src="html2canvas.js"></script>
+    <script type="text/javascript" src="jspdf.min.js"></script>
 </head>
 
 <style>
@@ -36,7 +17,8 @@
         padding: 0;
     }
 
-    html, body {
+    html,
+    body {
         margin: 0;
         max-width: 100%;
         overflow-x: hidden;
@@ -186,7 +168,7 @@
         display: inline-block;
     }
 
-    #startButton:hover {
+    #cmd:hover {
         background: #faebbc;
         color: black;
         outline: none;
@@ -820,7 +802,7 @@
         color: #000000;
         border-bottom: 0.8vh solid #5c77ac;
     }
-    
+
     #system-size-title {
         position: absolute;
         width: 30vw;
@@ -849,6 +831,7 @@
         top: 30%;
         left: 15%;
     }
+
     .system-container div {
         font-family: "Roboto";
         font-style: normal;
@@ -874,6 +857,7 @@
 
         padding-bottom: 2%;
     }
+
     #system-kW {
         font-family: "Roboto";
         font-style: normal;
@@ -882,7 +866,8 @@
         letter-spacing: 0.05em;
         color: black;
     }
-    #system-years {        
+
+    #system-years {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 300;
@@ -907,12 +892,14 @@
 
         color: #5C77AC;
     }
+
     .savings {
         position: absolute;
         top: 57%;
         left: 14%;
         text-align: center;
     }
+
     .savings #total-savings {
         font-family: "Roboto";
         font-style: normal;
@@ -923,6 +910,7 @@
 
         text-align: center;
     }
+
     .savings #savings-subtext {
         font-family: "Roboto";
         font-style: normal;
@@ -931,6 +919,7 @@
         letter-spacing: 0.05em;
         color: black;
     }
+
     #season-savings-title {
         position: absolute;
         width: 13%;
@@ -944,18 +933,20 @@
         text-align: center;
         color: #C26C49;
     }
+
     .season-savings-container {
         position: absolute;
         top: 75%;
         left: 13%;
         margin: 20px auto;
-        width:22vw;
-        height:20vh;
-        display:grid;
+        width: 22vw;
+        height: 20vh;
+        display: grid;
         grid-template-columns: 10vw 10vw;
         white-space: nowrap;
-        
+
     }
+
     .season-savings-container .season {
         font-family: "Roboto";
         font-style: normal;
@@ -966,9 +957,10 @@
 
         padding-left: 2%;
         padding-bottom: 7%;
-    
+
         color: black;
     }
+
     .season-savings-container .season-savings {
         font-family: "Roboto";
         font-style: normal;
@@ -980,6 +972,7 @@
 
         color: black;
     }
+
     .season-savings-container .seasonal-units {
         font-weight: normal;
         font-size: 1.5vh;
@@ -1025,6 +1018,7 @@
 
 
     }
+
     .carbon-footprint #carbon-text {
         width: 25vw;
         height: 10vh;
@@ -1032,6 +1026,7 @@
         float: left;
 
     }
+
     #carbon-text #carbon-upper {
         font-family: "Roboto";
         font-style: normal;
@@ -1045,6 +1040,7 @@
 
         color: black;
     }
+
     #carbon-text #carbon-data {
         font-family: "Roboto";
         font-style: normal;
@@ -1057,6 +1053,7 @@
 
         text-align: left;
     }
+
     #carbon-text #carbon-lower {
         font-family: "Roboto";
         font-style: normal;
@@ -1066,13 +1063,15 @@
         letter-spacing: 0.05em;
         color: black;
     }
+
     .carbon-footprint #carbon-icon {
         width: 5vw;
         height: 10vh;
         margin-left: 25vw;
 
     }
-    #carbon-icon #co2{
+
+    #carbon-icon #co2 {
         padding-left: 5%;
         width: 4vw;
     }
@@ -1099,12 +1098,14 @@
 
         display: inline-block;
     }
+
     .trees #trees-text {
         width: 20vw;
         height: 10vh;
 
         float: left;
     }
+
     #trees-text #trees-data {
         font-family: "Roboto";
         font-style: normal;
@@ -1119,6 +1120,7 @@
 
         text-align: left;
     }
+
     #trees-text #trees-subtext {
         font-family: "Roboto";
         font-style: normal;
@@ -1128,13 +1130,15 @@
         letter-spacing: 0.05em;
         color: black;
     }
+
     .trees #trees-icon {
         width: 5vw;
         height: 10vh;
         margin-left: 20vw;
 
     }
-    #trees-icon #plant{
+
+    #trees-icon #plant {
         padding-left: 5%;
         padding-top: 4%;
         width: 4vw;
@@ -1160,6 +1164,7 @@
         text-align: center;
         display: inline-block;
     }
+
     .download {
         font-family: "Roboto";
         font-style: normal;
@@ -1180,7 +1185,6 @@
         text-align: center;
         display: inline-block;
     }
-
 </style>
 
 
@@ -1212,9 +1216,25 @@
             aboutID.classList.remove("selected");
         }
     </script>
+    <script type="text/javascript">
+        function genPDF() {
+            html2canvas(document.body, {
+                onrendered: function (canvas) {
+
+                    var img = canvas.toDataURL("image/png");
+                    var doc = new jsPDF("p", "mm", "a4");
+                    doc.addImage(img, 'JPEG', 0, 0,500, 1000 );
+                    doc.save('test.pdf');
+                }
+
+            });
+
+        }
+    </script>
+
     <div class="sticky">
         <div class="navs">
-            <a href="/"> </a><img src="{{ url_for('static',filename='logo.png') }}" id = "logo" alt="logo"> </a>
+            <a href="/"> </a><img src="{{ url_for('static',filename='logo.png') }}" id="logo" alt="logo"> </a>
             <ul class="nav-right">
                 <li><a href="/" id="home">Home</a></li>
                 <li><a href="/start-saving" id="form">Start Saving</a></li>
@@ -1225,6 +1245,7 @@
     </div>
 
     <div id="content">
+        <p id="ignorePDF">toni is the best</p>
         <!-- title -->
         <p id="results-title"> Your Solar Analysis </p>
 
@@ -1270,37 +1291,38 @@
                 <p class="season-savings"> ${{winterSavings}} <span class="seasonal-units"> /month </span> </p>
             </div>
         </div>
-        <img src="{{ url_for('static',filename='tempgraph.png') }}" id = "placeholderGraph" alt="carbonsavings"></div>
+        <img src="{{ url_for('static',filename='tempgraph.png') }}" id="placeholderGraph" alt="carbonsavings">
+    </div>
 
-        <!-- environmental impact -->
-        <p id="environmental-title"> Environmental Impact </p>
-        <div class="carbon-footprint">
-            <div id="carbon-text">
-                <p id="carbon-upper"> reduce energy carbon emissions by </p>
-                <p id="carbon-data"> {{reducedCO2}} <span id="carbon-lower"> metric tonnes </span></p>
-            </div>
-            <div id="carbon-icon">
-                <img src="{{ url_for('static',filename='co2.png') }}" id = "co2" alt="co2">
-            </div>
+    <!-- environmental impact -->
+    <p id="environmental-title"> Environmental Impact </p>
+    <div class="carbon-footprint">
+        <div id="carbon-text">
+            <p id="carbon-upper"> reduce energy carbon emissions by </p>
+            <p id="carbon-data"> {{reducedCO2}} <span id="carbon-lower"> metric tonnes </span></p>
         </div>
-        
-        <p id="equal"> = </p>
+        <div id="carbon-icon">
+            <img src="{{ url_for('static',filename='co2.png') }}" id="co2" alt="co2">
+        </div>
+    </div>
 
-        <div class="trees">
-            <div id="trees-text">
-                <p id="trees-data"> {{treesPlanted}} <span id="trees-subtext"> tree plantings </span></p>
-            </div> 
-            <div id="trees-icon">
-                <img src="{{ url_for('static',filename='handplant.png') }}" id = "plant" alt="plant">
-            </div>
+    <p id="equal"> = </p>
+
+    <div class="trees">
+        <div id="trees-text">
+            <p id="trees-data"> {{treesPlanted}} <span id="trees-subtext"> tree plantings </span></p>
         </div>
+        <div id="trees-icon">
+            <img src="{{ url_for('static',filename='handplant.png') }}" id="plant" alt="plant">
+        </div>
+    </div>
     </div>
     <div id="editor"></div>
 
     <!-- save results -->
-    <button id="cmd" class="download"> Download </button>
-    <button id="return"  onClick="history.go(-1)"> Go Back </button>
-    
+    <button id="cmd" class="download" onClick="genPDF()"> Download </button>
+    <button id="return" onClick="history.go(-1)"> Go Back </button>
+
     <!-- footer -->
     <div class="footer">
         <p class="footer-left">
@@ -1308,8 +1330,6 @@
             <a>Management Engineering Capstone Design Project</a>
         </p>
     </div>
-
-
 
 </body>
 
