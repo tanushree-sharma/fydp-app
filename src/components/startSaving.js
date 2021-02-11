@@ -163,7 +163,7 @@ class startSaving extends Component {
 
                     </form>
 
-                    <div class="vertical" id="v1"></div>
+                    {/* <div class="vertical" id="v1"></div> */}
              
                 </div>
 
@@ -213,7 +213,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
                             <select name="month" id="month-input2" class="dropdown-inputs">
-                                <option value= "" disabled selected hidden>Select month</option>
+                                <option value= "" id="grey-fonts" disabled selected hidden>Select month</option>
                                 <option value="1">01 - January</option>
                                 <option value="2">02 - February</option>
                                 <option value="3">03 - March</option>
@@ -233,7 +233,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
                             <select name="heating-type" id="heating-input2" class="dropdown-inputs">
-                            <option value= "" disabled selected hidden>Select heating</option>
+                            <option value= "" if="grey-fonts" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -267,8 +267,8 @@ class startSaving extends Component {
                     </form>
     
 
-                    <div class="vertical" id="v2"></div>
-                    <div class="vertical" id="v3"></div>
+                    {/* <div class="vertical" id="v2"></div>
+                    <div class="vertical" id="v3"></div> */}
 
                 </div>
 

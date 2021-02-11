@@ -1162,6 +1162,22 @@ input[type="number"]::-webkit-outer-spin-button {
   top: 142%;
 }
 
+#grey-fonts {
+  position: absolute;
+  width: 13vw;
+  height: 3vh;
+  left: 63%;
+  background: #ffffff;
+  border: 0.2vh solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 0.309vw;
+  padding-left: 0.5%;
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  color: #80807f;
+}
+
 /* CSS animation for inline help tips*/
 
 @-webkit-keyframes fadeIn {
