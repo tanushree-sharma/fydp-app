@@ -237,6 +237,6 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     reducedCO2 = format(reducedCO2, ',')
     treesPlanted = format(treesPlanted, ',')
 
-    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted]
+    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted, costsWithoutSolar, costsWithSolar]
 
     return(solution) 
