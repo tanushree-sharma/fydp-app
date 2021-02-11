@@ -119,8 +119,8 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs">
-                                <option value="0">Select month</option>
+                            <select name="month" id="month-input1" class="dropdown-inputs" required>
+                                <option value= "" disabled selected hidden>Select month</option>
                                 <option value="1">01 - January</option>
                                 <option value="2">02 - February</option>
                                 <option value="3">03 - March</option>
@@ -139,8 +139,8 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
-                                <option value="0">Select heating</option>
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
+                                <option value= "" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -148,7 +148,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="budget1title" > Budget (CAD):</p>
-                            <input class="field-inputs" id="budget1" type="text" name="budget" placeholder="10000" />
+                            <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" />
                         </label>
 
 
@@ -158,10 +158,13 @@ class startSaving extends Component {
                         <form>
                             <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase" onClick={() => { increaseValue(); }} value="Increase Value">+</div>
+                            <p id="dollar-sign1">$</p>
                         </form>
 
                     </form>
 
+                    <div class="vertical" id="v1"></div>
+             
                 </div>
 
                 {/* {/* Solar + Battery Form */}
@@ -210,7 +213,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
                             <select name="month" id="month-input2" class="dropdown-inputs">
-                                <option value="0">Select month</option>
+                                <option value= "" disabled selected hidden>Select month</option>
                                 <option value="1">01 - January</option>
                                 <option value="2">02 - February</option>
                                 <option value="3">03 - March</option>
@@ -230,7 +233,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
                             <select name="heating-type" id="heating-input2" class="dropdown-inputs">
-                                <option value="0">Select heating</option>
+                            <option value= "" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -243,12 +246,12 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="dod" > Depth of Discharge:</p>
-                            <input class="field-inputs" id="dod-input" type="text" name="dod" placeholder="95" />
+                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="95" />
                         </label>
 
                         <label>
                             <p class="field-titles" id="budget2title" > Budget (CAD):</p>
-                            <input class="field-inputs" id="budget2" type="text" name="budget" placeholder="10000" />
+                            <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="10000" />
                         </label>
 
 
@@ -257,9 +260,15 @@ class startSaving extends Component {
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase2" onClick={() => { increaseValue2(); }} value="Increase Value">+</div>
+                            <p id="percentage">%</p>
+                            <p id="dollar-sign2">$</p>
+                            
                         </form>
                     </form>
+    
 
+                    <div class="vertical" id="v2"></div>
+                    <div class="vertical" id="v3"></div>
 
                 </div>
 

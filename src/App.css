@@ -14,24 +14,24 @@
   overflow-x: hidden;
 }
 
-.sticky{
+.sticky {
   height: 50px;
   line-height: 80px;
   position: -webkit-sticky;
   position: fixed;
   top: 0px;
-  z-index: 9998!important;
-  }
+  z-index: 9998 !important;
+}
 
-.navs{
+.navs {
   position: absolute;
   background-color: white;
   font-size: 1.3vw;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   top: 3%;
-  }
+}
 
-#logo{
+#logo {
   position: absolute;
   margin-top: 1.5%;
   margin-left: 5.5%;
@@ -39,14 +39,14 @@
 }
 
 ul.nav-right {
-    width:100vw;
-    list-style:none;
-    text-align:right;
-    font-family: "Mulish"; 
-    font-weight: 300;
-    margin-right: 4%;
-    float: right;
-    overflow-x:hidden;
+  width: 100vw;
+  list-style: none;
+  text-align: right;
+  font-family: "Mulish";
+  font-weight: 300;
+  margin-right: 4%;
+  float: right;
+  overflow-x: hidden;
 }
 
 .nav-right li {
@@ -64,18 +64,18 @@ ul.nav-right {
 }
 
 .nav-right a:hover {
-  color: #80807F;
+  color: #80807f;
 }
 
 .nav-right a.selected {
   font-weight: 600;
   text-decoration: none;
   line-height: 2.5em;
-  border-bottom: 6px solid #ABB8D4;
-  color:#80807F;
+  border-bottom: 6px solid #abb8d4;
+  color: #80807f;
 }
 
-.scrolled{
+.scrolled {
   position: fixed;
   top: 0;
   left: 0;
@@ -583,6 +583,20 @@ ul.nav-right {
   color: #80807f;
 }
 
+.field-input-dod::placeholder {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  color: #80807f;
+}
+
+.field-inputs-budget::placeholder {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  color: #80807f;
+}
+
 .dropdownFormat {
   font-family: Roboto;
   font-style: italic;
@@ -594,8 +608,8 @@ ul.nav-right {
   position: absolute;
   width: 11vw;
   height: 2.7vh;
-  left: 64.5%;
-  font-size: 0.8vw;
+  left: 65.5%;
+  font-size: 0.7vw;
   font-family: Roboto;
   font-style: italic;
   font-weight: 200;
@@ -736,7 +750,7 @@ ul.nav-right {
 #battery-specs {
   top: 121%;
 }
-.help-tip{
+.help-tip {
   position: absolute;
   text-align: center;
   background-color: #f6d673;
@@ -749,23 +763,24 @@ ul.nav-right {
   cursor: default;
   left: 57.25%;
 }
-.help-tip:before{
-  content:'?';
+.help-tip:before {
+  content: "?";
   font-weight: bold;
-  color:#80807f;
+  color: #80807f;
 }
-.help-tip:hover p{
-  display:block;
+.help-tip:hover p {
+  display: block;
   transform-origin: 100% 0%;
 
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
 
-.help-tip p{    /* The tooltip    */
+.help-tip p {
+  /* The tooltip    */
   display: none;
   text-align: center;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   border-radius: 10px;
   padding: 50%;
   width: 18vw;
@@ -780,24 +795,26 @@ ul.nav-right {
   z-index: 9998 !important;
 }
 
-.help-tip p:before{ /* The pointer of the tooltip */
+.help-tip p:before {
+  /* The pointer of the tooltip */
   position: absolute;
-  content: '';
-  width:0;
+  content: "";
+  width: 0;
   height: 0;
-  border:6px solid transparent;
-  border-bottom-color:#E5E5E5;
-  right:10px;
-  top:-10px;
+  border: 6px solid transparent;
+  border-bottom-color: #e5e5e5;
+  right: 10px;
+  top: -10px;
 }
 
-.help-tip p:after{ /* Prevents the tooltip from being hidden */
-  width:100%;
-  height:40px;
-  content:'';
+.help-tip p:after {
+  /* Prevents the tooltip from being hidden */
+  width: 100%;
+  height: 40px;
+  content: "";
   position: absolute;
-  top:-40px;
-  left:0;
+  top: -40px;
+  left: 0;
 }
 
 #q1 {
@@ -901,6 +918,51 @@ form #decrease {
   font-family: "Mulish";
   font-style: normal;
   font-weight: 100;
+}
+
+form #percentage {
+  position: absolute;
+  top: 126.5%;
+  left: 63.5%;
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 1.15vw;
+  color: #000000;
+}
+
+form #dollar-sign1-line {
+  position: absolute;
+  top: 114.87%;
+  left: 64.5%;
+  font-family: "Mulish";
+  font-weight: 50;
+  font-size: 1.7vw;
+  color: #8a7979;
+}
+
+form #dollar-sign1 {
+  position: absolute;
+  top: 116.5%;
+  left: 63.5%;
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 1.15vw;
+  color: #000000;
+}
+
+form #dollar-sign2 {
+  position: absolute;
+  top: 142.5%;
+  left: 63.5%;
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 1.15vw;
+  color: #000000;
+}
+
+#dollar-sign {
+  top: 150%;
+  left: 73.9%;
 }
 
 #dollar1 {
@@ -1015,6 +1077,39 @@ input[type="number"]::-webkit-outer-spin-button {
   box-sizing: border-box;
   border-radius: 0.309vw;
   padding-left: 0.5%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.field-input-dod {
+  position: absolute;
+  width: 13vw;
+  height: 3vh;
+  left: 63%;
+  background: #ffffff;
+  border: 0.2vh solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 0.309vw;
+  padding-left: 2%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.field-inputs-budget {
+  position: absolute;
+  width: 13vw;
+  height: 3vh;
+  left: 63%;
+  background: #ffffff;
+  border: 0.2vh solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 0.309vw;
+  padding-left: 2%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .budegt-container1 {
@@ -1045,21 +1140,47 @@ input[type="number"]::-webkit-outer-spin-button {
   display: none;
 }
 
+.vertical {
+  position: absolute;
+  border: 0.02vw solid #80807f;
+  border-left-width: 0.02vw;
+  height: 2.7vh;
+  position: absolute;
+}
+
+#v1 {
+  left: 64.75%;
+  top: 116%;
+}
+
+#v2 {
+  left: 64.75%;
+  top: 126%;
+}
+#v3 {
+  left: 64.75%;
+  top: 142%;
+}
+
 /* CSS animation for inline help tips*/
 
 @-webkit-keyframes fadeIn {
-  0% { 
-      opacity:0; 
-      transform: scale(0.6);
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
   }
 
   100% {
-      opacity:100%;
-      transform: scale(1);
+    opacity: 100%;
+    transform: scale(1);
   }
 }
 
 @keyframes fadeIn {
-  0% { opacity:0; }
-  100% { opacity:100%; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
