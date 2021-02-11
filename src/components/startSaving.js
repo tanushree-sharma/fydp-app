@@ -112,7 +112,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                            <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="2000" />
+                            <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750" />
                         </label>
 
 
@@ -206,7 +206,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                            <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="2000" />
+                            <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="750" />
                         </label>
 
 
@@ -241,7 +241,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="storage-capacity" > Storage Capacity (kWh):</p>
-                            <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="2000" />
+                            <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="13" />
                         </label>
 
                         <label>

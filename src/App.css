@@ -569,7 +569,7 @@ ul.nav-right {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 0.9775vw;
+  font-size: 1.005vw;
   line-height: 2.097vh;
   letter-spacing: 0.05em;
   color: #000000;
@@ -736,7 +736,7 @@ ul.nav-right {
 }
 
 #energy-usage {
-  top: 88%;
+  top: 88.5%;
 }
 
 #initial-inv1 {
@@ -1131,9 +1131,9 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 0.309vw;
   padding-left: 0.5%;
   font-family: Roboto;
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
-  color: #80807f;
+  color: #000000;
 }
 
 .dropdown-inputs select {
