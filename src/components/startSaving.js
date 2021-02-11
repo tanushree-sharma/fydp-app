@@ -112,35 +112,34 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                            <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="2000" />
+                            <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750" />
                         </label>
 
 
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs">
-                                <option value="0">Select month</option>
-                                <option value="1">01 - January</option>
-                                <option value="2">02 - February</option>
-                                <option value="3">03 - March</option>
-                                <option value="4">04 - April</option>
-                                <option value="5">05 - May</option>
-                                <option value="6">06 - June</option>
-                                <option value="7">07 - July</option>
-                                <option value="8">08 - August</option>
-                                <option value="9">09 - September</option>
-                                <option value="10">10 - October</option>
-                                <option value="11">11 - November</option>
-                                <option value="12">12 - December</option>
+                            <select name="month" id="month-input1" class="dropdown-inputs" required>
+                                <option value= "" disabled hidden selected>Select month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
                             </select>
                         </label>
 
-
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
-                                <option value="0">Select heating</option>
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
+                                <option value= "" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -148,7 +147,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="budget1title" > Budget (CAD):</p>
-                            <input class="field-inputs" id="budget1" type="text" name="budget" placeholder="10000" />
+                            <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" />
                         </label>
 
 
@@ -158,10 +157,13 @@ class startSaving extends Component {
                         <form>
                             <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase" onClick={() => { increaseValue(); }} value="Increase Value">+</div>
+                            <p id="dollar-sign1">$</p>
                         </form>
 
                     </form>
 
+                    {/* <div class="vertical" id="v1"></div> */}
+             
                 </div>
 
                 {/* {/* Solar + Battery Form */}
@@ -203,34 +205,34 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                            <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="2000" />
+                            <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="750" />
                         </label>
 
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input2" class="dropdown-inputs">
-                                <option value="0">Select month</option>
-                                <option value="1">01 - January</option>
-                                <option value="2">02 - February</option>
-                                <option value="3">03 - March</option>
-                                <option value="4">04 - April</option>
-                                <option value="5">05 - May</option>
-                                <option value="6">06 - June</option>
-                                <option value="7">07 - July</option>
-                                <option value="8">08 - August</option>
-                                <option value="9">09 - September</option>
-                                <option value="10">10 - October</option>
-                                <option value="11">11 - November</option>
-                                <option value="12">12 - December</option>
+                            <select name="month" id="month-input1" class="dropdown-inputs" required>
+                                <option value= "" disabled hidden selected>Select month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
                             </select>
                         </label>
 
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input2" class="dropdown-inputs">
-                                <option value="0">Select heating</option>
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
+                                <option value= "" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -238,17 +240,17 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="storage-capacity" > Storage Capacity (kWh):</p>
-                            <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="2000" />
+                            <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="13" />
                         </label>
 
                         <label>
                             <p class="field-titles" id="dod" > Depth of Discharge:</p>
-                            <input class="field-inputs" id="dod-input" type="text" name="dod" placeholder="95" />
+                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="95" />
                         </label>
 
                         <label>
                             <p class="field-titles" id="budget2title" > Budget (CAD):</p>
-                            <input class="field-inputs" id="budget2" type="text" name="budget" placeholder="10000" />
+                            <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="10000" />
                         </label>
 
 
@@ -257,9 +259,15 @@ class startSaving extends Component {
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase2" onClick={() => { increaseValue2(); }} value="Increase Value">+</div>
+                            <p id="percentage">%</p>
+                            <p id="dollar-sign2">$</p>
+                            
                         </form>
                     </form>
+    
 
+                    {/* <div class="vertical" id="v2"></div>
+                    <div class="vertical" id="v3"></div> */}
 
                 </div>
 
