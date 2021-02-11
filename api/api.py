@@ -7,7 +7,7 @@ import solarBatteryModel
 template_dir = '../src/components/'
 app = Flask(__name__, template_folder=template_dir)
 
-@app.route('/solarModel', methods=['POST'])
+@app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form['postal_code']
     roofSize = request.form['roof_size']
@@ -32,7 +32,7 @@ def run_model():
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
     springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted)
 
-@app.route('/batteryModel', methods=['POST'])
+@app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
     postalCode = request.form['postal_code']
     roofSize = request.form['roof_size']

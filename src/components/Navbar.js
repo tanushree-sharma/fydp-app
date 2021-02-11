@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from '../logo.png';
-import $ from 'jquery';
 
 class Navbar extends Component {
     render() {
@@ -58,6 +57,7 @@ class Navbar extends Component {
             </div>
         );
     }
-    }
-    
+}
+
+
 export default Navbar

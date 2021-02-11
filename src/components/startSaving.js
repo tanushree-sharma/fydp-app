@@ -99,7 +99,7 @@ class startSaving extends Component {
                         <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
                     </div>
 
-                    <form action="/solarModel" method="POST">
+                    <form action="/solar-results" method="POST">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
                             <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" />
@@ -190,7 +190,7 @@ class startSaving extends Component {
                         <p>The DoD should be listed under your battery specifications.</p>
                     </div>
 
-                    <form action="/batteryModel" method="POST">
+                    <form action="/solarbattery-results" method="POST">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
                             <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" />
