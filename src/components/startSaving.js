@@ -120,22 +120,21 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
                             <select name="month" id="month-input1" class="dropdown-inputs" required>
-                                <option value= "" disabled selected hidden>Select month</option>
-                                <option value="1">01 - January</option>
-                                <option value="2">02 - February</option>
-                                <option value="3">03 - March</option>
-                                <option value="4">04 - April</option>
-                                <option value="5">05 - May</option>
-                                <option value="6">06 - June</option>
-                                <option value="7">07 - July</option>
-                                <option value="8">08 - August</option>
-                                <option value="9">09 - September</option>
-                                <option value="10">10 - October</option>
-                                <option value="11">11 - November</option>
-                                <option value="12">12 - December</option>
+                                <option value= "" disabled hidden selected>Select month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
                             </select>
                         </label>
-
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
@@ -212,28 +211,28 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input2" class="dropdown-inputs">
-                                <option value= "" id="grey-fonts" disabled selected hidden>Select month</option>
-                                <option value="1">01 - January</option>
-                                <option value="2">02 - February</option>
-                                <option value="3">03 - March</option>
-                                <option value="4">04 - April</option>
-                                <option value="5">05 - May</option>
-                                <option value="6">06 - June</option>
-                                <option value="7">07 - July</option>
-                                <option value="8">08 - August</option>
-                                <option value="9">09 - September</option>
-                                <option value="10">10 - October</option>
-                                <option value="11">11 - November</option>
-                                <option value="12">12 - December</option>
+                            <select name="month" id="month-input1" class="dropdown-inputs" required>
+                                <option value= "" disabled hidden selected>Select month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
                             </select>
                         </label>
 
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input2" class="dropdown-inputs">
-                            <option value= "" if="grey-fonts" disabled selected hidden>Select heating</option>
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
+                                <option value= "" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>

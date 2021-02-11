@@ -31,6 +31,7 @@
   top: 3%;
 }
 
+
 #logo {
   position: absolute;
   margin-top: 1.5%;
@@ -563,13 +564,13 @@ ul.nav-right {
 
 .field-titles {
   position: absolute;
-  width: 12vw;
+  width: 14vw;
   height: 2.4vh;
-  left: 41%;
+  left: 39%;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.005vw;
+  font-size: 1.15vw;
   line-height: 2.097vh;
   letter-spacing: 0.05em;
   color: #000000;
@@ -654,27 +655,27 @@ ul.nav-right {
 }
 
 #month-title {
-  top: 89%;
+  top: 88.7%;
 }
 
 #month-input1 {
-  top: 88%;
+  top: 87.7%;
 }
 
 #month-input2 {
-  top: 88%;
+  top: 87.7%;
 }
 
 #heating-type-title {
-  top: 98.5%;
+  top: 98.3%;
 }
 
 #heating-input1 {
-  top: 98%;
+  top: 97.5%;
 }
 
 #heating-input2 {
-  top: 98%;
+  top: 97.5%;
 }
 
 #budget1 {
@@ -822,11 +823,11 @@ ul.nav-right {
 }
 
 #q2 {
-  top: 88.5%;
+  top: 88%;
 }
 
 #q3 {
-  top: 78.5%;
+  top: 78.8%;
 }
 
 #q4 {
@@ -1133,11 +1134,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  color: #000000;
-}
-
-.dropdown-inputs select {
-  display: none;
+  color:black;
 }
 
 .vertical {
@@ -1199,4 +1196,9 @@ input[type="number"]::-webkit-outer-spin-button {
   100% {
     opacity: 100%;
   }
+}
+
+/* 2 - Style default state using the :invalid pseudo-class */
+select:invalid {
+  color: #80807f;
 }
