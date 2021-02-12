@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import graphic from '../question_img.png'
+import warning from '../warning.png'
 
 class startSaving extends Component {
     render() {
+        // switching between tabs
         var tabs = document.getElementsByClassName('Tab');
         window.addEventListener('load', function () {
             Array.prototype.forEach.call(tabs, function (tab) {
                 tab.addEventListener('click', setActiveClass);
             });
         });
-
         function setActiveClass(evt) {
             Array.prototype.forEach.call(tabs, function (tab) {
                 tab.classList.remove('active');
@@ -17,7 +18,6 @@ class startSaving extends Component {
 
             evt.currentTarget.classList.add('active');
         }
-
         function showTab(selected, total) {
             var i;
             for (i = 1; i <= total; i += 1) {
@@ -28,14 +28,13 @@ class startSaving extends Component {
             document.getElementById('tabs' + selected).style.fontWeight = 600;
         }
 
-
+        // buttons for increasing and decreasing budget input on Solar form
         function increaseValue() {
             var value = parseInt(document.getElementById('budget1').value, 10);
             value = isNaN(value) ? 0 : value;
             value = value + 500;
             document.getElementById('budget1').value = value;
         }
-
         function decreaseValue() {
             var value = parseInt(document.getElementById('budget1').value, 10);
             value = isNaN(value) ? 0 : value;
@@ -44,15 +43,13 @@ class startSaving extends Component {
             }
             document.getElementById('budget1').value = value;
         }
-
-
+        // buttons for increasing and decreasing budget input on Solar+Battery form
         function increaseValue2() {
             var value = parseInt(document.getElementById('budget2').value, 10);
             value = isNaN(value) ? 0 : value;
             value = value + 500;
             document.getElementById('budget2').value = value;
         }
-
         function decreaseValue2() {
             var value = parseInt(document.getElementById('budget2').value, 10);
             value = isNaN(value) ? 0 : value;
@@ -62,6 +59,58 @@ class startSaving extends Component {
             document.getElementById('budget2').value = value;
         }
 
+        // check values for Solar form and alert user of default values being used
+        function checkSolarValues() {
+            var modal = document.getElementById("solarModal");
+            var update = document.getElementById("solar-update");
+
+            var postalCode = document.forms["solar"]["postal_code"].value;
+            var roofSize = document.forms["solar"]["roof_size"].value;
+            var elecUsage = document.forms["solar"]["elec-usage"].value;
+            var month = document.forms["solar"]["month"].value;
+            var heating = document.forms["solar"]["heating-type"].value;
+            var budget = document.forms["solar"]["budget"].value;
+
+
+            if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") {
+                modal.style.display = "block";
+                update.onclick = function() {
+                    modal.style.display="none";
+                }
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+        }
+        // check values for Solar form and alert user of default values being used
+        function checkBatteryValues() {
+            var modal = document.getElementById("batteryModal");
+            var update = document.getElementById("battery-update");
+
+            var postalCode = document.forms["battery"]["postal_code"].value;
+            var roofSize = document.forms["battery"]["roof_size"].value;
+            var elecUsage = document.forms["battery"]["elec-usage"].value;
+            var month = document.forms["battery"]["month"].value;
+            var heating = document.forms["battery"]["heating-type"].value;
+            var batteryCap = document.forms["battery"]["storage_capacity"].value;
+            var dod = document.forms["battery"]["dod"].value;
+            var budget = document.forms["battery"]["budget"].value;
+
+
+            if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || batteryCap == "" || dod == "" || budget == "") {
+                modal.style.display = "block";
+                update.onclick = function() {
+                    modal.style.display="none";
+                }
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+        }
 
 
         return (
@@ -99,7 +148,7 @@ class startSaving extends Component {
                         <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
                     </div>
 
-                    <form action="/solar-results" method="POST">
+                    <form action="/solar-results" name="solar" method="POST" class="userform"> 
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
                             <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" />
@@ -119,7 +168,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs" required>
+                            <select name="month" id="month-input1" class="dropdown-inputs">
                                 <option value= "" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -138,7 +187,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
                                 <option value= "" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -152,22 +201,17 @@ class startSaving extends Component {
 
 
 
-                        <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" />
+                        <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => {checkSolarValues();}}/>
 
                         <form>
                             <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase" onClick={() => { increaseValue(); }} value="Increase Value">+</div>
                             <p id="dollar-sign1">$</p>
                         </form>
-
                     </form>
-
-                    {/* <div class="vertical" id="v1"></div> */}
-             
                 </div>
 
                 {/* {/* Solar + Battery Form */}
-
                 <div class="Panel__body tabContent" id="tabs-2">
 
                     <p class="formSectionTitles" id="home-specs" >Home Specs</p>
@@ -192,7 +236,7 @@ class startSaving extends Component {
                         <p>The DoD should be listed under your battery specifications.</p>
                     </div>
 
-                    <form action="/solarbattery-results" method="POST">
+                    <form action="/solarbattery-results" method="POST" name="battery" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
                             <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" />
@@ -254,7 +298,7 @@ class startSaving extends Component {
                         </label>
 
 
-                        <input type="submit" class="resultsButton" id="results-button2" value="Generate Results"/>
+                        <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => {checkBatteryValues();}}/>
 
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
@@ -264,14 +308,36 @@ class startSaving extends Component {
                             
                         </form>
                     </form>
-    
-
-                    {/* <div class="vertical" id="v2"></div>
-                    <div class="vertical" id="v3"></div> */}
-
                 </div>
 
-
+                <div id="solarModal" class="modal">
+                    <div class="modal-content">
+                        <div id="modal-top-border"></div>
+                        <img src={warning} id="warning" alt="warning"></img>
+                        <p id="modal-title"> Incomplete fields </p>
+                        <p id="modal-text"> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.</p>
+                        <div id="buttondiv">
+                            <form action="/solar-results" method="POST">
+                                <button id="continue"> Continue</button>
+                            </form>
+                            <button class="modalSubmit" id="solar-update"> Update fields </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="batteryModal" class="modal">
+                    <div class="modal-content">
+                        <div id="modal-top-border"></div>
+                        <img src={warning} id="warning" alt="warning"></img>
+                        <p id="modal-title"> Incomplete fields </p>
+                        <p id="modal-text"> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.</p>
+                        <div id="buttondiv">
+                            <form action="/solarbattery-results" method="POST">
+                                <button id="continue"> Continue</button>
+                            </form>
+                            <button class="modalSubmit" id="battery-update"> Update fields </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

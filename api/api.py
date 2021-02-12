@@ -29,6 +29,7 @@ def run_model():
     reducedCO2 = solution[8]
     treesPlanted = solution[9]
 
+    flash('hello')
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
     springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted)
 
