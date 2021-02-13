@@ -289,7 +289,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="dod" > Depth of Discharge:</p>
-                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="95" />
+                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" />
                         </label>
 
                         <label>
