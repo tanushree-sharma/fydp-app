@@ -7,6 +7,21 @@ class startSaving extends Component {
         // switching between tabs
         var tabs = document.getElementsByClassName('Tab');
         window.addEventListener('load', function () {
+            // switching tab if returning from battery results page
+            var whichForm = localStorage.getItem("whichForm")
+            var solarTab = document.getElementById("tabs1");
+            var batteryTab = document.getElementById("tabs2");
+
+            console.log(whichForm);
+            if (whichForm == "battery") {
+                solarTab.classList.remove("active");
+                batteryTab.classList.add("active");
+                document.getElementById('tabs-1').style.display = 'none';
+                document.getElementById('tabs1').style.fontWeight = 400;
+                document.getElementById('tabs-2').style.display = 'block';
+                document.getElementById('tabs2').style.fontWeight = 600;
+            }
+
             Array.prototype.forEach.call(tabs, function (tab) {
                 tab.addEventListener('click', setActiveClass);
             });
@@ -74,10 +89,10 @@ class startSaving extends Component {
 
             if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") {
                 modal.style.display = "block";
-                update.onclick = function() {
-                    modal.style.display="none";
+                update.onclick = function () {
+                    modal.style.display = "none";
                 }
-                window.onclick = function(event) {
+                window.onclick = function (event) {
                     if (event.target == modal) {
                         modal.style.display = "none";
                     }
@@ -101,17 +116,16 @@ class startSaving extends Component {
 
             if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || batteryCap == "" || dod == "" || budget == "") {
                 modal.style.display = "block";
-                update.onclick = function() {
-                    modal.style.display="none";
+                update.onclick = function () {
+                    modal.style.display = "none";
                 }
-                window.onclick = function(event) {
+                window.onclick = function (event) {
                     if (event.target == modal) {
                         modal.style.display = "none";
                     }
                 }
             }
         }
-
 
         return (
             <div class="Panel">
@@ -148,7 +162,7 @@ class startSaving extends Component {
                         <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
                     </div>
 
-                    <form action="/solar-results" name="solar" method="POST" class="userform"> 
+                    <form action="/solar-results" name="solar" method="POST" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
                             <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" />
@@ -169,7 +183,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
                             <select name="month" id="month-input1" class="dropdown-inputs">
-                                <option value= "" disabled hidden selected>Select month</option>
+                                <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
                                 <option value="3">March</option>
@@ -188,7 +202,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
                             <select name="heating-type" id="heating-input1" class="dropdown-inputs">
-                                <option value= "" disabled selected hidden>Select heating</option>
+                                <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -201,7 +215,7 @@ class startSaving extends Component {
 
 
 
-                        <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => {checkSolarValues();}}/>
+                        <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
 
                         <form>
                             <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
@@ -256,7 +270,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
                             <select name="month" id="month-input1" class="dropdown-inputs" required>
-                                <option value= "" disabled hidden selected>Select month</option>
+                                <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
                                 <option value="3">March</option>
@@ -276,7 +290,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
                             <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
-                                <option value= "" disabled selected hidden>Select heating</option>
+                                <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -298,14 +312,14 @@ class startSaving extends Component {
                         </label>
 
 
-                        <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => {checkBatteryValues();}}/>
+                        <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
 
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase2" onClick={() => { increaseValue2(); }} value="Increase Value">+</div>
                             <p id="percentage">%</p>
                             <p id="dollar-sign2">$</p>
-                            
+
                         </form>
                     </form>
                 </div>

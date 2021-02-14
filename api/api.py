@@ -50,8 +50,10 @@ def run_model():
     reducedCO2 = solution[8]
     treesPlanted = solution[9]
 
+    form = "solar"
+
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
-    springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted)
+    springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted, form=form)
 
 @app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
@@ -100,8 +102,10 @@ def run_BattteryModel():
     reducedCO2 = solution[8]
     treesPlanted = solution[9]
 
+    form = "battery"
+
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
-    springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted)
+    springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted, form=form)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=TRUE)

@@ -1190,6 +1190,13 @@
             color: black;
             outline: none;
         }
+
+        #which-form {
+            position: absolute;
+            color: white;
+            top: 150%;
+            left: 5%;
+        }
     </style>
 
 
@@ -1234,7 +1241,6 @@
             </ul>
         </div>
     </div>
-
 
     <div id="downloadContent">
         <!-- title -->
@@ -1311,10 +1317,18 @@
 
     <div>editor</div>
 
-
+    <script>
+        window.onload = function () {
+            var whichForm = document.getElementById("which-form").innerHTML;
+            console.log(whichForm);
+            localStorage.setItem("whichForm", whichForm);
+        }
+    </script>
     <!-- save results -->
     <button class="download" onClick="genPDF()"> Download </button>
-    <button id="return" onClick="history.go(-1)"> Go Back </button>
+    <button id="return" onclick="history.back(-1)"> Go Back</button>
+
+    <p id="which-form">{{form}}</p>
 
     <!-- footer -->
     <div class="footer">
