@@ -4,7 +4,7 @@ from pulp import *
 
 def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     # defining parameters
-    E0 = int(usage) * 1000  # seasonal electricity usage (Wh) from user
+    E0 = int(usage) * 3 * 1000  # seasonal electricity usage (Wh) from user
     month = int(month) # electricity usage month from user
     heating = int(heating) # dependent on user input electric or natural gas
     postal_code = postalCode.upper() # first 3 digits of postal code
