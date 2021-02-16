@@ -1229,8 +1229,8 @@ select:invalid {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 40%;
-  height: 20%;
+  width: 40vw;
+  height: 20vh;
   text-align: left;
 }
 #modal-title {
@@ -1241,13 +1241,12 @@ select:invalid {
   letter-spacing: 0.05em;
   color: #000000;
   margin-top: 2%;
-
 }
 #modal-text {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.7vh;
+  font-size: 1.7vmin;
   letter-spacing: 0.05em;
   margin-top: 2vh;
   margin-bottom: 4vh;
@@ -1261,11 +1260,16 @@ select:invalid {
   vertical-align: middle;
 }
 #buttondiv {
+  position: absolute;
+  left: 0%;
+  top: 72%;
+  width: 100%;
+  height: 7vh;
   border-top: 1px solid #80807F;
-  padding: 1.5vh;
 }
 
 #solar-update, #battery-update {
+  position: absolute;
   background: #FFFFFF;
   border: 1px solid #F6D673;
   box-sizing: border-box;
@@ -1279,12 +1283,12 @@ select:invalid {
   font-weight: 600;
   font-size: 1.5vh;
 
-  margin-right: 1vw;
-  float: right;
-
+  left: 50%;
+  bottom: 5%;
 }
 
 #continue {
+  position: absolute;
   background: #F6D673;
   border: 1px solid #F6D673;
   box-sizing: border-box;
@@ -1298,6 +1302,15 @@ select:invalid {
   font-weight: 600;
   font-size: 1.5vh;
 
-  float: right;
+  left: 75%;
+  bottom: 5%;
 }
 
+#solar-update:hover, #battery-update:hover {
+  border: 1px solid #faebbc;
+}
+#continue:hover {
+  background: #faebbc;
+  color: black;
+  outline: none;
+}

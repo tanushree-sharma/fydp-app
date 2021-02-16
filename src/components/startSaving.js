@@ -330,12 +330,11 @@ class startSaving extends Component {
                         <img src={warning} id="warning" alt="warning"></img>
                         <p id="modal-title"> Incomplete fields </p>
                         <p id="modal-text"> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.</p>
-                        <div id="buttondiv">
-                            <form action="/solar-results" method="POST">
-                                <button id="continue"> Continue</button>
-                            </form>
-                            <button class="modalSubmit" id="solar-update"> Update fields </button>
-                        </div>
+                        <div id="buttondiv"></div>
+                        <form action="/solar-results" method="POST">
+                            <button id="continue"> Continue</button>
+                        </form>
+                        <button class="modalSubmit" id="solar-update"> Update fields </button>
                     </div>
                 </div>
                 <div id="batteryModal" class="modal">
@@ -344,12 +343,11 @@ class startSaving extends Component {
                         <img src={warning} id="warning" alt="warning"></img>
                         <p id="modal-title"> Incomplete fields </p>
                         <p id="modal-text"> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.</p>
-                        <div id="buttondiv">
-                            <form action="/solarbattery-results" method="POST">
-                                <button id="continue"> Continue</button>
-                            </form>
-                            <button class="modalSubmit" id="battery-update"> Update fields </button>
-                        </div>
+                        <div id="buttondiv"></div>
+                        <form action="/solarbattery-results" method="POST">
+                            <button id="continue"> Continue</button>
+                        </form>
+                        <button class="modalSubmit" id="battery-update"> Update fields </button>
                     </div>
                 </div>
             </div>

@@ -4,19 +4,27 @@ from pulp import *
 
 def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     # defining parameters
-    E0 = int(usage) * 3 * 1000  # seasonal electricity usage (Wh) from user
-    month = int(month) # electricity usage month from user
-    heating = int(heating) # dependent on user input electric or natural gas
+    E0 = usage * 3 * 1000  # seasonal electricity usage (Wh) from user
+    month = month # electricity usage month from user
+    heating = heating # dependent on user input electric or natural gas
     postal_code = postalCode.upper() # first 3 digits of postal code
-    B = int(budget)  # budget from user
-    Ar = int(roofSize)  # area of the roof (ft^2) from user
-    Pb = float(storage) * 1000  # battery capacity from user (W)
-    DoD = int(DoD) / 100  # depth of discharge for battery system (%)
+    B = budget  # budget from user
+    Ar = roofSize  # area of the roof (ft^2) from user
+    Pb = storage * 1000  # battery capacity from user (W)
+    DoD = DoD / 100  # depth of discharge for battery system (%)
 
-        # seasonal electricity usage (Wh) with trend
+    print("E0: " + str(E0))
+    print("Month: " + str(month))
+    print("Heating Type: " + str(heating))
+    print("Postal Code: " + str(postal_code))
+    print("Budget: " + str(B))
+    print("Roof Size: " + str(Ar))
+    print("Battery Capacity: " + str(Pb))
+    print("Depth of Discharge: " + str(DoD))
+
+    # seasonal electricity usage (Wh) with trend
     # if heating is electric, summer demand is inflated by 30% and winter is inflated by 298%
     if heating == 1:
-        print("Electric")
         if month == 1 or month == 2 or month == 12: # winter months
             E = [[(E0/2.98), (E0/2.98*(1.3)), (E0/2.98), E0]]
         elif month == 6 or month == 5 or month == 8: # summer months
