@@ -82,10 +82,10 @@ def run_BattteryModel():
         month = int(month)
     if type(heating) is not int:
         heating = int(heating)
-    if type(storage) is not int:
-        storage = int(storage)
-    if type(DoD) is not int:
-        DoD = int(DoD)
+    if type(storage) is not float:
+        storage = float(storage)
+    if type(DoD) is not float:
+        DoD = float(DoD)
     if type(budget) is not int:
         budget = int(budget)  
 
