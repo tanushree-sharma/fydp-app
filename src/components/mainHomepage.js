@@ -15,6 +15,8 @@ console.log(longTermSavings)
 
 class mainHomepage extends Component {
     render() {
+        var defaultForm = "solar";
+        localStorage.setItem("whichForm", defaultForm);
         return (
         <div id="main">
             {/* main landing page */}

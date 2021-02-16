@@ -8,8 +8,16 @@ def solve(postalCode, roofSize, usage, month, heating, budget):
     month = int(month) # electricity usage month from user
     heating = int(heating) # dependent on user input electric or natural gas
     postal_code = postalCode.upper() # first 3 digits of postal code
-    B = int(budget)  # budget from user
-    Ar = int(roofSize)  # area of the roof (ft^2) from user
+    B = budget  # budget from user
+    Ar = roofSize  # area of the roof (ft^2) from user
+
+    print("E0: " + str(E0))
+    print("Month: " + str(month))
+    print("Heating Type: " + str(heating))
+    print("Postal Code: " + str(postal_code))
+    print("Budget: " + str(B))
+    print("Roof Size: " + str(Ar))
+
 
     # seasonal electricity usage (Wh) with trend
     # if heating is electric, summer demand is inflated by 30% and winter is inflated by 298%
