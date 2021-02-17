@@ -833,6 +833,22 @@ ul.nav-right {
   top: 126.5%;
 }
 
+#generate-box {
+  position: absolute;
+  left: 45%;
+  top: 140%;
+  width: 20%;
+  height: 10%; 
+}
+#generate-box2 {
+  position: absolute;
+  left: 45%;
+  top: 160%;
+  width: 20%;
+  height: 10%;
+  border: none;
+}
+
 .resultsButton {
   font-family: "Roboto";
   font-style: normal;
@@ -841,25 +857,18 @@ ul.nav-right {
   line-height: 1.5vw;
 
   position: absolute;
-  width: 17%;
-  height: 8%;
-  left: 43.5%;
+  width: 100%;
+  height: 100%;
+
+  left: 0%;
 
   border-radius: 5.844vw;
   background-color: #f6d673;
   border: none;
   outline: none;
   text-align: center;
-  display: inline-block;
 }
 
-#results-button1 {
-  top: 140%;
-}
-
-#results-button2 {
-  top: 160%;
-}
 #results-button1:hover {
   background: #faebbc;
   color: black;
@@ -1242,7 +1251,7 @@ select:invalid {
   color: #000000;
   margin-top: 2%;
 }
-#modal-text {
+#modal-text, #error-text {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -1287,6 +1296,25 @@ select:invalid {
   bottom: 5%;
 }
 
+#error-update {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid #F6D673;
+  box-sizing: border-box;
+  border-radius: 2vh;
+
+  width: 9vw;
+  height: 4vh;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5vh;
+
+  left: 75%;
+  bottom: 5%;
+}
+
 #continue {
   position: absolute;
   background: #F6D673;
@@ -1313,4 +1341,17 @@ select:invalid {
   background: #faebbc;
   color: black;
   outline: none;
+}
+
+.correct {
+  border: 2px solid #F6D673;
+}
+.correctish {
+  border: 0.2vh solid #e5e5e5;
+}
+.disabled-button {
+  background: #faebbc;
+  color: black;
+  outline: none;
+  pointer-events: none;
 }

@@ -99,7 +99,7 @@ class startSaving extends Component {
                 }
             }
         }
-        // check values for Solar form and alert user of default values being used
+        // check values for Battery form and alert user of default values being used
         function checkBatteryValues() {
             var modal = document.getElementById("batteryModal");
             var update = document.getElementById("battery-update");
@@ -126,7 +126,162 @@ class startSaving extends Component {
                 }
             }
         }
+        function isLetter(char) {
+            return (/[a-zA-Z]/).test(char);
+        }
+        function checkingSolarInputs() {
+            var postalCodeBox = document.getElementById("postal-code-input1");
+            var resultsButton = document.getElementById("results-button1");
+            var postalCode = document.forms["solar"]["postal_code"].value;
+            var postalError = false;
 
+            var split = [];
+            var i;
+            for (i=0; i<postalCode.length; i++) {
+                split[i] = postalCode.charAt([i]);
+            }
+
+            // checking if user input is a valid postal code
+            if (postalCode.length == 3 && isLetter(split[0]) == true && Number(split[0]) != NaN && isLetter(split[2]) == true) {
+                console.log("this is a valid postal code");
+                postalCodeBox.classList.add("correct");
+                postalCodeBox.classList.remove("correctish");
+                postalError = false;
+            } else {
+                console.log("this is NOT a valid postal code");
+                postalCodeBox.classList.remove("correct");
+                postalCodeBox.classList.remove("correctish");
+                postalError = true;
+            }
+            if (postalCode.length == 0) {
+                postalCodeBox.classList.remove("correct");
+                postalCodeBox.classList.add("correctish");
+                postalError = false;
+            }
+
+            var roofSizeBox = document.getElementById("roof-size-input1");
+            var roofSize = document.forms["solar"]["roof_size"].value;
+            var roofError = false;
+
+            // checking to see if user inputted a number for solar roof size and that there is enough space for at least one panel (20sqft)
+            if (Number(roofSize) && Number(roofSize) >= 20) {
+                console.log("this is a valid roof size");
+                roofSizeBox.classList.add("correct");
+                roofSizeBox.classList.remove("correctish");
+                roofError = false;
+            } else {
+                console.log("this is not a valid roof size");
+                roofSizeBox.classList.remove("correct");
+                roofSizeBox.classList.remove("correctish");
+                roofError = true;
+            }
+            if (roofSize.length == 0) {
+                roofSizeBox.classList.remove("correct");
+                roofSizeBox.classList.add("correctish");
+                roofError = false;
+            }
+
+            var usageBox = document.getElementById("elec-usage-input1");
+            var usage = document.forms["solar"]["elec-usage"].value;
+            var usageError = false;
+
+            // checking to see if user inputted a number for solar electricy usage is greater than the output of one panel (315w per hour = 0.315 Kw per hour => 0.315 * 5.5 = 1.73KW/Day = 52KW/month)
+            if (Number(usage) && Number(usage) >= 52) {
+                console.log("this is a valid usage amount");
+                usageBox.classList.add("correct");
+                usageBox.classList.remove("correctish");
+                usageError = false;
+            } else {
+                console.log("this is not a valid usage amount");
+                usageBox.classList.remove("correct");
+                usageBox.classList.remove("correctish");
+                usageError = true;
+            }
+            if (usage.length == 0) {
+                usageBox.classList.remove("correct");
+                usageBox.classList.add("correctish");
+                usageError = false;
+            }            
+
+            var budgetBox = document.getElementById("budget1");
+            var budget = document.forms["solar"]["budget"].value;
+            var budgetError = false;
+
+            // checking to see if user inputted a number greater than the cost of one panel + fixed costs
+            if (Number(budget) && Number(budget) >= 3500) {
+                console.log("this is a valid budget amount");
+                budgetBox.classList.add("correct");
+                budgetBox.classList.remove("correctish");
+                budgetError = false;
+            } else {
+                console.log("this is not a valid budget amount");
+                budgetBox.classList.remove("correct");
+                budgetBox.classList.remove("correctish");
+                budgetError = true;
+            }
+            if (budget.length == 0) {
+                budgetBox.classList.remove("correct");
+                budgetBox.classList.add("correctish");
+                budgetError = false;
+            }  
+
+            if (postalError == true || roofError == true || usageError == true || budgetError == true) {
+                resultsButton.classList.add("disabled-button");
+            } else {
+                resultsButton.classList.remove("disabled-button");
+            }
+        }
+        function highlightMonth() {
+            var monthBox = document.getElementById("month-input1");
+            monthBox.classList.add("correct");
+        }
+        function highlightHeating() {
+            var heatingBox = document.getElementById("heating-input1");
+            heatingBox.classList.add("correct");
+        }
+
+
+        function finalCheckSolarErrors() {
+            console.log("checking errors");
+            var errorModal = document.getElementById("errorModal");
+            var resultsButton = document.getElementById("results-button1");
+            var postalCodeBox = document.getElementById("postal-code-input1");
+            var roofSizeBox = document.getElementById("roof-size-input1");
+            var usageBox = document.getElementById("elec-usage-input1");
+            var budgetBox = document.getElementById("budget1");
+            var errorText = document.getElementById("error-text");
+            var update = document.getElementById("error-update");
+
+            if (resultsButton.classList.contains("disabled-button")) {
+                errorModal.style.display = "block";
+                // checking for postal code error
+                if (!postalCodeBox.classList.contains("correct") && !postalCodeBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Postal Code needs to be in the form of 'M3N'. <br>"
+                }
+                // checking for roof size error
+                if (!roofSizeBox.classList.contains("correct") && !roofSizeBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Roof Size needs to be a number greater than 20 sqft, which is the size of one solar panel. <br>"
+                }
+                // checking for usage error
+                if (!usageBox.classList.contains("correct") && !usageBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Electricity Usage needs to be a number greater than 52 kWh, which is the potential output of one solar panel. <br>"
+                }
+                // checking for budget error
+                if (!budgetBox.classList.contains("correct") && !budgetBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Budget needs to be a number greated than $3500, which is the cost of one solar panel + cost of installation"
+                }
+                update.onclick = function () {
+                    errorModal.style.display = "none";
+                    errorText.innerHTML = "";
+                }
+                window.onclick = function (event) {
+                    if (event.target == errorModal) {
+                        errorModal.style.display = "none";
+                        errorText.innerHTML = "";
+                    }
+                }
+            }
+        }
         return (
             <div class="Panel">
                 <nav>
@@ -165,24 +320,24 @@ class startSaving extends Component {
                     <form action="/solar-results" name="solar" method="POST" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                            <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" />
+                            <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" maxlength="3" onBlur={() => { checkingSolarInputs(); }}/>
                         </label>
 
                         <label>
                             <p class="field-titles" id="roof-size" > Roof Size (Sqft):  </p>
-                            <input class="field-inputs" id="roof-size-input1" type="text" name="roof_size" placeholder="2000" />
+                            <input class="field-inputs" id="roof-size-input1" type="text" name="roof_size" placeholder="2000" onBlur={() => { checkingSolarInputs(); }}/>
                         </label>
 
                         <label>
                             <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                            <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750" />
+                            <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingSolarInputs(); }}/>
                         </label>
 
 
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs">
+                            <select name="month" id="month-input1" class="dropdown-inputs" required onBlur={() => { highlightMonth(); }}>
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -201,7 +356,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required onBlur={() => { highlightHeating(); }}>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -210,13 +365,13 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="budget1title" > Budget (CAD):</p>
-                            <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" />
+                            <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" onBlur={() => { checkingSolarInputs(); }}/>
                         </label>
 
 
-
-                        <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
-
+                        <div id="generate-box" onMouseOver={() => { finalCheckSolarErrors(); }}>
+                            <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
+                        </div>
                         <form>
                             <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase" onClick={() => { increaseValue(); }} value="Increase Value">+</div>
@@ -253,7 +408,7 @@ class startSaving extends Component {
                     <form action="/solarbattery-results" method="POST" name="battery" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                            <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" />
+                            <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" maxlength="3"/>
                         </label>
 
                         <label>
@@ -269,7 +424,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs" required>
+                            <select name="month" id="month-input2" class="dropdown-inputs" required>
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -289,7 +444,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
+                            <select name="heating-type" id="heating-input2" class="dropdown-inputs" required>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -311,8 +466,9 @@ class startSaving extends Component {
                             <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="10000" />
                         </label>
 
-
-                        <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
+                        <div id="generate-box2">
+                            <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
+                        </div>
 
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
@@ -350,6 +506,19 @@ class startSaving extends Component {
                         <button class="modalSubmit" id="battery-update"> Update fields </button>
                     </div>
                 </div>
+                <div id="errorModal" class="modal">
+                    <div class="modal-content">
+                        <div id="modal-top-border"></div>
+                        <img src={warning} id="warning" alt="warning"></img>
+                        <p id="modal-title"> Invalid inputs </p>
+                        <p id="error-text"> </p>
+                        <div id="buttondiv"></div>
+                        <button class="modalSubmit" id="error-update"> Update fields </button>
+                    </div>
+                </div>
+
+                
+
             </div>
         )
     }
