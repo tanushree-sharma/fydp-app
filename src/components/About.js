@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 class About extends Component {
     render() {
+        var defaultForm = "solar";
+        localStorage.setItem("whichForm", defaultForm);
         return (
         <div>
             <br></br>
