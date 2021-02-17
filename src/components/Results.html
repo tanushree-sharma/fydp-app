@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <title> Soli </title>
 </head>
 
@@ -297,13 +300,84 @@
         text-align: left;
     }
 
-    #placeholderGraph {
+    .chartWrapper {
+    position: absolute;
+    top: 49%;
+    left: 40%;
+    }
+
+    .chartWrapper > canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    }
+
+    .chartAreaWrapper {
+    width: 600px;
+    overflow-x: scroll;
+    }
+
+    .chartTitle{
         position: absolute;
-        border: solid 1px black;
-        top: 47%;
-        left: 40%;
-        width: 45vw;
-        height: 55vh;
+        top: 43%;
+        left: 57%;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        color: black;
+    }
+    .chartLegend{
+        position: absolute;
+        top: 46%;
+        left: 55%;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.5vh;
+        letter-spacing: 0.05em;
+        color: #666666;
+    }
+    .chartLegendBlue{
+        position: absolute;
+        top: 46.2%;
+        left: 53.25%;
+        height: 0.75vw;
+        width: 1.5vw;
+        background-color: #abb8d4;
+    }
+    .chartLegendYellow{
+        position: absolute;
+        top: 46.2%;
+        left: 65%;
+        height: 0.75vw;
+        width: 1.5vw;
+        background-color: #f6d673;
+    }
+    .chartXAxisTitle{
+        position: absolute;
+        top: 107%;
+        left: 65%;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.5vh;
+        letter-spacing: 0.05em;
+        color:#666666;
+    }
+    .chartYAxisTitle{
+        transform: rotate(-90deg);
+        position: absolute;
+        top: 76%;
+        left: 38%;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.5vh;
+        letter-spacing: 0.05em;
+        color:#666666;
     }
 
     #environmental-title {
@@ -492,6 +566,7 @@
         display: inline-block;
     }
 
+
 </style>
 
 
@@ -579,18 +654,164 @@
             <p class="season-savings"> ${{winterSavings}} <span class="seasonal-units"> /month </span> </p>
         </div>
     </div>
-    
-    <img src="{{ url_for('static',filename='tempgraph.png') }}" id = "placeholderGraph" alt="carbonsavings"></div>
+
+    <div class="chartWrapper">
+        <div class="chartAreaWrapper">
+        <div class="chartAreaWrapper2">
+            <canvas id="chart-Test" height="270" width="600"></canvas>
+        </div>
+        </div>
+        <canvas id="axis-Test" height="300" width="0"></canvas>
+    </div>
+    <div> <p class='chartTitle'> Cost Savings With Solar </p></div>
+    <div> <pre class='chartLegend'> Cost Without Solar                  Cost With Solar</div>
+    <div class= "chartLegendBlue"></div>
+    <div class= "chartLegendYellow"></div>
+    <div> <p class='chartXAxisTitle'> Year </p></div>
+    <div> <p class='chartYAxisTitle'> Cost </p></div>
 
     <!-- graph -->
     <script type="text/javascript">
-        var costsWithoutSolar = {{ costsWithoutSolar|safe }}
-        var costsWithSolar = {{ costsWithSolar|safe }}
+    var costsWithoutSolarOg = {{ costsWithoutSolar|safe }}
+    var costsWithSolarOg = {{ costsWithSolar|safe }}
 
-        savingsGraph = document.getElementById("placeholderGraph")
-        
-        var labels = ["0", "1", "2", "3", "4", "5","6", "7", "8","9", "10", "11","12", "13", "14","15", "16", "17","18", "19", "20","21", "22", "23","24"]
-            
+    // need to seperate the last 5 to make scrolling work properly
+    const costWithSolar = costsWithSolarOg.slice(0,20)
+    const costWithSolarLast5 = costsWithSolarOg.slice(20,25)
+    const costWithoutSolar = costsWithoutSolarOg.slice(0,20)
+    const costWithoutSolarLast5 = costsWithoutSolarOg.slice(20,25)
+
+
+        $(document).ready(function () {
+        function addData(numData, chart) {
+            for (var i = 0; i < numData; i++) {
+                chart.data.datasets[1].data.push(costWithSolarLast5[i]);
+                chart.data.datasets[0].data.push(costWithoutSolarLast5[i]);
+                chart.data.labels.push(xDataLast5[i]);
+                var newwidth = $('.chartAreaWrapper2').width() + 60;
+                $('.chartAreaWrapper2').width(newwidth);
+            }
+    }
+    const xData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+    const xDataLast5 = [20, 21, 22, 23, 24];
+    //const costWithSolar = [541.9985160278444, 544.1461810479212, 546.2548190267714, 548.3228819903054, 550.3487839367016, 552.3309000131019, 554.267565675332, 556.1570758303027, 557.9976839607473, 559.7876012319323, 561.5249955799854, 563.2079907814622, 564.8346655037794, 566.4030523361267, 567.9111368004621, 569.3568563421926, 570.7380993001285, 572.0527038552946, 573.2984569581729, 574.4730932339419];
+    //const costWithSolarLast5 = [575.5742938652693, 576.599685452207, 577.5468388487266, 578.4132679754258, 579.1964286079274]
+    //const costWithoutSolar = [832.2980939597314, 840.1999320637854, 848.1767902187987, 856.2293806651361, 864.3584224051708, 872.5646412674855, 880.8487699716791, 889.2115481937903, 897.6537226323421, 906.1760470750137, 914.7792824659438, 923.4641969736756, 932.2315660597435, 941.0821725479148, 950.0168066940847, 959.0362662568383, 968.1413565686809, 977.3328906079439, 986.6116890713758, 995.9785804474195];
+    //const costWithoutSolarLast5 = [1005.4344010901873, 1014.9799952941374, 1024.61621536946, 1034.3439217181776, 1044.1639829109702]
+
+        var chartData = {
+            labels: xData,
+            datasets: [{
+                label: "Cost Without Solar",
+                data: costWithoutSolar,
+                backgroundColor: "#abb8d4"
+            },
+            {
+                label: "Cost With Solar",
+                data: costWithSolar,
+                backgroundColor: "#f6d673"
+            }]
+        };
+
+        $(function () {
+            var rectangleSet = false;
+            Chart.defaults.global.defaultFontFamily = 'Roboto';
+            var canvasTest = $('#chart-Test');
+            var chartTest = new Chart(canvasTest, {
+                type: 'bar',
+                data: chartData,
+                maintainAspectRatio: false,
+                responsive: true,
+                options: {
+                    title: {
+                        display: false,
+                        text: 'Savings With and Without Solar'
+                        },
+                    tooltips: {
+                        titleFontSize: 0,
+                        titleMarginBottom: 0,
+                        bodyFontSize: 12,
+                        labelColor: "#80807f",
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                            var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                            if (label) {
+                                label += ': $';
+                            }
+                            label += Math.round(tooltipItem.yLabel);
+                            return label;
+                                }
+                            }
+                        },
+                    legend: {
+                        display: false,
+                        position: 'top'
+                    },
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                fontSize: 12,
+                                display: true
+                            },
+                            scaleLabel:{
+                                display: false,
+                                labelString:'Year',
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                fontSize: 12,
+                                beginAtZero: true
+                            },
+                            scaleLabel:{
+                                display: false,
+                                labelString:'Cost',
+                            }
+                        }]
+                    },
+                    animation: {
+                        onComplete: function () {
+                            if (!rectangleSet) {
+                                var scale = window.devicePixelRatio;                       
+
+                                var sourceCanvas = chartTest.chart.canvas;
+                                var copyWidth = chartTest.scales['y-axis-0'].width - 10;
+                                var copyHeight = chartTest.scales['y-axis-0'].height + chartTest.scales['y-axis-0'].top + 10;
+
+                                var targetCtx = document.getElementById("axis-Test").getContext("2d");
+
+                                targetCtx.scale(scale, scale);
+                                targetCtx.canvas.width = copyWidth * scale;
+                                targetCtx.canvas.height = copyHeight * scale;
+
+                                targetCtx.canvas.style.width = `${copyWidth}px`;
+                                targetCtx.canvas.style.height = `${copyHeight}px`;
+                                targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
+
+                                var sourceCtx = sourceCanvas.getContext('2d');
+
+                                // Normalize coordinate system to use css pixels.
+
+                                sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
+                                rectangleSet = true;
+                            }
+                        },
+                        onProgress: function () {
+                            if (rectangleSet === true) {
+                                var copyWidth = chartTest.scales['y-axis-0'].width;
+                                var copyHeight = chartTest.scales['y-axis-0'].height + chartTest.scales['y-axis-0'].top + 10;
+
+                                var sourceCtx = chartTest.chart.canvas.getContext('2d');
+                                sourceCtx.clearRect(0, 0, copyWidth, copyHeight);
+                            }
+                        }
+                    }
+                }
+            });
+            addData(5, chartTest);
+        });
+        });
     </script>
 
     <!-- environmental impact -->
