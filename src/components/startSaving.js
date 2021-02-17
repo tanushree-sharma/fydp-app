@@ -4,6 +4,20 @@ import warning from '../warning.png'
 
 class startSaving extends Component {
     render() {
+        window.onbeforeunload = function() {
+            var defaultForm = "solar";
+            localStorage.setItem("whichForm", defaultForm);
+            var solarTab = document.getElementById("tabs1");
+            var batteryTab = document.getElementById("tabs2");
+
+            solarTab.classList.add("active");
+            batteryTab.classList.remove("active");
+            document.getElementById('tabs-2').style.display = 'none';
+            document.getElementById('tabs2').style.fontWeight = 400;
+            document.getElementById('tabs-1').style.display = 'block';
+            document.getElementById('tabs1').style.fontWeight = 600;
+        }
+
         // switching between tabs
         var tabs = document.getElementsByClassName('Tab');
         window.addEventListener('load', function () {
@@ -11,6 +25,12 @@ class startSaving extends Component {
             var whichForm = localStorage.getItem("whichForm")
             var solarTab = document.getElementById("tabs1");
             var batteryTab = document.getElementById("tabs2");
+            checkingSolarInputs();
+            highlightSolarMonth();
+            highlightSolarHeating();
+            checkingBatteryInputs();
+            highlightBatteryMonth();
+            highlightBatteryHeating();
 
             console.log(whichForm);
             if (whichForm == "battery") {
@@ -88,33 +108,6 @@ class startSaving extends Component {
 
 
             if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") {
-                modal.style.display = "block";
-                update.onclick = function () {
-                    modal.style.display = "none";
-                }
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-            }
-        }
-        // check values for Battery form and alert user of default values being used
-        function checkBatteryValues() {
-            var modal = document.getElementById("batteryModal");
-            var update = document.getElementById("battery-update");
-
-            var postalCode = document.forms["battery"]["postal_code"].value;
-            var roofSize = document.forms["battery"]["roof_size"].value;
-            var elecUsage = document.forms["battery"]["elec-usage"].value;
-            var month = document.forms["battery"]["month"].value;
-            var heating = document.forms["battery"]["heating-type"].value;
-            var batteryCap = document.forms["battery"]["storage_capacity"].value;
-            var dod = document.forms["battery"]["dod"].value;
-            var budget = document.forms["battery"]["budget"].value;
-
-
-            if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || batteryCap == "" || dod == "" || budget == "") {
                 modal.style.display = "block";
                 update.onclick = function () {
                     modal.style.display = "none";
@@ -231,15 +224,22 @@ class startSaving extends Component {
                 resultsButton.classList.remove("disabled-button");
             }
         }
-        function highlightMonth() {
+        function highlightSolarMonth() {
             var monthBox = document.getElementById("month-input1");
-            monthBox.classList.add("correct");
-        }
-        function highlightHeating() {
-            var heatingBox = document.getElementById("heating-input1");
-            heatingBox.classList.add("correct");
-        }
+            var month = document.forms["solar"]["month"].value;
 
+            if (month != "") {
+                monthBox.classList.add("correct");
+            }
+        }
+        function highlightSolarHeating() {
+            var heatingBox = document.getElementById("heating-input1");
+            var heating = document.forms["solar"]["heating-type"].value;
+
+            if (heating != "") {
+                heatingBox.classList.add("correct");
+            }
+        }
 
         function finalCheckSolarErrors() {
             console.log("checking errors");
@@ -256,15 +256,255 @@ class startSaving extends Component {
                 errorModal.style.display = "block";
                 // checking for postal code error
                 if (!postalCodeBox.classList.contains("correct") && !postalCodeBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Postal Code needs to be in the form of 'M3N'. <br>"
+                    errorText.innerHTML += "Postal Code needs to be in the form of 'M3N'. <br><br>"
                 }
                 // checking for roof size error
                 if (!roofSizeBox.classList.contains("correct") && !roofSizeBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Roof Size needs to be a number greater than 20 sqft, which is the size of one solar panel. <br>"
+                    errorText.innerHTML += "Roof Size needs to be a number greater than 20 sqft, which is the size of one solar panel. <br><br>"
                 }
                 // checking for usage error
                 if (!usageBox.classList.contains("correct") && !usageBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Electricity Usage needs to be a number greater than 52 kWh, which is the potential output of one solar panel. <br>"
+                    errorText.innerHTML += "Electricity Usage needs to be a number greater than 52 kWh, which is the potential output of one solar panel. <br><br>"
+                }
+                // checking for budget error
+                if (!budgetBox.classList.contains("correct") && !budgetBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Budget needs to be a number greated than $3500, which is the cost of one solar panel + cost of installation"
+                }
+                update.onclick = function () {
+                    errorModal.style.display = "none";
+                    errorText.innerHTML = "";
+                }
+                window.onclick = function (event) {
+                    if (event.target == errorModal) {
+                        errorModal.style.display = "none";
+                        errorText.innerHTML = "";
+                    }
+                }
+            }
+        }
+        // check values for Battery form and alert user of default values being used
+        function checkBatteryValues() {
+            var modal = document.getElementById("batteryModal");
+            var update = document.getElementById("battery-update");
+
+            var postalCode = document.forms["battery"]["postal_code"].value;
+            var roofSize = document.forms["battery"]["roof_size"].value;
+            var elecUsage = document.forms["battery"]["elec-usage"].value;
+            var month = document.forms["battery"]["month"].value;
+            var heating = document.forms["battery"]["heating-type"].value;
+            var batteryCap = document.forms["battery"]["storage_capacity"].value;
+            var dod = document.forms["battery"]["dod"].value;
+            var budget = document.forms["battery"]["budget"].value;
+
+
+            if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || batteryCap == "" || dod == "" || budget == "") {
+                modal.style.display = "block";
+                update.onclick = function () {
+                    modal.style.display = "none";
+                }
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+        }
+        function checkingBatteryInputs() {
+            var postalCodeBox = document.getElementById("postal-code-input2");
+            var resultsButton = document.getElementById("results-button2");
+            var postalCode = document.forms["battery"]["postal_code"].value;
+            var postalError = false;
+
+            var split = [];
+            var i;
+            for (i=0; i<postalCode.length; i++) {
+                split[i] = postalCode.charAt([i]);
+            }
+
+            // checking if user input is a valid postal code
+            if (postalCode.length == 3 && isLetter(split[0]) == true && Number(split[0]) != NaN && isLetter(split[2]) == true) {
+                console.log("this is a valid postal code");
+                postalCodeBox.classList.add("correct");
+                postalCodeBox.classList.remove("correctish");
+                postalError = false;
+            } else {
+                console.log("this is NOT a valid postal code");
+                postalCodeBox.classList.remove("correct");
+                postalCodeBox.classList.remove("correctish");
+                postalError = true;
+            }
+            if (postalCode.length == 0) {
+                postalCodeBox.classList.remove("correct");
+                postalCodeBox.classList.add("correctish");
+                postalError = false;
+            }
+
+            var roofSizeBox = document.getElementById("roof-size-input2");
+            var roofSize = document.forms["battery"]["roof_size"].value;
+            var roofError = false;
+
+            // checking to see if user inputted a number for solar roof size and that there is enough space for at least one panel (20sqft)
+            if (Number(roofSize) && Number(roofSize) >= 20) {
+                console.log("this is a valid roof size");
+                roofSizeBox.classList.add("correct");
+                roofSizeBox.classList.remove("correctish");
+                roofError = false;
+            } else {
+                console.log("this is not a valid roof size");
+                roofSizeBox.classList.remove("correct");
+                roofSizeBox.classList.remove("correctish");
+                roofError = true;
+            }
+            if (roofSize.length == 0) {
+                roofSizeBox.classList.remove("correct");
+                roofSizeBox.classList.add("correctish");
+                roofError = false;
+            }
+
+            var usageBox = document.getElementById("elec-usage-input2");
+            var usage = document.forms["battery"]["elec-usage"].value;
+            var usageError = false;
+
+            // checking to see if user inputted a number for solar electricy usage is greater than the output of one panel (315w per hour = 0.315 Kw per hour => 0.315 * 5.5 = 1.73KW/Day = 52KW/month)
+            if (Number(usage) && Number(usage) >= 52) {
+                console.log("this is a valid usage amount");
+                usageBox.classList.add("correct");
+                usageBox.classList.remove("correctish");
+                usageError = false;
+            } else {
+                console.log("this is not a valid usage amount");
+                usageBox.classList.remove("correct");
+                usageBox.classList.remove("correctish");
+                usageError = true;
+            }
+            if (usage.length == 0) {
+                usageBox.classList.remove("correct");
+                usageBox.classList.add("correctish");
+                usageError = false;
+            }            
+
+            var storageBox = document.getElementById("storage-capacity-input");
+            var storage = document.forms["battery"]["storage_capacity"].value;
+            var storageError = false;
+
+            // checking to see if user inputted a number for battery capacity that is greater or equal to 0
+            if (Number(storage) && Number(storage) >= 0) {
+                console.log("this is a valid storage amount");
+                storageBox.classList.add("correct");
+                storageBox.classList.remove("correctish");
+                storageError = false;
+            } else {
+                console.log("this is not a valid usage amount");
+                storageBox.classList.remove("correct");
+                storageBox.classList.remove("correctish");
+                storageError = true;
+            }
+            if (storage.length == 0) {
+                storageBox.classList.remove("correct");
+                storageBox.classList.add("correctish");
+                storageError = false;
+            } 
+
+            var dodBox = document.getElementById("dod-input");
+            var dod = document.forms["battery"]["dod"].value;
+            var dodError = false;
+            // checking to see if user inputted a number for dod that is greater or equal to 0
+            if (Number(dod) && Number(dod) >= 0) {
+                console.log("this is a valid storage amount");
+                dodBox.classList.add("correct");
+                dodBox.classList.remove("correctish");
+                dodError = false;
+            } else {
+                console.log("this is not a valid usage amount");
+                dodBox.classList.remove("correct");
+                dodBox.classList.remove("correctish");
+                dodError = true;
+            }
+            if (dod.length == 0) {
+                dodBox.classList.remove("correct");
+                dodBox.classList.add("correctish");
+                dodError = false;
+            } 
+
+            var budgetBox = document.getElementById("budget2");
+            var budget = document.forms["battery"]["budget"].value;
+            var budgetError = false;
+
+            // checking to see if user inputted a number greater than the cost of one panel + fixed costs
+            if (Number(budget) && Number(budget) >= 3500) {
+                console.log("this is a valid budget amount");
+                budgetBox.classList.add("correct");
+                budgetBox.classList.remove("correctish");
+                budgetError = false;
+            } else {
+                console.log("this is not a valid budget amount");
+                budgetBox.classList.remove("correct");
+                budgetBox.classList.remove("correctish");
+                budgetError = true;
+            }
+            if (budget.length == 0) {
+                budgetBox.classList.remove("correct");
+                budgetBox.classList.add("correctish");
+                budgetError = false;
+            }  
+
+            if (postalError == true || roofError == true || usageError == true || budgetError == true || storageError == true || dodError == true) {
+                resultsButton.classList.add("disabled-button");
+            } else {
+                resultsButton.classList.remove("disabled-button");
+            }
+        }
+        function highlightBatteryMonth() {
+            var monthBox = document.getElementById("month-input2");
+            var month = document.forms["battery"]["month"].value;
+            if (month != "") {
+                monthBox.classList.add("correct");
+            }
+        }
+        function highlightBatteryHeating() {
+            var heatingBox = document.getElementById("heating-input2");
+            var heating = document.forms["battery"]["heating-type"].value;
+            if (heating != "") {
+                heatingBox.classList.add("correct");
+            }
+        }
+
+
+        function finalCheckBatteryErrors() {
+            console.log("checking errors");
+            var errorModal = document.getElementById("errorModal");
+            var resultsButton = document.getElementById("results-button2");
+            var postalCodeBox = document.getElementById("postal-code-input2");
+            var roofSizeBox = document.getElementById("roof-size-input2");
+            var usageBox = document.getElementById("elec-usage-input2");
+            var storageBox = document.getElementById("storage-capacity-input");
+            var dodBox = document.getElementById("dod-input");
+            var budgetBox = document.getElementById("budget2");
+            var errorText = document.getElementById("error-text");
+            var update = document.getElementById("error-update");
+
+            if (resultsButton.classList.contains("disabled-button")) {
+                errorModal.style.display = "block";
+                // checking for postal code error
+                if (!postalCodeBox.classList.contains("correct") && !postalCodeBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Postal Code needs to be in the form of 'M3N'. <br><br>"
+                }
+                // checking for roof size error
+                if (!roofSizeBox.classList.contains("correct") && !roofSizeBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Roof Size needs to be a number greater than 20 sqft, which is the size of one solar panel. <br><br>"
+                }
+                // checking for usage error
+                if (!usageBox.classList.contains("correct") && !usageBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Electricity Usage needs to be a number greater than 52 kWh, which is the potential output of one solar panel. <br><br>"
+                }
+                // checking for battery capacity error
+                if (!storageBox.classList.contains("correct") && !storageBox.classList.contains("correctish")) {
+                    errorText.innerHTML += "Storage Capacity of the battery must be a number greater than 0 kWh. <br><br>"
+                }
+                // checking for dod error
+                if (!dodBox.classList.contains("correct") && !dodBox.classList.contains("correctish")) {
+                    console.log("this is running!!!");
+                    errorText.innerHTML += "Depth of Discharge of the battery must be a number greater than 0%. <br><br>"
                 }
                 // checking for budget error
                 if (!budgetBox.classList.contains("correct") && !budgetBox.classList.contains("correctish")) {
@@ -337,7 +577,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs" required onBlur={() => { highlightMonth(); }}>
+                            <select name="month" id="month-input1" class="dropdown-inputs" required onBlur={() => { highlightSolarMonth(); }}>
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -356,7 +596,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required onBlur={() => { highlightHeating(); }}>
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required onBlur={() => { highlightSolarHeating(); }}>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -408,23 +648,23 @@ class startSaving extends Component {
                     <form action="/solarbattery-results" method="POST" name="battery" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                            <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" maxlength="3"/>
+                            <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" maxlength="3" onBlur={() => { checkingBatteryInputs(); }}/>
                         </label>
 
                         <label>
                             <p class="field-titles" id="roof-size" > Roof Size (Sqft):  </p>
-                            <input class="field-inputs" id="roof-size-input2" type="text" name="roof_size" placeholder="2000" />
+                            <input class="field-inputs" id="roof-size-input2" type="text" name="roof_size" placeholder="2000" onBlur={() => { checkingBatteryInputs(); }}/>
                         </label>
 
                         <label>
                             <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                            <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="750" />
+                            <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingBatteryInputs(); }}/>
                         </label>
 
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input2" class="dropdown-inputs" required>
+                            <select name="month" id="month-input2" class="dropdown-inputs" required onBlur={() => { highlightBatteryMonth(); }}>
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -444,7 +684,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input2" class="dropdown-inputs" required>
+                            <select name="heating-type" id="heating-input2" class="dropdown-inputs" required onBlur={() => { highlightBatteryHeating(); }}>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -453,20 +693,20 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="storage-capacity" > Storage Capacity (kWh):</p>
-                            <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="13" />
+                            <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="13" onBlur={() => { checkingBatteryInputs(); }}/>
                         </label>
 
                         <label>
                             <p class="field-titles" id="dod" > Depth of Discharge:</p>
-                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" />
+                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" onBlur={() => { checkingBatteryInputs(); }}/>
                         </label>
 
                         <label>
                             <p class="field-titles" id="budget2title" > Budget (CAD):</p>
-                            <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="10000" />
+                            <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="10000" onBlur={() => { checkingBatteryInputs(); }}/>
                         </label>
 
-                        <div id="generate-box2">
+                        <div id="generate-box2" onMouseOver={() => { finalCheckBatteryErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
                         </div>
 
@@ -497,7 +737,7 @@ class startSaving extends Component {
                     <div class="modal-content">
                         <div id="modal-top-border"></div>
                         <img src={warning} id="warning" alt="warning"></img>
-                        <p id="modal-title"> Incomplete fields </p>
+                        <p id="modal-title"> Incomplete Fields </p>
                         <p id="modal-text"> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.</p>
                         <div id="buttondiv"></div>
                         <form action="/solarbattery-results" method="POST">
@@ -507,16 +747,22 @@ class startSaving extends Component {
                     </div>
                 </div>
                 <div id="errorModal" class="modal">
-                    <div class="modal-content">
+                    <div class="error-content">
                         <div id="modal-top-border"></div>
-                        <img src={warning} id="warning" alt="warning"></img>
-                        <p id="modal-title"> Invalid inputs </p>
-                        <p id="error-text"> </p>
-                        <div id="buttondiv"></div>
-                        <button class="modalSubmit" id="error-update"> Update fields </button>
+                        <p id="error-title"> Invalid Input(s)</p>
+                        <div class="error-container">
+                            <div id="left">
+                                <img src={warning} id="warning" alt="warning"></img>
+                            </div>
+                            <div id="right">
+                                <p id="error-text"></p>
+                            </div>
+                            <div id="error-buttondiv">
+                                <button class="modalSubmit" id="error-update"> Update fields </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
                 
 
             </div>

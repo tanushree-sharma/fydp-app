@@ -1251,7 +1251,7 @@ select:invalid {
   color: #000000;
   margin-top: 2%;
 }
-#modal-text, #error-text {
+#modal-text {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -1262,6 +1262,7 @@ select:invalid {
 
   color: #80807F;
 }
+
 #warning {
   width: 8vw;
   height: 13vh;
@@ -1296,25 +1297,6 @@ select:invalid {
   bottom: 5%;
 }
 
-#error-update {
-  position: absolute;
-  background: #FFFFFF;
-  border: 1px solid #F6D673;
-  box-sizing: border-box;
-  border-radius: 2vh;
-
-  width: 9vw;
-  height: 4vh;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.5vh;
-
-  left: 75%;
-  bottom: 5%;
-}
-
 #continue {
   position: absolute;
   background: #F6D673;
@@ -1334,7 +1316,7 @@ select:invalid {
   bottom: 5%;
 }
 
-#solar-update:hover, #battery-update:hover {
+#solar-update:hover, #battery-update:hover, #error-update:hover {
   border: 1px solid #faebbc;
 }
 #continue:hover {
@@ -1354,4 +1336,96 @@ select:invalid {
   color: black;
   outline: none;
   pointer-events: none;
+}
+
+
+/* Error Modal Content */
+#error-top-border {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 1.5vh;
+  background-color: #F6D673;
+}
+.error-content {
+  position: relative;
+  background-color: #FBFBFB;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40vw;
+  min-height: 10vh;
+  text-align: left;
+}
+
+#error-title {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 80%;
+  height: 3vh;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2vh;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+.error-container {
+  position: absolute;
+  top: 45%;
+  left: 0%;
+  width: 100%;
+  background-color: #FBFBFB;
+}
+.error-container #left {
+  width: 20%;
+  float: left;
+}
+.error-container #right {
+  margin-left: 20%;
+  margin-right: 3%;
+  min-height: 10vh;
+}
+#error-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7vmin;
+  letter-spacing: 0.05em;
+
+  color: #80807F;
+}
+#error-buttondiv {
+  width: 100%;
+  height: 7vh;
+  border-top: 1px solid #80807F;
+  background-color: #FBFBFB;
+  margin-top: 3vh;
+}
+#update-div {
+  width: 100%;
+  height: 7vh;
+  border: 1px solid rebeccapurple;
+  background-color: #FBFBFB;
+}
+
+#error-update {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid #F6D673;
+  box-sizing: border-box;
+  border-radius: 2vh;
+
+  width: 9vw;
+  height: 4vh;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5vh;
+
+  left: 75%;
+  bottom: 6%;
 }
