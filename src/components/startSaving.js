@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import graphic from '../question_img.png'
 import warning from '../warning.png'
 
+
 class startSaving extends Component {
     render() {
         // switching between tabs
@@ -202,7 +203,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
                             <select name="heating-type" id="heating-input1" class="dropdown-inputs">
-                                <option value="" disabled selected hidden>Select heating</option>
+                                <option value="" disabled hidden selected>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -290,7 +291,7 @@ class startSaving extends Component {
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
                             <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
-                                <option value="" disabled selected hidden>Select heating</option>
+                                <option value="" disabled hidden selected>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
                             </select>
@@ -322,6 +323,7 @@ class startSaving extends Component {
 
                         </form>
                     </form>
+
                 </div>
 
                 <div id="solarModal" class="modal">
@@ -351,10 +353,16 @@ class startSaving extends Component {
                             <button class="modalSubmit" id="battery-update"> Update fields </button>
                         </div>
                     </div>
+
                 </div>
+            
             </div>
+
+            
         )
+        
     }
+    
 }
 
 export default startSaving

@@ -25,9 +25,9 @@
   position: absolute;
   background-color: white;
   font-size: 1.3vw;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   top: 0%;
-  }
+}
 
 #logo {
   position: absolute;
@@ -85,7 +85,6 @@ ul.nav-right {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  
 }
 
 #mainGraphic {
@@ -145,7 +144,6 @@ ul.nav-right {
   text-align: center;
   display: inline-block;
 }
-
 
 #startButton:hover {
   background: #faebbc;
@@ -548,6 +546,18 @@ ul.nav-right {
   width: 100%;
 }
 
+.footer-ss {
+  position: absolute;
+  clear: both;
+  bottom: 2%;
+  color: #80807f;
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 1vw;
+  line-height: 5vh;
+  width: 100%;
+}
+
 .footer-left {
   width: 100vw;
   list-style: none;
@@ -561,15 +571,16 @@ ul.nav-right {
   position: absolute;
   width: 14vw;
   height: 2.4vh;
-  left: 39%;
+  left: 38.5%;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.15vw;
+  font-size: 1.3vw;
   line-height: 2.097vh;
   letter-spacing: 0.05em;
   color: #000000;
   text-align: left;
+  white-space: nowrap;
 }
 
 .field-inputs::placeholder {
@@ -577,6 +588,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.15vw;
 }
 
 .field-input-dod::placeholder {
@@ -584,6 +596,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.15vw;
 }
 
 .field-inputs-budget::placeholder {
@@ -591,6 +604,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.15vw;
 }
 
 .dropdownFormat {
@@ -602,15 +616,15 @@ ul.nav-right {
 
 #postal-text {
   position: absolute;
-  width: 11vw;
-  height: 2.7vh;
-  left: 65.5%;
-  font-size: 0.7vw;
+  width: 13vw;
+  height: 3.2vh;
+  left: 69.8%;
+  font-size: 0.8vw;
   font-family: Roboto;
   font-style: italic;
   font-weight: 200;
   color: #80807f;
-  top: 55%;
+  top: 55.4%;
 }
 
 #postal-code {
@@ -618,11 +632,11 @@ ul.nav-right {
 }
 
 #postal-code-input1 {
-  top: 50%;
+  top: 49.5%;
 }
 
 #postal-code-input2 {
-  top: 50%;
+  top: 49.5%;
 }
 
 #roof-size {
@@ -630,11 +644,11 @@ ul.nav-right {
 }
 
 #roof-size-input1 {
-  top: 60%;
+  top: 59.5%;
 }
 
 #roof-size-input2 {
-  top: 60%;
+  top: 59.5%;
 }
 
 #elec-usage {
@@ -642,11 +656,11 @@ ul.nav-right {
 }
 
 #elec-usage-input1 {
-  top: 78.5%;
+  top: 78%;
 }
 
 #elec-usage-input2 {
-  top: 78.5%;
+  top: 78%;
 }
 
 #month-title {
@@ -654,11 +668,11 @@ ul.nav-right {
 }
 
 #month-input1 {
-  top: 87.7%;
+  top: 87.2%;
 }
 
 #month-input2 {
-  top: 87.7%;
+  top: 87.2%;
 }
 
 #heating-type-title {
@@ -666,19 +680,19 @@ ul.nav-right {
 }
 
 #heating-input1 {
-  top: 97.5%;
+  top: 97%;
 }
 
 #heating-input2 {
-  top: 97.5%;
+  top: 97%;
 }
 
 #budget1 {
-  top: 116%;
+  top: 115.5%;
 }
 
 #budget2 {
-  top: 142%;
+  top: 141.5%;
 }
 
 #budget1title {
@@ -694,7 +708,7 @@ ul.nav-right {
 }
 
 #storage-capacity-input {
-  top: 116%;
+  top: 115.5%;
 }
 
 #dod {
@@ -708,22 +722,23 @@ ul.nav-right {
   position: absolute;
   width: 10vw;
   height: 2.5vh;
-  left: 20%;
+  left: 14.5%;
   font-family: Mulish;
   font-style: normal;
   font-weight: 600;
-  font-size: 1.25vw;
+  font-size: 1.6vw;
   line-height: 2.5vh;
   /* identical to box height */
   display: flex;
   align-items: center;
   color: #80807f;
+  white-space: nowrap;
 }
 
 .qGraphic {
   position: absolute;
   width: 1.3vw;
-  left: 57.25%;
+  left: 60.25%;
   height: 2.3vh;
 }
 
@@ -751,13 +766,13 @@ ul.nav-right {
   text-align: center;
   background-color: #f6d673;
   border-radius: 50%;
-  width: 1.3vw;
-  height: 1.3vw;
-  font-size: 0.8vw;
-  line-height: 1.33vw;
+  width: 1.45vw;
+  height: 1.45vw;
+  font-size: 1.1vw;
+  line-height: 1.4vw;
   font-family: "Roboto";
   cursor: default;
-  left: 57.25%;
+  left: 60.25%;
 }
 .help-tip:before {
   content: "?";
@@ -905,11 +920,11 @@ ul.nav-right {
 }
 
 form #decrease {
-  left: 73.9%;
+  left: 79.1%;
   border-radius: 0 0 0 0;
   width: 2.11vw;
-  top: 116%;
-  height: 2.6vh;
+  top: 115.5%;
+  height: 3.1vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -918,8 +933,8 @@ form #decrease {
 
 form #percentage {
   position: absolute;
-  top: 126.5%;
-  left: 63.5%;
+  top: 126.75%;
+  left: 68.75%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -928,8 +943,8 @@ form #percentage {
 
 form #dollar-sign1-line {
   position: absolute;
-  top: 114.87%;
-  left: 64.5%;
+  top: 115.87%;
+  left: 69.75%;
   font-family: "Mulish";
   font-weight: 50;
   font-size: 1.7vw;
@@ -939,7 +954,7 @@ form #dollar-sign1-line {
 form #dollar-sign1 {
   position: absolute;
   top: 116.5%;
-  left: 63.5%;
+  left: 68.75%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -949,7 +964,7 @@ form #dollar-sign1 {
 form #dollar-sign2 {
   position: absolute;
   top: 142.5%;
-  left: 63.5%;
+  left: 68.75%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -984,15 +999,16 @@ form #dollar-sign2 {
 }
 
 form #increase {
-  left: 76.75%;
+  left: 82%;
   width: 2.11vw;
   border-radius: 0 0.309vw 0.309vw 0;
-  top: 116%;
-  height: 2.6vh;
+  top: 115.5%;
+  height: 3.1vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
   font-weight: 100;
+  padding-top: 0;
   /* box-shadow: 0 0 0 1px; */
 }
 
@@ -1010,11 +1026,11 @@ form #increase {
   outline: none;
 }
 form #decrease2 {
-  left: 73.9%;
+  left: 79.1%;
   border-radius: 0 0 0 0;
   width: 2.11vw;
-  top: 142%;
-  height: 2.6vh;
+  top: 141.5%;
+  height: 3.1vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1029,15 +1045,16 @@ form #decrease2 {
 }
 
 form #increase2 {
-  left: 76.75%;
+  left: 82%;
   width: 2.11vw;
   border-radius: 0 0.309vw 0.309vw 0;
-  top: 142%;
-  height: 2.6vh;
+  top: 141.5%;
+  height: 3.1vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
   font-weight: 100;
+  padding-top: 0;
   /* box-shadow: 0 0 0 1px; */
 }
 
@@ -1066,8 +1083,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-inputs {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.5vh;
+  left: 68.25%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1081,8 +1098,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-input-dod {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.5vh;
+  left: 68.25%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1096,8 +1113,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-inputs-budget {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.5vh;
+  left: 68.25%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1106,6 +1123,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
+  font-size: 1.15vw;
 }
 
 .budegt-container1 {
@@ -1119,8 +1137,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .dropdown-inputs {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.5vh;
+  left: 68.25%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1129,7 +1147,8 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  color:black;
+  color: black;
+  font-size: 1.15vw;
 }
 
 .vertical {
@@ -1210,8 +1229,8 @@ select:invalid {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -1221,11 +1240,11 @@ select:invalid {
   left: 0%;
   width: 100%;
   height: 1.5vh;
-  background-color: #F6D673;
+  background-color: #f6d673;
 }
 .modal-content {
   position: relative;
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -1241,7 +1260,6 @@ select:invalid {
   letter-spacing: 0.05em;
   color: #000000;
   margin-top: 2%;
-
 }
 #modal-text {
   font-family: Roboto;
@@ -1252,7 +1270,7 @@ select:invalid {
   margin-top: 2vh;
   margin-bottom: 4vh;
 
-  color: #80807F;
+  color: #80807f;
 }
 #warning {
   width: 8vw;
@@ -1261,13 +1279,14 @@ select:invalid {
   vertical-align: middle;
 }
 #buttondiv {
-  border-top: 1px solid #80807F;
+  border-top: 1px solid #80807f;
   padding: 1.5vh;
 }
 
-#solar-update, #battery-update {
-  background: #FFFFFF;
-  border: 1px solid #F6D673;
+#solar-update,
+#battery-update {
+  background: #ffffff;
+  border: 1px solid #f6d673;
   box-sizing: border-box;
   border-radius: 2vh;
 
@@ -1281,12 +1300,11 @@ select:invalid {
 
   margin-right: 1vw;
   float: right;
-
 }
 
 #continue {
-  background: #F6D673;
-  border: 1px solid #F6D673;
+  background: #f6d673;
+  border: 1px solid #f6d673;
   box-sizing: border-box;
   border-radius: 2vh;
 
@@ -1300,4 +1318,3 @@ select:invalid {
 
   float: right;
 }
-
