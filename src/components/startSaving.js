@@ -213,8 +213,6 @@ class startSaving extends Component {
                             <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" />
                         </label>
 
-
-
                         <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
 
                         <form>
@@ -223,7 +221,7 @@ class startSaving extends Component {
                             <p id="dollar-sign1">$</p>
                         </form>
                     </form>
-                </div>
+                </div> 
 
                 {/* {/* Solar + Battery Form */}
                 <div class="Panel__body tabContent" id="tabs-2">
@@ -313,6 +311,7 @@ class startSaving extends Component {
 
 
                         <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
+                        <div class="whitesquare"></div>
 
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
@@ -355,4 +354,4 @@ class startSaving extends Component {
     }
 }
 
-export default startSaving
+export default startSaving;
