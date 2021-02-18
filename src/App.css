@@ -1325,12 +1325,10 @@ select:invalid {
   outline: none;
 }
 
-.correct {
-  border: 2px solid #F6D673;
+.invalid {
+  border: 2px solid #c26c49;
 }
-.correctish {
-  border: 0.2vh solid #e5e5e5;
-}
+
 .disabled-button {
   background: #faebbc;
   color: black;
@@ -1354,14 +1352,14 @@ select:invalid {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 40vw;
+  width: 42vw;
   min-height: 10vh;
   text-align: left;
 }
 
 #error-title {
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 20%;
   width: 80%;
   height: 3vh;
@@ -1374,7 +1372,7 @@ select:invalid {
 }
 .error-container {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 0%;
   width: 100%;
   background-color: #FBFBFB;
@@ -1426,6 +1424,6 @@ select:invalid {
   font-weight: 600;
   font-size: 1.5vh;
 
-  left: 75%;
+  left: 77%;
   bottom: 6%;
 }

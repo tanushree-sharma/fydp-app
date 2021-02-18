@@ -25,12 +25,7 @@ class startSaving extends Component {
             var whichForm = localStorage.getItem("whichForm")
             var solarTab = document.getElementById("tabs1");
             var batteryTab = document.getElementById("tabs2");
-            checkingSolarInputs();
-            highlightSolarMonth();
-            highlightSolarHeating();
-            checkingBatteryInputs();
-            highlightBatteryMonth();
-            highlightBatteryHeating();
+            window.scrollTo(0, 0);
 
             console.log(whichForm);
             if (whichForm == "battery") {
@@ -122,6 +117,9 @@ class startSaving extends Component {
         function isLetter(char) {
             return (/[a-zA-Z]/).test(char);
         }
+        function isNumber(char) {
+            return (/[0-9]/).test(char);
+        }
         function checkingSolarInputs() {
             var postalCodeBox = document.getElementById("postal-code-input1");
             var resultsButton = document.getElementById("results-button1");
@@ -135,20 +133,17 @@ class startSaving extends Component {
             }
 
             // checking if user input is a valid postal code
-            if (postalCode.length == 3 && isLetter(split[0]) == true && Number(split[0]) != NaN && isLetter(split[2]) == true) {
+            if (postalCode.length == 3 && isLetter(split[0]) == true && isNumber(split[1]) == true && isLetter(split[2]) == true) {
                 console.log("this is a valid postal code");
-                postalCodeBox.classList.add("correct");
-                postalCodeBox.classList.remove("correctish");
+                postalCodeBox.classList.remove("invalid");
                 postalError = false;
             } else {
                 console.log("this is NOT a valid postal code");
-                postalCodeBox.classList.remove("correct");
-                postalCodeBox.classList.remove("correctish");
+                postalCodeBox.classList.add("invalid");
                 postalError = true;
             }
             if (postalCode.length == 0) {
-                postalCodeBox.classList.remove("correct");
-                postalCodeBox.classList.add("correctish");
+                postalCodeBox.classList.remove("invalid");
                 postalError = false;
             }
 
@@ -156,21 +151,18 @@ class startSaving extends Component {
             var roofSize = document.forms["solar"]["roof_size"].value;
             var roofError = false;
 
-            // checking to see if user inputted a number for solar roof size and that there is enough space for at least one panel (20sqft)
-            if (Number(roofSize) && Number(roofSize) >= 20) {
+            // checking to see if user inputted a number for solar roof size
+            if (Number(roofSize) && Number(roofSize) > 0) {
                 console.log("this is a valid roof size");
-                roofSizeBox.classList.add("correct");
-                roofSizeBox.classList.remove("correctish");
+                roofSizeBox.classList.remove("invalid");
                 roofError = false;
             } else {
                 console.log("this is not a valid roof size");
-                roofSizeBox.classList.remove("correct");
-                roofSizeBox.classList.remove("correctish");
+                roofSizeBox.classList.add("invalid");
                 roofError = true;
             }
             if (roofSize.length == 0) {
-                roofSizeBox.classList.remove("correct");
-                roofSizeBox.classList.add("correctish");
+                roofSizeBox.classList.remove("invalid");
                 roofError = false;
             }
 
@@ -178,21 +170,18 @@ class startSaving extends Component {
             var usage = document.forms["solar"]["elec-usage"].value;
             var usageError = false;
 
-            // checking to see if user inputted a number for solar electricy usage is greater than the output of one panel (315w per hour = 0.315 Kw per hour => 0.315 * 5.5 = 1.73KW/Day = 52KW/month)
-            if (Number(usage) && Number(usage) >= 52) {
+            // checking to see if user inputted a number for solar electricy usage
+            if (Number(usage) && Number(usage) >= 0) {
                 console.log("this is a valid usage amount");
-                usageBox.classList.add("correct");
-                usageBox.classList.remove("correctish");
+                usageBox.classList.remove("invalid");
                 usageError = false;
             } else {
                 console.log("this is not a valid usage amount");
-                usageBox.classList.remove("correct");
-                usageBox.classList.remove("correctish");
+                usageBox.classList.add("invalid");
                 usageError = true;
             }
             if (usage.length == 0) {
-                usageBox.classList.remove("correct");
-                usageBox.classList.add("correctish");
+                usageBox.classList.remove("invalid");
                 usageError = false;
             }            
 
@@ -201,20 +190,17 @@ class startSaving extends Component {
             var budgetError = false;
 
             // checking to see if user inputted a number greater than the cost of one panel + fixed costs
-            if (Number(budget) && Number(budget) >= 3500) {
+            if (Number(budget) && Number(budget) >= 0) {
                 console.log("this is a valid budget amount");
-                budgetBox.classList.add("correct");
-                budgetBox.classList.remove("correctish");
+                budgetBox.classList.remove("invalid");
                 budgetError = false;
             } else {
                 console.log("this is not a valid budget amount");
-                budgetBox.classList.remove("correct");
-                budgetBox.classList.remove("correctish");
+                budgetBox.classList.add("invalid");
                 budgetError = true;
             }
             if (budget.length == 0) {
-                budgetBox.classList.remove("correct");
-                budgetBox.classList.add("correctish");
+                budgetBox.classList.remove("invalid");
                 budgetError = false;
             }  
 
@@ -222,22 +208,6 @@ class startSaving extends Component {
                 resultsButton.classList.add("disabled-button");
             } else {
                 resultsButton.classList.remove("disabled-button");
-            }
-        }
-        function highlightSolarMonth() {
-            var monthBox = document.getElementById("month-input1");
-            var month = document.forms["solar"]["month"].value;
-
-            if (month != "") {
-                monthBox.classList.add("correct");
-            }
-        }
-        function highlightSolarHeating() {
-            var heatingBox = document.getElementById("heating-input1");
-            var heating = document.forms["solar"]["heating-type"].value;
-
-            if (heating != "") {
-                heatingBox.classList.add("correct");
             }
         }
 
@@ -255,20 +225,20 @@ class startSaving extends Component {
             if (resultsButton.classList.contains("disabled-button")) {
                 errorModal.style.display = "block";
                 // checking for postal code error
-                if (!postalCodeBox.classList.contains("correct") && !postalCodeBox.classList.contains("correctish")) {
+                if (postalCodeBox.classList.contains("invalid")) {
                     errorText.innerHTML += "Postal Code needs to be in the form of 'M3N'. <br><br>"
                 }
                 // checking for roof size error
-                if (!roofSizeBox.classList.contains("correct") && !roofSizeBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Roof Size needs to be a number greater than 20 sqft, which is the size of one solar panel. <br><br>"
+                if (roofSizeBox.classList.contains("invalid")) {
+                    errorText.innerHTML += "Roof Size needs to be a number greater than 0 Sqft. <br><br>"
                 }
                 // checking for usage error
-                if (!usageBox.classList.contains("correct") && !usageBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Electricity Usage needs to be a number greater than 52 kWh, which is the potential output of one solar panel. <br><br>"
+                if (usageBox.classList.contains("invalid")) {
+                    errorText.innerHTML += "Electricity Usage needs to be a number greater than 0 kWh. <br><br>"
                 }
                 // checking for budget error
-                if (!budgetBox.classList.contains("correct") && !budgetBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Budget needs to be a number greated than $3500, which is the cost of one solar panel + cost of installation"
+                if (budgetBox.classList.contains("invalid")) {
+                    errorText.innerHTML += "Budget needs to be a number greater than $0."
                 }
                 update.onclick = function () {
                     errorModal.style.display = "none";
@@ -322,20 +292,17 @@ class startSaving extends Component {
             }
 
             // checking if user input is a valid postal code
-            if (postalCode.length == 3 && isLetter(split[0]) == true && Number(split[0]) != NaN && isLetter(split[2]) == true) {
+            if (postalCode.length == 3 && isLetter(split[0]) == true && isNumber(split[1]) == true && isLetter(split[2]) == true) {
                 console.log("this is a valid postal code");
-                postalCodeBox.classList.add("correct");
-                postalCodeBox.classList.remove("correctish");
+                postalCodeBox.classList.remove("invalid");
                 postalError = false;
             } else {
                 console.log("this is NOT a valid postal code");
-                postalCodeBox.classList.remove("correct");
-                postalCodeBox.classList.remove("correctish");
+                postalCodeBox.classList.add("invalid");
                 postalError = true;
             }
             if (postalCode.length == 0) {
-                postalCodeBox.classList.remove("correct");
-                postalCodeBox.classList.add("correctish");
+                postalCodeBox.classList.remove("invalid");
                 postalError = false;
             }
 
@@ -344,20 +311,17 @@ class startSaving extends Component {
             var roofError = false;
 
             // checking to see if user inputted a number for solar roof size and that there is enough space for at least one panel (20sqft)
-            if (Number(roofSize) && Number(roofSize) >= 20) {
+            if (Number(roofSize) && Number(roofSize) >= 0) {
                 console.log("this is a valid roof size");
-                roofSizeBox.classList.add("correct");
-                roofSizeBox.classList.remove("correctish");
+                roofSizeBox.classList.remove("invalid");
                 roofError = false;
             } else {
                 console.log("this is not a valid roof size");
-                roofSizeBox.classList.remove("correct");
-                roofSizeBox.classList.remove("correctish");
+                roofSizeBox.classList.add("invalid");
                 roofError = true;
             }
             if (roofSize.length == 0) {
-                roofSizeBox.classList.remove("correct");
-                roofSizeBox.classList.add("correctish");
+                roofSizeBox.classList.remove("invalid");
                 roofError = false;
             }
 
@@ -366,20 +330,17 @@ class startSaving extends Component {
             var usageError = false;
 
             // checking to see if user inputted a number for solar electricy usage is greater than the output of one panel (315w per hour = 0.315 Kw per hour => 0.315 * 5.5 = 1.73KW/Day = 52KW/month)
-            if (Number(usage) && Number(usage) >= 52) {
+            if (Number(usage) && Number(usage) >= 0) {
                 console.log("this is a valid usage amount");
-                usageBox.classList.add("correct");
-                usageBox.classList.remove("correctish");
+                usageBox.classList.remove("invalid");
                 usageError = false;
             } else {
                 console.log("this is not a valid usage amount");
-                usageBox.classList.remove("correct");
-                usageBox.classList.remove("correctish");
+                usageBox.classList.add("invalid");
                 usageError = true;
             }
             if (usage.length == 0) {
-                usageBox.classList.remove("correct");
-                usageBox.classList.add("correctish");
+                usageBox.classList.remove("invalid");
                 usageError = false;
             }            
 
@@ -390,18 +351,15 @@ class startSaving extends Component {
             // checking to see if user inputted a number for battery capacity that is greater or equal to 0
             if (Number(storage) && Number(storage) >= 0) {
                 console.log("this is a valid storage amount");
-                storageBox.classList.add("correct");
-                storageBox.classList.remove("correctish");
+                storageBox.classList.remove("invalid");
                 storageError = false;
             } else {
                 console.log("this is not a valid usage amount");
-                storageBox.classList.remove("correct");
-                storageBox.classList.remove("correctish");
+                storageBox.classList.add("invalid");
                 storageError = true;
             }
             if (storage.length == 0) {
-                storageBox.classList.remove("correct");
-                storageBox.classList.add("correctish");
+                storageBox.classList.remove("invalid");
                 storageError = false;
             } 
 
@@ -411,18 +369,15 @@ class startSaving extends Component {
             // checking to see if user inputted a number for dod that is greater or equal to 0
             if (Number(dod) && Number(dod) >= 0 && Number(dod) <= 100) {
                 console.log("this is a valid storage amount");
-                dodBox.classList.add("correct");
-                dodBox.classList.remove("correctish");
+                dodBox.classList.remove("invalid");
                 dodError = false;
             } else {
                 console.log("this is not a valid usage amount");
-                dodBox.classList.remove("correct");
-                dodBox.classList.remove("correctish");
+                dodBox.classList.add("invalid");
                 dodError = true;
             }
             if (dod.length == 0) {
-                dodBox.classList.remove("correct");
-                dodBox.classList.add("correctish");
+                dodBox.classList.remove("invalid");
                 dodError = false;
             } 
 
@@ -431,20 +386,17 @@ class startSaving extends Component {
             var budgetError = false;
 
             // checking to see if user inputted a number greater than the cost of one panel + fixed costs
-            if (Number(budget) && Number(budget) >= 3500) {
+            if (Number(budget) && Number(budget) >= 0) {
                 console.log("this is a valid budget amount");
-                budgetBox.classList.add("correct");
-                budgetBox.classList.remove("correctish");
+                budgetBox.classList.remove("invalid");
                 budgetError = false;
             } else {
                 console.log("this is not a valid budget amount");
-                budgetBox.classList.remove("correct");
-                budgetBox.classList.remove("correctish");
+                budgetBox.classList.add("invalid");
                 budgetError = true;
             }
             if (budget.length == 0) {
-                budgetBox.classList.remove("correct");
-                budgetBox.classList.add("correctish");
+                budgetBox.classList.remove("invalid");
                 budgetError = false;
             }  
 
@@ -454,21 +406,6 @@ class startSaving extends Component {
                 resultsButton.classList.remove("disabled-button");
             }
         }
-        function highlightBatteryMonth() {
-            var monthBox = document.getElementById("month-input2");
-            var month = document.forms["battery"]["month"].value;
-            if (month != "") {
-                monthBox.classList.add("correct");
-            }
-        }
-        function highlightBatteryHeating() {
-            var heatingBox = document.getElementById("heating-input2");
-            var heating = document.forms["battery"]["heating-type"].value;
-            if (heating != "") {
-                heatingBox.classList.add("correct");
-            }
-        }
-
 
         function finalCheckBatteryErrors() {
             console.log("checking errors");
@@ -486,28 +423,28 @@ class startSaving extends Component {
             if (resultsButton.classList.contains("disabled-button")) {
                 errorModal.style.display = "block";
                 // checking for postal code error
-                if (!postalCodeBox.classList.contains("correct") && !postalCodeBox.classList.contains("correctish")) {
+                if (postalCodeBox.classList.contains("invalid")) {
                     errorText.innerHTML += "Postal Code needs to be in the form of 'M3N'. <br><br>"
                 }
                 // checking for roof size error
-                if (!roofSizeBox.classList.contains("correct") && !roofSizeBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Roof Size needs to be a number greater than 20 sqft, which is the size of one solar panel. <br><br>"
+                if (roofSizeBox.classList.contains("invalid")) {
+                    errorText.innerHTML += "Roof Size needs to be a number greater than 0 Sqft. <br><br>"
                 }
                 // checking for usage error
-                if (!usageBox.classList.contains("correct") && !usageBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Electricity Usage needs to be a number greater than 52 kWh, which is the potential output of one solar panel. <br><br>"
+                if (usageBox.classList.contains("invalid")) {
+                    errorText.innerHTML += "Electricity Usage needs to be a number greater 0 kWh. <br><br>"
                 }
                 // checking for battery capacity error
-                if (!storageBox.classList.contains("correct") && !storageBox.classList.contains("correctish")) {
+                if (storageBox.classList.contains("invalid")) {
                     errorText.innerHTML += "Storage Capacity of the battery must be a number greater than 0 kWh. <br><br>"
                 }
                 // checking for dod error
-                if (!dodBox.classList.contains("correct") && !dodBox.classList.contains("correctish")) {
+                if (dodBox.classList.contains("invalid")) {
                     errorText.innerHTML += "Depth of Discharge of the battery must be a number between 0% and 100%. <br><br>"
                 }
                 // checking for budget error
-                if (!budgetBox.classList.contains("correct") && !budgetBox.classList.contains("correctish")) {
-                    errorText.innerHTML += "Budget needs to be a number greated than $3500, which is the cost of one solar panel + cost of installation"
+                if (budgetBox.classList.contains("invalid")) {
+                    errorText.innerHTML += "Budget needs to be a number greated than $0."
                 }
                 update.onclick = function () {
                     errorModal.style.display = "none";
@@ -576,7 +513,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs" required onBlur={() => { highlightSolarMonth(); }}>
+                            <select name="month" id="month-input1" class="dropdown-inputs" required>
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -595,7 +532,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required onBlur={() => { highlightSolarHeating(); }}>
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -663,7 +600,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input2" class="dropdown-inputs" required onBlur={() => { highlightBatteryMonth(); }}>
+                            <select name="month" id="month-input2" class="dropdown-inputs" required>
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -683,7 +620,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input2" class="dropdown-inputs" required onBlur={() => { highlightBatteryHeating(); }}>
+                            <select name="heating-type" id="heating-input2" class="dropdown-inputs" required>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
