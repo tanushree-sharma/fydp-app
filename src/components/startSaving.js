@@ -409,7 +409,7 @@ class startSaving extends Component {
             var dod = document.forms["battery"]["dod"].value;
             var dodError = false;
             // checking to see if user inputted a number for dod that is greater or equal to 0
-            if (Number(dod) && Number(dod) >= 0) {
+            if (Number(dod) && Number(dod) >= 0 && Number(dod) <= 100) {
                 console.log("this is a valid storage amount");
                 dodBox.classList.add("correct");
                 dodBox.classList.remove("correctish");
@@ -503,8 +503,7 @@ class startSaving extends Component {
                 }
                 // checking for dod error
                 if (!dodBox.classList.contains("correct") && !dodBox.classList.contains("correctish")) {
-                    console.log("this is running!!!");
-                    errorText.innerHTML += "Depth of Discharge of the battery must be a number greater than 0%. <br><br>"
+                    errorText.innerHTML += "Depth of Discharge of the battery must be a number between 0% and 100%. <br><br>"
                 }
                 // checking for budget error
                 if (!budgetBox.classList.contains("correct") && !budgetBox.classList.contains("correctish")) {
@@ -698,7 +697,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="dod" > Depth of Discharge:</p>
-                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" onBlur={() => { checkingBatteryInputs(); }}/>
+                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" maxlength="3" onBlur={() => { checkingBatteryInputs(); }}/>
                         </label>
 
                         <label>
