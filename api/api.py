@@ -2,6 +2,7 @@ import time
 from flask import Flask, request, render_template
 import solarModel
 import solarBatteryModel
+import json
 from datetime import datetime
 
 
@@ -49,11 +50,14 @@ def run_model():
     winterSavings = solution[7]
     reducedCO2 = solution[8]
     treesPlanted = solution[9]
+    costsWithoutSolar = solution[10]
+    costsWithSolar = solution[11]
 
     form = "solar"
 
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
-    springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted, form=form)
+    springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted,
+    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, form=form)
 
 @app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
@@ -101,11 +105,14 @@ def run_BattteryModel():
     winterSavings = solution[7]
     reducedCO2 = solution[8]
     treesPlanted = solution[9]
+    costsWithoutSolar = solution[10]
+    costsWithSolar = solution[11]
 
     form = "battery"
 
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
-    springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted, form=form)
+    springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted,
+    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, form=form)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=TRUE)
