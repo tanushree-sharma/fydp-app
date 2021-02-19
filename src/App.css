@@ -31,7 +31,7 @@
 
 #logo {
   position: absolute;
-  margin-top: 1.5%;
+  top: 18%;
   margin-left: 5.5%;
   width: 9vw;
 }
@@ -1386,6 +1386,29 @@ select:invalid {
   margin-right: 3%;
   min-height: 10vh;
 }
+#error-warning {
+  position: absolute;
+  left: 0%;
+  width: 8vw;
+  height: 13vh;
+  float: left;
+  vertical-align: middle;
+}
+.other-errors {
+  top: -15%;
+}
+.three-errors {
+  top: -10%;
+}
+.four-errors{
+  top: -3%;
+}
+.five-errors {
+  top: 5%;
+}
+.six-errors {
+  top: 10%; 
+}
 #error-text {
   font-family: Roboto;
   font-style: normal;
@@ -1401,12 +1424,6 @@ select:invalid {
   border-top: 1px solid #80807F;
   background-color: #FBFBFB;
   margin-top: 3vh;
-}
-#update-div {
-  width: 100%;
-  height: 7vh;
-  border: 1px solid rebeccapurple;
-  background-color: #FBFBFB;
 }
 
 #error-update {

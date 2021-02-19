@@ -93,6 +93,7 @@ class startSaving extends Component {
         function checkSolarValues() {
             var modal = document.getElementById("solarModal");
             var update = document.getElementById("solar-update");
+            var nav = document.getElementById("navigation"); 
 
             var postalCode = document.forms["solar"]["postal_code"].value;
             var roofSize = document.forms["solar"]["roof_size"].value;
@@ -100,7 +101,6 @@ class startSaving extends Component {
             var month = document.forms["solar"]["month"].value;
             var heating = document.forms["solar"]["heating-type"].value;
             var budget = document.forms["solar"]["budget"].value;
-
 
             if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") {
                 modal.style.display = "block";
@@ -125,6 +125,7 @@ class startSaving extends Component {
             var resultsButton = document.getElementById("results-button1");
             var postalCode = document.forms["solar"]["postal_code"].value;
             var postalError = false;
+            var numErrors = 0;
 
             var split = [];
             var i;
@@ -137,14 +138,17 @@ class startSaving extends Component {
                 console.log("this is a valid postal code");
                 postalCodeBox.classList.remove("invalid");
                 postalError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is NOT a valid postal code");
                 postalCodeBox.classList.add("invalid");
                 postalError = true;
+                numErrors++;
             }
             if (postalCode.length == 0) {
                 postalCodeBox.classList.remove("invalid");
                 postalError = false;
+                numErrors = Math.max(0, numErrors-1);
             }
 
             var roofSizeBox = document.getElementById("roof-size-input1");
@@ -156,14 +160,17 @@ class startSaving extends Component {
                 console.log("this is a valid roof size");
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is not a valid roof size");
                 roofSizeBox.classList.add("invalid");
                 roofError = true;
+                numErrors++;
             }
             if (roofSize.length == 0) {
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
+                numErrors = Math.max(0, numErrors-1);
             }
 
             var usageBox = document.getElementById("elec-usage-input1");
@@ -175,14 +182,17 @@ class startSaving extends Component {
                 console.log("this is a valid usage amount");
                 usageBox.classList.remove("invalid");
                 usageError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is not a valid usage amount");
                 usageBox.classList.add("invalid");
                 usageError = true;
+                numErrors++;
             }
             if (usage.length == 0) {
                 usageBox.classList.remove("invalid");
                 usageError = false;
+                numErrors = Math.max(0, numErrors-1);
             }            
 
             var budgetBox = document.getElementById("budget1");
@@ -194,20 +204,39 @@ class startSaving extends Component {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is not a valid budget amount");
                 budgetBox.classList.add("invalid");
                 budgetError = true;
+                numErrors++;
             }
             if (budget.length == 0) {
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
+                numErrors = Math.max(0, numErrors-1);
             }  
 
             if (postalError == true || roofError == true || usageError == true || budgetError == true) {
                 resultsButton.classList.add("disabled-button");
             } else {
                 resultsButton.classList.remove("disabled-button");
+            }
+
+            var warning = document.getElementById("error-warning");
+            // moving the warning icon down as the size of the div increases
+            if (numErrors == 3) {
+                warning.classList.remove("other-errors");
+                warning.classList.add("three-errors");
+                warning.classList.remove("four-errors");
+            } else if (numErrors == 4) {
+                warning.classList.remove("other-errors");
+                warning.classList.remove("three-errors");
+                warning.classList.add("four-errors");
+            } else {
+                warning.classList.add("other-errors");
+                warning.classList.remove("three-errors");
+                warning.classList.remove("four-errors");
             }
         }
 
@@ -285,6 +314,8 @@ class startSaving extends Component {
             var postalCode = document.forms["battery"]["postal_code"].value;
             var postalError = false;
 
+            var numErrors = 0;
+
             var split = [];
             var i;
             for (i=0; i<postalCode.length; i++) {
@@ -296,14 +327,17 @@ class startSaving extends Component {
                 console.log("this is a valid postal code");
                 postalCodeBox.classList.remove("invalid");
                 postalError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is NOT a valid postal code");
                 postalCodeBox.classList.add("invalid");
                 postalError = true;
+                numErrors++;
             }
             if (postalCode.length == 0) {
                 postalCodeBox.classList.remove("invalid");
                 postalError = false;
+                numErrors = Math.max(0, numErrors-1);
             }
 
             var roofSizeBox = document.getElementById("roof-size-input2");
@@ -315,14 +349,17 @@ class startSaving extends Component {
                 console.log("this is a valid roof size");
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is not a valid roof size");
                 roofSizeBox.classList.add("invalid");
                 roofError = true;
+                numErrors++;
             }
             if (roofSize.length == 0) {
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
+                numErrors = Math.max(0, numErrors-1);
             }
 
             var usageBox = document.getElementById("elec-usage-input2");
@@ -334,14 +371,17 @@ class startSaving extends Component {
                 console.log("this is a valid usage amount");
                 usageBox.classList.remove("invalid");
                 usageError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is not a valid usage amount");
                 usageBox.classList.add("invalid");
                 usageError = true;
+                numErrors++;
             }
             if (usage.length == 0) {
                 usageBox.classList.remove("invalid");
                 usageError = false;
+                numErrors = Math.max(0, numErrors-1);
             }            
 
             var storageBox = document.getElementById("storage-capacity-input");
@@ -353,14 +393,17 @@ class startSaving extends Component {
                 console.log("this is a valid storage amount");
                 storageBox.classList.remove("invalid");
                 storageError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is not a valid usage amount");
                 storageBox.classList.add("invalid");
                 storageError = true;
+                numErrors++;
             }
             if (storage.length == 0) {
                 storageBox.classList.remove("invalid");
                 storageError = false;
+                numErrors = Math.max(0, numErrors-1);
             } 
 
             var dodBox = document.getElementById("dod-input");
@@ -371,14 +414,17 @@ class startSaving extends Component {
                 console.log("this is a valid storage amount");
                 dodBox.classList.remove("invalid");
                 dodError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is not a valid usage amount");
                 dodBox.classList.add("invalid");
                 dodError = true;
+                numErrors++;
             }
             if (dod.length == 0) {
                 dodBox.classList.remove("invalid");
                 dodError = false;
+                numErrors = Math.max(0, numErrors-1);
             } 
 
             var budgetBox = document.getElementById("budget2");
@@ -390,20 +436,57 @@ class startSaving extends Component {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
+                numErrors = Math.max(0, numErrors-1);
             } else {
                 console.log("this is not a valid budget amount");
                 budgetBox.classList.add("invalid");
                 budgetError = true;
+                numErrors++;
             }
             if (budget.length == 0) {
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
+                numErrors = Math.max(0, numErrors-1);
             }  
 
             if (postalError == true || roofError == true || usageError == true || budgetError == true || storageError == true || dodError == true) {
                 resultsButton.classList.add("disabled-button");
             } else {
                 resultsButton.classList.remove("disabled-button");
+            }
+
+            var warning = document.getElementById("error-warning");
+            // moving the warning icon down as the size of the div increases
+            if (numErrors == 3) {
+                warning.classList.remove("other-errors");
+                warning.classList.add("three-errors");
+                warning.classList.remove("four-errors");
+                warning.classList.remove("five-errors");
+                warning.classList.remove("six-errors");
+            } else if (numErrors == 4) {
+                warning.classList.remove("other-errors");
+                warning.classList.remove("three-errors");
+                warning.classList.add("four-errors");
+                warning.classList.remove("five-errors");
+                warning.classList.remove("six-errors");
+            } else if (numErrors == 5) {
+                warning.classList.remove("other-errors");
+                warning.classList.remove("three-errors");
+                warning.classList.remove("four-errors");
+                warning.classList.add("five-errors");
+                warning.classList.remove("six-errors");
+            } else if (numErrors == 6) {
+                warning.classList.remove("other-errors");
+                warning.classList.remove("three-errors");
+                warning.classList.remove("four-errors");
+                warning.classList.remove("five-errors");
+                warning.classList.add("six-errors");
+            } else {
+                warning.classList.add("other-errors");
+                warning.classList.remove("three-errors");
+                warning.classList.remove("four-errors");
+                warning.classList.remove("five-errors");
+                warning.classList.remove("six-errors");
             }
         }
 
@@ -688,7 +771,7 @@ class startSaving extends Component {
                         <p id="error-title"> Invalid Input(s)</p>
                         <div class="error-container">
                             <div id="left">
-                                <img src={warning} id="warning" alt="warning"></img>
+                                <img src={warning} class="other-errors" id="error-warning" alt="warning"></img>
                             </div>
                             <div id="right">
                                 <p id="error-text"></p>
