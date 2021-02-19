@@ -45,7 +45,7 @@ class Navbar extends Component {
 
         return (
             <div class="sticky">
-                <div class="navs">
+                <div class="navs" id="navigation">
                     <a href="/"> <img src={logo} id="logo" alt="logo"></img> </a>
                     <ul class="nav-right">
                         <li><a href="/" id="home">Home</a></li>
