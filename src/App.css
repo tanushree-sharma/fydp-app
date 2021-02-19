@@ -108,6 +108,7 @@ ul.nav-right {
   top: 13%;
   bottom: 55.21%;
 }
+
 #mainSubText {
   font-family: "Roboto";
   font-size: 1.5vw;
@@ -119,7 +120,7 @@ ul.nav-right {
   position: relative;
   left: 5%;
   right: 61.42%;
-  top: 13.5%;
+  top: 13.7%;
   bottom: 46.48%;
 }
 
@@ -135,7 +136,7 @@ ul.nav-right {
   height: 4%;
   left: 5%;
   right: 61.42%;
-  top: 26%;
+  top: 26.2%;
   bottom: 46.48%;
 
   border-radius: 3.214vw;
@@ -209,7 +210,7 @@ ul.nav-right {
   width: 12.215vw;
   height: 4.69vh;
   left: 5.5%;
-  top: 71%;
+  top: 71.5%;
   white-space: nowrap;
 }
 #customAnalysisDesc {
@@ -233,7 +234,7 @@ ul.nav-right {
   position: absolute;
   width: 13vw;
   left: 31.5%;
-  top: 62%;
+  top: 62.3%;
 }
 #longTermSavingsLabel {
   font-family: "Mulish", sans-serif;
@@ -251,7 +252,7 @@ ul.nav-right {
   width: 12.215vw;
   height: 4.69vh;
   left: 29%;
-  top: 71%;
+  top: 71.5%;
   white-space: nowrap;
 }
 #longTermSavingsDesc {
@@ -273,9 +274,9 @@ ul.nav-right {
 
 #carbonFootprintIcon {
   position: absolute;
-  width: 12vw;
-  left: 57%;
-  top: 60.5%;
+  width: 11vw;
+  left: 57.3%;
+  top: 61.4%;
 }
 #carbonFootprintLabel {
   font-family: "Mulish", sans-serif;
@@ -293,7 +294,7 @@ ul.nav-right {
   width: 12.215vw;
   height: 4.69vh;
   left: 54.5%;
-  top: 71%;
+  top: 71.5%;
   white-space: nowrap;
 }
 #carbonFootprintDesc {
@@ -317,7 +318,7 @@ ul.nav-right {
   position: absolute;
   width: 13vw;
   left: 80%;
-  top: 61.5%;
+  top: 61.2%;
 }
 #integrateStorageLabel {
   font-family: "Mulish", sans-serif;
@@ -335,7 +336,7 @@ ul.nav-right {
   width: 12.215vw;
   height: 4.69vh;
   left: 78%;
-  top: 71%;
+  top: 71.5%;
   white-space: nowrap;
 }
 #integrateStorageDesc {
