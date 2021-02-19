@@ -31,7 +31,7 @@
 
 #logo {
   position: absolute;
-  top: 18%;
+  margin-top: 1.5%;
   margin-left: 5.5%;
   width: 9vw;
 }
@@ -839,22 +839,6 @@ ul.nav-right {
   top: 126.5%;
 }
 
-#generate-box {
-  position: absolute;
-  left: 45%;
-  top: 140%;
-  width: 20%;
-  height: 10%; 
-}
-#generate-box2 {
-  position: absolute;
-  left: 45%;
-  top: 160%;
-  width: 20%;
-  height: 10%;
-  border: none;
-}
-
 .resultsButton {
   font-family: "Roboto";
   font-style: normal;
@@ -863,16 +847,25 @@ ul.nav-right {
   line-height: 1.5vw;
 
   position: absolute;
-  width: 100%;
-  height: 100%;
-
-  left: 0%;
+  width: 17%;
+  height: 8%;
+  left: 43.5%;
 
   border-radius: 5.844vw;
   background-color: #f6d673;
   border: none;
   outline: none;
   text-align: center;
+  display: block;
+}
+
+#results-button1 {
+  top: 140%;
+}
+
+#results-button2 {
+  top: 160%;
+  
 }
 #results-button1:hover {
   background: #faebbc;
@@ -1276,7 +1269,6 @@ select:invalid {
 
   color: #80807F;
 }
-
 #warning {
   width: 8vw;
   height: 13vh;
@@ -1330,131 +1322,11 @@ select:invalid {
   bottom: 5%;
 }
 
-#solar-update:hover, #battery-update:hover, #error-update:hover {
+#solar-update:hover, #battery-update:hover {
   border: 1px solid #faebbc;
 }
 #continue:hover {
   background: #faebbc;
   color: black;
   outline: none;
-}
-
-.invalid {
-  border: 2px solid #c26c49;
-}
-
-.disabled-button {
-  background: #faebbc;
-  color: black;
-  outline: none;
-  pointer-events: none;
-}
-
-
-/* Error Modal Content */
-#error-top-border {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 1.5vh;
-  background-color: #F6D673;
-}
-.error-content {
-  position: relative;
-  background-color: #FBFBFB;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 42vw;
-  min-height: 10vh;
-  text-align: left;
-}
-
-#error-title {
-  position: absolute;
-  top: 25%;
-  left: 20%;
-  width: 80%;
-  height: 3vh;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 2vh;
-  letter-spacing: 0.05em;
-  color: #000000;
-}
-.error-container {
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  width: 100%;
-  background-color: #FBFBFB;
-}
-.error-container #left {
-  width: 20%;
-  float: left;
-}
-.error-container #right {
-  margin-left: 20%;
-  margin-right: 3%;
-  min-height: 10vh;
-}
-#error-warning {
-  position: absolute;
-  left: 0%;
-  width: 8vw;
-  height: 13vh;
-  float: left;
-  vertical-align: middle;
-}
-.other-errors {
-  top: -15%;
-}
-.three-errors {
-  top: -10%;
-}
-.four-errors{
-  top: -3%;
-}
-.five-errors {
-  top: 5%;
-}
-.six-errors {
-  top: 10%; 
-}
-#error-text {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.7vmin;
-  letter-spacing: 0.05em;
-
-  color: #80807F;
-}
-#error-buttondiv {
-  width: 100%;
-  height: 7vh;
-  border-top: 1px solid #80807F;
-  background-color: #FBFBFB;
-  margin-top: 3vh;
-}
-
-#error-update {
-  position: absolute;
-  background: #FFFFFF;
-  border: 1px solid #F6D673;
-  box-sizing: border-box;
-  border-radius: 2vh;
-
-  width: 9vw;
-  height: 4vh;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.5vh;
-
-  left: 77%;
-  bottom: 6%;
 }
