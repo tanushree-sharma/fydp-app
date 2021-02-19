@@ -61,4 +61,4 @@ class mainHomepage extends Component {
     }
 }
 
-export default mainHomepage
+export default mainHomepage;

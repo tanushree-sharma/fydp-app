@@ -627,17 +627,18 @@ class startSaving extends Component {
                             <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" onBlur={() => { checkingSolarInputs(); }}/>
                         </label>
 
-
                         <div id="generate-box" onMouseOver={() => { finalCheckSolarErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
                         </div>
+
+                        <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
                         <form>
                             <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase" onClick={() => { increaseValue(); }} value="Increase Value">+</div>
                             <p id="dollar-sign1">$</p>
                         </form>
                     </form>
-                </div>
+                </div> 
 
                 {/* {/* Solar + Battery Form */}
                 <div class="Panel__body tabContent" id="tabs-2">
@@ -729,6 +730,9 @@ class startSaving extends Component {
                             <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
                         </div>
 
+                        <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
+                        <div class="whitesquare"></div>
+
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
                             <div class="value-button" id="increase2" onClick={() => { increaseValue2(); }} value="Increase Value">+</div>
@@ -789,4 +793,4 @@ class startSaving extends Component {
     }
 }
 
-export default startSaving
+export default startSaving;

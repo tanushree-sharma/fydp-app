@@ -8,9 +8,9 @@
 
 .App {
   display: flex;
-  width: 100vw;
-  height: 200vh;
+  width: 100vw;  
 }
+
 
 .sticky {
   height: 50px;
@@ -83,8 +83,7 @@ ul.nav-right {
   position: relative;
   top: 4%;
   width: 100%;
-  height: 100%;
-  overflow-x: hidden;
+  height: 200vh;
   
 }
 
@@ -92,7 +91,7 @@ ul.nav-right {
   position: absolute;
   width: 53vw;
   left: 46%;
-  top: 1%;
+  top: 5%;
 }
 
 #mainText {
@@ -157,7 +156,7 @@ ul.nav-right {
   width: 7vw;
   position: absolute;
   left: 47%;
-  top: 40%;
+  top: 43%;
 
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
@@ -380,6 +379,13 @@ ul.nav-right {
   background: #faebbc;
   color: black;
   outline: none;
+}
+
+.startSaving {
+  display: flex;
+  width: 100vw;
+  height: 200vh;
+  
 }
 
 .Panel {
@@ -868,7 +874,6 @@ ul.nav-right {
   outline: none;
   text-align: center;
 }
-
 #results-button1:hover {
   background: #faebbc;
   color: black;
@@ -886,6 +891,15 @@ ul.nav-right {
   margin: 0 auto;
   text-align: center;
   padding-top: 50px;
+}
+
+.whitesquare{
+  position: absolute;
+  left: 43.5%;
+  top: 171%;
+  height: 20px;
+  width:100px;
+  background-color:white; 
 }
 
 .value-button {
