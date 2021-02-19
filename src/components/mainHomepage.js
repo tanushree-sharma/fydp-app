@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-scroll'
 import graphic from '../homepageGraphic2.png'
-import carbonFootprint from '../carbonFootprintIcon.png'
+import carbonFootprint from '../carbonFootprintIcon2.png'
 import customAnalysis from '../customAnalysisIcon.png'
 import longTermSavings from '../longTermSavingsIcon.png'
 import integrateStorage from '../integrateStorageIcon.png'
@@ -23,7 +23,7 @@ class mainHomepage extends Component {
             <h1 id="mainText">Unlock your potential </h1>
             <h1 id="mainText"> solar savings</h1>
             <p id="mainSubText"> Streamlining the decision making process for </p>
-            <p id="mainSubText"> residential solar energy investment in Ontario</p><br></br>
+            <p id="mainSubText"> residential solar energy investment in Ontario.</p><br></br>
             
             <form action="/start-saving">
                 <button type="submit" id="startButton"> Start Saving </button>
