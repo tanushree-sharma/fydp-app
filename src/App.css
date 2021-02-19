@@ -274,10 +274,9 @@ ul.nav-right {
 
 #carbonFootprintIcon {
   position: absolute;
-  width: 12vw;
-  height: 20vh;
-  left: 57%;
-  top: 61.2%;
+  width: 11vw;
+  left: 57.3%;
+  top: 61.4%;
 }
 #carbonFootprintLabel {
   font-family: "Mulish", sans-serif;
