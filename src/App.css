@@ -1445,3 +1445,36 @@ select:invalid {
   left: 77%;
   bottom: 6%;
 }
+
+/* faq page */
+#faq-title{
+  position: absolute;
+  left: 33%;
+  top: 20%;
+  width: 40vw;
+  height: 4vh;
+
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5vw;
+  line-height: 7.8vh;
+  color: #000000;
+  mix-blend-mode: normal;
+}
+
+#faq-desc{
+  position: absolute;
+  width: 45vw;
+  height: 2vh;
+  left: 27.5%;
+  top: 30%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1vw;
+  line-height: 3vh;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #000000;
+}

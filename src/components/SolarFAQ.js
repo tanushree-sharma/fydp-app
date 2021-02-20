@@ -11,7 +11,8 @@ class SolarFAQ extends Component {
             <br></br>
             <br></br>
             <br></br>
-            <h1> Solar FAQ </h1>
+            <p id="faq-title"> Frequently Asked Questions </p>
+            <p id="faq-desc"> Learn more about how solar energy works, how Soli calculates your custom solar system, and next steps to implement your solar investment. </p>
         </div>
         )
     }
