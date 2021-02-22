@@ -575,6 +575,12 @@ class startSaving extends Component {
                     <div class="help-tip" id="q3">
                         <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
                     </div>
+                    <div class="help-tip" id="q6">
+                        <p> 
+                            <b> Tip:</b> The average cost of a residential solar installation is between $15,000 - $20,000<sup id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
+                            <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to see how this was calculated.</span>
+                        </p>
+                    </div>
 
                     <form action="/solar-results" name="solar" method="POST" class="userform">
                         <label>
@@ -662,6 +668,12 @@ class startSaving extends Component {
                     </div>
                     <div class="help-tip" id="q5">
                         <p>The DoD should be listed under your battery specifications.</p>
+                    </div>
+                    <div class="help-tip" id="q7">
+                        <p> 
+                        <b> Tip:</b> The average cost of a residential solar installation is between $15,000 - $20,000<sup id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
+                            <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to see how this was calculated.</span>
+                        </p>
                     </div>
 
                     <form action="/solarbattery-results" method="POST" name="battery" class="userform">

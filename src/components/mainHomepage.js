@@ -45,7 +45,7 @@ class mainHomepage extends Component {
             <p id="carbonFootprintLabel"> Carbon Footprint </p>
             <p id="integrateStorageLabel"> Integrate Storage </p>
 
-            <p id="customAnalysisDesc"> Soli provides you with optimized, custom results to help you make the right decision for your home. </p>
+            <p id="customAnalysisDesc"> Soli provides you with custom results to help you determine the optimal system size for your home. </p>
             <p id="longTermSavingsDesc"> We’ll give you full visibility into long-term cost savings and the payback period for your unique system. </p>
             <p id="carbonFootprintDesc"> Discover how leveraging solar energy impacts your hoursehold carbon footprint over time. </p>
             <p id="integrateStorageDesc"> Use Soli’s Solar + Battery tool to integrate solar panels with your existing home battery. </p>

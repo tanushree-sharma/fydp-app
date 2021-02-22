@@ -834,6 +834,16 @@ ul.nav-right {
   top: 126.5%;
 }
 
+#q6 {
+  top: 116.7%;
+}
+#q7 {
+  top: 142.7%;
+}
+#budgetTipNote {
+  font-size: 0.7vw;
+}
+
 #generate-box {
   position: absolute;
   left: 45%;
