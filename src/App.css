@@ -780,7 +780,7 @@ ul.nav-right {
   background-color: #e5e5e5;
   border-radius: 10px;
   padding: 50%;
-  width: 18vw;
+  width: 20vw;
   position: absolute;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   right: -7px;
@@ -832,6 +832,16 @@ ul.nav-right {
 
 #q5 {
   top: 126.5%;
+}
+
+#q6 {
+  top: 116.7%;
+}
+#q7 {
+  top: 142.7%;
+}
+#budgetTipNote {
+  font-size: 0.7vw;
 }
 
 #generate-box {
