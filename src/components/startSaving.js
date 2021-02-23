@@ -353,25 +353,25 @@ class startSaving extends Component {
                     </div>
                 </div>
                
-                
-        
+                <div class="footer-ss">
+                    <p class="footer-left-ss">
+                    <a>SoliⒸ2021</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a>Management Engineering Capstone Design Project</a>
+                    </p>
+
+                </div> 
 
             </div>
 
          
         )
         
+        
     }  
     
 }
 
-{/* <div class="footer">
-<p class="footer-left">
-<a>SoliⒸ2021</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-<a>Management Engineering Capstone Design Project</a>
-</p>
 
-</div> */}
 
 
 
