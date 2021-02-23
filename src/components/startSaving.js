@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import graphic from '../question_img.png'
 import warning from '../warning.png'
+import Footer from '../components/Footer';
 
 class startSaving extends Component {
+
     render() {
+
         // switching between tabs
         var tabs = document.getElementsByClassName('Tab');
         window.addEventListener('load', function () {
@@ -182,7 +185,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs">
+                            <select name="month" id="month-input1" class="dropdown-inputs" required >
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -201,7 +204,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -349,9 +352,29 @@ class startSaving extends Component {
                         <button class="modalSubmit" id="battery-update"> Update fields </button>
                     </div>
                 </div>
+               
+                
+        
+
             </div>
+
+         
         )
-    }
+        
+    }  
+    
 }
+
+{/* <div class="footer">
+<p class="footer-left">
+<a>SoliⒸ2021</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a>Management Engineering Capstone Design Project</a>
+</p>
+
+</div> */}
+
+
+
+
 
 export default startSaving;

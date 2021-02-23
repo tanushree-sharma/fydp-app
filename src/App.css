@@ -8,9 +8,8 @@
 
 .App {
   display: flex;
-  width: 100vw;  
+  width: 100vw;
 }
-
 
 .sticky {
   height: 50px;
@@ -25,9 +24,9 @@
   position: absolute;
   background-color: white;
   font-size: 1.3vw;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   top: 0%;
-  }
+}
 
 #logo {
   position: absolute;
@@ -84,7 +83,6 @@ ul.nav-right {
   top: 4%;
   width: 100%;
   height: 200vh;
-  
 }
 
 #mainGraphic {
@@ -144,7 +142,6 @@ ul.nav-right {
   text-align: center;
   display: inline-block;
 }
-
 
 #startButton:hover {
   background: #faebbc;
@@ -385,7 +382,6 @@ ul.nav-right {
   display: flex;
   width: 100vw;
   height: 200vh;
-  
 }
 
 .Panel {
@@ -554,6 +550,18 @@ ul.nav-right {
   width: 100%;
 }
 
+.footer-ss {
+  position: absolute;
+  clear: both;
+  top: 180%;
+  color: #80807f;
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 1vw;
+  line-height: 5vh;
+  width: 100%;
+}
+
 .footer-left {
   width: 100vw;
   list-style: none;
@@ -563,18 +571,28 @@ ul.nav-right {
   overflow-x: hidden;
 }
 
+.footer-left-ss {
+  width: 100vw;
+  list-style: none;
+  text-align: left;
+  margin-left: 0%;
+  float: left;
+  overflow-x: hidden;
+}
+
 .field-titles {
   position: absolute;
   width: 14vw;
   height: 2.4vh;
-  left: 39%;
+  left: 37%;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.15vw;
+  font-size: 1.2vw;
   line-height: 2.097vh;
   letter-spacing: 0.05em;
   color: #000000;
+  white-space: nowrap;
   text-align: left;
 }
 
@@ -583,6 +601,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.05vw;
 }
 
 .field-input-dod::placeholder {
@@ -590,6 +609,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.05vw;
 }
 
 .field-inputs-budget::placeholder {
@@ -597,6 +617,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.05vw;
 }
 
 .dropdownFormat {
@@ -604,6 +625,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.05vw;
 }
 
 #postal-text {
@@ -611,7 +633,7 @@ ul.nav-right {
   width: 11vw;
   height: 2.7vh;
   left: 65.5%;
-  font-size: 0.7vw;
+  font-size: 0.8vw;
   font-family: Roboto;
   font-style: italic;
   font-weight: 200;
@@ -714,16 +736,17 @@ ul.nav-right {
   position: absolute;
   width: 10vw;
   height: 2.5vh;
-  left: 20%;
+  left: 18%;
   font-family: Mulish;
   font-style: normal;
   font-weight: 600;
-  font-size: 1.25vw;
+  font-size: 1.4vw;
   line-height: 2.5vh;
   /* identical to box height */
   display: flex;
   align-items: center;
   color: #80807f;
+  white-space: nowrap;
 }
 
 .qGraphic {
@@ -738,7 +761,7 @@ ul.nav-right {
 }
 
 #energy-usage {
-  top: 88.5%;
+  top: 88%;
 }
 
 #initial-inv1 {
@@ -865,7 +888,6 @@ ul.nav-right {
 
 #results-button2 {
   top: 160%;
-  
 }
 #results-button1:hover {
   background: #faebbc;
@@ -886,13 +908,13 @@ ul.nav-right {
   padding-top: 50px;
 }
 
-.whitesquare{
+.whitesquare {
   position: absolute;
   left: 43.5%;
   top: 171%;
   height: 20px;
-  width:100px;
-  background-color:white; 
+  width: 100px;
+  background-color: white;
 }
 
 .value-button {
@@ -921,11 +943,11 @@ ul.nav-right {
 }
 
 form #decrease {
-  left: 73.9%;
+  left: 74.9%;
   border-radius: 0 0 0 0;
   width: 2.11vw;
   top: 116%;
-  height: 2.6vh;
+  height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -935,27 +957,17 @@ form #decrease {
 form #percentage {
   position: absolute;
   top: 126.5%;
-  left: 63.5%;
+  left: 64.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
   color: #000000;
 }
 
-form #dollar-sign1-line {
-  position: absolute;
-  top: 114.87%;
-  left: 64.5%;
-  font-family: "Mulish";
-  font-weight: 50;
-  font-size: 1.7vw;
-  color: #8a7979;
-}
-
 form #dollar-sign1 {
   position: absolute;
   top: 116.5%;
-  left: 63.5%;
+  left: 64.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -965,7 +977,7 @@ form #dollar-sign1 {
 form #dollar-sign2 {
   position: absolute;
   top: 142.5%;
-  left: 63.5%;
+  left: 64.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -1000,11 +1012,11 @@ form #dollar-sign2 {
 }
 
 form #increase {
-  left: 76.75%;
+  left: 77.75%;
   width: 2.11vw;
   border-radius: 0 0.309vw 0.309vw 0;
   top: 116%;
-  height: 2.6vh;
+  height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1026,11 +1038,11 @@ form #increase {
   outline: none;
 }
 form #decrease2 {
-  left: 73.9%;
+  left: 74.9%;
   border-radius: 0 0 0 0;
   width: 2.11vw;
   top: 142%;
-  height: 2.6vh;
+  height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1045,11 +1057,11 @@ form #decrease2 {
 }
 
 form #increase2 {
-  left: 76.75%;
+  left: 77.75%;
   width: 2.11vw;
   border-radius: 0 0.309vw 0.309vw 0;
   top: 142%;
-  height: 2.6vh;
+  height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1082,8 +1094,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-inputs {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.1vh;
+  left: 64%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1097,8 +1109,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-input-dod {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.1vh;
+  left: 64%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1112,8 +1124,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-inputs-budget {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.1vh;
+  left: 64%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1135,8 +1147,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .dropdown-inputs {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.1vh;
+  left: 64%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1145,7 +1157,8 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  color:black;
+  color: black;
+  font-size: 1.05vw;
 }
 
 .vertical {
@@ -1226,8 +1239,8 @@ select:invalid {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -1237,11 +1250,11 @@ select:invalid {
   left: 0%;
   width: 100%;
   height: 1.5vh;
-  background-color: #F6D673;
+  background-color: #f6d673;
 }
 .modal-content {
   position: relative;
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -1267,7 +1280,7 @@ select:invalid {
   margin-top: 2vh;
   margin-bottom: 4vh;
 
-  color: #80807F;
+  color: #80807f;
 }
 #warning {
   width: 8vw;
@@ -1281,13 +1294,14 @@ select:invalid {
   top: 72%;
   width: 100%;
   height: 7vh;
-  border-top: 1px solid #80807F;
+  border-top: 1px solid #80807f;
 }
 
-#solar-update, #battery-update {
+#solar-update,
+#battery-update {
   position: absolute;
-  background: #FFFFFF;
-  border: 1px solid #F6D673;
+  background: #ffffff;
+  border: 1px solid #f6d673;
   box-sizing: border-box;
   border-radius: 2vh;
 
@@ -1305,8 +1319,8 @@ select:invalid {
 
 #continue {
   position: absolute;
-  background: #F6D673;
-  border: 1px solid #F6D673;
+  background: #f6d673;
+  border: 1px solid #f6d673;
   box-sizing: border-box;
   border-radius: 2vh;
 
@@ -1322,7 +1336,8 @@ select:invalid {
   bottom: 5%;
 }
 
-#solar-update:hover, #battery-update:hover {
+#solar-update:hover,
+#battery-update:hover {
   border: 1px solid #faebbc;
 }
 #continue:hover {
