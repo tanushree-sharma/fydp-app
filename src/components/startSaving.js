@@ -354,10 +354,7 @@ class startSaving extends Component {
                 </div>
                
                 <div class="footer-ss">
-                    <p class="footer-left-ss">
-                    <a>SoliⒸ2021</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a>Management Engineering Capstone Design Project</a>
-                    </p>
+                <Footer />
 
                 </div> 
 
