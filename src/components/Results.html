@@ -630,12 +630,22 @@
             faqID.classList.remove("selected");
             aboutID.classList.remove("selected");
         }
+
     </script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         function genPDF() {
             var doc = new jsPDF();
             doc.text(20, 30, 'Your Soli Analysis.');
+            // String results = "Installation Size: " + installationSize;
+           
+            doc.text(20, 40, "Installation Size: " + installationSize );
             doc.save('document.pdf');
+
+            
+
+
+
+
             //window.scrollTo(0, 0);
            // html2canvas(document.body, {
                 //scale: 2,
@@ -645,9 +655,19 @@
                    //doc.addImage(img, 'PNG', 40, -18, 220, 270);
                     //doc.addImage(img, 'PNG', 40, -18, 115, 135);
                   //  doc.save('Your-Soli-Analysis.pdf');
+
+
+            //       <div>
+            //     <p class="system-data"> {{installationSize}} <span id="system-kW"> kW </span></p>
+            //     <p> Installation Size </p>
+            // </div>
+
+        
+
+
     
 }
-    </script>
+    </script> -->
 
     <div class="sticky">
         <div class="navs">
@@ -669,7 +689,7 @@
         <p id="system-size-title"> Recommended System Specifications </p>
         <div class="system-container" id="system-container">
             <div>
-                <p class="system-data"> {{installationSize}} <span id="system-kW"> kW </span></p>
+                <p class="system-data" id=installSize> {{installationSize}} <span id="system-kW"> kW </span></p>
                 <p> Installation Size </p>
             </div>
             <div>
@@ -737,7 +757,6 @@
     const costWithoutSolarLast5 = costsWithoutSolarOg.slice(20,25)
 
 
-        $(document).ready(function () {
         function addData(numData, chart) {
             for (var i = 0; i < numData; i++) {
                 chart.data.datasets[1].data.push(costWithSolarLast5[i]);
@@ -914,6 +933,44 @@
             <a>Management Engineering Capstone Design Project</a>
         </p>
     </div>
+
+    <script type="text/javascript">
+        // const rabs = "help me"
+        function genPDF() {
+            var doc = new jsPDF();
+            doc.text(20, 30, 'Your Soli Analysis.');
+            // String results = "Installation Size: " + installationSize;
+            // doc.text(20, 40, `Installation Size: ${installationSize}` );
+            var inSize =document.getElementById("installSize").textContent;
+            // print.inSize;
+            // var inSizeCut = inSize.split(" ");
+            doc.text(20, 40, 'Installation Size:' + inSize);
+            doc.save('document.pdf');
+
+            
+            //window.scrollTo(0, 0);
+           // html2canvas(document.body, {
+                //scale: 2,
+                //onrendered: function (canvas) {
+                   // var img = canvas.toDataURL("image/png", 1.0);
+                   // var doc = new jsPDF("landscape", "mm", "a4");
+                   //doc.addImage(img, 'PNG', 40, -18, 220, 270);
+                    //doc.addImage(img, 'PNG', 40, -18, 115, 135);
+                  //  doc.save('Your-Soli-Analysis.pdf');
+
+            //       <div>
+            //     <p class="system-data"> {{installationSize}} <span id="system-kW"> kW </span></p>
+            //     <p> Installation Size </p>
+            // </div>
+
+    
+
+    
+}
+    </script>
+
+
+
 
 </body>
 
