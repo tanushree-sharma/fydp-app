@@ -1,23 +1,73 @@
 import React, { Component } from 'react';
-import faqData from '../components/faqData';
-import faqArrowDown from '../faqArrowDown.png'
-import faqArrowUp from '../faqArrowUp.png'
+import PropTypes from 'prop-types';
 
-function Accordion(props) {
+import AccordionSection from './AccordionSection';
+
+class Accordion extends Component {
+  static propTypes = {
+    allowMultipleOpen: PropTypes.bool,
+    children: PropTypes.instanceOf(Object).isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+
+    const openSections = {};
+
+    this.props.children.forEach(child => {
+      if (child.props.isOpen) {
+        openSections[child.props.label] = true;
+      }
+    });
+
+    this.state = { openSections };
+  }
+
+  onClick = label => {
+    const {
+      props: { allowMultipleOpen },
+      state: { openSections },
+    } = this;
+
+    const isOpen = !!openSections[label];
+
+    if (allowMultipleOpen) {
+      this.setState({
+        openSections: {
+          ...openSections,
+          [label]: !isOpen
+        }
+      });
+    } else {
+      this.setState({
+        openSections: {
+          [label]: !isOpen
+        }
+      });
+    }
+  };
+
+  render() {
+    const {
+      onClick,
+      props: { children },
+      state: { openSections },
+    } = this;
+
     return (
-      /*<div className="accordion__section">
-        <button className="accordion">
-          <p className="accordion__title">{props.title}</p>
-        </button>
-        <div className="accordion__content">
-          <div
-            className="accordion__text"
-            dangerouslySetInnerHTML={{ __html: props.content }}
-          />
-        </div>
-      </div>*/
-      <div></div>
+      <div id="accordion">
+        {children.map(child => (
+          <AccordionSection
+            isOpen={!!openSections[child.props.label]}
+            label={child.props.label}
+            onClick={onClick}
+          >
+            {child.props.children}
+          </AccordionSection>
+        ))}
+      </div>
     );
-   }
-    
-export default Accordion
+  }
+}
+
+export default Accordion;

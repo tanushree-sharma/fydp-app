@@ -1554,3 +1554,61 @@ select:invalid {
   color: #5C77AC;
   border-bottom: 0.3vh solid #80807F;
 }
+
+#accordion{
+  position: absolute;
+  width: 70vw;
+  height: 100%;
+  left: 15%;
+  top: 85%;
+
+  background-color: #FFFFFF;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+#accordion-section{
+  text-align: left;
+  padding: 1vh 1vw;
+}
+
+#accordion-question{
+  width: 70vw;
+  height: 5vh;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2vh;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #000000;
+}
+
+#accordion-answer{
+  width: 65vw;
+  height: auto;
+  padding: 1vh 1vw;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vh;
+  line-height: 3vh;
+  align-items: center;
+  letter-spacing: 0.05em;
+
+  color: #000000;
+}
+
+#faq-arrow{
+  width: 2.2vw;
+  height: 4vh;
+  padding: 1vh 1vw;
+}
