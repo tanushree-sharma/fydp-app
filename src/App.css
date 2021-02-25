@@ -1531,11 +1531,9 @@ select:invalid {
 
 
 #myResults{
-  position: absolute;
   width: 70vw;
   height: 3.5vh;
   left: 15%;
-  top: 90%;
 
   font-family: "Mulish";
   font-style: normal;
@@ -1547,14 +1545,14 @@ select:invalid {
 
   color: #5C77AC;
   border-bottom: 0.3vh solid #80807F;
+
+  margin-top: 5vh;
 }
 
 #nextSteps{
-  position: absolute;
   width: 70vw;
   height: 3.5vh;
   left: 15%;
-  top: 100%;
 
   font-family: "Mulish";
   font-style: normal;
@@ -1566,6 +1564,8 @@ select:invalid {
 
   color: #5C77AC;
   border-bottom: 0.3vh solid #80807F;
+
+  margin-top: 5vh;
 }
 
 #accordion{
