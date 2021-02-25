@@ -558,7 +558,7 @@ ul.nav-right {
   font-family: "Mulish";
   font-weight: 500;
   font-size: 1vw;
-  line-height: 5vh;
+  line-height: 10vh;
   width: 100%;
   left: -11.75%;
 }
@@ -576,9 +576,10 @@ ul.nav-right {
   width: 100vw;
   list-style: none;
   text-align: left;
-  margin-left: 0%;
+  margin-left: 3%;
   float: left;
   overflow-x: hidden;
+  margin-bottom: 7%;
 }
 
 .field-titles {
