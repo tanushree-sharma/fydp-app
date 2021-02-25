@@ -23,13 +23,26 @@ class AccordionSection extends Component {
     } = this;
 
     return (
-      <div id="accordion-section">
+      /*<div id="accordion-section">
         <div id="accordion-question" onClick={onClick}>
           {label}
           <div >
             {!isOpen && <span><img src={faqArrowDown} id="faq-arrow"/></span>}
             {isOpen && <span><img src={faqArrowUp} id="faq-arrow"/></span>}
           </div>
+        </div>
+        {isOpen && (
+          <div id="accordion-answer">
+            {this.props.children}
+          </div>
+        )}
+      </div>*/
+      
+      <div id="accordion-section">
+        <div id="accordion-question" onClick={onClick}>
+            {!isOpen && <span><img src={faqArrowDown} id="faq-arrow"/></span>}
+            {isOpen && <span><img src={faqArrowUp} id="faq-arrow"/></span>}
+            {label}
         </div>
         {isOpen && (
           <div id="accordion-answer">
