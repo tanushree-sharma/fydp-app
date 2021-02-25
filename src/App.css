@@ -1377,6 +1377,7 @@ select:invalid {
   left: 0%;
   width: 100%;
   background-color: #FBFBFB;
+
 }
 .error-container #left {
   width: 20%;
@@ -1479,12 +1480,22 @@ select:invalid {
   color: #000000;
 }
 
-#aboutSolar{
+#faqDiv {
   position: absolute;
-  width: 70vw;
-  height: 3.5vh;
   left: 15%;
   top: 45%;
+
+  width: 70vw;
+  min-height: 30vh;
+
+}
+
+#aboutSolar{
+  position: absolute;
+  left: 15%;
+  top: 40%;
+  width: 70vw;
+  height: 3.5vh;
 
   font-family: "Mulish";
   font-style: normal;
@@ -1499,11 +1510,9 @@ select:invalid {
 }
 
 #myData{
-  position: absolute;
   width: 70vw;
   height: 3.5vh;
   left: 15%;
-  top: 55%;
 
   font-family: "Mulish";
   font-style: normal;
@@ -1515,14 +1524,18 @@ select:invalid {
 
   color: #5C77AC;
   border-bottom: 0.3vh solid #80807F;
+
+  margin-top: 5vh;
 }
+
+
 
 #myResults{
   position: absolute;
   width: 70vw;
   height: 3.5vh;
   left: 15%;
-  top: 65%;
+  top: 90%;
 
   font-family: "Mulish";
   font-style: normal;
@@ -1541,7 +1554,7 @@ select:invalid {
   width: 70vw;
   height: 3.5vh;
   left: 15%;
-  top: 75%;
+  top: 100%;
 
   font-family: "Mulish";
   font-style: normal;
@@ -1556,13 +1569,8 @@ select:invalid {
 }
 
 #accordion{
-  position: absolute;
   width: 70vw;
   height: 100%;
-  left: 15%;
-  top: 85%;
-
-  background-color: #FFFFFF;
   cursor: pointer;
   text-align: left;
   border: none;
@@ -1592,7 +1600,7 @@ select:invalid {
 }
 
 #accordion-answer{
-  width: 65vw;
+  width: 63vw;
   height: auto;
   padding: 1vh 4.5vw;
 
