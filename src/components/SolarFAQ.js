@@ -18,9 +18,10 @@ class SolarFAQ extends Component {
 
                         <div label='What are the different types of solar systems?'>
                             <p>There are three primary residential solar PV and storage installations:</p>
-                            <p><strong>Solar</strong> installations include solar panels providing energy for immediate use. Any unused energy captured by panels is lost.</p>
-                            <p><strong>Solar + Battery</strong> installations use a home battery system to store excess energy captured during hours of sunlight to allow for use during periods of minimal or no sun exposure.</p>
-                            <p><strong>Off-grid</strong> systems serve as stand alone power systems where homes are entirely self-sufficient and do not rely on the electrical grid at all. </p>
+                            <br></br>
+                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Solar</strong> installations include solar panels providing energy for immediate use. Any unused energy captured by panels is lost.</p>
+                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Solar + Battery</strong> installations use a home battery system to store excess energy captured during hours of sunlight to allow for use during periods of minimal or no sun exposure.</p>
+                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Off-grid</strong> systems serve as stand alone power systems where homes are entirely self-sufficient and do not rely on the electrical grid at all. </p>
                         </div>
 
                         <div label='What is the average lifespan of a solar energy system?'>
@@ -34,20 +35,20 @@ class SolarFAQ extends Component {
                         <div label='What are pros and cons of solar energy?'>
                             <p><strong>Pros:</strong></p>
                             <ul>
-                                <li style={{ marginLeft: '2.5rem' }}>Lower electricity bills → cost analysis point to a continued reduction in your electricity bill during the lifespan of the solar panels.</li>
-                                <li style={{ marginLeft: '2.5rem' }}>Increased property value → On average, homes with solar systems installed, sell for almost 4% more.</li>
-                                <li style={{ marginLeft: '2.5rem' }}>Reduced carbon footprint → Solar is an infinite energy source and is able to generate energy without harmful emissions, unlike its alternatives such as natural gas or fossil fuels.</li>
-                                <li style={{ marginLeft: '2.5rem' }}>Energy Independence → Generating energy from solar panels decreases a home’s reliance on the electrical grid, and leads to a more predictable electricity bill.</li>
-                                <li style={{ marginLeft: '2.5rem' }}>Longevity & Low Maintenance → Solar panels require limited maintenance during the first 25 years after installation. Panels can be independently maintained or cleaned for a relatively low cost by professionals.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Lower electricity bills → cost analysis point to a continued reduction in your electricity bill during the lifespan of the solar panels.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Increased property value → On average, homes with solar systems installed, sell for almost 4% more.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Reduced carbon footprint → Solar is an infinite energy source and is able to generate energy without harmful emissions, unlike its alternatives such as natural gas or fossil fuels.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Energy Independence → Generating energy from solar panels decreases a home’s reliance on the electrical grid, and leads to a more predictable electricity bill.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Longevity & Low Maintenance → Solar panels require limited maintenance during the first 25 years after installation. Panels can be independently maintained or cleaned for a relatively low cost by professionals.</li>
                             </ul>
                             <br></br>
 
                             <p><strong>Cons:</strong></p>
                             <ul>
-                                <li style={{ marginLeft: '2.5rem' }}>Initial investment → Though the savings pay-off in the long run, the upfront cost required may deter homeowners.</li>
-                                <li style={{ marginLeft: '2.5rem' }}>Weather factors → For optimal efficiency, panels require direct sunlight, thus, snow, shade and dust build up overtime should be mitigated.</li>
-                                <li style={{ marginLeft: '2.5rem' }}>Space requirement → Most configurations see solar panels taking up a significant amount of space on the roof, therefore homeowners with smaller roofs may need to compromise installation size for space.</li>
-                                <li style={{ marginLeft: '2.5rem' }}>Usability → Unless a home battery is paired with a solar energy system, energy can only be used during the day, while it’s being harnessed.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Initial investment → Though the savings pay-off in the long run, the upfront cost required may deter homeowners.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Weather factors → For optimal efficiency, panels require direct sunlight, thus, snow, shade and dust build up overtime should be mitigated.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Space requirement → Most configurations see solar panels taking up a significant amount of space on the roof, therefore homeowners with smaller roofs may need to compromise installation size for space.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Usability → Unless a home battery is paired with a solar energy system, energy can only be used during the day, while it’s being harnessed.</li>
                             </ul>
                         </div>
                     </Accordion>
@@ -110,13 +111,13 @@ class SolarFAQ extends Component {
 
                         <div label='What data sources does Soli use?'>
                             <ul>
-                                <li style={{ marginLeft: '2.5rem' }}>Electricity rates to forecast the cost of electricity overtime from the <a href="https://www.oeb.ca/" target="_blank">Ontario Energy Board</a></li>
-                                <li style={{ marginLeft: '2.5rem' }}>Forecasted seasonal fluctuations in energy demand calculated using data from <a href="https://www.ieso.ca/en/" target="_blank">Independent Electricity System Operator</a> and <a href="https://energyusecalculator.com/electricity_furnace.htm" target="_blank">Energy Use Calculator</a></li>
-                                <li style={{ marginLeft: '2.5rem' }}>Location based capacity factors to distinguish between the solar irradiation  patterns from the <a href="https://www.nrel.gov/" target="_blank">National Renewable Energy Laboratory’s (NREL), System Advisor Model (SAM)</a></li>
-                                <li style={{ marginLeft: '2.5rem' }}>Nominal capacity, deterioration rate, cost and surface area of solar panels from <a href="https://hespv.ca/?SID=d81se886l39eei0l2io124jkj4" target="_blank">HESPV</a></li>
-                                <li style={{ marginLeft: '2.5rem' }}>Fixed cost of installation to incorporate into the initial investment from <a href="https://hespv.ca/?SID=d81se886l39eei0l2io124jkj4" target="_blank">HESPV</a></li>
-                                <li style={{ marginLeft: '2.5rem' }}>Panel maintenance costs to incorporate into the cost of electricity with solar energy from <a href="https://www.homeadvisor.com/cost/cleaning-services/solar-panel-maintenance/" target="_blank">HomeAdvisor</a></li>
-                                <li style={{ marginLeft: '2.5rem' }}>Canadian inflation rates from Knoema</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Electricity rates to forecast the cost of electricity overtime from the <a href="https://www.oeb.ca/" target="_blank">Ontario Energy Board</a></li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Forecasted seasonal fluctuations in energy demand calculated using data from <a href="https://www.ieso.ca/en/" target="_blank">Independent Electricity System Operator</a> and <a href="https://energyusecalculator.com/electricity_furnace.htm" target="_blank">Energy Use Calculator</a></li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Location based capacity factors to distinguish between the solar irradiation  patterns from the <a href="https://www.nrel.gov/" target="_blank">National Renewable Energy Laboratory’s (NREL), System Advisor Model (SAM)</a></li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Nominal capacity, deterioration rate, cost and surface area of solar panels from <a href="https://hespv.ca/?SID=d81se886l39eei0l2io124jkj4" target="_blank">HESPV</a></li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Fixed cost of installation to incorporate into the initial investment from <a href="https://hespv.ca/?SID=d81se886l39eei0l2io124jkj4" target="_blank">HESPV</a></li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Panel maintenance costs to incorporate into the cost of electricity with solar energy from <a href="https://www.homeadvisor.com/cost/cleaning-services/solar-panel-maintenance/" target="_blank">HomeAdvisor</a></li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Canadian inflation rates from Knoema</li>
                             </ul>
                         </div>
 
@@ -138,9 +139,9 @@ class SolarFAQ extends Component {
                         <div label='Which side of the roof do I install the solar panels?'>
                            <p>If you’ve decided you want solar panels, installers will help determine the best placement for them based on the specifics of your home. Orientation, shading and roof-structure are all things to consider. </p>
                             <br></br>
-                            <p><strong>Orientation:</strong> East/West facing roofs provide more space for panels, in comparison to north/south roofs, where panels can only be installed on the south side.</p>
-                            <p><strong>Shading:</strong> For optimal sunlight, panels should be placed on unshared parts of the roof.</p>
-                            <p><strong>Roof Structure:</strong> While panels can be installed on angled roofs, a flat, open roof is ideal.</p>
+                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Orientation:</strong> East/West facing roofs provide more space for panels, in comparison to north/south roofs, where panels can only be installed on the south side.</p>
+                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Shading:</strong> For optimal sunlight, panels should be placed on unshared parts of the roof.</p>
+                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Roof Structure:</strong> While panels can be installed on angled roofs, a flat, open roof is ideal.</p>
                         </div>
 
                         <div label='Can I install solar panels myself?'>
