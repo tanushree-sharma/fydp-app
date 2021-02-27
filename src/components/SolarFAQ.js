@@ -32,7 +32,23 @@ class SolarFAQ extends Component {
                         </div>
 
                         <div label='What are pros and cons of solar energy?'>
-                            <p>As of February 2020, under Ontario’s current provincial government, there are no active rebate programs for homeowners with solar energy systems.</p>
+                            <p><strong>Pros:</strong></p>
+                            <ul>
+                                <li style={{ marginLeft: '2.5rem' }}>Lower electricity bills → cost analysis point to a continued reduction in your electricity bill during the lifespan of the solar panels.</li>
+                                <li style={{ marginLeft: '2.5rem' }}>Increased property value → On average, homes with solar systems installed, sell for almost 4% more.</li>
+                                <li style={{ marginLeft: '2.5rem' }}>Reduced carbon footprint → Solar is an infinite energy source and is able to generate energy without harmful emissions, unlike its alternatives such as natural gas or fossil fuels.</li>
+                                <li style={{ marginLeft: '2.5rem' }}>Energy Independence → Generating energy from solar panels decreases a home’s reliance on the electrical grid, and leads to a more predictable electricity bill.</li>
+                                <li style={{ marginLeft: '2.5rem' }}>Longevity & Low Maintenance → Solar panels require limited maintenance during the first 25 years after installation. Panels can be independently maintained or cleaned for a relatively low cost by professionals.</li>
+                            </ul>
+                            <br></br>
+
+                            <p><strong>Cons:</strong></p>
+                            <ul>
+                                <li style={{ marginLeft: '2.5rem' }}>Initial investment → Though the savings pay-off in the long run, the upfront cost required may deter homeowners.</li>
+                                <li style={{ marginLeft: '2.5rem' }}>Weather factors → For optimal efficiency, panels require direct sunlight, thus, snow, shade and dust build up overtime should be mitigated.</li>
+                                <li style={{ marginLeft: '2.5rem' }}>Space requirement → Most configurations see solar panels taking up a significant amount of space on the roof, therefore homeowners with smaller roofs may need to compromise installation size for space.</li>
+                                <li style={{ marginLeft: '2.5rem' }}>Usability → Unless a home battery is paired with a solar energy system, energy can only be used during the day, while it’s being harnessed.</li>
+                            </ul>
                         </div>
                     </Accordion>
                     
@@ -47,7 +63,7 @@ class SolarFAQ extends Component {
                             <p>Depending on the size of your home, the optimal size of a solar installation may be  limited by the size of your roof.</p>
                             <br></br>
 
-                            <p><strong>Electricity Usage and Month of Usage</strong></p>
+                            <p><strong>Electricity Usage & Month of Usage</strong></p>
                             <p>The amount of electricity your home uses in a given month is important in determining the size of your system and seasonal fluctuations in your electricity demand. Soli ensures that the amount of energy generated from solar panels does not exceed your electricity demand when it's at its highest. Soli also uses this electricity usage value to forecast the cost of electricity. Based on projections from Ontario’s Financial Accountability Office, yearly electricity costs are expected to increase at a rate of approximately 2% per year.</p>
                             <br></br>
 
@@ -93,7 +109,15 @@ class SolarFAQ extends Component {
                         </div>
 
                         <div label='What data sources does Soli use?'>
-                           <p>text</p>
+                            <ul>
+                                <li style={{ marginLeft: '2.5rem' }}>Electricity rates to forecast the cost of electricity overtime from the <a href="https://www.oeb.ca/" target="_blank">Ontario Energy Board</a></li>
+                                <li style={{ marginLeft: '2.5rem' }}>Forecasted seasonal fluctuations in energy demand calculated using data from <a href="https://www.ieso.ca/en/" target="_blank">Independent Electricity System Operator</a> and <a href="https://energyusecalculator.com/electricity_furnace.htm" target="_blank">Energy Use Calculator</a></li>
+                                <li style={{ marginLeft: '2.5rem' }}>Location based capacity factors to distinguish between the solar irradiation  patterns from the <a href="https://www.nrel.gov/" target="_blank">National Renewable Energy Laboratory’s (NREL), System Advisor Model (SAM)</a></li>
+                                <li style={{ marginLeft: '2.5rem' }}>Nominal capacity, deterioration rate, cost and surface area of solar panels from <a href="https://hespv.ca/?SID=d81se886l39eei0l2io124jkj4" target="_blank">HESPV</a></li>
+                                <li style={{ marginLeft: '2.5rem' }}>Fixed cost of installation to incorporate into the initial investment from <a href="https://hespv.ca/?SID=d81se886l39eei0l2io124jkj4" target="_blank">HESPV</a></li>
+                                <li style={{ marginLeft: '2.5rem' }}>Panel maintenance costs to incorporate into the cost of electricity with solar energy from <a href="https://www.homeadvisor.com/cost/cleaning-services/solar-panel-maintenance/" target="_blank">HomeAdvisor</a></li>
+                                <li style={{ marginLeft: '2.5rem' }}>Canadian inflation rates from Knoema</li>
+                            </ul>
                         </div>
 
                         <div label='Why are the results from Soli different from other quotes I’ve received?'>
@@ -120,7 +144,7 @@ class SolarFAQ extends Component {
                         </div>
 
                         <div label='Can I install solar panels myself?'>
-                           <p>A DIY installation is an option homeowners can consider, and usually reduces the cost of installation. Following a DIY guide will provide guidance as to how the components fit together, but the process requires heavy lifting, working at heights, and a significant time investment. Further, the electrical hookup at the end requires the expertise of an electrician, so many DIYers opt to hire a professional for this part. Check out this video to see if a DIY installation is right for you.</p>
+                           <p>A DIY installation is an option homeowners can consider, and usually reduces the cost of installation. Following a DIY guide will provide guidance as to how the components fit together, but the process requires heavy lifting, working at heights, and a significant time investment. Further, the electrical hookup at the end requires the expertise of an electrician, so many DIYers opt to hire a professional for this part. Check out this <a href="https://www.youtube.com/watch?v=BMt6qZV4QZ0&feature=emb_title" target="_blank">video</a> to see if a DIY installation is right for you.</p>
                         </div>
                     </Accordion>
                 </div>
