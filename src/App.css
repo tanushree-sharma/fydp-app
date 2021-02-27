@@ -848,14 +848,14 @@ ul.nav-right {
 
 #generate-box {
   position: absolute;
-  left: 45%;
+  left: 40.3%;
   top: 140%;
   width: 20%;
   height: 10%; 
 }
 #generate-box2 {
   position: absolute;
-  left: 45%;
+  left: 40.3%;
   top: 160%;
   width: 20%;
   height: 10%;
@@ -866,7 +866,7 @@ ul.nav-right {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
-  font-size: 1.3vw;
+  font-size: 1.5vw;
   line-height: 1.5vw;
 
   position: absolute;

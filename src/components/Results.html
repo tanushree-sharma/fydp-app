@@ -110,7 +110,7 @@
     .footer {
         position: absolute;
         clear: both;
-        top: 172%;
+        top: 175%;
         left: 0%;
         color: #80807f;
         width: 100%;
@@ -326,7 +326,7 @@
 
     .chartWrapper {
         position: absolute;
-        top: 71%;
+        top: 65%;
         left: 43%;
     }
 
@@ -354,8 +354,8 @@
 
     .chartTitle {
         position: absolute;
-        top: 63%;
-        left: 59%;
+        top: -15%;
+        left: 40%;
         font-family: "Roboto";
         font-style: normal;
         font-weight: 300;
@@ -366,8 +366,8 @@
 
     .chartLegend {
         position: absolute;
-        top: 67%;
-        left: 57.5%;
+        top: -7%;
+        left: 35%;
         font-family: "Roboto";
         font-style: normal;
         font-weight: 300;
@@ -378,8 +378,8 @@
 
     .chartLegendBlue {
         position: absolute;
-        top: 67.3%;
-        left: 55.75%;
+        top: -6.5%;
+        left: 30%;
         height: 0.75vw;
         width: 1.5vw;
         background-color: #abb8d4;
@@ -387,8 +387,8 @@
 
     .chartLegendYellow {
         position: absolute;
-        top: 67.3%;
-        left: 67.65%;
+        top: -6.5%;
+        left: 58.5%;
         height: 0.75vw;
         width: 1.5vw;
         background-color: #f6d673;
@@ -396,8 +396,8 @@
 
     .chartXAxisTitle {
         position: absolute;
-        top: 125%;
-        left: 65.5%;
+        top: 105%;
+        left: 53.5%;
         font-family: "Roboto";
         font-style: normal;
         font-weight: 300;
@@ -409,29 +409,8 @@
     .chartYAxisTitle {
         transform: rotate(-90deg);
         position: absolute;
-        top: 91%;
-        left: 39.5%;
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 300;
-        font-size: 1.5vh;
-        letter-spacing: 0.05em;
-        color: #666666;
-    }
-
-    .arrow {
-        position: absolute;
-        top: 72.7%;
-        left: 83.5%;
-        font-weight: bold;
-        font-size: 2vh;
-        color: #C26C49;
-    }
-
-    .arrowText {
-        position: absolute;
-        top: 73%;
-        left: 73%;
+        top: 40%;
+        left: -10%;
         font-family: "Roboto";
         font-style: normal;
         font-weight: 300;
@@ -445,7 +424,7 @@
         width: 25vw;
         height: 3vh;
         left: 12.8%;
-        top: 130%;
+        top: 125%;
 
         font-family: "Mulish";
         font-style: normal;
@@ -461,8 +440,8 @@
 
     .carbon-footprint {
         position: absolute;
-        left: 17%;
-        top: 135%;
+        left: 20%;
+        top: 131%;
         width: 30vw;
         height: 10vh;
 
@@ -470,7 +449,7 @@
     }
 
     .carbon-footprint #carbon-text {
-        width: 25vw;
+        width: 20vw;
         height: 10vh;
 
         float: left;
@@ -514,21 +493,19 @@
     }
 
     .carbon-footprint #carbon-icon {
-        width: 5vw;
+        width: 10vw;
         height: 10vh;
-        margin-left: 25vw;
-
+        margin-left: 19vw;
     }
 
     #carbon-icon #co2 {
-        padding-left: 5%;
         width: 4vw;
     }
 
     #equal {
         position: absolute;
-        top: 137%;
-        left: 48.7%;
+        top: 133%;
+        left: 49.75%;
 
         font-family: "Mulish";
         font-style: normal;
@@ -540,8 +517,8 @@
 
     .trees {
         position: absolute;
-        left: 52%;
-        top: 135%;
+        left: 56%;
+        top: 131%;
         width: 25vw;
         height: 10vh;
 
@@ -595,15 +572,15 @@
     #return {
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 550;
-        font-size: 1.33vw;
+        font-weight: 600;
+        font-size: 1.5vw;
         line-height: 1.5vw;
 
         position: absolute;
         width: 15%;
         height: 7%;
         top: 155%;
-        left: 31%;
+        left: 32%;
 
         border-radius: 5.844vw;
         background-color: white;
@@ -619,14 +596,14 @@
         font-family: "Roboto";
         font-style: normal;
         font-weight: 600;
-        font-size: 1.33vw;
+        font-size: 1.5vw;
         line-height: 1.5vw;
 
         position: absolute;
         width: 15%;
         height: 7%;
         top: 155%;
-        left: 52.5%;
+        left: 53.5%;
 
         border-radius: 5.844vw;
         background-color: #f6d673;
@@ -730,6 +707,7 @@
         </div>
     </div>
     
+    <!-- graph -->
     <div class="chartWrapper">
         <div class="chartAreaWrapper">
         <div class="chartAreaWrapper2">
@@ -737,15 +715,14 @@
         </div>
         </div>
         <canvas id="axis-Test" height="300" width="0"></canvas>
+        <div> <p class='chartTitle'> Yearly Cost of Electricity </p></div>
+        <div> <pre class='chartLegend'> Cost Without Solar                  Cost With Solar</div>
+        <div class= "chartLegendBlue"></div>
+        <div class= "chartLegendYellow"></div>
+        <div> <p class='chartXAxisTitle'> Year </p></div>
+        <div> <p class='chartYAxisTitle'> Cost ($) </p></div>
     </div>
-    <div> <p class='chartTitle'> Yearly Cost of Electricity </p></div>
-    <div> <pre class='chartLegend'> Cost Without Solar                  Cost With Solar</div>
-    <div class= "chartLegendBlue"></div>
-    <div class= "chartLegendYellow"></div>
-    <div> <p class='chartXAxisTitle'> Year </p></div>
-    <div> <p class='chartYAxisTitle'> Cost ($) </p></div>
-    <div><p class='arrow'> &rarr;</p> </div>
-    <div><p class='arrowText'> Scroll to view all savings</p> </div>
+
 
   
     <script type="text/javascript">
@@ -891,7 +868,7 @@
         });
     </script>
 
-    
+    <!-- environmental impact -->
     <p id="environmental-title"> Environmental Impact </p>
     
     <div class="carbon-footprint">
@@ -929,7 +906,6 @@
     <button id="return" onclick="history.back(-1)"> Go Back</button>
 
     <p id="which-form">{{form}}</p>
-
 
     <div class="footer">
             <a>SoliⒸ2020</a> &nbsp;&nbsp;|&nbsp;&nbsp;
