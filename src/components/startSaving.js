@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import graphic from '../question_img.png'
 import warning from '../warning.png'
+import Footer from '../components/Footer';
 
 class startSaving extends Component {
+
     render() {
+
         window.onbeforeunload = function() {
             var defaultForm = "solar";
             localStorage.setItem("whichForm", defaultForm);
@@ -17,6 +20,7 @@ class startSaving extends Component {
             document.getElementById('tabs-1').style.display = 'block';
             document.getElementById('tabs1').style.fontWeight = 600;
         }
+
 
         // switching between tabs
         var tabs = document.getElementsByClassName('Tab');
@@ -604,7 +608,8 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs" required>
+                            <select name="month" id="month-input1" class="dropdown-inputs" required >
+
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -779,6 +784,12 @@ class startSaving extends Component {
                         <button class="modalSubmit" id="battery-update"> Update fields </button>
                     </div>
                 </div>
+
+               
+                <div class="footer-ss">
+                <Footer />
+
+                </div> 
                 <div id="errorModal" class="modal">
                     <div class="error-content">
                         <div id="modal-top-border"></div>
@@ -799,8 +810,15 @@ class startSaving extends Component {
                 
 
             </div>
+
+         
         )
-    }
+        
+        
+    }  
+    
 }
 
-export default startSaving
+export default startSaving;
+
+
