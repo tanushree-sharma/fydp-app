@@ -7,7 +7,7 @@ class Footer extends Component {
         return (
             <div class="footer">
                 <p class="footer-left">
-                    <a>SoliⒸ2021</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a>SoliⒸ2020</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a>Management Engineering Capstone Design Project</a>
                 </p>
             </div>
