@@ -10,7 +10,6 @@
   display: flex;
   width: 100vw;
   height: 200vh;
-
 }
 
 .sticky {
@@ -26,9 +25,9 @@
   position: absolute;
   background-color: white;
   font-size: 1.3vw;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   top: 0%;
-}
+  }
 
 #logo {
   position: absolute;
@@ -86,6 +85,7 @@ ul.nav-right {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  
 }
 
 #mainGraphic {
@@ -146,6 +146,7 @@ ul.nav-right {
   text-align: center;
   display: inline-block;
 }
+
 
 #startButton:hover {
   background: #faebbc;
@@ -382,12 +383,6 @@ ul.nav-right {
   outline: none;
 }
 
-.startSaving {
-  display: flex;
-  width: 100vw;
-  height: 200vh;
-}
-
 .Panel {
   position: absolute;
   width: 100%;
@@ -554,19 +549,6 @@ ul.nav-right {
   width: 100%;
 }
 
-.footer-ss {
-  position: absolute;
-  clear: both;
-  top: 180%;
-  color: #80807f;
-  font-family: "Mulish";
-  font-weight: 500;
-  font-size: 1vw;
-  line-height: 10vh;
-  width: 100%;
-  left: -11.75%;
-}
-
 .footer-left {
   width: 100vw;
   list-style: none;
@@ -576,29 +558,18 @@ ul.nav-right {
   overflow-x: hidden;
 }
 
-.footer-left-ss {
-  width: 100vw;
-  list-style: none;
-  text-align: left;
-  margin-left: 3%;
-  float: left;
-  overflow-x: hidden;
-  margin-bottom: 7%;
-}
-
 .field-titles {
   position: absolute;
   width: 14vw;
   height: 2.4vh;
-  left: 37%;
+  left: 39%;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.2vw;
+  font-size: 1.15vw;
   line-height: 2.097vh;
   letter-spacing: 0.05em;
   color: #000000;
-  white-space: nowrap;
   text-align: left;
 }
 
@@ -607,7 +578,6 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
-  font-size: 1.05vw;
 }
 
 .field-input-dod::placeholder {
@@ -615,7 +585,6 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
-  font-size: 1.05vw;
 }
 
 .field-inputs-budget::placeholder {
@@ -623,7 +592,6 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
-  font-size: 1.05vw;
 }
 
 .dropdownFormat {
@@ -631,7 +599,6 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
-  font-size: 1.05vw;
 }
 
 #postal-text {
@@ -639,7 +606,7 @@ ul.nav-right {
   width: 11vw;
   height: 2.7vh;
   left: 65.5%;
-  font-size: 0.8vw;
+  font-size: 0.7vw;
   font-family: Roboto;
   font-style: italic;
   font-weight: 200;
@@ -742,17 +709,16 @@ ul.nav-right {
   position: absolute;
   width: 10vw;
   height: 2.5vh;
-  left: 18%;
+  left: 20%;
   font-family: Mulish;
   font-style: normal;
   font-weight: 600;
-  font-size: 1.4vw;
+  font-size: 1.25vw;
   line-height: 2.5vh;
   /* identical to box height */
   display: flex;
   align-items: center;
   color: #80807f;
-  white-space: nowrap;
 }
 
 .qGraphic {
@@ -767,7 +733,7 @@ ul.nav-right {
 }
 
 #energy-usage {
-  top: 88%;
+  top: 88.5%;
 }
 
 #initial-inv1 {
@@ -914,10 +880,6 @@ ul.nav-right {
   text-align: center;
 }
 
-#results-button2 {
-  top: 160%;
-}
-
 #results-button1:hover {
   background: #faebbc;
   color: black;
@@ -935,15 +897,6 @@ ul.nav-right {
   margin: 0 auto;
   text-align: center;
   padding-top: 50px;
-}
-
-.whitesquare {
-  position: absolute;
-  left: 43.5%;
-  top: 171%;
-  height: 20px;
-  width: 100px;
-  background-color: white;
 }
 
 .value-button {
@@ -972,11 +925,11 @@ ul.nav-right {
 }
 
 form #decrease {
-  left: 74.9%;
+  left: 73.9%;
   border-radius: 0 0 0 0;
   width: 2.11vw;
   top: 116%;
-  height: 2.7vh;
+  height: 2.6vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -986,17 +939,27 @@ form #decrease {
 form #percentage {
   position: absolute;
   top: 126.5%;
-  left: 64.5%;
+  left: 63.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
   color: #000000;
 }
 
+form #dollar-sign1-line {
+  position: absolute;
+  top: 114.87%;
+  left: 64.5%;
+  font-family: "Mulish";
+  font-weight: 50;
+  font-size: 1.7vw;
+  color: #8a7979;
+}
+
 form #dollar-sign1 {
   position: absolute;
   top: 116.5%;
-  left: 64.5%;
+  left: 63.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -1006,7 +969,7 @@ form #dollar-sign1 {
 form #dollar-sign2 {
   position: absolute;
   top: 142.5%;
-  left: 64.5%;
+  left: 63.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -1041,11 +1004,11 @@ form #dollar-sign2 {
 }
 
 form #increase {
-  left: 77.75%;
+  left: 76.75%;
   width: 2.11vw;
   border-radius: 0 0.309vw 0.309vw 0;
   top: 116%;
-  height: 2.7vh;
+  height: 2.6vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1067,11 +1030,11 @@ form #increase {
   outline: none;
 }
 form #decrease2 {
-  left: 74.9%;
+  left: 73.9%;
   border-radius: 0 0 0 0;
   width: 2.11vw;
   top: 142%;
-  height: 2.7vh;
+  height: 2.6vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1086,11 +1049,11 @@ form #decrease2 {
 }
 
 form #increase2 {
-  left: 77.75%;
+  left: 76.75%;
   width: 2.11vw;
   border-radius: 0 0.309vw 0.309vw 0;
   top: 142%;
-  height: 2.7vh;
+  height: 2.6vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1123,8 +1086,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-inputs {
   position: absolute;
   width: 13vw;
-  height: 3.1vh;
-  left: 64%;
+  height: 3vh;
+  left: 63%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1138,8 +1101,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-input-dod {
   position: absolute;
   width: 13vw;
-  height: 3.1vh;
-  left: 64%;
+  height: 3vh;
+  left: 63%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1153,8 +1116,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-inputs-budget {
   position: absolute;
   width: 13vw;
-  height: 3.1vh;
-  left: 64%;
+  height: 3vh;
+  left: 63%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1176,8 +1139,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .dropdown-inputs {
   position: absolute;
   width: 13vw;
-  height: 3.1vh;
-  left: 64%;
+  height: 3vh;
+  left: 63%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1186,8 +1149,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  color: black;
-  font-size: 1.05vw;
+  color:black;
 }
 
 .vertical {
@@ -1268,8 +1230,8 @@ select:invalid {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -1279,11 +1241,11 @@ select:invalid {
   left: 0%;
   width: 100%;
   height: 1.5vh;
-  background-color: #f6d673;
+  background-color: #F6D673;
 }
 .modal-content {
   position: relative;
-  background-color: #fbfbfb;
+  background-color: #FBFBFB;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -1309,7 +1271,7 @@ select:invalid {
   margin-top: 2vh;
   margin-bottom: 4vh;
 
-  color: #80807f;
+  color: #80807F;
 }
 
 #warning {
@@ -1324,14 +1286,13 @@ select:invalid {
   top: 72%;
   width: 100%;
   height: 7vh;
-  border-top: 1px solid #80807f;
+  border-top: 1px solid #80807F;
 }
 
-#solar-update,
-#battery-update {
+#solar-update, #battery-update {
   position: absolute;
-  background: #ffffff;
-  border: 1px solid #f6d673;
+  background: #FFFFFF;
+  border: 1px solid #F6D673;
   box-sizing: border-box;
   border-radius: 2vh;
 
@@ -1349,8 +1310,8 @@ select:invalid {
 
 #continue {
   position: absolute;
-  background: #f6d673;
-  border: 1px solid #f6d673;
+  background: #F6D673;
+  border: 1px solid #F6D673;
   box-sizing: border-box;
   border-radius: 2vh;
 
@@ -1369,7 +1330,6 @@ select:invalid {
 #solar-update:hover, #battery-update:hover, #error-update:hover {
   border: 1px solid #faebbc;
 }
-  
 #continue:hover {
   background: #faebbc;
   color: black;
