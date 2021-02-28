@@ -9,6 +9,8 @@
 .App {
   display: flex;
   width: 100vw;
+  height: 200vh;
+
 }
 
 .sticky {
@@ -30,7 +32,7 @@
 
 #logo {
   position: absolute;
-  margin-top: 1.5%;
+  top: 18%;
   margin-left: 5.5%;
   width: 9vw;
 }
@@ -82,14 +84,15 @@ ul.nav-right {
   position: relative;
   top: 4%;
   width: 100%;
-  height: 200vh;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 #mainGraphic {
   position: absolute;
   width: 53vw;
   left: 46%;
-  top: 5%;
+  top: 1%;
 }
 
 #mainText {
@@ -105,6 +108,7 @@ ul.nav-right {
   top: 13%;
   bottom: 55.21%;
 }
+
 #mainSubText {
   font-family: "Roboto";
   font-size: 1.5vw;
@@ -116,7 +120,7 @@ ul.nav-right {
   position: relative;
   left: 5%;
   right: 61.42%;
-  top: 13.5%;
+  top: 13.7%;
   bottom: 46.48%;
 }
 
@@ -132,7 +136,7 @@ ul.nav-right {
   height: 4%;
   left: 5%;
   right: 61.42%;
-  top: 26%;
+  top: 26.2%;
   bottom: 46.48%;
 
   border-radius: 3.214vw;
@@ -153,7 +157,7 @@ ul.nav-right {
   width: 7vw;
   position: absolute;
   left: 47%;
-  top: 43%;
+  top: 40%;
 
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
@@ -205,7 +209,7 @@ ul.nav-right {
   width: 12.215vw;
   height: 4.69vh;
   left: 5.5%;
-  top: 71%;
+  top: 71.5%;
   white-space: nowrap;
 }
 #customAnalysisDesc {
@@ -229,7 +233,7 @@ ul.nav-right {
   position: absolute;
   width: 13vw;
   left: 31.5%;
-  top: 62%;
+  top: 62.3%;
 }
 #longTermSavingsLabel {
   font-family: "Mulish", sans-serif;
@@ -247,7 +251,7 @@ ul.nav-right {
   width: 12.215vw;
   height: 4.69vh;
   left: 29%;
-  top: 71%;
+  top: 71.5%;
   white-space: nowrap;
 }
 #longTermSavingsDesc {
@@ -269,9 +273,9 @@ ul.nav-right {
 
 #carbonFootprintIcon {
   position: absolute;
-  width: 12vw;
-  left: 57%;
-  top: 60.5%;
+  width: 11vw;
+  left: 57.3%;
+  top: 61.4%;
 }
 #carbonFootprintLabel {
   font-family: "Mulish", sans-serif;
@@ -289,7 +293,7 @@ ul.nav-right {
   width: 12.215vw;
   height: 4.69vh;
   left: 54.5%;
-  top: 71%;
+  top: 71.5%;
   white-space: nowrap;
 }
 #carbonFootprintDesc {
@@ -313,7 +317,7 @@ ul.nav-right {
   position: absolute;
   width: 13vw;
   left: 80%;
-  top: 61.5%;
+  top: 61.2%;
 }
 #integrateStorageLabel {
   font-family: "Mulish", sans-serif;
@@ -331,7 +335,7 @@ ul.nav-right {
   width: 12.215vw;
   height: 4.69vh;
   left: 78%;
-  top: 71%;
+  top: 71.5%;
   white-space: nowrap;
 }
 #integrateStorageDesc {
@@ -810,7 +814,7 @@ ul.nav-right {
   background-color: #e5e5e5;
   border-radius: 10px;
   padding: 50%;
-  width: 18vw;
+  width: 20vw;
   position: absolute;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   right: -7px;
@@ -864,6 +868,32 @@ ul.nav-right {
   top: 126.5%;
 }
 
+#q6 {
+  top: 116.7%;
+}
+#q7 {
+  top: 142.7%;
+}
+#budgetTipNote {
+  font-size: 0.7vw;
+}
+
+#generate-box {
+  position: absolute;
+  left: 45%;
+  top: 140%;
+  width: 20%;
+  height: 10%; 
+}
+#generate-box2 {
+  position: absolute;
+  left: 45%;
+  top: 160%;
+  width: 20%;
+  height: 10%;
+  border: none;
+}
+
 .resultsButton {
   font-family: "Roboto";
   font-style: normal;
@@ -872,25 +902,22 @@ ul.nav-right {
   line-height: 1.5vw;
 
   position: absolute;
-  width: 17%;
-  height: 8%;
-  left: 43.5%;
+  width: 100%;
+  height: 100%;
+
+  left: 0%;
 
   border-radius: 5.844vw;
   background-color: #f6d673;
   border: none;
   outline: none;
   text-align: center;
-  display: block;
-}
-
-#results-button1 {
-  top: 140%;
 }
 
 #results-button2 {
   top: 160%;
 }
+
 #results-button1:hover {
   background: #faebbc;
   color: black;
@@ -1284,6 +1311,7 @@ select:invalid {
 
   color: #80807f;
 }
+
 #warning {
   width: 8vw;
   height: 13vh;
@@ -1338,12 +1366,132 @@ select:invalid {
   bottom: 5%;
 }
 
-#solar-update:hover,
-#battery-update:hover {
+#solar-update:hover, #battery-update:hover, #error-update:hover {
   border: 1px solid #faebbc;
 }
+  
 #continue:hover {
   background: #faebbc;
   color: black;
   outline: none;
+}
+
+.invalid {
+  border: 2px solid #c26c49;
+}
+
+.disabled-button {
+  background: #faebbc;
+  color: black;
+  outline: none;
+  pointer-events: none;
+}
+
+
+/* Error Modal Content */
+#error-top-border {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 1.5vh;
+  background-color: #F6D673;
+}
+.error-content {
+  position: relative;
+  background-color: #FBFBFB;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 42vw;
+  min-height: 10vh;
+  text-align: left;
+}
+
+#error-title {
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  width: 80%;
+  height: 3vh;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2vh;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+.error-container {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 100%;
+  background-color: #FBFBFB;
+}
+.error-container #left {
+  width: 20%;
+  float: left;
+}
+.error-container #right {
+  margin-left: 20%;
+  margin-right: 3%;
+  min-height: 10vh;
+}
+#error-warning {
+  position: absolute;
+  left: 0%;
+  width: 8vw;
+  height: 13vh;
+  float: left;
+  vertical-align: middle;
+}
+.other-errors {
+  top: -15%;
+}
+.three-errors {
+  top: -10%;
+}
+.four-errors{
+  top: -3%;
+}
+.five-errors {
+  top: 5%;
+}
+.six-errors {
+  top: 10%; 
+}
+#error-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7vmin;
+  letter-spacing: 0.05em;
+
+  color: #80807F;
+}
+#error-buttondiv {
+  width: 100%;
+  height: 7vh;
+  border-top: 1px solid #80807F;
+  background-color: #FBFBFB;
+  margin-top: 3vh;
+}
+
+#error-update {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid #F6D673;
+  box-sizing: border-box;
+  border-radius: 2vh;
+
+  width: 9vw;
+  height: 4vh;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5vh;
+
+  left: 77%;
+  bottom: 6%;
 }
