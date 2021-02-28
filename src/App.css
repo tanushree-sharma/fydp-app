@@ -9,7 +9,6 @@
 .App {
   display: flex;
   width: 100vw;
-  height: 200vh;
 }
 
 .sticky {
@@ -83,8 +82,7 @@ ul.nav-right {
   position: relative;
   top: 4%;
   width: 100%;
-  height: 100%;
-  overflow-x: hidden;
+  height: 200vh;
   
 }
 
@@ -92,7 +90,7 @@ ul.nav-right {
   position: absolute;
   width: 53vw;
   left: 46%;
-  top: 1%;
+  top: 5%;
 }
 
 #mainText {
@@ -158,7 +156,7 @@ ul.nav-right {
   width: 7vw;
   position: absolute;
   left: 47%;
-  top: 40%;
+  top: 43%;
 
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
@@ -383,6 +381,34 @@ ul.nav-right {
   outline: none;
 }
 
+.startSaving {
+  display: flex;
+  width: 100vw;
+  height: 200vh;
+}
+
+.footer-ss {
+  position: absolute;
+  clear: both;
+  top: 210%;
+  color: #80807f;
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 1vw;
+  line-height: 10vh;
+  width: 100%;
+  left: -11.75%;
+}
+
+#footerspace {
+  position: absolute;
+  top: 207.5%;
+  left: 0%;
+  width: 100%;
+  height: 6vh;
+  color: white;
+}
+
 .Panel {
   position: absolute;
   width: 100%;
@@ -562,14 +588,15 @@ ul.nav-right {
   position: absolute;
   width: 14vw;
   height: 2.4vh;
-  left: 39%;
+  left: 37%;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.15vw;
+  font-size: 1.2vw;
   line-height: 2.097vh;
   letter-spacing: 0.05em;
   color: #000000;
+  white-space: nowrap;
   text-align: left;
 }
 
@@ -578,6 +605,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.05vw;
 }
 
 .field-input-dod::placeholder {
@@ -585,6 +613,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.05vw;
 }
 
 .field-inputs-budget::placeholder {
@@ -592,6 +621,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.05vw;
 }
 
 .dropdownFormat {
@@ -599,6 +629,7 @@ ul.nav-right {
   font-style: italic;
   font-weight: 400;
   color: #80807f;
+  font-size: 1.05vw;
 }
 
 #postal-text {
@@ -606,7 +637,7 @@ ul.nav-right {
   width: 11vw;
   height: 2.7vh;
   left: 65.5%;
-  font-size: 0.7vw;
+  font-size: 0.8vw;
   font-family: Roboto;
   font-style: italic;
   font-weight: 200;
@@ -709,16 +740,17 @@ ul.nav-right {
   position: absolute;
   width: 10vw;
   height: 2.5vh;
-  left: 20%;
+  left: 18%;
   font-family: Mulish;
   font-style: normal;
   font-weight: 600;
-  font-size: 1.25vw;
+  font-size: 1.4vw;
   line-height: 2.5vh;
   /* identical to box height */
   display: flex;
   align-items: center;
   color: #80807f;
+  white-space: nowrap;
 }
 
 .qGraphic {
@@ -733,7 +765,7 @@ ul.nav-right {
 }
 
 #energy-usage {
-  top: 88.5%;
+  top: 88%;
 }
 
 #initial-inv1 {
@@ -854,7 +886,7 @@ ul.nav-right {
 #generate-box2 {
   position: absolute;
   left: 45%;
-  top: 160%;
+  top: 150%;
   width: 20%;
   height: 10%;
   border: none;
@@ -878,6 +910,11 @@ ul.nav-right {
   border: none;
   outline: none;
   text-align: center;
+  display: block;
+}
+
+#results-button2 {
+  top: 160%;
 }
 
 #results-button1:hover {
@@ -920,16 +957,25 @@ ul.nav-right {
   user-select: none;
 }
 
+.whitesquare {
+  position: absolute;
+  left: 43.5%;
+  top: 177%;
+  height: 20px;
+  width: 100px;
+  background-color: white;
+}
+
 .value-button:hover {
   cursor: pointer;
 }
 
 form #decrease {
-  left: 73.9%;
+  left: 74.9%;
   border-radius: 0 0 0 0;
   width: 2.11vw;
   top: 116%;
-  height: 2.6vh;
+  height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -939,27 +985,17 @@ form #decrease {
 form #percentage {
   position: absolute;
   top: 126.5%;
-  left: 63.5%;
+  left: 64.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
   color: #000000;
 }
 
-form #dollar-sign1-line {
-  position: absolute;
-  top: 114.87%;
-  left: 64.5%;
-  font-family: "Mulish";
-  font-weight: 50;
-  font-size: 1.7vw;
-  color: #8a7979;
-}
-
 form #dollar-sign1 {
   position: absolute;
   top: 116.5%;
-  left: 63.5%;
+  left: 64.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -969,7 +1005,7 @@ form #dollar-sign1 {
 form #dollar-sign2 {
   position: absolute;
   top: 142.5%;
-  left: 63.5%;
+  left: 64.5%;
   font-family: "Roboto";
   font-weight: 100;
   font-size: 1.15vw;
@@ -1004,11 +1040,11 @@ form #dollar-sign2 {
 }
 
 form #increase {
-  left: 76.75%;
+  left: 77.75%;
   width: 2.11vw;
   border-radius: 0 0.309vw 0.309vw 0;
   top: 116%;
-  height: 2.6vh;
+  height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1030,11 +1066,11 @@ form #increase {
   outline: none;
 }
 form #decrease2 {
-  left: 73.9%;
+  left: 74.9%;
   border-radius: 0 0 0 0;
   width: 2.11vw;
   top: 142%;
-  height: 2.6vh;
+  height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1049,7 +1085,7 @@ form #decrease2 {
 }
 
 form #increase2 {
-  left: 76.75%;
+  left: 77.75%;
   width: 2.11vw;
   border-radius: 0 0.309vw 0.309vw 0;
   top: 142%;
@@ -1086,8 +1122,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-inputs {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.1vh;
+  left: 64%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1101,8 +1137,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-input-dod {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.1vh;
+  left: 64%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1116,8 +1152,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .field-inputs-budget {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.1vh;
+  left: 64%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1139,8 +1175,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .dropdown-inputs {
   position: absolute;
   width: 13vw;
-  height: 3vh;
-  left: 63%;
+  height: 3.1vh;
+  left: 64%;
   background: #ffffff;
   border: 0.2vh solid #e5e5e5;
   box-sizing: border-box;
@@ -1150,6 +1186,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-style: normal;
   font-weight: 400;
   color:black;
+  font-size: 1.05vw;
 }
 
 .vertical {

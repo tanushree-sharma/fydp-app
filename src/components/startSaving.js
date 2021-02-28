@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import graphic from '../question_img.png'
 import warning from '../warning.png'
+import Footer from '../components/Footer'
 
 class startSaving extends Component {
     render() {
@@ -742,6 +743,7 @@ class startSaving extends Component {
                         <div id="generate-box2" onMouseOver={() => { finalCheckBatteryErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
                         </div>
+                        <div class="whitesquare"></div>
 
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
@@ -753,6 +755,12 @@ class startSaving extends Component {
                     </form>
                 </div>
 
+                <div class="footer-ss">
+                    <Footer />
+                </div> 
+
+                <p id="footerspace"> buffer space </p>
+                
                 <div id="solarModal" class="modal">
                     <div class="modal-content">
                         <div id="modal-top-border"></div>
