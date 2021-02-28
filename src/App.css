@@ -849,7 +849,7 @@ ul.nav-right {
   left: 45%;
   top: 140%;
   width: 20%;
-  height: 10%;
+  height: 10%; 
 }
 #generate-box2 {
   position: absolute;
@@ -1327,12 +1327,9 @@ select:invalid {
   bottom: 5%;
 }
 
-#solar-update:hover,
-#battery-update:hover,
-#error-update:hover {
+#solar-update:hover, #battery-update:hover, #error-update:hover {
   border: 1px solid #faebbc;
 }
-
 #continue:hover {
   background: #faebbc;
   color: black;
@@ -1350,6 +1347,7 @@ select:invalid {
   pointer-events: none;
 }
 
+
 /* Error Modal Content */
 #error-top-border {
   position: absolute;
@@ -1357,11 +1355,11 @@ select:invalid {
   left: 0%;
   width: 100%;
   height: 1.5vh;
-  background-color: #f6d673;
+  background-color: #F6D673;
 }
 .error-content {
   position: relative;
-  background-color: #fbfbfb;
+  background-color: #FBFBFB;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -1388,7 +1386,7 @@ select:invalid {
   top: 50%;
   left: 0%;
   width: 100%;
-  background-color: #fbfbfb;
+  background-color: #FBFBFB;
 }
 .error-container #left {
   width: 20%;
@@ -1413,14 +1411,14 @@ select:invalid {
 .three-errors {
   top: -10%;
 }
-.four-errors {
+.four-errors{
   top: -3%;
 }
 .five-errors {
   top: 5%;
 }
 .six-errors {
-  top: 10%;
+  top: 10%; 
 }
 #error-text {
   font-family: Roboto;
@@ -1429,20 +1427,20 @@ select:invalid {
   font-size: 1.7vmin;
   letter-spacing: 0.05em;
 
-  color: #80807f;
+  color: #80807F;
 }
 #error-buttondiv {
   width: 100%;
   height: 7vh;
-  border-top: 1px solid #80807f;
-  background-color: #fbfbfb;
+  border-top: 1px solid #80807F;
+  background-color: #FBFBFB;
   margin-top: 3vh;
 }
 
 #error-update {
   position: absolute;
-  background: #ffffff;
-  border: 1px solid #f6d673;
+  background: #FFFFFF;
+  border: 1px solid #F6D673;
   box-sizing: border-box;
   border-radius: 2vh;
 
