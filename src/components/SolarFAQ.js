@@ -29,15 +29,15 @@ class SolarFAQ extends Component {
                         </div>
 
                         <div label='Are there any government rebates for solar investments?'>
-                            <p>As of February 2020, under Ontario’s current provincial government, there are no active rebate programs for homeowners with solar energy systems.</p>
+                            <p>As of February 2021, under Ontario’s current provincial government, there are no active rebate programs for homeowners with solar energy systems.</p>
                         </div>
 
-                        <div label='What are pros and cons of solar energy?'>
+                        <div label='What are pros and cons of residential solar energy investment?'>
                             <p><strong>Pros:</strong></p>
                             <ul>
-                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Lower electricity bills → cost analysis point to a continued reduction in your electricity bill during the lifespan of the solar panels.</li>
-                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Increased property value → On average, homes with solar systems installed, sell for almost 4% more.</li>
-                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Reduced carbon footprint → Solar is an infinite energy source and is able to generate energy without harmful emissions, unlike its alternatives such as natural gas or fossil fuels.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Lower Electricity Bills → Continued reduction in your electricity bill during the lifespan of the solar panels.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Increased Property Value → On average, homes with solar systems installed, sell for almost 4% more.</li>
+                                <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Reduced Carbon Footprint → Solar is an infinite energy source and is able to generate energy without harmful emissions, unlike its alternatives such as natural gas or fossil fuels.</li>
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Energy Independence → Generating energy from solar panels decreases a home’s reliance on the electrical grid, and leads to a more predictable electricity bill.</li>
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Longevity & Low Maintenance → Solar panels require limited maintenance during the first 25 years after installation. Panels can be independently maintained or cleaned for a relatively low cost by professionals.</li>
                             </ul>
@@ -102,7 +102,6 @@ class SolarFAQ extends Component {
 
                             <p><strong>Environmental Impact</strong></p>
                             <p>Using solar energy in place of electricity from the grid will reduce your carbon emissions overtime. Soli quantifies this in terms of metric tonnes of carbon, and the equivalent in tree plantings.</p>
-                            <br></br>
                             </div>
 
                         <div label='How accurate are my results?'>
@@ -139,7 +138,7 @@ class SolarFAQ extends Component {
                         <div label='Which side of the roof do I install the solar panels?'>
                            <p>If you’ve decided you want solar panels, installers will help determine the best placement for them based on the specifics of your home. Orientation, shading and roof-structure are all things to consider. </p>
                             <br></br>
-                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Orientation:</strong> East/West facing roofs provide more space for panels, in comparison to north/south roofs, where panels can only be installed on the south side.</p>
+                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Orientation:</strong> East/west facing roofs provide more space for panels, in comparison to north/south roofs, where panels can only be installed on the south side.</p>
                             <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Shading:</strong> For optimal sunlight, panels should be placed on unshared parts of the roof.</p>
                             <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Roof Structure:</strong> While panels can be installed on angled roofs, a flat, open roof is ideal.</p>
                         </div>
