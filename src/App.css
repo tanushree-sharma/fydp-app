@@ -1032,7 +1032,7 @@ form #dollar-sign2 {
   font-weight: 100;
 }
 
-#decrease:hover, #decreaseButtonError:hover {
+#decrease:hover {
   /* background: #80807f; */
   background: #ffffff;
   color: black;
@@ -1053,14 +1053,14 @@ form #increase {
   /* box-shadow: 0 0 0 1px; */
 }
 
-#increase:hover, #increaseButtonError:hover {
+#increase:hover {
   /* background: #80807f; */
   background: #ffffff;
   color: black;
   outline: none;
 }
 
-#decrease2:hover, #decrease2ButtonError:hover {
+#decrease2:hover {
   /* background: #80807f; */
   background: #ffffff;
   color: black;
@@ -1079,7 +1079,7 @@ form #decrease2 {
   font-weight: 100;
 }
 
-#increase2:hover, #increase2ButtonError {
+#increase2:hover {
   /* background: #80807f; */
   background: #ffffff;
   color: black;
