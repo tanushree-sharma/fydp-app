@@ -705,6 +705,7 @@ ul.nav-right {
 
 #budget1 {
   top: 116%;
+  width: 
 }
 
 #budget2 {
@@ -971,9 +972,10 @@ ul.nav-right {
 form #decrease {
   left: 74.9%;
   border-radius: 0 0 0 0;
+  border: transparent;
   width: 2.11vw;
-  top: 116%;
-  height: 2.7vh;
+  top: 116.5%;
+  height: 2.5vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -992,7 +994,7 @@ form #percentage {
 
 form #dollar-sign1 {
   position: absolute;
-  top: 116.5%;
+  top: 116.7%;
   left: 64.5%;
   font-family: "Roboto";
   font-weight: 100;
@@ -1030,7 +1032,7 @@ form #dollar-sign2 {
   font-weight: 100;
 }
 
-#decrease:hover {
+#decrease:hover, #decreaseButtonError:hover {
   /* background: #80807f; */
   background: #ffffff;
   color: black;
@@ -1038,11 +1040,12 @@ form #dollar-sign2 {
 }
 
 form #increase {
-  left: 77.75%;
+  left: 77.4%;
   width: 2.11vw;
-  border-radius: 0 0.309vw 0.309vw 0;
-  top: 116%;
-  height: 2.7vh;
+  border-radius: 0 0.1vw 0.1vw 0;
+  border: transparent;
+  top: 116.5%;
+  height: 2.5vh;
   background: #e5e5e5;
   font-family: "Mulish";
   font-style: normal;
@@ -1050,14 +1053,14 @@ form #increase {
   /* box-shadow: 0 0 0 1px; */
 }
 
-#increase:hover {
+#increase:hover, #increaseButtonError:hover {
   /* background: #80807f; */
   background: #ffffff;
   color: black;
   outline: none;
 }
 
-#decrease2:hover {
+#decrease2:hover, #decrease2ButtonError:hover {
   /* background: #80807f; */
   background: #ffffff;
   color: black;
@@ -1066,8 +1069,9 @@ form #increase {
 form #decrease2 {
   left: 74.9%;
   border-radius: 0 0 0 0;
+  border: transparent;
   width: 2.11vw;
-  top: 142%;
+  top: 142.3%;
   height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
@@ -1075,7 +1079,7 @@ form #decrease2 {
   font-weight: 100;
 }
 
-#increase2:hover {
+#increase2:hover, #increase2ButtonError {
   /* background: #80807f; */
   background: #ffffff;
   color: black;
@@ -1083,10 +1087,11 @@ form #decrease2 {
 }
 
 form #increase2 {
-  left: 77.75%;
+  left: 77.4%;
   width: 2.11vw;
-  border-radius: 0 0.309vw 0.309vw 0;
-  top: 142%;
+  border-radius: 0 0.1vw 0.1vw 0;
+  border: transparent;
+  top: 142.3%;
   height: 2.7vh;
   background: #e5e5e5;
   font-family: "Mulish";
@@ -1123,7 +1128,7 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 3.1vh;
   left: 64%;
   background: #ffffff;
-  border: 0.2vh solid #e5e5e5;
+  border: 0.3vh solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 0.309vw;
   padding-left: 0.5%;
@@ -1153,9 +1158,9 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 3.1vh;
   left: 64%;
   background: #ffffff;
-  border: 0.2vh solid #e5e5e5;
+  border: 0.3vh solid #e5e5e5;
   box-sizing: border-box;
-  border-radius: 0.309vw;
+  border-radius: 0.309vw 0.309vw 0.309vw 0.309vw;
   padding-left: 2%;
   font-family: Roboto;
   font-style: normal;
@@ -1176,7 +1181,7 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 3.1vh;
   left: 64%;
   background: #ffffff;
-  border: 0.2vh solid #e5e5e5;
+  border: 0.3vh solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 0.309vw;
   padding-left: 0.5%;
