@@ -1428,13 +1428,9 @@ select:invalid {
   top: 50%;
   left: 0%;
   width: 100%;
-<<<<<<< HEAD
   background-color: #FBFBFB;
-
-=======
-  background-color: #fbfbfb;
->>>>>>> c91ff2c7286f88a873ffaf592abfffb33fe0100c
 }
+
 .error-container #left {
   width: 20%;
   float: left;
@@ -1502,7 +1498,6 @@ select:invalid {
   left: 77%;
   bottom: 6%;
 }
-<<<<<<< HEAD
 
 /* faq page */
 #faq-title{
@@ -1676,5 +1671,4 @@ select:invalid {
   width: 2.5vw;
   padding: 1vh 1vw;
 }
-=======
->>>>>>> c91ff2c7286f88a873ffaf592abfffb33fe0100c
+

@@ -147,6 +147,9 @@ class SolarFAQ extends Component {
                            <p>A DIY installation is an option homeowners can consider, and usually reduces the cost of installation. Following a DIY guide will provide guidance as to how the components fit together, but the process requires heavy lifting, working at heights, and a significant time investment. Further, the electrical hookup at the end requires the expertise of an electrician, so many DIYers opt to hire a professional for this part. Check out this <a href="https://www.youtube.com/watch?v=BMt6qZV4QZ0&feature=emb_title" target="_blank">video</a> to see if a DIY installation is right for you.</p>
                         </div>
                     </Accordion>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                 </div>
 
             </div>
