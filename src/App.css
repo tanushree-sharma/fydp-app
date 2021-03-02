@@ -887,7 +887,7 @@ ul.nav-right {
 #generate-box2 {
   position: absolute;
   left: 41%;
-  top: 160%;
+  top: 148%;
   width: 19%;
   height: 11.5%;
 }
@@ -959,8 +959,8 @@ ul.nav-right {
 
 .whitesquare {
   position: absolute;
-  left: 43.5%;
-  top: 177%;
+  left: 93.5%;
+  top: 180%;
   height: 20px;
   width: 100px;
   background-color: white;
