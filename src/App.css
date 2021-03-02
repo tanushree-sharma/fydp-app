@@ -707,7 +707,6 @@ ul.nav-right {
 
 #budget1 {
   top: 116%;
-  width: 
 }
 
 #budget2 {
@@ -1429,8 +1428,9 @@ select:invalid {
   top: 50%;
   left: 0%;
   width: 100%;
-  background-color: #fbfbfb;
+  background-color: #FBFBFB;
 }
+
 .error-container #left {
   width: 20%;
   float: left;
@@ -1497,4 +1497,177 @@ select:invalid {
 
   left: 77%;
   bottom: 6%;
+}
+
+/* faq page */
+#faq-title{
+  position: absolute;
+  left: 33%;
+  top: 20%;
+  width: 40vw;
+  height: 4vh;
+
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5vw;
+  line-height: 7.8vh;
+  color: #000000;
+  mix-blend-mode: normal;
+}
+
+#faq-desc{
+  position: absolute;
+  width: 45vw;
+  height: 2vh;
+  left: 27.5%;
+  top: 30%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1vw;
+  line-height: 3vh;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+
+#faqDiv {
+  position: absolute;
+  left: 15%;
+  top: 45%;
+
+  width: 70vw;
+  min-height: 30vh;
+
+}
+
+#aboutSolar{
+  position: absolute;
+  left: 15%;
+  top: 40%;
+  width: 70vw;
+  height: 3.5vh;
+
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5vh;
+  align-items: center;
+  text-align: left;
+  white-space: nowrap;
+
+  color: #5C77AC;
+  border-bottom: 0.3vh solid #80807F;
+}
+
+#myData{
+  width: 70vw;
+  height: 3.5vh;
+  left: 15%;
+
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5vh;
+  align-items: center;
+  text-align: left;
+  white-space: nowrap;
+
+  color: #5C77AC;
+  border-bottom: 0.3vh solid #80807F;
+
+  margin-top: 5vh;
+}
+
+
+
+#myResults{
+  width: 70vw;
+  height: 3.5vh;
+  left: 15%;
+
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5vh;
+  align-items: center;
+  text-align: left;
+  white-space: nowrap;
+
+  color: #5C77AC;
+  border-bottom: 0.3vh solid #80807F;
+
+  margin-top: 5vh;
+}
+
+#nextSteps{
+  width: 70vw;
+  height: 3.5vh;
+  left: 15%;
+
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5vh;
+  align-items: center;
+  text-align: left;
+  white-space: nowrap;
+
+  color: #5C77AC;
+  border-bottom: 0.3vh solid #80807F;
+
+  margin-top: 5vh;
+}
+
+#accordion{
+  width: 70vw;
+  height: 100%;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+#accordion-section{
+  text-align: left;
+  padding: 1vh 1vw;
+}
+
+#accordion-question{
+  width: 70vw;
+  height: 5vh;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2vh;
+  line-height: 1vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #000000;
+}
+
+#accordion-answer{
+  width: 63vw;
+  height: auto;
+  padding: 1vh 4.5vw;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2vh;
+  line-height: 3vh;
+  align-items: center;
+  letter-spacing: 0.05em;
+
+  color: #000000;
+}
+
+#faq-arrow{
+  width: 2.5vw;
+  padding: 1vh 1vw;
 }
