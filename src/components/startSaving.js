@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import graphic from '../question_img.png'
 import warning from '../warning.png'
+import Footer from '../components/Footer'
 
 class startSaving extends Component {
     render() {
-        window.onbeforeunload = function() {
+        window.onbeforeunload = function () {
             var defaultForm = "solar";
             localStorage.setItem("whichForm", defaultForm);
             var solarTab = document.getElementById("tabs1");
@@ -93,7 +94,7 @@ class startSaving extends Component {
         function checkSolarValues() {
             var modal = document.getElementById("solarModal");
             var update = document.getElementById("solar-update");
-            var nav = document.getElementById("navigation"); 
+            var nav = document.getElementById("navigation");
 
             var postalCode = document.forms["solar"]["postal_code"].value;
             var roofSize = document.forms["solar"]["roof_size"].value;
@@ -129,7 +130,7 @@ class startSaving extends Component {
 
             var split = [];
             var i;
-            for (i=0; i<postalCode.length; i++) {
+            for (i = 0; i < postalCode.length; i++) {
                 split[i] = postalCode.charAt([i]);
             }
 
@@ -138,7 +139,7 @@ class startSaving extends Component {
                 console.log("this is a valid postal code");
                 postalCodeBox.classList.remove("invalid");
                 postalError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is NOT a valid postal code");
                 postalCodeBox.classList.add("invalid");
@@ -148,7 +149,7 @@ class startSaving extends Component {
             if (postalCode.length == 0) {
                 postalCodeBox.classList.remove("invalid");
                 postalError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             }
 
             var roofSizeBox = document.getElementById("roof-size-input1");
@@ -160,7 +161,7 @@ class startSaving extends Component {
                 console.log("this is a valid roof size");
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is not a valid roof size");
                 roofSizeBox.classList.add("invalid");
@@ -170,7 +171,7 @@ class startSaving extends Component {
             if (roofSize.length == 0) {
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             }
 
             var usageBox = document.getElementById("elec-usage-input1");
@@ -182,7 +183,7 @@ class startSaving extends Component {
                 console.log("this is a valid usage amount");
                 usageBox.classList.remove("invalid");
                 usageError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is not a valid usage amount");
                 usageBox.classList.add("invalid");
@@ -192,8 +193,8 @@ class startSaving extends Component {
             if (usage.length == 0) {
                 usageBox.classList.remove("invalid");
                 usageError = false;
-                numErrors = Math.max(0, numErrors-1);
-            }            
+                numErrors = Math.max(0, numErrors - 1);
+            }
 
             var budgetBox = document.getElementById("budget1");
             var budget = document.forms["solar"]["budget"].value;
@@ -204,7 +205,7 @@ class startSaving extends Component {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is not a valid budget amount");
                 budgetBox.classList.add("invalid");
@@ -214,8 +215,8 @@ class startSaving extends Component {
             if (budget.length == 0) {
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
-                numErrors = Math.max(0, numErrors-1);
-            }  
+                numErrors = Math.max(0, numErrors - 1);
+            }
 
             if (postalError == true || roofError == true || usageError == true || budgetError == true) {
                 resultsButton.classList.add("disabled-button");
@@ -318,7 +319,7 @@ class startSaving extends Component {
 
             var split = [];
             var i;
-            for (i=0; i<postalCode.length; i++) {
+            for (i = 0; i < postalCode.length; i++) {
                 split[i] = postalCode.charAt([i]);
             }
 
@@ -327,7 +328,7 @@ class startSaving extends Component {
                 console.log("this is a valid postal code");
                 postalCodeBox.classList.remove("invalid");
                 postalError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is NOT a valid postal code");
                 postalCodeBox.classList.add("invalid");
@@ -337,7 +338,7 @@ class startSaving extends Component {
             if (postalCode.length == 0) {
                 postalCodeBox.classList.remove("invalid");
                 postalError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             }
 
             var roofSizeBox = document.getElementById("roof-size-input2");
@@ -349,7 +350,7 @@ class startSaving extends Component {
                 console.log("this is a valid roof size");
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is not a valid roof size");
                 roofSizeBox.classList.add("invalid");
@@ -359,7 +360,7 @@ class startSaving extends Component {
             if (roofSize.length == 0) {
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             }
 
             var usageBox = document.getElementById("elec-usage-input2");
@@ -371,7 +372,7 @@ class startSaving extends Component {
                 console.log("this is a valid usage amount");
                 usageBox.classList.remove("invalid");
                 usageError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is not a valid usage amount");
                 usageBox.classList.add("invalid");
@@ -381,8 +382,8 @@ class startSaving extends Component {
             if (usage.length == 0) {
                 usageBox.classList.remove("invalid");
                 usageError = false;
-                numErrors = Math.max(0, numErrors-1);
-            }            
+                numErrors = Math.max(0, numErrors - 1);
+            }
 
             var storageBox = document.getElementById("storage-capacity-input");
             var storage = document.forms["battery"]["storage_capacity"].value;
@@ -393,7 +394,7 @@ class startSaving extends Component {
                 console.log("this is a valid storage amount");
                 storageBox.classList.remove("invalid");
                 storageError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is not a valid usage amount");
                 storageBox.classList.add("invalid");
@@ -403,8 +404,8 @@ class startSaving extends Component {
             if (storage.length == 0) {
                 storageBox.classList.remove("invalid");
                 storageError = false;
-                numErrors = Math.max(0, numErrors-1);
-            } 
+                numErrors = Math.max(0, numErrors - 1);
+            }
 
             var dodBox = document.getElementById("dod-input");
             var dod = document.forms["battery"]["dod"].value;
@@ -414,7 +415,7 @@ class startSaving extends Component {
                 console.log("this is a valid storage amount");
                 dodBox.classList.remove("invalid");
                 dodError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is not a valid usage amount");
                 dodBox.classList.add("invalid");
@@ -424,8 +425,8 @@ class startSaving extends Component {
             if (dod.length == 0) {
                 dodBox.classList.remove("invalid");
                 dodError = false;
-                numErrors = Math.max(0, numErrors-1);
-            } 
+                numErrors = Math.max(0, numErrors - 1);
+            }
 
             var budgetBox = document.getElementById("budget2");
             var budget = document.forms["battery"]["budget"].value;
@@ -436,7 +437,7 @@ class startSaving extends Component {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
-                numErrors = Math.max(0, numErrors-1);
+                numErrors = Math.max(0, numErrors - 1);
             } else {
                 console.log("this is not a valid budget amount");
                 budgetBox.classList.add("invalid");
@@ -446,8 +447,8 @@ class startSaving extends Component {
             if (budget.length == 0) {
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
-                numErrors = Math.max(0, numErrors-1);
-            }  
+                numErrors = Math.max(0, numErrors - 1);
+            }
 
             if (postalError == true || roofError == true || usageError == true || budgetError == true || storageError == true || dodError == true) {
                 resultsButton.classList.add("disabled-button");
@@ -576,28 +577,28 @@ class startSaving extends Component {
                         <p>Input the amount of your total monthly usage as displayed on your electrcity bill for the month.</p>
                     </div>
                     <div class="help-tip" id="q6">
-                        <p> 
+                        <p>
                             <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
                             <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this estimate.</span>
                         </p>
                     </div>
 
-                    
+
 
                     <form action="/solar-results" name="solar" method="POST" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                            <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" maxlength="3" onBlur={() => { checkingSolarInputs(); }}/>
+                            <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" maxlength="3" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
                         <label>
                             <p class="field-titles" id="roof-size" > Roof Size (Sqft):  </p>
-                            <input class="field-inputs" id="roof-size-input1" type="text" name="roof_size" placeholder="2000" onBlur={() => { checkingSolarInputs(); }}/>
+                            <input class="field-inputs" id="roof-size-input1" type="text" name="roof_size" placeholder="2000" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
                         <label>
                             <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                            <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingSolarInputs(); }}/>
+                            <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
 
@@ -632,7 +633,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="budget1title" > Budget (CAD):</p>
-                            <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" onBlur={() => { checkingSolarInputs(); }}/>
+                            <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
 
@@ -672,8 +673,8 @@ class startSaving extends Component {
                         <p>The DoD should be listed under your battery specifications.</p>
                     </div>
                     <div class="help-tip" id="q7">
-                        <p> 
-                        <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
+                        <p>
+                            <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
                             <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this estimate.</span>
                         </p>
                     </div>
@@ -681,17 +682,17 @@ class startSaving extends Component {
                     <form action="/solarbattery-results" method="POST" name="battery" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                            <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" maxlength="3" onBlur={() => { checkingBatteryInputs(); }}/>
+                            <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" maxlength="3" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
                         <label>
                             <p class="field-titles" id="roof-size" > Roof Size (Sqft):  </p>
-                            <input class="field-inputs" id="roof-size-input2" type="text" name="roof_size" placeholder="2000" onBlur={() => { checkingBatteryInputs(); }}/>
+                            <input class="field-inputs" id="roof-size-input2" type="text" name="roof_size" placeholder="2000" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
                         <label>
                             <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                            <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingBatteryInputs(); }}/>
+                            <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
 
@@ -726,22 +727,23 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="storage-capacity" > Storage Capacity (kWh):</p>
-                            <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="13" onBlur={() => { checkingBatteryInputs(); }}/>
+                            <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="13" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
                         <label>
                             <p class="field-titles" id="dod" > Depth of Discharge:</p>
-                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" maxlength="3" onBlur={() => { checkingBatteryInputs(); }}/>
+                            <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" maxlength="3" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
                         <label>
                             <p class="field-titles" id="budget2title" > Budget (CAD):</p>
-                            <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="10000" onBlur={() => { checkingBatteryInputs(); }}/>
+                            <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="10000" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
                         <div id="generate-box2" onMouseOver={() => { finalCheckBatteryErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
                         </div>
+                        <div class="whitesquare"></div>
 
                         <form>
                             <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
@@ -752,6 +754,12 @@ class startSaving extends Component {
                         </form>
                     </form>
                 </div>
+
+                <div class="footer-ss">
+                    <Footer />
+                </div>
+
+                <p id="footerspace"> buffer space </p>
 
                 <div id="solarModal" class="modal">
                     <div class="modal-content">
