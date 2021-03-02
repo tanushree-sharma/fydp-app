@@ -804,8 +804,6 @@ class startSaving extends Component {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         )
     }
