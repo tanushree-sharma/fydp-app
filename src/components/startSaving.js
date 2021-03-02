@@ -103,7 +103,65 @@ class startSaving extends Component {
             var heating = document.forms["solar"]["heating-type"].value;
             var budget = document.forms["solar"]["budget"].value;
 
-            if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") {
+            // check if postal code is within our database          
+            var codes = ['L1S', 'L1T', 'L1Z', 'P0R', 'L9K', 'L9G', 'L4M', 'L4N', 'K8R', 'K8P', 'K8N', 'L1C', 'L1B', 'L6Z', 'L6X', 'L6T', 'L6S', 'L6V', 'L6Y', 'L6R', 'L6P', 'L6W', 'N3P', 'N3S', 'N3T', 'N3V', 'N3R', 'L7P', 'L7T', 'L7N', 'L7S', 'L7L', 'L7R', 'L7M', 'N3E', 'N1S', 'N3H',
+                'N3C', 'N1P', 'N1R', 'N1T', 'N7M', 'N7L', 'K6K', 'K6H', 'K6J', 'M3B', 'M3C', 'M3M', 'M3L', 'L0N', 'M4G', 'M4B', 'M4H', 'M4C', 'M9R', 'M9W', 'M8Z', 'M8W', 'M8Y', 'M9B', 'M9V', 'M8X', 'M9A', 'M9P', 'M9C', 'K0H', 'K1B', 'K1X', 'K1C', 'K1W', 'K1T', 'K1J', 'P3B', 'P3E',
+                'P3C', 'P3A', 'P3Y', 'P3L', 'P3P', 'P3N', 'P3G', 'N1E', 'N1G', 'N1L', 'N1K', 'N1H', 'N1C', 'L0P', 'L9E', 'L9B', 'L8N', 'L8J', 'L8W', 'L8P', 'L8H', 'L9C', 'L8T', 'L8S', 'L8G', 'L8R', 'L8M', 'L8V', 'L8E', 'L8K', 'L9A', 'L8L', 'K2W', 'K2K', 'K2L', 'K2V', 'K2M', 'K2T',
+                'K7K', 'K7L', 'K7P', 'K7M', 'N2B', 'N2P', 'N2G', 'N2A', 'N2H', 'N2R', 'N2K', 'N2E', 'N2C', 'N2M', 'N2N', 'N9H', 'N9J', 'L0L', 'L0K', 'K7K', 'K7L', 'K7P', 'K7M', 'N2B', 'N2P', 'N2G', 'N2A', 'N2H', 'N2R', 'N2K', 'N2E', 'N2C', 'N2M', 'N2N', 'N9H', 'N9J', 'L0L', 'L0K',
+                'N6M', 'L6G', 'L6C', 'L3R', 'L6E', 'L3S', 'L6B', 'L3P', 'L5B', 'L4Z', 'L4Y', 'L5A', 'L5H', 'L5R', 'L5E', 'L5J', 'L5T', 'L4T', 'L5M', 'L4V', 'L5C', 'L5V', 'L5W', 'L4X', 'L5S', 'L5P', 'L4W', 'L5G', 'L5K', 'L5L', 'L5N', 'K2G', 'K2R', 'K2E', 'K2H', 'K2J', 'L3X', 'L3Y',
+                'L2G', 'L2H', 'L2E', 'L2J', 'P0B', 'P0H', 'P0A', 'P1B', 'P1C', 'P1A', 'M6A', 'M2K', 'M3A', 'M9L', 'M3H', 'M3J', 'M9M', 'M2J', 'M6L', 'M2P', 'M2H', 'M2L', 'M6B', 'M3N', 'L6H', 'L6M', 'L6L', 'L6K', 'L6J', 'L9W', 'L9V', 'L1H', 'L1K', 'L1J', 'L1L', 'L1G', 'K1L', 'K1K',
+                'K2A', 'K1R', 'K1Y', 'K1V', 'K1G', 'K2P', 'K1A', 'K1Z', 'K2C', 'K1N', 'K1H', 'K1M', 'K2B', 'K1S', 'K1P', 'P0G', 'P0E', 'P0C', 'K8B', 'K8A', 'K9L', 'K9H', 'K9J', 'K9K', 'K0L', 'L1X', 'L1Y', 'L1V', 'L1W', 'K0J', 'L4S', 'L4B', 'L4E', 'L4C', 'N7W', 'N7T', 'N7X', 'N7S',
+                'N7V', 'P6C', 'P6B', 'P6A', 'M1J', 'M1N', 'M1X', 'M1V', 'M1R', 'M1B', 'M1L', 'M1P', 'M1E', 'M1S', 'M1C', 'M1T', 'M1K', 'M1M', 'M1W', 'M1H', 'M1G', 'L2W', 'L2R', 'L2S', 'L2T', 'L2P', 'L2V', 'L2M', 'L2N', 'N5P', 'N5R', 'N8V', 'N8N', 'P7A', 'P7G', 'P7C', 'P7B', 'P7E',
+                'P7K', 'P7J', 'P0K', 'P0J', 'P4P', 'P4N', 'P4R', 'M5W', 'M4E', 'M6K', 'M5N', 'M4T', 'M4V', 'M4S', 'M5T', 'M5B', 'M6P', 'M4L', 'M4Y', 'M6S', 'M5X', 'M6G', 'M5J', 'M5C', 'M5S', 'M5A', 'M4K', 'M5L', 'M6R', 'M5K', 'M7Y', 'M6H', 'M5G', 'M5R', 'M6J', 'M4X', 'M4R', 'M4P',
+                'M4J', 'M5E', 'M3K', 'M5V', 'M4N', 'M4M', 'M4W', 'M5P', 'M5H', 'M8V', 'N2V', 'N2J', 'N2L', 'N2T', 'L3C', 'L3B', 'L1N', 'L1R', 'L1P', 'L1M', 'M2R', 'M2M', 'M2N', 'N8S', 'N9E', 'N8P', 'N8Y', 'N8W', 'N8X', 'N9B', 'N8R', 'N9G', 'N9C', 'N8T', 'N9A', 'L4H', 'L4L', 'N4T',
+                'N4S', 'N4V', 'M6N', 'M6E', 'M6M', 'M6C', 'L7J', 'N9V', 'L4G', 'P0M', 'K7N', 'N5H', 'L9R', 'K7S', 'N3A', 'L9J', 'L9X', 'L7E', 'L7A', 'N0H', 'P1L', 'N0E', 'L3Z', 'K6V', 'L7C', 'K7C', 'L9Y', 'K4C', 'L7K', 'K9A', 'L4K', 'K4B', 'N3W', 'P0L', 'L1E', 'N4B', 'N1A', 'P8N',
+                'L9H', 'L0B', 'K6T', 'P5E', 'L0R', 'P5A', 'N0L', 'N3B', 'N0R', 'N8M', 'N1M', 'L2A', 'P9A', 'K7G', 'N0C', 'L7G', 'N7A', 'L3M', 'L0M', 'P1P', 'N4N', 'P1H', 'K6A', 'N0G', 'L9N', 'N5C', 'L9S', 'P5N', 'P0X', 'N2Z', 'P2N', 'K0M', 'N0P', 'L7B', 'P9N', 'L4P', 'N9Y', 'P0Y',
+                'K9V', 'N0N', 'N4W', 'N8H', 'P0P', 'N4L', 'L4R', 'K4M', 'N0M', 'L9T', 'L6A', 'K7R', 'L0S', 'K0A', 'L0J', 'P7L', 'M4A', 'M5M', 'P0V', 'L0G', 'L3V', 'K1E', 'K4A', 'N4K', 'N0J', 'N3L', 'K7H', 'N0K', 'K8H', 'L9L', 'P2A', 'L3K', 'N5L', 'L9M', 'L1A', 'K0B', 'M7A', 'K0K',
+                'P0W', 'K4K', 'K7V', 'K4R', 'K0G', 'N3Y', 'K0E', 'K2S', 'N5A', 'P2B', 'P8T', 'K0C', 'N4Z', 'K7A', 'N4X', 'L4A', 'N7G', 'N9K', 'N4G', 'L3T', 'P0N', 'L4J', 'K8V', 'L9P', 'N8A', 'N0B', 'L0A', 'L0H', 'L9Z', 'L0C', 'L0V', 'L8B', 'N0A', 'M9N'];
+            var defaultPostalUsed = false;
+            if (postalCode.length > 0 && !codes.includes(postalCode.toUpperCase())) {
+                defaultPostalUsed = true;
+            }
+
+            var warning = document.getElementById("default-warning");
+            // case #1: empty inputs and default postal code not used
+            if ((postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == false) {
+                document.getElementById("modal-text").innerHTML = "You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                warning.classList.add("one-error");
+                warning.classList.remove("multiple-errors");
+
+                modal.style.display = "block";
+                update.onclick = function () {
+                    modal.style.display = "none";
+                }
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+            // case #2: no empty inputs, default postal code is used
+            if (!(postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == true) {
+                document.getElementById("modal-text").innerHTML = "The postal code that you have entered is not in our database. Please update with a neighboring postal code or a default postal code of 'M5W' will be used.";
+                warning.classList.add("one-error");
+                warning.classList.remove("multiple-errors");
+
+                modal.style.display = "block";
+                update.onclick = function () {
+                    modal.style.display = "none";
+                }
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+            // case #3: empty inputs and default postal code is used
+            if ((postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == true) {
+                document.getElementById("modal-text").innerHTML = "The postal code that you have entered is not in our database. Please update with a neighboring postal code or a default postal code of 'M5W' will be used. <br><br> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                warning.classList.remove("one-error");
+                warning.classList.add("multiple-errors");
+
                 modal.style.display = "block";
                 update.onclick = function () {
                     modal.style.display = "none";
@@ -115,6 +173,7 @@ class startSaving extends Component {
                 }
             }
         }
+
         function isLetter(char) {
             return (/[a-zA-Z]/).test(char);
         }
@@ -256,7 +315,7 @@ class startSaving extends Component {
                 errorModal.style.display = "block";
                 // checking for postal code error
                 if (postalCodeBox.classList.contains("invalid")) {
-                    errorText.innerHTML += "Postal Code needs to be in the form of 'M3N'. <br><br>"
+                    errorText.innerHTML += "Postal Code needs to be in the form of 'M5W'. <br><br>"
                 }
                 // checking for roof size error
                 if (roofSizeBox.classList.contains("invalid")) {
@@ -296,8 +355,65 @@ class startSaving extends Component {
             var dod = document.forms["battery"]["dod"].value;
             var budget = document.forms["battery"]["budget"].value;
 
+            // check if postal code is within our database          
+            var codes = ['L1S', 'L1T', 'L1Z', 'P0R', 'L9K', 'L9G', 'L4M', 'L4N', 'K8R', 'K8P', 'K8N', 'L1C', 'L1B', 'L6Z', 'L6X', 'L6T', 'L6S', 'L6V', 'L6Y', 'L6R', 'L6P', 'L6W', 'N3P', 'N3S', 'N3T', 'N3V', 'N3R', 'L7P', 'L7T', 'L7N', 'L7S', 'L7L', 'L7R', 'L7M', 'N3E', 'N1S', 'N3H',
+                'N3C', 'N1P', 'N1R', 'N1T', 'N7M', 'N7L', 'K6K', 'K6H', 'K6J', 'M3B', 'M3C', 'M3M', 'M3L', 'L0N', 'M4G', 'M4B', 'M4H', 'M4C', 'M9R', 'M9W', 'M8Z', 'M8W', 'M8Y', 'M9B', 'M9V', 'M8X', 'M9A', 'M9P', 'M9C', 'K0H', 'K1B', 'K1X', 'K1C', 'K1W', 'K1T', 'K1J', 'P3B', 'P3E',
+                'P3C', 'P3A', 'P3Y', 'P3L', 'P3P', 'P3N', 'P3G', 'N1E', 'N1G', 'N1L', 'N1K', 'N1H', 'N1C', 'L0P', 'L9E', 'L9B', 'L8N', 'L8J', 'L8W', 'L8P', 'L8H', 'L9C', 'L8T', 'L8S', 'L8G', 'L8R', 'L8M', 'L8V', 'L8E', 'L8K', 'L9A', 'L8L', 'K2W', 'K2K', 'K2L', 'K2V', 'K2M', 'K2T',
+                'K7K', 'K7L', 'K7P', 'K7M', 'N2B', 'N2P', 'N2G', 'N2A', 'N2H', 'N2R', 'N2K', 'N2E', 'N2C', 'N2M', 'N2N', 'N9H', 'N9J', 'L0L', 'L0K', 'K7K', 'K7L', 'K7P', 'K7M', 'N2B', 'N2P', 'N2G', 'N2A', 'N2H', 'N2R', 'N2K', 'N2E', 'N2C', 'N2M', 'N2N', 'N9H', 'N9J', 'L0L', 'L0K',
+                'N6M', 'L6G', 'L6C', 'L3R', 'L6E', 'L3S', 'L6B', 'L3P', 'L5B', 'L4Z', 'L4Y', 'L5A', 'L5H', 'L5R', 'L5E', 'L5J', 'L5T', 'L4T', 'L5M', 'L4V', 'L5C', 'L5V', 'L5W', 'L4X', 'L5S', 'L5P', 'L4W', 'L5G', 'L5K', 'L5L', 'L5N', 'K2G', 'K2R', 'K2E', 'K2H', 'K2J', 'L3X', 'L3Y',
+                'L2G', 'L2H', 'L2E', 'L2J', 'P0B', 'P0H', 'P0A', 'P1B', 'P1C', 'P1A', 'M6A', 'M2K', 'M3A', 'M9L', 'M3H', 'M3J', 'M9M', 'M2J', 'M6L', 'M2P', 'M2H', 'M2L', 'M6B', 'M3N', 'L6H', 'L6M', 'L6L', 'L6K', 'L6J', 'L9W', 'L9V', 'L1H', 'L1K', 'L1J', 'L1L', 'L1G', 'K1L', 'K1K',
+                'K2A', 'K1R', 'K1Y', 'K1V', 'K1G', 'K2P', 'K1A', 'K1Z', 'K2C', 'K1N', 'K1H', 'K1M', 'K2B', 'K1S', 'K1P', 'P0G', 'P0E', 'P0C', 'K8B', 'K8A', 'K9L', 'K9H', 'K9J', 'K9K', 'K0L', 'L1X', 'L1Y', 'L1V', 'L1W', 'K0J', 'L4S', 'L4B', 'L4E', 'L4C', 'N7W', 'N7T', 'N7X', 'N7S',
+                'N7V', 'P6C', 'P6B', 'P6A', 'M1J', 'M1N', 'M1X', 'M1V', 'M1R', 'M1B', 'M1L', 'M1P', 'M1E', 'M1S', 'M1C', 'M1T', 'M1K', 'M1M', 'M1W', 'M1H', 'M1G', 'L2W', 'L2R', 'L2S', 'L2T', 'L2P', 'L2V', 'L2M', 'L2N', 'N5P', 'N5R', 'N8V', 'N8N', 'P7A', 'P7G', 'P7C', 'P7B', 'P7E',
+                'P7K', 'P7J', 'P0K', 'P0J', 'P4P', 'P4N', 'P4R', 'M5W', 'M4E', 'M6K', 'M5N', 'M4T', 'M4V', 'M4S', 'M5T', 'M5B', 'M6P', 'M4L', 'M4Y', 'M6S', 'M5X', 'M6G', 'M5J', 'M5C', 'M5S', 'M5A', 'M4K', 'M5L', 'M6R', 'M5K', 'M7Y', 'M6H', 'M5G', 'M5R', 'M6J', 'M4X', 'M4R', 'M4P',
+                'M4J', 'M5E', 'M3K', 'M5V', 'M4N', 'M4M', 'M4W', 'M5P', 'M5H', 'M8V', 'N2V', 'N2J', 'N2L', 'N2T', 'L3C', 'L3B', 'L1N', 'L1R', 'L1P', 'L1M', 'M2R', 'M2M', 'M2N', 'N8S', 'N9E', 'N8P', 'N8Y', 'N8W', 'N8X', 'N9B', 'N8R', 'N9G', 'N9C', 'N8T', 'N9A', 'L4H', 'L4L', 'N4T',
+                'N4S', 'N4V', 'M6N', 'M6E', 'M6M', 'M6C', 'L7J', 'N9V', 'L4G', 'P0M', 'K7N', 'N5H', 'L9R', 'K7S', 'N3A', 'L9J', 'L9X', 'L7E', 'L7A', 'N0H', 'P1L', 'N0E', 'L3Z', 'K6V', 'L7C', 'K7C', 'L9Y', 'K4C', 'L7K', 'K9A', 'L4K', 'K4B', 'N3W', 'P0L', 'L1E', 'N4B', 'N1A', 'P8N',
+                'L9H', 'L0B', 'K6T', 'P5E', 'L0R', 'P5A', 'N0L', 'N3B', 'N0R', 'N8M', 'N1M', 'L2A', 'P9A', 'K7G', 'N0C', 'L7G', 'N7A', 'L3M', 'L0M', 'P1P', 'N4N', 'P1H', 'K6A', 'N0G', 'L9N', 'N5C', 'L9S', 'P5N', 'P0X', 'N2Z', 'P2N', 'K0M', 'N0P', 'L7B', 'P9N', 'L4P', 'N9Y', 'P0Y',
+                'K9V', 'N0N', 'N4W', 'N8H', 'P0P', 'N4L', 'L4R', 'K4M', 'N0M', 'L9T', 'L6A', 'K7R', 'L0S', 'K0A', 'L0J', 'P7L', 'M4A', 'M5M', 'P0V', 'L0G', 'L3V', 'K1E', 'K4A', 'N4K', 'N0J', 'N3L', 'K7H', 'N0K', 'K8H', 'L9L', 'P2A', 'L3K', 'N5L', 'L9M', 'L1A', 'K0B', 'M7A', 'K0K',
+                'P0W', 'K4K', 'K7V', 'K4R', 'K0G', 'N3Y', 'K0E', 'K2S', 'N5A', 'P2B', 'P8T', 'K0C', 'N4Z', 'K7A', 'N4X', 'L4A', 'N7G', 'N9K', 'N4G', 'L3T', 'P0N', 'L4J', 'K8V', 'L9P', 'N8A', 'N0B', 'L0A', 'L0H', 'L9Z', 'L0C', 'L0V', 'L8B', 'N0A', 'M9N'];
+            var defaultPostalUsed = false;
+            if (postalCode.length > 0 && !codes.includes(postalCode.toUpperCase())) {
+                defaultPostalUsed = true;
+            }
 
-            if (postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || batteryCap == "" || dod == "" || budget == "") {
+            var warning = document.getElementById("defaultbattery-warning");
+            // case #1: empty inputs and default postal code not used
+            if ((postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == false) {
+                document.getElementById("batterymodal-text").innerHTML = "You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                warning.classList.add("one-error");
+                warning.classList.remove("multiple-errors");
+
+                modal.style.display = "block";
+                update.onclick = function () {
+                    modal.style.display = "none";
+                }
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+            // case #2: no empty inputs, default postal code is used
+            if (!(postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == true) {
+                document.getElementById("batterymodal-text").innerHTML = "The postal code that you have entered is not in our database. Please update with a neighboring postal code or a default postal code of 'M5W' will be used.";
+                warning.classList.add("one-error");
+                warning.classList.remove("multiple-errors");
+
+                modal.style.display = "block";
+                update.onclick = function () {
+                    modal.style.display = "none";
+                }
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+            // case #3: empty inputs and default postal code is used
+            if ((postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == true) {
+                document.getElementById("batterymodal-text").innerHTML = "The postal code that you have entered is not in our database. Please update with a neighboring postal code or a default postal code of 'M5W' will be used. <br><br> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                warning.classList.remove("one-error");
+                warning.classList.add("multiple-errors");
+
                 modal.style.display = "block";
                 update.onclick = function () {
                     modal.style.display = "none";
@@ -508,7 +624,7 @@ class startSaving extends Component {
                 errorModal.style.display = "block";
                 // checking for postal code error
                 if (postalCodeBox.classList.contains("invalid")) {
-                    errorText.innerHTML += "Postal Code needs to be in the form of 'M3N'. <br><br>"
+                    errorText.innerHTML += "Postal Code needs to be in the form of 'M5W'. <br><br>"
                 }
                 // checking for roof size error
                 if (roofSizeBox.classList.contains("invalid")) {
@@ -588,7 +704,7 @@ class startSaving extends Component {
                     <form action="/solar-results" name="solar" method="POST" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                            <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M3N" maxlength="3" onBlur={() => { checkingSolarInputs(); }} />
+                            <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M5W" maxlength="3" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
                         <label>
@@ -633,7 +749,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="budget1title" > Budget (CAD):</p>
-                            <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="10000" onBlur={() => { checkingSolarInputs(); }} />
+                            <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="15000" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
 
@@ -682,7 +798,7 @@ class startSaving extends Component {
                     <form action="/solarbattery-results" method="POST" name="battery" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                            <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M3N" maxlength="3" onBlur={() => { checkingBatteryInputs(); }} />
+                            <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M5W" maxlength="3" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
                         <label>
@@ -737,7 +853,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="budget2title" > Budget (CAD):</p>
-                            <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="10000" onBlur={() => { checkingBatteryInputs(); }} />
+                            <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="15000" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
                         <div id="generate-box2" onMouseOver={() => { finalCheckBatteryErrors(); }}>
@@ -762,19 +878,46 @@ class startSaving extends Component {
                 <p id="footerspace"> buffer space </p>
 
                 <div id="solarModal" class="modal">
-                    <div class="modal-content">
+                    <div class="error-content">
                         <div id="modal-top-border"></div>
-                        <img src={warning} id="warning" alt="warning"></img>
-                        <p id="modal-title"> Incomplete fields </p>
-                        <p id="modal-text"> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.</p>
-                        <div id="buttondiv"></div>
-                        <form action="/solar-results" method="POST">
-                            <button id="continue"> Continue</button>
-                        </form>
-                        <button class="modalSubmit" id="solar-update"> Update fields </button>
+                        <p id="error-title"> Incomplete Field(s) </p>
+                        <div class="error-container">
+                            <div id="left">
+                                <img src={warning} class="one-error" id="default-warning" alt="warning"></img>
+                            </div>
+                            <div id="right">
+                                <p id="modal-text"></p>
+                            </div>
+                            <div id="error-buttondiv">
+                                <button class="modalSubmit" id="solar-update"> Update fields </button>
+                                <form action="/solar-results" method="POST">
+                                    <button id="continue"> Continue</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="batteryModal" class="modal">
+                    <div class="error-content">
+                        <div id="modal-top-border"></div>
+                        <p id="error-title"> Incomplete Field(s) </p>
+                        <div class="error-container">
+                            <div id="left">
+                                <img src={warning} class="one-error" id="defaultbattery-warning" alt="warning"></img>
+                            </div>
+                            <div id="right">
+                                <p id="batterymodal-text"></p>
+                            </div>
+                            <div id="error-buttondiv">
+                                <button class="modalSubmit" id="battery-update"> Update fields </button>
+                                <form action="/solarbattery-results" method="POST">
+                                    <button id="continue"> Continue</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* <div id="batteryModal" class="modal">
                     <div class="modal-content">
                         <div id="modal-top-border"></div>
                         <img src={warning} id="warning" alt="warning"></img>
@@ -786,7 +929,8 @@ class startSaving extends Component {
                         </form>
                         <button class="modalSubmit" id="battery-update"> Update fields </button>
                     </div>
-                </div>
+                </div> */}
+
                 <div id="errorModal" class="modal">
                     <div class="error-content">
                         <div id="modal-top-border"></div>
