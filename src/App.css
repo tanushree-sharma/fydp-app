@@ -848,18 +848,17 @@ ul.nav-right {
 
 #generate-box {
   position: absolute;
-  left: 40.3%;
+  left: 41%;
   top: 140%;
-  width: 20%;
-  height: 10%; 
+  width: 19%;
+  height: 11.5%; 
 }
 #generate-box2 {
   position: absolute;
-  left: 40.3%;
+  left: 41%;
   top: 160%;
-  width: 20%;
-  height: 10%;
-  border: none;
+  width: 19%;
+  height: 11.5%;
 }
 
 .resultsButton {
