@@ -10,7 +10,6 @@ import {
   import MainHomepage from './components/mainHomepage';
   import ScrollTo from './components/scrollTo';
   import StartSaving from './components/startSaving';
-  import About from './components/About';
   import SolarFAQ from './components/SolarFAQ';
 
 
@@ -32,7 +31,6 @@ function App() {
       <Switch>
         <Route path="/start-saving" component={StartSaving}/>
         <Route path="/FAQ" component={SolarFAQ}/>
-        <Route path="/about" component={About}/>
         <Route path="/" component={MainHomepage}/>
       </Switch>
     </div>
