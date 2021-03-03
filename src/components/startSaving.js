@@ -124,9 +124,11 @@ class startSaving extends Component {
             }
 
             var warning = document.getElementById("default-warning");
+            var title = document.getElementById("solarerror-title");
             // case #1: empty inputs and default postal code not used
             if ((postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == false) {
                 document.getElementById("modal-text").innerHTML = "You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                title.innerHTML = "Incomplete Field(s)";
                 warning.classList.add("one-error");
                 warning.classList.remove("multiple-errors");
 
@@ -142,9 +144,10 @@ class startSaving extends Component {
             }
             // case #2: no empty inputs, default postal code is used
             if (!(postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == true) {
-                document.getElementById("modal-text").innerHTML = "The postal code that you have entered is not in our database. Please update with a neighboring postal code or a default postal code of 'M5W' will be used.";
+                document.getElementById("modal-text").innerHTML = "The postal code entered cannot be found in Ontario as of 2020. Please update with a neighbouring postal code, or a default postal code from Toronto (M5W) will be used.";
                 warning.classList.add("one-error");
                 warning.classList.remove("multiple-errors");
+                title.innerHTML = "Invalid Postal Code";
 
                 modal.style.display = "block";
                 update.onclick = function () {
@@ -158,9 +161,10 @@ class startSaving extends Component {
             }
             // case #3: empty inputs and default postal code is used
             if ((postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == true) {
-                document.getElementById("modal-text").innerHTML = "The postal code that you have entered is not in our database. Please update with a neighboring postal code or a default postal code of 'M5W' will be used. <br><br> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                document.getElementById("modal-text").innerHTML = "The postal code entered cannot be found in Ontario as of 2020. Please update with a neighbouring postal code, or a default postal code from Toronto (M5W) will be used. <br><br> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
                 warning.classList.remove("one-error");
                 warning.classList.add("multiple-errors");
+                title.innerHTML = "Incomplete Field(s)";
 
                 modal.style.display = "block";
                 update.onclick = function () {
@@ -376,9 +380,11 @@ class startSaving extends Component {
             }
 
             var warning = document.getElementById("defaultbattery-warning");
+            var title = document.getElementById("batteryerror-title");
             // case #1: empty inputs and default postal code not used
             if ((postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == false) {
                 document.getElementById("batterymodal-text").innerHTML = "You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                title.innerHTML = "Incomplete Field(s)";
                 warning.classList.add("one-error");
                 warning.classList.remove("multiple-errors");
 
@@ -394,7 +400,8 @@ class startSaving extends Component {
             }
             // case #2: no empty inputs, default postal code is used
             if (!(postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == true) {
-                document.getElementById("batterymodal-text").innerHTML = "The postal code that you have entered is not in our database. Please update with a neighboring postal code or a default postal code of 'M5W' will be used.";
+                document.getElementById("batterymodal-text").innerHTML = "The postal code entered cannot be found in Ontario as of 2020. Please update with a neighbouring postal code, or a default postal code from Toronto (M5W) will be used.";
+                title.innerHTML = "Invalid Postal Code";
                 warning.classList.add("one-error");
                 warning.classList.remove("multiple-errors");
 
@@ -410,7 +417,8 @@ class startSaving extends Component {
             }
             // case #3: empty inputs and default postal code is used
             if ((postalCode == "" || roofSize == "" || elecUsage == "" || month == "" || heating == "" || budget == "") && defaultPostalUsed == true) {
-                document.getElementById("batterymodal-text").innerHTML = "The postal code that you have entered is not in our database. Please update with a neighboring postal code or a default postal code of 'M5W' will be used. <br><br> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                document.getElementById("batterymodal-text").innerHTML = "The postal code entered cannot be found in Ontario as of 2020. Please update with a neighbouring postal code, or a default postal code from Toronto (M5W) will be used. <br><br> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.";
+                title.innerHTML = "Incomplete Field(s)";
                 warning.classList.remove("one-error");
                 warning.classList.add("multiple-errors");
 
@@ -880,7 +888,7 @@ class startSaving extends Component {
                 <div id="solarModal" class="modal">
                     <div class="error-content">
                         <div id="modal-top-border"></div>
-                        <p id="error-title"> Incomplete Field(s) </p>
+                        <p id="solarerror-title"> </p>
                         <div class="error-container">
                             <div id="left">
                                 <img src={warning} class="one-error" id="default-warning" alt="warning"></img>
@@ -900,7 +908,7 @@ class startSaving extends Component {
                 <div id="batteryModal" class="modal">
                     <div class="error-content">
                         <div id="modal-top-border"></div>
-                        <p id="error-title"> Incomplete Field(s) </p>
+                        <p id="batteryerror-title">  </p>
                         <div class="error-container">
                             <div id="left">
                                 <img src={warning} class="one-error" id="defaultbattery-warning" alt="warning"></img>

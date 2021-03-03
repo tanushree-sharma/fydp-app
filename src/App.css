@@ -1420,7 +1420,7 @@ select:invalid {
   text-align: left;
 }
 
-#error-title {
+#solarerror-title, #batteryerror-title {
   position: absolute;
   top: 25%;
   left: 20%;
