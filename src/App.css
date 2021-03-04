@@ -1302,7 +1302,7 @@ select:invalid {
   color: #000000;
   margin-top: 2%;
 }
-#modal-text {
+#modal-text, #batterymodal-text {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -1314,12 +1314,21 @@ select:invalid {
   color: #80807f;
 }
 
-#warning {
+#default-warning, #defaultbattery-warning {
+  position: absolute;
+  left: 0%;
   width: 8vw;
   height: 13vh;
   float: left;
   vertical-align: middle;
 }
+.one-error {
+  top: -9%;
+}
+.multiple-errors {
+  top: 6%;
+}
+
 #buttondiv {
   position: absolute;
   left: 0%;
@@ -1349,7 +1358,7 @@ select:invalid {
   bottom: 5%;
 }
 
-#continue {
+#continue, #postalSolarcontinue {
   position: absolute;
   background: #f6d673;
   border: 1px solid #f6d673;
@@ -1410,7 +1419,7 @@ select:invalid {
   text-align: left;
 }
 
-#error-title {
+#solarerror-title, #batteryerror-title {
   position: absolute;
   top: 25%;
   left: 20%;
