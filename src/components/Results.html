@@ -947,15 +947,21 @@
             doc.setTextColor(0, 0, 0);
             doc.setFontSize(28);
             var inSize =document.getElementById("installSize").textContent;
-            doc.text(25, 70, inSize);
+            var inSizesplit = inSize.split(" ");
+            var inSizenum = inSizesplit[1];
+            doc.text(34, 70, inSizenum);
             var upCost = document.getElementById("upCost").textContent;
             doc.text(92, 70, upCost);
             var payPeriod = document.getElementById("payPeriod").textContent;
-            doc.text(146, 70, payPeriod);
+            var payPeriodSplit = payPeriod.split(" ");
+            var payPeriodnum = payPeriodSplit[1];
+            doc.text(156, 70, payPeriodnum);
             var totalSavings = document.getElementById("total-savings").textContent;
             doc.text(25, 115, totalSavings);
             var carbondata = document.getElementById("carbon-data").textContent;
-            doc.text(105,125,carbondata)
+            var carbondataSplit = carbondata.split(" ");
+            var carbondatanum = carbondataSplit[1];
+            doc.text(105,125,carbondatanum)
             var treesdata = document.getElementById("trees-data").textContent;
             var treesdatasplit = treesdata.split(" ");
             var treenum = treesdatasplit[1]; 
@@ -980,6 +986,9 @@
 
             doc.text(100,110,"Reduce energy carbon emissions by")
             doc.text(132,158,"tree plantings")
+            doc.text(50,70,"kW")
+            doc.text(163,70,"years")
+            doc.text(125,125,"metric tonnes")
             
 
             // Small text, burnt orange
