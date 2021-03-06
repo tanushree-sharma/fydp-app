@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom';
 import Accordion from './Accordion';
+import Footer from '../components/Footer';
 
 class SolarFAQ extends Component {
     render() {
@@ -150,7 +151,20 @@ class SolarFAQ extends Component {
                     <br></br>
                     <br></br>
                     <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+                    <p id="FAQFooter"> <Footer></Footer> </p>
+                    <p id="footerbuffer"> buffer space </p>
                 </div>
+
+
+
+                
 
             </div>
         )
