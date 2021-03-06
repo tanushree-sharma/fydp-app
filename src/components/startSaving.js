@@ -708,7 +708,6 @@ class startSaving extends Component {
                     </div>
 
 
-
                     <form action="/solar-results" name="solar" method="POST" class="userform">
                         <label>
                             <p class="field-titles" id="postal-code" > Postal Code:  </p>
@@ -760,7 +759,8 @@ class startSaving extends Component {
                             <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="15000" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
-
+                        <label class="no-budget"> No budget <input type="checkbox" onclick="document.getElementById('budget1').disabled=this.checked;"/> <label for="checkbox"></label><span class="checkbox"></span> </label>
+                        
                         <div id="generate-box" onMouseOver={() => { finalCheckSolarErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
                         </div>

@@ -624,6 +624,10 @@ ul.nav-right {
   font-size: 1.05vw;
 }
 
+input[type="checkbox"]:checked ~ .field-inputs-budget {
+  background-color : #d1d1d1; 
+}
+
 .dropdownFormat {
   font-family: Roboto;
   font-style: italic;
@@ -1680,3 +1684,44 @@ select:invalid {
   width: 2.5vw;
   padding: 1vh 1vw;
 }
+
+.no-budget  { 
+  position: absolute; 
+  left: 68.5%;
+  top: 123%;
+  padding-left: 45px; 
+  margin-bottom: 15px; 
+  cursor: pointer; 
+
+  font-family: "Roboto";
+  font-size: 0.8vw;
+  font-weight: 200;
+  color: #80807f;
+} 
+
+/* Hide the default checkbox */ 
+input[type=checkbox] { 
+  visibility: hidden; 
+} 
+
+/* creating a custom checkbox based */ 
+.checkbox { 
+  position: absolute; 
+  top: 20%; 
+  left: 100%; 
+  height: 1vw; 
+  width: 1vw; 
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.no-budget input:checked ~ .checkbox { 
+  background-color: #F6D673;
+border: 1px solid #F6D673;
+} 
+
+input[type=text]:disabled {
+  background: #d1d1d1;
+}
+

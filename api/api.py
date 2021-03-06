@@ -38,7 +38,7 @@ def run_model():
         budget = int(budget)  
 
 
-    solution = solarModel.solve(postalCode, roofSize, usage, month, heating, budget)
+    solution = solarModel.solve(postalCode, roofSize, usage, month, heating, budget, hasBudget)
     # parsing returned solution
     installationSize = solution[0]
     capitalCost = solution[1]
@@ -93,7 +93,7 @@ def run_BattteryModel():
     if type(budget) is not int:
         budget = int(budget)  
 
-    solution = solarBatteryModel.solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget)
+    solution = solarBatteryModel.solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget, hasBudget)
     # parsing returned solution
     installationSize = solution[0]
     capitalCost = solution[1]
