@@ -12,11 +12,22 @@ app = Flask(__name__, template_folder=template_dir)
 @app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
-    roofSize = request.form.get('roof_size') or 1800
+    roofSize = request.form.get('roof_size') or 2000
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
     heating = request.form.get('heating-type') or 1
-    budget = request.form.get('budget') or 10000
+    budget = request.form.get('budget')
+    checked = request.form.getlist('checkbox-123') 
+    print(request.form.get('elec-usage'))
+
+    print("AAAAAAA")
+    print(request.form.get('budget'))
+    
+    if budget == "---":
+        budget = 1000000
+    else:
+        budget = request.form.get('budget') or 15000
+    
 
     if usage == 0:
         if month == 1 or month == 2 or month == 12: # winter months
@@ -38,7 +49,7 @@ def run_model():
         budget = int(budget)  
 
 
-    solution = solarModel.solve(postalCode, roofSize, usage, month, heating, budget, hasBudget)
+    solution = solarModel.solve(postalCode, roofSize, usage, month, heating, budget)
     # parsing returned solution
     installationSize = solution[0]
     capitalCost = solution[1]
@@ -62,11 +73,11 @@ def run_model():
 @app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
     postalCode = request.form.get('postal_code') or "M3N"
-    roofSize = request.form.get('roof_size') or 1800
+    roofSize = request.form.get('roof_size') or 2000
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
     heating = request.form.get('heating-type') or 1
-    budget = request.form.get('budget') or 10000
+    budget = request.form.get('budget') or 15000
     storage = request.form.get('storage_capacity') or 13
     DoD = request.form.get('dod') or 80
 
@@ -93,7 +104,7 @@ def run_BattteryModel():
     if type(budget) is not int:
         budget = int(budget)  
 
-    solution = solarBatteryModel.solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget, hasBudget)
+    solution = solarBatteryModel.solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget)
     # parsing returned solution
     installationSize = solution[0]
     capitalCost = solution[1]

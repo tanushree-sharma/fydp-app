@@ -59,20 +59,44 @@ class startSaving extends Component {
             document.getElementById('tabs' + selected).style.fontWeight = 600;
         }
 
+        // if no budget checkbox is selected
+        function lockBudget (){
+            if (document.getElementById('budget1').disabled == true){
+                document.getElementById('budget1').disabled = false;
+            }
+            else {
+                document.getElementById('budget1').disabled = true;
+                document.getElementById('budget1').value = "---";
+            }
+        }
+
         // buttons for increasing and decreasing budget input on Solar form
+        // disable buttons if no budget selected
         function increaseValue() {
-            var value = parseInt(document.getElementById('budget1').value, 10);
-            value = isNaN(value) ? 0 : value;
-            value = value + 500;
-            document.getElementById('budget1').value = value;
+
+            if (document.getElementById('budget1').disabled == true) {
+                document.getElementById('budget1').value = "---";
+            }
+            else {
+                var value = parseInt(document.getElementById('budget1').value, 10);
+                value = isNaN(value) ? 0 : value;
+                value = value + 500;
+                document.getElementById('budget1').value = value;
+            }
         }
         function decreaseValue() {
-            var value = parseInt(document.getElementById('budget1').value, 10);
-            value = isNaN(value) ? 0 : value;
-            if (value >= 500) {
-                value = value - 500;
+
+            if (document.getElementById('budget1').disabled == true) {
+                document.getElementById('budget1').value = "---";
             }
-            document.getElementById('budget1').value = value;
+            else {
+                var value = parseInt(document.getElementById('budget1').value, 10);
+                value = isNaN(value) ? 0 : value;
+                if (value >= 500) {
+                    value = value - 500;
+                }
+                document.getElementById('budget1').value = value;
+            }
         }
         // buttons for increasing and decreasing budget input on Solar+Battery form
         function increaseValue2() {
@@ -102,6 +126,7 @@ class startSaving extends Component {
             var month = document.forms["solar"]["month"].value;
             var heating = document.forms["solar"]["heating-type"].value;
             var budget = document.forms["solar"]["budget"].value;
+            console.log(budget);
 
             // check if postal code is within our database          
             var codes = ['L1S', 'L1T', 'L1Z', 'P0R', 'L9K', 'L9G', 'L4M', 'L4N', 'K8R', 'K8P', 'K8N', 'L1C', 'L1B', 'L6Z', 'L6X', 'L6T', 'L6S', 'L6V', 'L6Y', 'L6R', 'L6P', 'L6W', 'N3P', 'N3S', 'N3T', 'N3V', 'N3R', 'L7P', 'L7T', 'L7N', 'L7S', 'L7L', 'L7R', 'L7M', 'N3E', 'N1S', 'N3H',
@@ -219,7 +244,7 @@ class startSaving extends Component {
             var roofSize = document.forms["solar"]["roof_size"].value;
             var roofError = false;
 
-            // checking to see if user inputted a number for solar roof size
+            // checking to see if user inputted a number for solar roof size and its >0
             if (Number(roofSize) && Number(roofSize) > 0) {
                 console.log("this is a valid roof size");
                 roofSizeBox.classList.remove("invalid");
@@ -263,7 +288,7 @@ class startSaving extends Component {
             var budget = document.forms["solar"]["budget"].value;
             var budgetError = false;
 
-            // checking to see if user inputted a number greater than the cost of one panel + fixed costs
+            // checking to see if user inputted a number greater than zero
             if (Number(budget) && Number(budget) >= 0) {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
@@ -469,7 +494,7 @@ class startSaving extends Component {
             var roofSize = document.forms["battery"]["roof_size"].value;
             var roofError = false;
 
-            // checking to see if user inputted a number for solar roof size and that there is enough space for at least one panel (20sqft)
+            // checking to see if user inputted a number for solar roof size and that there it is greater than 0
             if (Number(roofSize) && Number(roofSize) >= 0) {
                 console.log("this is a valid roof size");
                 roofSizeBox.classList.remove("invalid");
@@ -491,7 +516,7 @@ class startSaving extends Component {
             var usage = document.forms["battery"]["elec-usage"].value;
             var usageError = false;
 
-            // checking to see if user inputted a number for solar electricy usage is greater than the output of one panel (315w per hour = 0.315 Kw per hour => 0.315 * 5.5 = 1.73KW/Day = 52KW/month)
+            // checking to see if user inputted a number for solar electricy usage is greater than zero
             if (Number(usage) && Number(usage) >= 0) {
                 console.log("this is a valid usage amount");
                 usageBox.classList.remove("invalid");
@@ -759,7 +784,7 @@ class startSaving extends Component {
                             <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="15000" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
-                        <label class="no-budget"> No budget <input type="checkbox" onclick="document.getElementById('budget1').disabled=this.checked;"/> <label for="checkbox"></label><span class="checkbox"></span> </label>
+                        <label class="no-budget"> No budget <input type="checkbox" name="checkbox-123" onClick={() => { lockBudget(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
                         
                         <div id="generate-box" onMouseOver={() => { finalCheckSolarErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />

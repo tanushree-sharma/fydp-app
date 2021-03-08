@@ -262,5 +262,3 @@ def solve(postalCode, roofSize, usage, month, heating, budget):
 
     return(solution) 
 
-
-solve("L7E", 2000, 750, 1, "electric", 10000, 1)
