@@ -77,8 +77,6 @@ class startSaving extends Component {
             else {
                 document.getElementById('budget1').disabled = true;
                 document.getElementById('budget1').value = "---";
-                console.log("here****")
-                console.log(document.getElementById('budget1').disabled)
             }
         }
 
@@ -92,8 +90,6 @@ class startSaving extends Component {
             else {
                 document.getElementById('budget2').disabled = true;
                 document.getElementById('budget2').value = "---";
-                console.log("here****")
-                console.log(document.getElementById('budget2').disabled)
             }
         }
 
