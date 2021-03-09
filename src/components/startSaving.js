@@ -97,6 +97,7 @@ class startSaving extends Component {
             var nav = document.getElementById("navigation");
 
             var postalCode = document.forms["solar"]["postal_code"].value;
+            console.log(postalCode)
             var roofSize = document.forms["solar"]["roof_size"].value;
             var elecUsage = document.forms["solar"]["elec-usage"].value;
             var month = document.forms["solar"]["month"].value;
@@ -433,6 +434,16 @@ class startSaving extends Component {
                 }
             }
         }
+        // clicking continue triggers generate button
+        // this is done so form fields pass to backend
+        function triggerGenerate1(){
+            document.getElementById('results-button1').click()
+        }
+
+        function triggerGenerate2(){
+            document.getElementById('results-button2').click()
+        }
+
         function checkingBatteryInputs() {
             var postalCodeBox = document.getElementById("postal-code-input2");
             var resultsButton = document.getElementById("results-button2");
@@ -725,11 +736,9 @@ class startSaving extends Component {
                             <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
-
-
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs" required>
+                            <select name="month" id="month-input1" class="dropdown-inputs">
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -748,7 +757,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" required>
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -822,7 +831,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input2" class="dropdown-inputs" required>
+                            <select name="month" id="month-input2" class="dropdown-inputs">
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -842,7 +851,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input2" class="dropdown-inputs" required>
+                            <select name="heating-type" id="heating-input2" class="dropdown-inputs">
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -898,10 +907,8 @@ class startSaving extends Component {
                             </div>
                             <div id="error-buttondiv">
                                 <button class="modalSubmit" id="solar-update"> Update fields </button>
-                                <form action="/solar-results" method="POST">
-                                    <button id="continue"> Continue</button>
-                                </form>
-                            </div>
+                                    <button id="continue"  onClick={() => { triggerGenerate1(); }}> Continue</button>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -918,10 +925,8 @@ class startSaving extends Component {
                             </div>
                             <div id="error-buttondiv">
                                 <button class="modalSubmit" id="battery-update"> Update fields </button>
-                                <form action="/solarbattery-results" method="POST">
-                                    <button id="continue"> Continue</button>
-                                </form>
-                            </div>
+                                   <button id="continue" onClick={() => { triggerGenerate2(); }}> Continue</button>
+                           </div>
                         </div>
                     </div>
                 </div>
