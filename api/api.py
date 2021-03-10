@@ -12,11 +12,11 @@ app = Flask(__name__, template_folder=template_dir)
 @app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
-    roofSize = request.form.get('roof_size') or 2000
+    roofSize = request.form.get('roof_size') or 1800
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
     heating = request.form.get('heating-type') or 1
-    budget = request.form.get('budget') or 15000
+    budget = request.form.get('budget') or 10000
 
     if usage == 0:
         if month == 1 or month == 2 or month == 12: # winter months
@@ -62,11 +62,11 @@ def run_model():
 @app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
     postalCode = request.form.get('postal_code') or "M3N"
-    roofSize = request.form.get('roof_size') or 2000
+    roofSize = request.form.get('roof_size') or 1800
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
     heating = request.form.get('heating-type') or 1
-    budget = request.form.get('budget') or 15000
+    budget = request.form.get('budget') or 10000
     storage = request.form.get('storage_capacity') or 13
     DoD = request.form.get('dod') or 80
 
