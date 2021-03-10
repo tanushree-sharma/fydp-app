@@ -10,7 +10,7 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     postal_code = postalCode.upper() # first 3 digits of postal code
     B = budget  # budget from user
     Ar = roofSize  # area of the roof (ft^2) from user
-    Pb = storage * 1000  # battery capacity from user (W)
+    Pb = storage * 1000  # battery capacity from user (Wh)
     DoD = DoD / 100  # depth of discharge for battery system (%)
 
     print("E0: " + str(E0))
