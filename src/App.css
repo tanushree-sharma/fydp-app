@@ -886,7 +886,7 @@ ul.nav-right {
 #generate-box2 {
   position: absolute;
   left: 41%;
-  top: 148%;
+  top: 165%;
   width: 19%;
   height: 11.5%;
 }
@@ -910,10 +910,6 @@ ul.nav-right {
   outline: none;
   text-align: center;
   display: block;
-}
-
-#results-button2 {
-  top: 160%;
 }
 
 #results-button1:hover {
@@ -1419,7 +1415,7 @@ select:invalid {
   text-align: left;
 }
 
-#solarerror-title, #batteryerror-title {
+#solarerror-title, #batteryerror-title, #error-title {
   position: absolute;
   top: 25%;
   left: 20%;
