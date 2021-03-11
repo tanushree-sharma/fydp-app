@@ -677,6 +677,23 @@ class startSaving extends Component {
                 }
             }
         }
+
+        function changeSolarMonthBlack() {
+            var dropdown = document.getElementById("month-input1");
+            dropdown.style.color = "black";
+        }
+        function changeSolarHeatingBlack() {
+            var dropdown = document.getElementById("heating-input1");
+            dropdown.style.color = "black";
+        }
+        function changeBatteryMonthBlack() {
+            var dropdown = document.getElementById("month-input2");
+            dropdown.style.color = "black";
+        }
+        function changeBatteryHeatingBlack() {
+            var dropdown = document.getElementById("heating-input2");
+            dropdown.style.color = "black";
+        }
         return (
             <div class="Panel">
                 <nav>
@@ -738,7 +755,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs">
+                            <select name="month" id="month-input1" class="dropdown-inputs" onChange={() => { changeSolarMonthBlack(); }} >
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -757,7 +774,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" onChange={() => { changeSolarHeatingBlack(); }}>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -831,7 +848,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input2" class="dropdown-inputs">
+                            <select name="month" id="month-input2" class="dropdown-inputs" onChange={() => { changeBatteryMonthBlack(); }}>
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -851,7 +868,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input2" class="dropdown-inputs">
+                            <select name="heating-type" id="heating-input2" class="dropdown-inputs" onChange={() => { changeBatteryHeatingBlack(); }}> 
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>

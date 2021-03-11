@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from pulp import *
+import pandas as pd
 
 def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     # defining parameters
@@ -117,10 +118,10 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     model += (y * C) + F <= B, 'Budget'  # budget constraint
     model += y * Ap <= Armax, 'Area'  # area of roof constraint
     # can't generate more electricity than needed each season on average over lifetime of the panels
-    model += (E[0][0]*0.35 + (Pb*DoD*L[0]) - (y * P * H[0] * 24 * L[0])) >= 0, 'SD0'
-    model += (E[0][1]*0.35 + (Pb*DoD*L[1]) - (y * P * H[1] * 24 * L[1])) >= 0, 'SD1'
-    model += (E[0][2]*0.35 + (Pb*DoD*L[2]) - (y * P * H[2] * 24 * L[2])) >= 0, 'SD2'
-    model += (E[0][3]*0.35 + (Pb*DoD*L[3]) - (y * P * H[3] * 24 * L[3])) >= 0, 'SD3'
+    model += (E[0][0]*0.35 + (Pb*DoD*L[0]) - (y * P * H[0] * 24 * L[0])) == 0, 'SD0'
+    model += (E[0][1]*0.35 + (Pb*DoD*L[1]) - (y * P * H[1] * 24 * L[1])) == 0, 'SD1'
+    model += (E[0][2]*0.35 + (Pb*DoD*L[2]) - (y * P * H[2] * 24 * L[2])) == 0, 'SD2'
+    model += (E[0][3]*0.35 + (Pb*DoD*L[3]) - (y * P * H[3] * 24 * L[3])) == 0, 'SD3'
     model += y >= 0, 'NonNeg'  # non-negativity constraint
 
     # solving the MIP
@@ -130,6 +131,11 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     print("Optimal Number of Solar Panels: ", y.varValue)
     print("Optimal Number of Watts to Install: ", y.varValue * P)
     print("Total Capital Cost: $", y.varValue*C + F)
+
+    # sensitivity analysis
+    o = [{'name':name, 'shadow price':c.pi, 'slack': c.slack}
+    for name, c in model.constraints.items()]
+    print(pd.DataFrame(o))
 
     #check for non-negative y value
     if y.varValue > 0:
