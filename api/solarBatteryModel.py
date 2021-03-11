@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from pulp import *
+import pandas as pd
 
 def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     # defining parameters
@@ -10,7 +11,7 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     postal_code = postalCode.upper() # first 3 digits of postal code
     B = budget  # budget from user
     Ar = roofSize  # area of the roof (ft^2) from user
-    Pb = storage * 1000  # battery capacity from user (W)
+    Pb = storage * 1000  # battery capacity from user (Wh)
     DoD = DoD / 100  # depth of discharge for battery system (%)
 
     print("E0: " + str(E0))
@@ -117,10 +118,10 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     model += (y * C) + F <= B, 'Budget'  # budget constraint
     model += y * Ap <= Armax, 'Area'  # area of roof constraint
     # can't generate more electricity than needed each season on average over lifetime of the panels
-    model += (E[0][0]*0.35 + (Pb*DoD*L[0]) - (y * P * H[0] * 24 * L[0])) >= 0, 'SD0'
-    model += (E[0][1]*0.35 + (Pb*DoD*L[1]) - (y * P * H[1] * 24 * L[1])) >= 0, 'SD1'
-    model += (E[0][2]*0.35 + (Pb*DoD*L[2]) - (y * P * H[2] * 24 * L[2])) >= 0, 'SD2'
-    model += (E[0][3]*0.35 + (Pb*DoD*L[3]) - (y * P * H[3] * 24 * L[3])) >= 0, 'SD3'
+    model += (E[0][0]*0.35 + (Pb*DoD*L[0]) - (y * P * H[0] * 24 * L[0])) == 0, 'SD0'
+    model += (E[0][1]*0.35 + (Pb*DoD*L[1]) - (y * P * H[1] * 24 * L[1])) == 0, 'SD1'
+    model += (E[0][2]*0.35 + (Pb*DoD*L[2]) - (y * P * H[2] * 24 * L[2])) == 0, 'SD2'
+    model += (E[0][3]*0.35 + (Pb*DoD*L[3]) - (y * P * H[3] * 24 * L[3])) == 0, 'SD3'
     model += y >= 0, 'NonNeg'  # non-negativity constraint
 
     # solving the MIP
@@ -130,6 +131,11 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
     print("Optimal Number of Solar Panels: ", y.varValue)
     print("Optimal Number of Watts to Install: ", y.varValue * P)
     print("Total Capital Cost: $", y.varValue*C + F)
+
+    # sensitivity analysis
+    o = [{'name':name, 'shadow price':c.pi, 'slack': c.slack}
+    for name, c in model.constraints.items()]
+    print(pd.DataFrame(o))
 
     #check for non-negative y value
     if y.varValue > 0:
@@ -144,8 +150,9 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
         for t in range(T):
             costsWithoutSolarYearly = 0
             for s in range(S):
-                #print(E[t][s])
-                costsWithoutSolarYearly = costsWithoutSolarYearly + (E[t][s]*G[t][s])
+                onPeakCostWithoutSolar = 0.35 * E[t][s] * G[t][s]
+                offPeakCostWithoutSolar = 0.65 * E[t][s] * J[t][s]
+                costsWithoutSolarYearly = costsWithoutSolarYearly + onPeakCostWithoutSolar + offPeakCostWithoutSolar
             costsWithoutSolar.append(costsWithoutSolarYearly)
         #print(costsWithoutSolar)
 
@@ -185,10 +192,20 @@ def solve(postalCode, roofSize, usage, month, heating, storage, DoD, budget):
         totalSavings = math.floor(np.sum(savings))
 
         # calculating average monthly savings by season
-        springCostWithoutSolar = np.mean(E[t][0]) * np.mean(G[t][0])
-        summerCostWithoutSolar = np.mean(E[t][1]) * np.mean(G[t][1])
-        fallCostWithoutSolar = np.mean(E[t][2]) * np.mean(G[t][2])
-        winterCostWithoutSolar = np.mean(E[t][3]) * np.mean(G[t][3])
+        springOnPeakCostWithoutSolar = 0.35 * np.mean(E[t][0]) * np.mean(G[t][0])
+        summerOnPeakCostWithoutSolar = 0.35 * np.mean(E[t][1]) * np.mean(G[t][1]) 
+        fallOnPeakCostWithoutSolar = 0.35 * np.mean(E[t][2]) * np.mean(G[t][2])
+        winterOnPeakCostWithoutSolar = 0.35 * np.mean(E[t][3]) * np.mean(G[t][3])
+
+        springOffPeakCostWithoutSolar = 0.65 * np.mean(E[t][0]) * np.mean(J[t][0])
+        summerOffPeakCostWithoutSolar = 0.65 * np.mean(E[t][1]) * np.mean(J[t][1]) 
+        fallOffPeakCostWithoutSolar = 0.65 * np.mean(E[t][2]) * np.mean(J[t][2])
+        winterOffPeakCostWithoutSolar = 0.65 * np.mean(E[t][3]) * np.mean(J[t][3])
+
+        springCostWithoutSolar = springOnPeakCostWithoutSolar + springOffPeakCostWithoutSolar
+        summerCostWithoutSolar = summerOnPeakCostWithoutSolar + summerOffPeakCostWithoutSolar
+        fallCostWithoutSolar = fallOnPeakCostWithoutSolar + fallOffPeakCostWithoutSolar
+        winterCostWithoutSolar = winterOnPeakCostWithoutSolar + winterOffPeakCostWithoutSolar
 
         # calculating on-peak spend per season
         springOnPeakCost = max(0, np.mean(((0.35*E[t][0]) - ((numPanels * P * H[0] * 24 * L[0]) * (1 - d[t][0]))) * G[t][0]))

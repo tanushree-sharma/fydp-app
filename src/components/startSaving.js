@@ -275,7 +275,7 @@ class startSaving extends Component {
             var roofError = false;
 
             // checking to see if user inputted a number for solar roof size
-            if (Number(roofSize) && Number(roofSize) > 0) {
+            if (Number(roofSize) && Number(roofSize) > 0 && !roofSize.includes(".")) {
                 console.log("this is a valid roof size");
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
@@ -297,7 +297,7 @@ class startSaving extends Component {
             var usageError = false;
 
             // checking to see if user inputted a number for solar electricy usage
-            if (Number(usage) && Number(usage) >= 0) {
+            if (Number(usage) && Number(usage) >= 0 && !usage.includes(".")) {
                 console.log("this is a valid usage amount");
                 usageBox.classList.remove("invalid");
                 usageError = false;
@@ -322,7 +322,7 @@ class startSaving extends Component {
             if (budget == "---"){
                 budgetError = false;
             }
-            else if (Number(budget) && Number(budget) >= 0) {
+            else if (Number(budget) && Number(budget) >= 0 && !budget.includes(".")) {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
@@ -381,15 +381,15 @@ class startSaving extends Component {
                 }
                 // checking for roof size error
                 if (roofSizeBox.classList.contains("invalid")) {
-                    errorText.innerHTML += "Roof Size needs to be a number greater than 0 Sqft. <br><br>"
+                    errorText.innerHTML += "Roof Size needs to be a whole number that is greater than 0 Sqft. <br><br>"
                 }
                 // checking for usage error
                 if (usageBox.classList.contains("invalid")) {
-                    errorText.innerHTML += "Electricity Usage needs to be a number greater than 0 kWh. <br><br>"
+                    errorText.innerHTML += "Electricity Usage needs to be a whole number that is greater than 0 kWh. <br><br>"
                 }
                 // checking for budget error
                 if (budgetBox.classList.contains("invalid")) {
-                    errorText.innerHTML += "Budget needs to be a number greater than $0."
+                    errorText.innerHTML += "Budget needs to be a whole number that is greater than $0."
                 }
                 update.onclick = function () {
                     errorModal.style.display = "none";
@@ -538,7 +538,7 @@ class startSaving extends Component {
             var roofError = false;
 
             // checking to see if user inputted a number for solar roof size and that there is enough space for at least one panel (20sqft)
-            if (Number(roofSize) && Number(roofSize) >= 0) {
+            if (Number(roofSize) && Number(roofSize) >= 0 && !roofSize.includes(".")) {
                 console.log("this is a valid roof size");
                 roofSizeBox.classList.remove("invalid");
                 roofError = false;
@@ -560,7 +560,7 @@ class startSaving extends Component {
             var usageError = false;
 
             // checking to see if user inputted a number for solar electricy usage is greater than the output of one panel (315w per hour = 0.315 Kw per hour => 0.315 * 5.5 = 1.73KW/Day = 52KW/month)
-            if (Number(usage) && Number(usage) >= 0) {
+            if (Number(usage) && Number(usage) >= 0 && !usage.includes(".")) {
                 console.log("this is a valid usage amount");
                 usageBox.classList.remove("invalid");
                 usageError = false;
@@ -628,7 +628,7 @@ class startSaving extends Component {
             if (budget == "---"){
                 budgetError = false;
             }
-            else if (Number(budget) && Number(budget) >= 0) {
+            else if (Number(budget) && Number(budget) >= 0 && !budget.includes(".")) {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
@@ -707,11 +707,11 @@ class startSaving extends Component {
                 }
                 // checking for roof size error
                 if (roofSizeBox.classList.contains("invalid")) {
-                    errorText.innerHTML += "Roof Size needs to be a number greater than 0 Sqft. <br><br>"
+                    errorText.innerHTML += "Roof Size needs to be a whole number that is greater than 0 Sqft. <br><br>"
                 }
                 // checking for usage error
                 if (usageBox.classList.contains("invalid")) {
-                    errorText.innerHTML += "Electricity Usage needs to be a number greater 0 kWh. <br><br>"
+                    errorText.innerHTML += "Electricity Usage needs to be a whole number that is greater than 0 kWh. <br><br>"
                 }
                 // checking for battery capacity error
                 if (storageBox.classList.contains("invalid")) {
@@ -723,7 +723,7 @@ class startSaving extends Component {
                 }
                 // checking for budget error
                 if (budgetBox.classList.contains("invalid")) {
-                    errorText.innerHTML += "Budget needs to be a number greated than $0."
+                    errorText.innerHTML += "Budget needs to be a whole number that is greater than $0."
                 }
                 update.onclick = function () {
                     errorModal.style.display = "none";
@@ -736,6 +736,23 @@ class startSaving extends Component {
                     }
                 }
             }
+        }
+
+        function changeSolarMonthBlack() {
+            var dropdown = document.getElementById("month-input1");
+            dropdown.style.color = "black";
+        }
+        function changeSolarHeatingBlack() {
+            var dropdown = document.getElementById("heating-input1");
+            dropdown.style.color = "black";
+        }
+        function changeBatteryMonthBlack() {
+            var dropdown = document.getElementById("month-input2");
+            dropdown.style.color = "black";
+        }
+        function changeBatteryHeatingBlack() {
+            var dropdown = document.getElementById("heating-input2");
+            dropdown.style.color = "black";
         }
         return (
             <div class="Panel">
@@ -798,7 +815,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input1" class="dropdown-inputs">
+                            <select name="month" id="month-input1" class="dropdown-inputs" onChange={() => { changeSolarMonthBlack(); }} >
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -817,7 +834,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input1" class="dropdown-inputs">
+                            <select name="heating-type" id="heating-input1" class="dropdown-inputs" onChange={() => { changeSolarHeatingBlack(); }}>
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -892,7 +909,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="month-title" > Month:</p>
-                            <select name="month" id="month-input2" class="dropdown-inputs">
+                            <select name="month" id="month-input2" class="dropdown-inputs" onChange={() => { changeBatteryMonthBlack(); }}>
                                 <option value="" disabled hidden selected>Select month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -912,7 +929,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                            <select name="heating-type" id="heating-input2" class="dropdown-inputs">
+                            <select name="heating-type" id="heating-input2" class="dropdown-inputs" onChange={() => { changeBatteryHeatingBlack(); }}> 
                                 <option value="" disabled selected hidden>Select heating</option>
                                 <option value="1">Electric</option>
                                 <option value="2">Natural Gas</option>
@@ -993,20 +1010,8 @@ class startSaving extends Component {
                         </div>
                     </div>
                 </div>
-                {/* <div id="batteryModal" class="modal">
-                    <div class="modal-content">
-                        <div id="modal-top-border"></div>
-                        <img src={warning} id="warning" alt="warning"></img>
-                        <p id="modal-title"> Incomplete Fields </p>
-                        <p id="modal-text"> You have left one or more fields blank. For best results, please update all fields with your information. Click continue if you are comfortable with the default value(s) being used.</p>
-                        <div id="buttondiv"></div>
-                        <form action="/solarbattery-results" method="POST">
-                            <button id="continue"> Continue</button>
-                        </form>
-                        <button class="modalSubmit" id="battery-update"> Update fields </button>
-                    </div>
-                </div> */}
 
+                {/* default values modal */}
                 <div id="errorModal" class="modal">
                     <div class="error-content">
                         <div id="modal-top-border"></div>

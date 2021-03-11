@@ -12,7 +12,7 @@ app = Flask(__name__, template_folder=template_dir)
 @app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
-    roofSize = request.form.get('roof_size') or 2000
+    roofSize = request.form.get('roof_size') or 1800
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
     heating = request.form.get('heating-type') or 1
@@ -67,7 +67,7 @@ def run_model():
 @app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
     postalCode = request.form.get('postal_code') or "M3N"
-    roofSize = request.form.get('roof_size') or 2000
+    roofSize = request.form.get('roof_size') or 1800
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
     heating = request.form.get('heating-type') or 1
