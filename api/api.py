@@ -16,7 +16,12 @@ def run_model():
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
     heating = request.form.get('heating-type') or 1
-    budget = request.form.get('budget') or 10000
+    checkbox = request.form.getlist('checkbox') 
+
+    if len(checkbox) == 1:
+        budget = 1000000
+    else:
+        budget = request.form.get('budget') or 15000
 
     if usage == 0:
         if month == 1 or month == 2 or month == 12: # winter months
@@ -66,9 +71,15 @@ def run_BattteryModel():
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
     heating = request.form.get('heating-type') or 1
-    budget = request.form.get('budget') or 10000
     storage = request.form.get('storage_capacity') or 13
     DoD = request.form.get('dod') or 80
+    checkbox = request.form.getlist('checkbox-battery') 
+
+
+    if len(checkbox) == 1:
+        budget = 1000000
+    else:
+        budget = request.form.get('budget') or 15000
 
     if usage == 0:
         if month == 1 or month == 2 or month == 12: # winter months

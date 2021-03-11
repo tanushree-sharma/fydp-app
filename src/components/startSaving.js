@@ -18,6 +18,14 @@ class startSaving extends Component {
             document.getElementById('tabs-1').style.display = 'block';
             document.getElementById('tabs1').style.fontWeight = 600;
         }
+        window.onload = function (){
+            if (document.getElementById('checkbox').checked == true){
+                document.getElementById('budget1').disabled = true;
+            }
+            if (document.getElementById('checkbox-battery').checked == true){
+                document.getElementById('budget2').disabled = true;
+            }
+        }
 
         // switching between tabs
         var tabs = document.getElementsByClassName('Tab');
@@ -59,35 +67,81 @@ class startSaving extends Component {
             document.getElementById('tabs' + selected).style.fontWeight = 600;
         }
 
+        // if no budget checkbox is selected
+        function lockBudget (){
+            // if checkbox is checked (button is disabled)
+            if (document.getElementById('budget1').disabled == true){
+                document.getElementById('budget1').disabled = false;
+                document.getElementById('budget1').value = "";
+            }
+            else {
+                document.getElementById('budget1').disabled = true;
+                document.getElementById('budget1').value = "---";
+            }
+        }
+
+        // if no budget checkbox is selected
+        function lockBudget2 (){
+            // if checkbox is checked (button is disabled)
+            if (document.getElementById('budget2').disabled == true){
+                document.getElementById('budget2').disabled = false;
+                document.getElementById('budget2').value = "";
+            }
+            else {
+                document.getElementById('budget2').disabled = true;
+                document.getElementById('budget2').value = "---";
+            }
+        }
+
         // buttons for increasing and decreasing budget input on Solar form
         function increaseValue() {
-            var value = parseInt(document.getElementById('budget1').value, 10);
-            value = isNaN(value) ? 0 : value;
-            value = value + 500;
-            document.getElementById('budget1').value = value;
+            if (document.getElementById('budget1').disabled == true) {
+                document.getElementById('budget1').value = "---";
+            }
+            else {
+                var value = parseInt(document.getElementById('budget1').value, 10);
+                value = isNaN(value) ? 0 : value;
+                value = value + 500;
+                document.getElementById('budget1').value = value;
+            }
         }
         function decreaseValue() {
-            var value = parseInt(document.getElementById('budget1').value, 10);
-            value = isNaN(value) ? 0 : value;
-            if (value >= 500) {
-                value = value - 500;
+            if (document.getElementById('budget1').disabled == true) {
+                document.getElementById('budget1').value = "---";
             }
-            document.getElementById('budget1').value = value;
+            else {
+                var value = parseInt(document.getElementById('budget1').value, 10);
+                value = isNaN(value) ? 0 : value;
+                if (value >= 500) {
+                    value = value - 500;
+                }
+                document.getElementById('budget1').value = value;
+            }
         }
         // buttons for increasing and decreasing budget input on Solar+Battery form
         function increaseValue2() {
-            var value = parseInt(document.getElementById('budget2').value, 10);
-            value = isNaN(value) ? 0 : value;
-            value = value + 500;
-            document.getElementById('budget2').value = value;
+            if (document.getElementById('budget2').disabled == true) {
+                document.getElementById('budget2').value = "---";
+            }
+            else {
+                var value = parseInt(document.getElementById('budget2').value, 10);
+                value = isNaN(value) ? 0 : value;
+                value = value + 500;
+                document.getElementById('budget2').value = value;
+            }
         }
         function decreaseValue2() {
-            var value = parseInt(document.getElementById('budget2').value, 10);
-            value = isNaN(value) ? 0 : value;
-            if (value >= 500) {
-                value = value - 500;
+            if (document.getElementById('budget2').disabled == true) {
+                document.getElementById('budget2').value = "---";
             }
-            document.getElementById('budget2').value = value;
+            else {
+                var value = parseInt(document.getElementById('budget2').value, 10);
+                value = isNaN(value) ? 0 : value;
+                if (value >= 500) {
+                    value = value - 500;
+                }
+                document.getElementById('budget2').value = value;
+            }
         }
 
         // check values for Solar form and alert user of default values being used
@@ -265,7 +319,10 @@ class startSaving extends Component {
             var budgetError = false;
 
             // checking to see if user inputted a number greater than the cost of one panel + fixed costs
-            if (Number(budget) && Number(budget) >= 0 && !budget.includes(".")) {
+            if (budget == "---"){
+                budgetError = false;
+            }
+            else if (Number(budget) && Number(budget) >= 0 && !budget.includes(".")) {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
@@ -568,7 +625,10 @@ class startSaving extends Component {
             var budgetError = false;
 
             // checking to see if user inputted a number greater than the cost of one panel + fixed costs
-            if (Number(budget) && Number(budget) >= 0 && !budget.includes(".")) {
+            if (budget == "---"){
+                budgetError = false;
+            }
+            else if (Number(budget) && Number(budget) >= 0 && !budget.includes(".")) {
                 console.log("this is a valid budget amount");
                 budgetBox.classList.remove("invalid");
                 budgetError = false;
@@ -786,6 +846,7 @@ class startSaving extends Component {
                             <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="15000" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
+                        <label class="no-budget"> No budget <input type="checkbox" name="checkbox" id="checkbox" value="notchecked" onClick={() => { lockBudget(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
 
                         <div id="generate-box" onMouseOver={() => { finalCheckSolarErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
@@ -889,6 +950,8 @@ class startSaving extends Component {
                             <p class="field-titles" id="budget2title" > Budget (CAD):</p>
                             <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="15000" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
+
+                        <label class="no-budget-battery"> No budget <input type="checkbox" name="checkbox-battery" id="checkbox-battery" value="notchecked" onClick={() => { lockBudget2(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
 
                         <div id="generate-box2" onMouseOver={() => { finalCheckBatteryErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
