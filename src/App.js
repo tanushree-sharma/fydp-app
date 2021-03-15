@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { HashRouter, Route, Link } from "react-router-dom";
 
 
 import {
@@ -14,27 +15,20 @@ import {
 
 
 function App() {
-  // const [currentTime, setCurrentTime] = useState(0);
-  
-  // useEffect(() => {
-  //   fetch('/time').then(res => res.json()).then(data => {
-  //     setCurrentTime(data.time);
-  //   });
-  // }, []);
 
   return (
-    <Router>
+    <HashRouter basename='/'>
     <div className="App">
       <Navbar />
       <ScrollTo />
 
       <Switch>
-        <Route path="/start-saving" component={StartSaving}/>
-        <Route path="/FAQ" component={SolarFAQ}/>
-        <Route path="/" component={MainHomepage}/>
+        <Route exact path="/start-saving" component={StartSaving}/>
+        <Route exact path="/FAQ" component={SolarFAQ}/>
+        <Route exact path="/" component={MainHomepage}/>
       </Switch>
     </div>
-    </Router>
+    </HashRouter>
   );
 }
 
