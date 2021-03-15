@@ -7,7 +7,11 @@ from datetime import datetime
 
 
 template_dir = '../src/components/'
-app = Flask(__name__, template_folder=template_dir)
+app = Flask(__name__, template_folder=template_dir, static_folder='../build', static_url_path='/')
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/solar-results', methods=['POST'])
 def run_model():
