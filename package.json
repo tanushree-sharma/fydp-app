@@ -1,5 +1,4 @@
 {
-  "homepage": "http://tanushree-sharma.github.io/fydp-app",
   "name": "fydp-app",
   "version": "0.1.0",
   "private": true,
@@ -32,8 +31,6 @@
     ]
   },
   "scripts": {
-    "preploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "start-api": "cd api && venv/bin/flask run --no-debugger",
     "build": "react-scripts build",
