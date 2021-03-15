@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.18cdb7af.chunk.css",
+    "main.js": "/static/js/main.dc0bb855.chunk.js",
+    "main.js.map": "/static/js/main.dc0bb855.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.035e929c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.035e929c.js.map",
+    "static/js/2.23a67070.chunk.js": "/static/js/2.23a67070.chunk.js",
+    "static/js/2.23a67070.chunk.js.map": "/static/js/2.23a67070.chunk.js.map",
+    "static/js/3.a6e668df.chunk.js": "/static/js/3.a6e668df.chunk.js",
+    "static/js/3.a6e668df.chunk.js.map": "/static/js/3.a6e668df.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.18cdb7af.chunk.css.map": "/static/css/main.18cdb7af.chunk.css.map",
+    "static/js/2.23a67070.chunk.js.LICENSE.txt": "/static/js/2.23a67070.chunk.js.LICENSE.txt",
+    "static/media/carbonFootprintIcon2.b9cfed22.png": "/static/media/carbonFootprintIcon2.b9cfed22.png",
+    "static/media/faqArrowDown.9578e6a9.png": "/static/media/faqArrowDown.9578e6a9.png",
+    "static/media/faqArrowUp.470480c6.png": "/static/media/faqArrowUp.470480c6.png",
+    "static/media/homepageGraphic2.82a7675d.png": "/static/media/homepageGraphic2.82a7675d.png",
+    "static/media/logo.a94a8e9e.png": "/static/media/logo.a94a8e9e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.035e929c.js",
+    "static/js/2.23a67070.chunk.js",
+    "static/css/main.18cdb7af.chunk.css",
+    "static/js/main.dc0bb855.chunk.js"
+  ]
+}
