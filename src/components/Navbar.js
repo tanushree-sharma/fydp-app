@@ -13,7 +13,8 @@ class Navbar extends Component {
             var formID = document.getElementById("form");
             var faqID = document.getElementById("faq");
 
-            console.log(currentUrl);
+            console.log("Current URL: " + currentUrl);
+            
             if (currentUrl.localeCompare(form) == 0) {
                 console.log("form");
                 homeID.classList.remove("selected");
