@@ -18,14 +18,6 @@ class startSaving extends Component {
             document.getElementById('tabs-1').style.display = 'block';
             document.getElementById('tabs1').style.fontWeight = 600;
         }
-        window.onload = function (){
-            if (document.getElementById('checkbox').checked == true){
-                document.getElementById('budget1').disabled = true;
-            }
-            if (document.getElementById('checkbox-battery').checked == true){
-                document.getElementById('budget2').disabled = true;
-            }
-        }
 
         // switching between tabs
         var tabs = document.getElementsByClassName('Tab');
@@ -44,6 +36,13 @@ class startSaving extends Component {
                 document.getElementById('tabs1').style.fontWeight = 400;
                 document.getElementById('tabs-2').style.display = 'block';
                 document.getElementById('tabs2').style.fontWeight = 600;
+            }
+
+            if (document.getElementById('checkbox').checked == true){
+                document.getElementById('budget1').disabled = true;
+            }
+            if (document.getElementById('checkbox-battery').checked == true){
+                document.getElementById('budget2').disabled = true;
             }
 
             Array.prototype.forEach.call(tabs, function (tab) {
@@ -780,7 +779,7 @@ class startSaving extends Component {
                     <p class="formSectionTitles" id="initial-inv1" >Initial Investment</p>
                     <p id="postal-text">We only need the first 3 digits</p>
                     <div class="help-tip" id="q1">
-                        <p><b>Tip:</b> estimate your roof size by dividing sqaure footage of your home by the number of storeys.</p>
+                        <p><b>Tip:</b> estimate your roof size by dividing square footage of your home by the number of storeys.</p>
                     </div>
                     <div class="help-tip" id="q2">
                         <p>Select the month your electricity <br></br>bill is from.</p>
@@ -805,7 +804,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="roof-size" > Roof Size (Sqft):  </p>
-                            <input class="field-inputs" id="roof-size-input1" type="text" name="roof_size" placeholder="2000" onBlur={() => { checkingSolarInputs(); }} />
+                            <input class="field-inputs" id="roof-size-input1" type="text" name="roof_size" placeholder="1000" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
                         <label>
@@ -869,7 +868,7 @@ class startSaving extends Component {
                     <p id="postal-text">We only need the first 3 digits</p>
 
                     <div class="help-tip" id="q1">
-                        <p><b>Tip:</b> estimate your roof size by dividing sqaure footage of your home by the number of storeys.</p>
+                        <p><b>Tip:</b> estimate your roof size by dividing square footage of your home by the number of storeys.</p>
                     </div>
                     <div class="help-tip" id="q2">
                         <p>Select the month your electricity <br></br>bill is from.</p>
@@ -898,7 +897,7 @@ class startSaving extends Component {
 
                         <label>
                             <p class="field-titles" id="roof-size" > Roof Size (Sqft):  </p>
-                            <input class="field-inputs" id="roof-size-input2" type="text" name="roof_size" placeholder="2000" onBlur={() => { checkingBatteryInputs(); }} />
+                            <input class="field-inputs" id="roof-size-input2" type="text" name="roof_size" placeholder="1000" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
                         <label>

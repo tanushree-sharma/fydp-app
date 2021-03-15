@@ -12,10 +12,10 @@ app = Flask(__name__, template_folder=template_dir)
 @app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
-    roofSize = request.form.get('roof_size') or 1800
+    roofSize = request.form.get('roof_size') or 1000
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
-    heating = request.form.get('heating-type') or 1
+    heating = request.form.get('heating-type') or 2
     checkbox = request.form.getlist('checkbox') 
 
     if len(checkbox) == 1:
@@ -67,10 +67,10 @@ def run_model():
 @app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
     postalCode = request.form.get('postal_code') or "M3N"
-    roofSize = request.form.get('roof_size') or 1800
+    roofSize = request.form.get('roof_size') or 1000
     usage = request.form.get('elec-usage') or 0
     month = request.form.get('month') or datetime.now().month
-    heating = request.form.get('heating-type') or 1
+    heating = request.form.get('heating-type') or 2
     storage = request.form.get('storage_capacity') or 13
     DoD = request.form.get('dod') or 80
     checkbox = request.form.getlist('checkbox-battery') 
