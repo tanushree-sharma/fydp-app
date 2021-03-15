@@ -32,8 +32,8 @@
     ]
   },
   "scripts": {
-    "preploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "preploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "start-api": "cd api && venv/bin/flask run --no-debugger",
     "build": "react-scripts build",
