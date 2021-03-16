@@ -1520,7 +1520,7 @@ select:invalid {
   font-weight: 700;
   font-size: 2.5vw;
   line-height: 7.8vh;
-  color: red;
+  color: #000000;
   mix-blend-mode: normal;
 }
 
