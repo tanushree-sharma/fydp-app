@@ -1628,30 +1628,48 @@ select:invalid {
   margin-top: 5vh;
 }
 
-#aboutFAQSectionContainer1, #aboutFAQSectionContainer2, #aboutFAQSectionContainer3, #aboutFAQSectionContainer4, #aboutFAQSectionContainer5{
+#aboutFAQSectionContainer1, #aboutFAQSectionContainer2, #aboutFAQSectionContainer3, #aboutFAQSectionContainer4, #aboutFAQSectionContainer5, 
+#dataFAQSectionContainer1, #dataFAQSectionContainer2,
+#resultsFAQSectionContainer1, #resultsFAQSectionContainer2, #resultsFAQSectionContainer3, #resultsFAQSectionContainer4, #resultsFAQSectionContainer5,
+#nextFAQSectionContainer1, #nextFAQSectionContainer2, #nextFAQSectionContainer3{
   width: 70vw;
   min-height: 3vw;
 }
-#aboutFAQIcon1, #aboutFAQIcon2, #aboutFAQIcon3, #aboutFAQIcon4, #aboutFAQIcon5 {
+#aboutFAQIcon1, #aboutFAQIcon2, #aboutFAQIcon3, #aboutFAQIcon4, #aboutFAQIcon5,
+#dataFAQIcon1, #dataFAQIcon2,
+#resultsFAQIcon1, #resultsFAQIcon2, #resultsFAQIcon3, #resultsFAQIcon4, #resultsFAQIcon5,
+#nextFAQIcon1, #nextFAQIcon2, #nextFAQIcon3 {
   width: 3vw;
   height: 3vw;
   float: left;
   padding-left: 0.5vw;
 }
 
-#faq-arrow, #aboutDownFAQArrow1, #aboutDownFAQArrow2, #aboutDownFAQArrow3, #aboutDownFAQArrow4, #aboutDownFAQArrow5{
+#aboutDownFAQArrow1, #aboutDownFAQArrow2, #aboutDownFAQArrow3, #aboutDownFAQArrow4, #aboutDownFAQArrow5,
+#dataDownFAQArrow1, #dataDownFAQArrow2,
+#resultsDownFAQArrow1, #resultsDownFAQArrow2, #resultsDownFAQArrow3, #resultsDownFAQArrow4, #resultsDownFAQArrow5,
+#nextDownFAQArrow1, #nextDownFAQArrow2, #nextDownFAQArrow3{
   width: 2.5vw;
 }
-#aboutUpFAQArrow1, #aboutUpFAQArrow2, #aboutUpFAQArrow3, #aboutUpFAQArrow4, #aboutUpFAQArrow5{
+#aboutUpFAQArrow1, #aboutUpFAQArrow2, #aboutUpFAQArrow3, #aboutUpFAQArrow4, #aboutUpFAQArrow5,
+#dataUpFAQArrow1, #dataUpFAQArrow2,
+#resultsUpFAQArrow1, #resultsUpFAQArrow2, #resultsUpFAQArrow3, #resultsUpFAQArrow4, #resultsUpFAQArrow5,
+#nextUpFAQArrow1, #nextUpFAQArrow2, #nextUpFAQArrow3 {
   width: 2.5vw;
   display: none;
 }
-#aboutFAQQuestion1, #aboutFAQQuestion2, #aboutFAQQuestion3, #aboutFAQQuestion4, #aboutFAQQuestion5{
+#aboutFAQQuestion1, #aboutFAQQuestion2, #aboutFAQQuestion3, #aboutFAQQuestion4, #aboutFAQQuestion5,
+#dataFAQQuestion1, #dataFAQQuestion2,
+#resultsFAQQuestion1, #resultsFAQQuestion2, #resultsFAQQuestion3, #resultsFAQQuestion4, #resultsFAQQuestion5,
+#nextFAQQuestion1, #nextFAQQuestion2, #nextFAQQuestion3{
   margin-left: 3.5vw;
   margin-top: 0.5vw;
   padding: 0.9em;
 }
-#aboutFAQfaqAnswer1, #aboutFAQfaqAnswer2, #aboutFAQfaqAnswer3, #aboutFAQfaqAnswer4, #aboutFAQfaqAnswer5 {
+#aboutFAQAnswer1, #aboutFAQAnswer2, #aboutFAQAnswer3, #aboutFAQAnswer4, #aboutFAQAnswer5,
+#dataFAQAnswer1, #dataFAQAnswer2,
+#resultsFAQAnswer1, #resultsFAQAnswer2, #resultsFAQAnswer3, #resultsFAQAnswer4, #resultsFAQAnswer5,
+#nextFAQAnswer1, #nextFAQAnswer2, #nextFAQAnswer3 {
   margin-left: 3.5vw;
   padding-left: 0.8em;
 
