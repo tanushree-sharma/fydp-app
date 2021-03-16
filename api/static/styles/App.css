@@ -1681,7 +1681,7 @@ select:invalid {
   color: #000000;
 }
 
-.faq-arrow{
+#expandAbout1Arrow{
   width: 2.5vw;
   padding: 1vh 1vw;
 }
