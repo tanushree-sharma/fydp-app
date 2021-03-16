@@ -38,8 +38,7 @@
             var faqArrowDown = "{{ url_for('static',filename='faqArrowDown.png') }}";
             var faqArrowUp = "{{ url_for('static',filename='faqArrowUp.png') }}"
 
-            console.log(arrow.localeCompare(faqArrowDown) == 0)
-            console.log(arrow.localeCompare(faqArrowUp) == 0)
+            console.log(arrow)
 
             if (arrow.localeCompare(faqArrowDown) == 0) {
                 document.getElementById("faq-arrow").src = "{{ url_for('static',filename='faqArrowUp.png') }}"
