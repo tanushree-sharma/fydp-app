@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom';
-import Accordion from './Accordion';
-import Footer from '../components/Footer';
+import Accordion from '../../../src/components/Accordion';
+import Footer from '../../../src/components/Footer';
+
+const e = React.createElement;
 
 class SolarFAQ extends Component {
     render() {
-        return (
+        return e(
             <div>
                 <p id="faq-title"> Frequently Asked Questions </p>
                 <p id="faq-desc"> Learn more about how solar energy works, how Soli calculates your custom solar system, and next steps to implement your solar investment. </p>
@@ -171,5 +173,6 @@ class SolarFAQ extends Component {
     }
 }
 
-export default SolarFAQ
+const domContainer = document.querySelector('#FAQComponent');
+ReactDOM.render(e(SolarFAQ), domContainer);
 

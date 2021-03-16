@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import faqArrowDown from '../faqArrowDown.png';
-import faqArrowUp from '../faqArrowUp.png';
 
 
 class AccordionSection extends Component {
@@ -25,8 +23,8 @@ class AccordionSection extends Component {
     return (
       <div id="accordion-section">
         <div id="accordion-question" onClick={onClick}>
-            {!isOpen && <span><img src={faqArrowDown} id="faq-arrow"/></span>}
-            {isOpen && <span><img src={faqArrowUp} id="faq-arrow"/></span>}
+            {!isOpen && <span><img src="{{ url_for('static',filename='faqArrowDown.png') }}" id="faq-arrow"/></span>}
+            {isOpen && <span><img src="{{ url_for('static',filename='faqArrowUp.png') }}" id="faq-arrow"/></span>}
             {label}
         </div>
         {isOpen && (
