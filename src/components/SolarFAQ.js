@@ -2,9 +2,62 @@ import React, { Component } from 'react'
 import { render } from 'react-dom';
 import Accordion from './Accordion';
 import Footer from '../components/Footer';
+import faqArrowDown from '../faqArrowDown.png'
+import faqArrowUp from '../faqArrowUp.png'
+
 
 class SolarFAQ extends Component {
     render() {
+        function openAboutSection1() {
+            document.getElementById("aboutDownFAQArrow1").style.display = "None";
+            document.getElementById("aboutUpFAQArrow1").style.display = "Block";
+            document.getElementById("aboutFAQfaqAnswer1").style.display = "Block";
+        }
+        function closeAboutSection1() {
+            document.getElementById("aboutDownFAQArrow1").style.display = "Block";
+            document.getElementById("aboutUpFAQArrow1").style.display = "None";
+            document.getElementById("aboutFAQfaqAnswer1").style.display = "None";
+        }
+        function openAboutSection2() {
+            document.getElementById("aboutDownFAQArrow2").style.display = "None";
+            document.getElementById("aboutUpFAQArrow2").style.display = "Block";
+            document.getElementById("aboutFAQfaqAnswer2").style.display = "Block";
+        }
+        function closeAboutSection2() {
+            document.getElementById("aboutDownFAQArrow2").style.display = "Block";
+            document.getElementById("aboutUpFAQArrow2").style.display = "None";
+            document.getElementById("aboutFAQfaqAnswer2").style.display = "None";
+        }
+        function openAboutSection3() {
+            document.getElementById("aboutDownFAQArrow3").style.display = "None";
+            document.getElementById("aboutUpFAQArrow3").style.display = "Block";
+            document.getElementById("aboutFAQfaqAnswer3").style.display = "Block";
+        }
+        function closeAboutSection3() {
+            document.getElementById("aboutDownFAQArrow3").style.display = "Block";
+            document.getElementById("aboutUpFAQArrow3").style.display = "None";
+            document.getElementById("aboutFAQfaqAnswer3").style.display = "None";
+        }
+        function openAboutSection4() {
+            document.getElementById("aboutDownFAQArrow4").style.display = "None";
+            document.getElementById("aboutUpFAQArrow4").style.display = "Block";
+            document.getElementById("aboutFAQfaqAnswer4").style.display = "Block";
+        }
+        function closeAboutSection4() {
+            document.getElementById("aboutDownFAQArrow4").style.display = "Block";
+            document.getElementById("aboutUpFAQArrow4").style.display = "None";
+            document.getElementById("aboutFAQfaqAnswer4").style.display = "None";
+        }
+        function openAboutSection5() {
+            document.getElementById("aboutDownFAQArrow5").style.display = "None";
+            document.getElementById("aboutUpFAQArrow5").style.display = "Block";
+            document.getElementById("aboutFAQfaqAnswer5").style.display = "Block";
+        }
+        function closeAboutSection5() {
+            document.getElementById("aboutDownFAQArrow5").style.display = "Block";
+            document.getElementById("aboutUpFAQArrow5").style.display = "None";
+            document.getElementById("aboutFAQfaqAnswer5").style.display = "None";
+        }
         return (
             <div>
                 <p id="faq-title"> Frequently Asked Questions </p>
@@ -12,30 +65,68 @@ class SolarFAQ extends Component {
 
                 <p id="aboutSolar"> About Solar Energy </p>
                 <div id="faqDiv">
-                    <Accordion allowMultipleOpen>
-                        <div label='How does solar energy work?'>
-                            <p>In residential projects, the Sun’s energy is harnessed through the use of photovoltaic (PV) technology. A solar panel is a collection of silicon PV cells that absorb sunlight to produce electricity through the Photovoltaic Effect. This electricity can be used to immediately power the home, or be reserved in a battery storage system for future use. </p>
+                    <div id="aboutFAQSectionContainer1">
+                        <div id="aboutFAQIcon1">
+                            <img src={faqArrowDown} alt ="faq-arrow" id="aboutDownFAQArrow1" onClick={() => { openAboutSection1(); }}/>
+                            <img src={faqArrowUp} alt ="faq-arrow" id="aboutUpFAQArrow1" onClick={() => { closeAboutSection1(); }}/>
                         </div>
-
-                        <div label='What are the different types of solar systems?'>
-                            <p>There are three primary residential solar PV and storage installations:</p>
-                            <br></br>
-                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Solar</strong> installations include solar panels providing energy for immediate use. Any unused energy captured by panels is lost.</p>
-                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Solar + Battery</strong> installations use a home battery system to store excess energy captured during hours of sunlight to allow for use during periods of minimal or no sun exposure.</p>
-                            <p style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Off-grid</strong> systems serve as stand alone power systems where homes are entirely self-sufficient and do not rely on the electrical grid at all. </p>
+                        <div id="aboutFAQQuestion1">
+                            <p class="FAQ-Question"> How does solar energy work?</p>
                         </div>
-
-                        <div label='What is the average lifespan of a solar energy system?'>
-                            <p>Solar panels have an average lifespan of 25-30 years, which is why Soli presents cost-saving results covering a span of a conservative 25 years. It is likely that panels will remain functioning beyond 25 years, however the yearly rate of deterioration will reduce their effectiveness over time.</p>
+                        <div id="aboutFAQfaqAnswer1">
+                            <p class="FAQ-Answer"> In residential projects, the Sun’s energy is harnessed through the use of photovoltaic (PV) technology. A solar panel is a collection of silicon PV cells that absorb sunlight to produce electricity through the Photovoltaic Effect. This electricity can be used to immediately power the home, or be reserved in a battery storage system for future use. </p>
                         </div>
-
-                        <div label='Are there any government rebates for solar investments?'>
-                            <p>As of February 2021, under Ontario’s current provincial government, there are no active rebate programs for homeowners with solar energy systems.</p>
+                    </div>
+                    <div id="aboutFAQSectionContainer2">
+                        <div id="aboutFAQIcon2">
+                            <img src={faqArrowDown} alt ="faq-arrow" id="aboutDownFAQArrow2" onClick={() => { openAboutSection2(); }}/>
+                            <img src={faqArrowUp} alt ="faq-arrow" id="aboutUpFAQArrow2" onClick={() => { closeAboutSection2(); }}/>
                         </div>
-
-                        <div label='What are pros and cons of residential solar energy investment?'>
-                            <p><strong>Pros:</strong></p>
-                            <ul>
+                        <div id="aboutFAQQuestion2">
+                            <p class="FAQ-Question"> What are the different types of solar systems? </p>
+                        </div>
+                        <div id="aboutFAQfaqAnswer2">
+                            <p class="FAQ-Answer"> There are three primary residential solar PV and storage installations: </p>
+                            <p class="FAQ-Answer" style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Solar</strong> installations include solar panels providing energy for immediate use. Any unused energy captured by panels is lost.</p>
+                            <p class="FAQ-Answer" style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Solar + Battery</strong> installations use a home battery system to store excess energy captured during hours of sunlight to allow for use during periods of minimal or no sun exposure.</p>
+                            <p class="FAQ-Answer" style={{ marginLeft: '2.5rem', marginBottom: '0.8rem' }}><strong>Off-grid</strong> systems serve as stand alone power systems where homes are entirely self-sufficient and do not rely on the electrical grid at all. </p>
+                        </div>
+                    </div>
+                    <div id="aboutFAQSectionContainer3">
+                        <div id="aboutFAQIcon3">
+                            <img src={faqArrowDown} alt ="faq-arrow" id="aboutDownFAQArrow3" onClick={() => { openAboutSection3(); }}/>
+                            <img src={faqArrowUp} alt ="faq-arrow" id="aboutUpFAQArrow3" onClick={() => { closeAboutSection3(); }}/>
+                        </div>
+                        <div id="aboutFAQQuestion3">
+                            <p class="FAQ-Question"> What is the average lifespan of a solar energy system? </p>
+                        </div>
+                        <div id="aboutFAQfaqAnswer3">
+                            <p class="FAQ-Answer"> Solar panels have an average lifespan of 25-30 years, which is why Soli presents cost-saving results covering a span of a conservative 25 years. It is likely that panels will remain functioning beyond 25 years, however the yearly rate of deterioration will reduce their effectiveness over time. </p>
+                        </div>
+                    </div>
+                    <div id="aboutFAQSectionContainer4">
+                        <div id="aboutFAQIcon4">
+                            <img src={faqArrowDown} alt ="faq-arrow" id="aboutDownFAQArrow4" onClick={() => { openAboutSection4(); }}/>
+                            <img src={faqArrowUp} alt ="faq-arrow" id="aboutUpFAQArrow4" onClick={() => { closeAboutSection4(); }}/>
+                        </div>
+                        <div id="aboutFAQQuestion4">
+                            <p class="FAQ-Question"> Are there any government rebates for solar investments? </p>
+                        </div>
+                        <div id="aboutFAQfaqAnswer4">
+                            <p class="FAQ-Answer"> As of February 2021, under Ontario’s current provincial government, there are no active rebate programs for homeowners with solar energy systems.</p>
+                        </div>
+                    </div>
+                    <div id="aboutFAQSectionContainer5">
+                        <div id="aboutFAQIcon5">
+                            <img src={faqArrowDown} alt ="faq-arrow" id="aboutDownFAQArrow5" onClick={() => { openAboutSection5(); }}/>
+                            <img src={faqArrowUp} alt ="faq-arrow" id="aboutUpFAQArrow5" onClick={() => { closeAboutSection5(); }}/>
+                        </div>
+                        <div id="aboutFAQQuestion5">
+                            <p class="FAQ-Question"> What are pros and cons of residential solar energy investment? </p>
+                        </div>
+                        <div id="aboutFAQfaqAnswer5">
+                            <p class="FAQ-Answer"> <strong>Pros:</strong></p>
+                            <ul class="FAQ-Answer">
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Lower Electricity Bills → Continued reduction in your electricity bill during the lifespan of the solar panels.</li>
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Increased Property Value → On average, homes with solar systems installed, sell for almost 4% more.</li>
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Reduced Carbon Footprint → Solar is an infinite energy source and is able to generate energy without harmful emissions, unlike its alternatives such as natural gas or fossil fuels.</li>
@@ -43,18 +134,18 @@ class SolarFAQ extends Component {
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Longevity & Low Maintenance → Solar panels require limited maintenance during the first 25 years after installation. Panels can be independently maintained or cleaned for a relatively low cost by professionals.</li>
                             </ul>
                             <br></br>
-
-                            <p><strong>Cons:</strong></p>
-                            <ul>
+                            <p class="FAQ-Answer"><strong>Cons:</strong></p>
+                            <ul class="FAQ-Answer">
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Initial investment → Though the savings pay-off in the long run, the upfront cost required may deter homeowners.</li>
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Weather factors → For optimal efficiency, panels require direct sunlight, thus, snow, shade and dust build up overtime should be mitigated.</li>
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Space requirement → Most configurations see solar panels taking up a significant amount of space on the roof, therefore homeowners with smaller roofs may need to compromise installation size for space.</li>
                                 <li style={{ marginLeft: '2.5rem', marginBottom: '0.5rem' }}>Usability → Unless a home battery is paired with a solar energy system, energy can only be used during the day, while it’s being harnessed.</li>
                             </ul>
                         </div>
-                    </Accordion>
+                    </div>
+
                     
-                    <p id="myData"> My Data </p>
+                    {/* <p id="myData"> My Data </p>
                     <Accordion allowMultipleOpen>
                         <div label='How is the data I input used to complete the solar analysis?'>
                             <p><strong>Postal Code</strong></p>
@@ -159,7 +250,7 @@ class SolarFAQ extends Component {
                     <br></br>
 
                     <p id="FAQFooter"> <Footer></Footer> </p>
-                    <p id="footerbuffer"> buffer space </p>
+                    <p id="footerbuffer"> buffer space </p> */}
                 </div>
 
 
