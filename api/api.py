@@ -600,7 +600,7 @@ app = Flask(__name__, template_folder=template_dir)
 
 @app.route("/")
 def home():
-    return render_template('test.html')
+    return render_template('mainHomepage.js')
 
 @app.route('/solar-results', methods=['POST'])
 def run_model():
