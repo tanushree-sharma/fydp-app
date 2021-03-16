@@ -33,8 +33,9 @@
             }
 
             function scrollTo() {
-                console.log("scrolling");
-                window.scrollTo(0, 120);
+                console.log("scrolling...");
+                var elementPosition = document.getElementById('#customAnalysisLabel').offsetTop;
+                window.scrollTo(0, elementPosition);
             }
         </script>
     </head>
@@ -61,7 +62,7 @@
 
         <img src="{{ url_for('static',filename='homepageGraphic2.png') }}" alt ="graphic" id="mainGraphic"/>
 
-        <img src="{{ url_for('static',filename='ScrollArrow.png') }}" alt="scroll" id="scrollArrow" class="bounce" onClick= scrollTo() />
+        <img src="{{ url_for('static',filename='ScrollArrow.png') }}" alt="scroll" id="scrollArrow" class="bounce" onClick=scrollTo() />
 
         <img src="{{ url_for('static',filename='customAnalysisIcon.png') }}" alt ="Custom Analysis" id="customAnalysisIcon"/>
         <img src="{{ url_for('static',filename='longTermSavingsIcon.png') }}"alt ="Long Term Savings" id="longTermSavingsIcon"/>
