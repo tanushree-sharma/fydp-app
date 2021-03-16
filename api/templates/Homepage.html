@@ -31,13 +31,10 @@
                     faqID.classList.remove("selected");
                 }
             }
-
-            function scrollTo() {
-                console.log("scrolling...");
-                var elementPosition = document.getElementById('#customAnalysisLabel').offsetTop;
-                window.scrollTo(0, elementPosition);
-            }
         </script>
+
+        <title> Soli </title>
+        <link rel="shortcut icon" href="{{ url_for('static',filename='sunLogo.png') }}"/>
     </head>
 <body>
     <div class="sticky">
@@ -62,7 +59,7 @@
 
         <img src="{{ url_for('static',filename='homepageGraphic2.png') }}" alt ="graphic" id="mainGraphic"/>
 
-        <img onclick="scrollTo()" src="{{ url_for('static',filename='ScrollArrow.png') }}" alt="scroll" id="scrollArrow" class="bounce"/>
+        <a href="#about"></a><img src="{{ url_for('static',filename='ScrollArrow.png') }}" alt="scroll" id="scrollArrow" class="bounce"/></a>
 
         <img src="{{ url_for('static',filename='customAnalysisIcon.png') }}" alt ="Custom Analysis" id="customAnalysisIcon"/>
         <img src="{{ url_for('static',filename='longTermSavingsIcon.png') }}"alt ="Long Term Savings" id="longTermSavingsIcon"/>
@@ -70,7 +67,7 @@
         <img src="{{ url_for('static',filename='carbonFootprintIcon2.png') }}" alt ="Carbon Footprint" id="carbonFootprintIcon"/>
         <img src="{{ url_for('static',filename='integrateStorageIcon.png') }}" alt ="Integrate Storage" id="integrateStorageIcon"/>
 
-
+        <p id="about"> about </p>
         <p id="customAnalysisLabel"> Custom Analysis </p>
         <p id="longTermSavingsLabel"> Long Term Savings </p>
         <p id="carbonFootprintLabel"> Carbon Footprint </p>
