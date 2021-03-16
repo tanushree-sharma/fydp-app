@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel= "stylesheet" type= "text/css" href= "../styles/App.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/App.css') }}">
     </head>
 <body>
     <div id="main">
@@ -14,15 +14,15 @@
             <button type="submit" id="startButton"> Start Saving </button>
         </form>
 
-        <img src={graphic} alt ="graphic" id="mainGraphic"/>
+        <img src="{{ url_for('static',filename='homepageGraphic2.png') }}" alt ="graphic" id="mainGraphic"/>
 
         <Link to="scrollTo" spy={true} smooth={true}> <img src={scrollArrow} alt="scroll" id="scrollArrow" class="bounce"/> </Link>
 
-        <img src={customAnalysis} alt ="Custom Analysis" id="customAnalysisIcon"/>
-        <img src={longTermSavings} alt ="Long Term Savings" id="longTermSavingsIcon"/>
+        <img src="{{ url_for('static',filename='customAnalysisIcon.png') }}" alt ="Custom Analysis" id="customAnalysisIcon"/>
+        <img src="{{ url_for('static',filename='longTermSavingsIcon.png') }}"alt ="Long Term Savings" id="longTermSavingsIcon"/>
         <p id="longTermSavingsLabel"> Long Term Savings </p>
-        <img src={carbonFootprint} alt ="Carbon Footprint" id="carbonFootprintIcon"/>
-        <img src={integrateStorage} alt ="Integrate Storage" id="integrateStorageIcon"/>
+        <img src="{{ url_for('static',filename='carbonFootprintIcon2.png') }}" alt ="Carbon Footprint" id="carbonFootprintIcon"/>
+        <img src="{{ url_for('static',filename='integrateStorageIcon.png') }}" alt ="Integrate Storage" id="integrateStorageIcon"/>
         
         <p id="customAnalysisLabel"> Custom Analysis </p>
         <p id="longTermSavingsLabel"> Long Term Savings </p>
