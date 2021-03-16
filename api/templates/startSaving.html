@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/App.css') }}">
-        <script>
-            window.onload = function() {
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/App.css') }}">
+    <script>
+        window.onload = function () {
             var currentUrl = window.location.pathname;
             var home = "/";
             var form = "/start-saving";
@@ -13,7 +14,7 @@
             var faqID = document.getElementById("faq");
 
             console.log("Current URL: " + currentUrl);
-            
+
             if (currentUrl.localeCompare(form) == 0) {
                 console.log("form");
                 homeID.classList.remove("selected");
@@ -64,10 +65,10 @@
                 document.getElementById('tabs2').style.fontWeight = 600;
             }
 
-            if (document.getElementById('checkbox').checked == true){
+            if (document.getElementById('checkbox').checked == true) {
                 document.getElementById('budget1').disabled = true;
             }
-            if (document.getElementById('checkbox-battery').checked == true){
+            if (document.getElementById('checkbox-battery').checked == true) {
                 document.getElementById('budget2').disabled = true;
             }
 
@@ -93,9 +94,9 @@
         }
 
         // if no budget checkbox is selected
-        function lockBudget (){
+        function lockBudget() {
             // if checkbox is checked (button is disabled)
-            if (document.getElementById('budget1').disabled == true){
+            if (document.getElementById('budget1').disabled == true) {
                 document.getElementById('budget1').disabled = false;
                 document.getElementById('budget1').value = "";
             }
@@ -106,9 +107,9 @@
         }
 
         // if no budget checkbox is selected
-        function lockBudget2 (){
+        function lockBudget2() {
             // if checkbox is checked (button is disabled)
-            if (document.getElementById('budget2').disabled == true){
+            if (document.getElementById('budget2').disabled == true) {
                 document.getElementById('budget2').disabled = false;
                 document.getElementById('budget2').value = "";
             }
@@ -344,7 +345,7 @@
             var budgetError = false;
 
             // checking to see if user inputted a number greater than the cost of one panel + fixed costs
-            if (budget == "---"){
+            if (budget == "---") {
                 budgetError = false;
             }
             else if (Number(budget) && Number(budget) >= 0 && !budget.includes(".")) {
@@ -518,11 +519,11 @@
         }
         // clicking continue triggers generate button
         // this is done so form fields pass to backend
-        function triggerGenerate1(){
+        function triggerGenerate1() {
             document.getElementById('results-button1').click()
         }
 
-        function triggerGenerate2(){
+        function triggerGenerate2() {
             document.getElementById('results-button2').click()
         }
 
@@ -650,7 +651,7 @@
             var budgetError = false;
 
             // checking to see if user inputted a number greater than the cost of one panel + fixed costs
-            if (budget == "---"){
+            if (budget == "---") {
                 budgetError = false;
             }
             else if (Number(budget) && Number(budget) >= 0 && !budget.includes(".")) {
@@ -779,8 +780,9 @@
             var dropdown = document.getElementById("heating-input2");
             dropdown.style.color = "black";
         }
-        </script>
-    </head>
+    </script>
+</head>
+
 <body>
     <div class="sticky">
         <div class="navs">
@@ -788,7 +790,7 @@
             <ul class="nav-right">
                 <li><a href="/" id="home">Home</a></li>
                 <li><a href="/start-saving" id="form">Start Saving</a></li>
-                <li><a href="/faq" id="faq">Solar FAQ</a></li> 
+                <li><a href="/faq" id="faq">Solar FAQ</a></li>
             </ul>
         </div>
     </div>
@@ -797,8 +799,10 @@
         <nav>
             <ul class="Tabs">
                 <li class="Tabs__tab active Tab" id="tabs1" onClick=showTab(1,2)><a href="javascript:;">Solar</a></li>
-                <li class="Tabs__tab Tab" id="tabs2" onClick=showTab(2,2)><a href="javascript:;">Solar + Battery</a></li>
-                <hr id="tab-underline"></hr>
+                <li class="Tabs__tab Tab" id="tabs2" onClick=showTab(2,2)><a href="javascript:;">Solar + Battery</a>
+                </li>
+                <hr id="tab-underline">
+                </hr>
                 <li class="Tabs__presentation-slider" role="presentation"></li>
             </ul>
         </nav>
@@ -806,19 +810,20 @@
 
         <p id="solar-subtext"> I don’t own a home battery </p>
         <p id="battery-subtext"> I own a home battery </p>
-        <p id="form-desc"> The information you provide will help determine the best solar system specifications for your home.</p>
-        <p id="form-desc2"> In the case where you are not able to retrieve a field, we will use a default value for the analysis.</p>
-
-        {/* {/* Solar Form */}
+        <p id="form-desc"> The information you provide will help determine the best solar system specifications for your
+            home.</p>
+        <p id="form-desc2"> In the case where you are not able to retrieve a field, we will use a default value for the
+            analysis.</p>
 
         <div class="Panel__body tabContent" id="tabs-1">
 
-            <p class="formSectionTitles" id="home-specs" >Home Specs</p>
-            <p class="formSectionTitles" id="energy-usage" >Energy Usage</p>
-            <p class="formSectionTitles" id="initial-inv1" >Initial Investment</p>
+            <p class="formSectionTitles" id="home-specs">Home Specs</p>
+            <p class="formSectionTitles" id="energy-usage">Energy Usage</p>
+            <p class="formSectionTitles" id="initial-inv1">Initial Investment</p>
             <p id="postal-text">We only need the first 3 digits</p>
             <div class="help-tip" id="q1">
-                <p><b>Tip:</b> estimate your roof size by dividing square footage of your home by the number of storeys.</p>
+                <p><b>Tip:</b> estimate your roof size by dividing square footage of your home by the number of storeys.
+                </p>
             </div>
             <div class="help-tip" id="q2">
                 <p>Select the month your electricity <br></br>bill is from.</p>
@@ -828,8 +833,10 @@
             </div>
             <div class="help-tip" id="q6">
                 <p>
-                    <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
-                    <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this estimate.</span>
+                    <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup
+                        id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
+                    <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this
+                        estimate.</span>
                 </p>
             </div>
 
@@ -837,23 +844,26 @@
 
             <form action="/solar-results" name="solar" method="POST" class="userform">
                 <label>
-                    <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                    <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M5W" maxlength="3" onBlur={() => { checkingSolarInputs(); }} />
+                    <p class="field-titles" id="postal-code"> Postal Code: </p>
+                    <input class="field-inputs" id="postal-code-input1" type="text" name="postal_code" placeholder="M5W"
+                        maxlength="3" onBlur=checkingSolarInputs() />
                 </label>
 
                 <label>
-                    <p class="field-titles" id="roof-size" > Roof Size (Sqft):  </p>
-                    <input class="field-inputs" id="roof-size-input1" type="text" name="roof_size" placeholder="1000" onBlur={() => { checkingSolarInputs(); }} />
+                    <p class="field-titles" id="roof-size"> Roof Size (Sqft): </p>
+                    <input class="field-inputs" id="roof-size-input1" type="text" name="roof_size" placeholder="1000"
+                        onBlur=checkingSolarInputs() />
                 </label>
 
                 <label>
-                    <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                    <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingSolarInputs(); }} />
+                    <p class="field-titles" id="elec-usage"> Electricity Usage (kWh): </p>
+                    <input class="field-inputs" id="elec-usage-input1" type="text" name="elec-usage" placeholder="750"
+                        onBlur=checkingSolarInputs() />
                 </label>
 
                 <label>
-                    <p class="field-titles" id="month-title" > Month:</p>
-                    <select name="month" id="month-input1" class="dropdown-inputs" onChange={() => { changeSolarMonthBlack(); }} >
+                    <p class="field-titles" id="month-title"> Month:</p>
+                    <select name="month" id="month-input1" class="dropdown-inputs" onChange=changeSolarMonthBlack()>
                         <option value="" disabled hidden selected>Select month</option>
                         <option value="1">January</option>
                         <option value="2">February</option>
@@ -871,8 +881,9 @@
                 </label>
 
                 <label>
-                    <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                    <select name="heating-type" id="heating-input1" class="dropdown-inputs" onChange={() => { changeSolarHeatingBlack(); }}>
+                    <p class="field-titles" id="heating-type-title"> Type of Heating:</p>
+                    <select name="heating-type" id="heating-input1" class="dropdown-inputs"
+                        onChange=changeSolarHeatingBlack>
                         <option value="" disabled selected hidden>Select heating</option>
                         <option value="1">Electric</option>
                         <option value="2">Natural Gas</option>
@@ -880,34 +891,38 @@
                 </label>
 
                 <label>
-                    <p class="field-titles" id="budget1title" > Budget (CAD):</p>
-                    <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="15000" onBlur={() => { checkingSolarInputs(); }} />
+                    <p class="field-titles" id="budget1title"> Budget (CAD):</p>
+                    <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="15000"
+                        onBlur=checkingSolarInputs() />
                 </label>
 
-                <label class="no-budget"> No budget <input type="checkbox" name="checkbox" id="checkbox" value="notchecked" onClick={() => { lockBudget(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
+                <label class="no-budget"> No budget <input type="checkbox" name="checkbox" id="checkbox"
+                        value="notchecked" onClick=lockBudget() /> <label for="checkbox"></label><span
+                        class="checkbox"></span> </label>
 
-                <div id="generate-box" onMouseOver={() => { finalCheckSolarErrors(); }}>
-                    <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
+                <div id="generate-box" onMouseOver={()=> { finalCheckSolarErrors(); }}>
+                    <input type="submit" class="resultsButton" id="results-button1" value="Generate Results"
+                        onMouseOver=checkSolarValues() />
                 </div>
                 <form>
-                    <div class="value-button" id="decrease" onClick={() => { decreaseValue(); }} value="Decrease Value">-</div>
-                    <div class="value-button" id="increase" onClick={() => { increaseValue(); }} value="Increase Value">+</div>
+                    <div class="value-button" id="decrease" onClick=decreaseValue() value="Decrease Value">-</div>
+                    <div class="value-button" id="increase" onClick=increaseValue() value="Increase Value">+</div>
                     <p id="dollar-sign1">$</p>
                 </form>
             </form>
         </div>
 
-        {/* {/* Solar + Battery Form */}
         <div class="Panel__body tabContent" id="tabs-2">
 
-            <p class="formSectionTitles" id="home-specs" >Home Specs</p>
-            <p class="formSectionTitles" id="energy-usage" >Energy Usage</p>
-            <p class="formSectionTitles" id="initial-inv2" >Initial Investment</p>
-            <p class="formSectionTitles" id="battery-specs" >Battery Specs</p>
+            <p class="formSectionTitles" id="home-specs">Home Specs</p>
+            <p class="formSectionTitles" id="energy-usage">Energy Usage</p>
+            <p class="formSectionTitles" id="initial-inv2">Initial Investment</p>
+            <p class="formSectionTitles" id="battery-specs">Battery Specs</p>
             <p id="postal-text">We only need the first 3 digits</p>
 
             <div class="help-tip" id="q1">
-                <p><b>Tip:</b> estimate your roof size by dividing square footage of your home by the number of storeys.</p>
+                <p><b>Tip:</b> estimate your roof size by dividing square footage of your home by the number of storeys.
+                </p>
             </div>
             <div class="help-tip" id="q2">
                 <p>Select the month your electricity <br></br>bill is from.</p>
@@ -923,31 +938,36 @@
             </div>
             <div class="help-tip" id="q7">
                 <p>
-                    <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
-                    <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this estimate.</span>
+                    <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup
+                        id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
+                    <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this
+                        estimate.</span>
                 </p>
             </div>
 
             <form action="/solarbattery-results" method="POST" name="battery" class="userform">
                 <label>
-                    <p class="field-titles" id="postal-code" > Postal Code:  </p>
-                    <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M5W" maxlength="3" onBlur={() => { checkingBatteryInputs(); }} />
+                    <p class="field-titles" id="postal-code"> Postal Code: </p>
+                    <input class="field-inputs" id="postal-code-input2" type="text" name="postal_code" placeholder="M5W"
+                        maxlength="3" onBlur=checkingBatteryInputs() />
                 </label>
 
                 <label>
-                    <p class="field-titles" id="roof-size" > Roof Size (Sqft):  </p>
-                    <input class="field-inputs" id="roof-size-input2" type="text" name="roof_size" placeholder="1000" onBlur={() => { checkingBatteryInputs(); }} />
+                    <p class="field-titles" id="roof-size"> Roof Size (Sqft): </p>
+                    <input class="field-inputs" id="roof-size-input2" type="text" name="roof_size" placeholder="1000"
+                        onBlur=checkingBatteryInputs() />
                 </label>
 
                 <label>
-                    <p class="field-titles" id="elec-usage" > Electricity Usage (kWh):  </p>
-                    <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="750" onBlur={() => { checkingBatteryInputs(); }} />
+                    <p class="field-titles" id="elec-usage"> Electricity Usage (kWh): </p>
+                    <input class="field-inputs" id="elec-usage-input2" type="text" name="elec-usage" placeholder="750"
+                        onBlur=checkingBatteryInputs() />
                 </label>
 
 
                 <label>
-                    <p class="field-titles" id="month-title" > Month:</p>
-                    <select name="month" id="month-input2" class="dropdown-inputs" onChange={() => { changeBatteryMonthBlack(); }}>
+                    <p class="field-titles" id="month-title"> Month:</p>
+                    <select name="month" id="month-input2" class="dropdown-inputs" onChange=changeBatteryMonthBlack()>
                         <option value="" disabled hidden selected>Select month</option>
                         <option value="1">January</option>
                         <option value="2">February</option>
@@ -966,8 +986,9 @@
 
 
                 <label>
-                    <p class="field-titles" id="heating-type-title" > Type of Heating:</p>
-                    <select name="heating-type" id="heating-input2" class="dropdown-inputs" onChange={() => { changeBatteryHeatingBlack(); }}> 
+                    <p class="field-titles" id="heating-type-title"> Type of Heating:</p>
+                    <select name="heating-type" id="heating-input2" class="dropdown-inputs"
+                        onChange=changeBatteryHeatingBlack()>
                         <option value="" disabled selected hidden>Select heating</option>
                         <option value="1">Electric</option>
                         <option value="2">Natural Gas</option>
@@ -975,30 +996,36 @@
                 </label>
 
                 <label>
-                    <p class="field-titles" id="storage-capacity" > Storage Capacity (kWh):</p>
-                    <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity" placeholder="13" onBlur={() => { checkingBatteryInputs(); }} />
+                    <p class="field-titles" id="storage-capacity"> Storage Capacity (kWh):</p>
+                    <input class="field-inputs" id="storage-capacity-input" type="text" name="storage_capacity"
+                        placeholder="13" onBlur=checkingBatteryInputs() />
                 </label>
 
                 <label>
-                    <p class="field-titles" id="dod" > Depth of Discharge:</p>
-                    <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" maxlength="3" onBlur={() => { checkingBatteryInputs(); }} />
+                    <p class="field-titles" id="dod"> Depth of Discharge:</p>
+                    <input class="field-input-dod" id="dod-input" type="text" name="dod" placeholder="80" maxlength="3"
+                        onBlur=checkingBatteryInputs() />
                 </label>
 
                 <label>
-                    <p class="field-titles" id="budget2title" > Budget (CAD):</p>
-                    <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="15000" onBlur={() => { checkingBatteryInputs(); }} />
+                    <p class="field-titles" id="budget2title"> Budget (CAD):</p>
+                    <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="15000"
+                        onBlur=checkingBatteryInputs() />
                 </label>
 
-                <label class="no-budget-battery"> No budget <input type="checkbox" name="checkbox-battery" id="checkbox-battery" value="notchecked" onClick={() => { lockBudget2(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
+                <label class="no-budget-battery"> No budget <input type="checkbox" name="checkbox-battery"
+                        id="checkbox-battery" value="notchecked" onClick=lockBudget2() /> <label
+                        for="checkbox"></label><span class="checkbox"></span> </label>
 
-                <div id="generate-box2" onMouseOver={() => { finalCheckBatteryErrors(); }}>
-                    <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
+                <div id="generate-box2" onMouseOver={()=> { finalCheckBatteryErrors(); }}>
+                    <input type="submit" class="resultsButton" id="results-button2" value="Generate Results"
+                        onMouseOver=checkBatteryValues() />
                 </div>
                 <div class="whitesquare"></div>
 
                 <form>
-                    <div class="value-button" id="decrease2" onClick={() => { decreaseValue2(); }} value="Decrease Value">-</div>
-                    <div class="value-button" id="increase2" onClick={() => { increaseValue2(); }} value="Increase Value">+</div>
+                    <div class="value-button" id="decrease2" onClick=decreaseValue2() value="Decrease Value">-</div>
+                    <div class="value-button" id="increase2" onClick=increaseValue2() value="Increase Value">+</div>
                     <p id="percentage">%</p>
                     <p id="dollar-sign2">$</p>
 
@@ -1007,7 +1034,12 @@
         </div>
 
         <div class="footer-ss">
-            <Footer />
+            <div class="footer">
+                <p class="footer-left">
+                    <a>SoliⒸ2021</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a>Management Engineering Capstone Design Project</a>
+                </p>
+            </div>
         </div>
 
         <p id="footerspace"> buffer space </p>
@@ -1025,15 +1057,15 @@
                     </div>
                     <div id="error-buttondiv">
                         <button class="modalSubmit" id="solar-update"> Update fields </button>
-                            <button id="continue"  onClick={() => { triggerGenerate1(); }}> Continue</button>
-                        </div>
+                        <button id="continue" onClick=triggerGenerate1()> Continue</button>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="batteryModal" class="modal">
             <div class="error-content">
                 <div id="modal-top-border"></div>
-                <p id="batteryerror-title">  </p>
+                <p id="batteryerror-title"> </p>
                 <div class="error-container">
                     <div id="left">
                         <img src={warning} class="one-error" id="defaultbattery-warning" alt="warning"></img>
@@ -1043,13 +1075,12 @@
                     </div>
                     <div id="error-buttondiv">
                         <button class="modalSubmit" id="battery-update"> Update fields </button>
-                           <button id="continue" onClick={() => { triggerGenerate2(); }}> Continue</button>
-                   </div>
+                        <button id="continue" onClick=triggerGenerate2()> Continue</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        {/* default values modal */}
         <div id="errorModal" class="modal">
             <div class="error-content">
                 <div id="modal-top-border"></div>
@@ -1068,10 +1099,11 @@
             </div>
         </div>
     </div>
-   
 
-<script type="module" src="../static/js/startSaving.js"></script>
-<script type="module" src="../static/js/Navbar.js"></script>
+
+    <script type="module" src="../static/js/startSaving.js"></script>
+    <script type="module" src="../static/js/Navbar.js"></script>
 
 </body>
+
 </html>
