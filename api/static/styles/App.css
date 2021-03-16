@@ -182,8 +182,8 @@ ul.nav-right {
 #scrollTo {
   position: absolute;
   left: 0%;
-  top: 121%;
-  color: white;
+  top: 101%;
+  color: red;
 }
 
 #customAnalysisIcon {
