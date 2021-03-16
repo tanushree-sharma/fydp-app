@@ -33,18 +33,22 @@
             }
         }
 
-        function expandSection() {
-            var arrow = document.getElementById("faq-arrow").src;
+        function expandAbout1() {
+            var arrow = document.getElementById("expandAbout1Arrow").src;
             var faqArrowDown = "https://soli-home.herokuapp.com/static/faqArrowDown.png";
             var faqArrowUp = "https://soli-home.herokuapp.com/static/faqArrowUp.png"
+            var section = document.getElementById("accordion-questionAbout1");
 
             console.log(arrow)
 
             if (arrow.localeCompare(faqArrowDown) == 0) {
-                document.getElementById("faq-arrow").src = "{{ url_for('static',filename='faqArrowUp.png') }}"
+                document.getElementById("expandAbout1Arrow").src = "{{ url_for('static',filename='faqArrowUp.png') }}"
+                section.style.display = "block";
+
             } 
             if (arrow.localeCompare(faqArrowUp) == 0) {
-                document.getElementById("faq-arrow").src = "{{ url_for('static',filename='faqArrowDown.png') }}"
+                document.getElementById("expandAbout1Arrow").src = "{{ url_for('static',filename='faqArrowDown.png') }}"
+                section.style.display = "none";
             }
         }
     </script>
@@ -69,10 +73,10 @@
         <p id="aboutSolar"> About Solar Energy </p>
         <div id="faqDiv">
             <div id="accordion-section">
-                <div id="accordion-icon" onClick=expandSection()>
-                    <span><img src="{{ url_for('static',filename='faqArrowDown.png') }}" id="faq-arrow"/></span>
+                <div id="accordion-icon" onClick=expandAbout1()>
+                    <span><img src="{{ url_for('static',filename='faqArrowDown.png') }}" id="expandAbout1Arrow" class="faq-arrow"/></span>
                 </div>
-                <div id="accordion-question">
+                <div id="accordion-questionAbout1">
                     <div label='How does solar energy work?'>
                         <p>In residential projects, the Sun’s energy is harnessed through the use of photovoltaic (PV) technology. A solar panel is a collection of silicon PV cells that absorb sunlight to produce electricity through the Photovoltaic Effect. This electricity can be used to immediately power the home, or be reserved in a battery storage system for future use. </p>
                     </div>

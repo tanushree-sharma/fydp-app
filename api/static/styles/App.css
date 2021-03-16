@@ -1648,7 +1648,7 @@ select:invalid {
   border: 1px solid purple;
 }
 
-#accordion-question{
+#accordion-questionAbout1{
   margin-left: 3vw;
   width: 63vw;
   height: 5vh;
@@ -1657,7 +1657,7 @@ select:invalid {
   font-weight: 600;
   font-size: 2vh;
   line-height: 1vh;
-  display: flex;
+  display: none;
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
@@ -1681,7 +1681,7 @@ select:invalid {
   color: #000000;
 }
 
-#faq-arrow{
+.faq-arrow{
   width: 2.5vw;
   padding: 1vh 1vw;
 }
