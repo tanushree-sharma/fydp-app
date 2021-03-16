@@ -69,14 +69,16 @@
         <p id="aboutSolar"> About Solar Energy </p>
         <div id="faqDiv">
             <div id="accordion-section">
-                <div id="accordion-question" onClick=expandSection()>
+                <div id="accordion-icon" onClick=expandSection()>
                     <span><img src="{{ url_for('static',filename='faqArrowDown.png') }}" id="faq-arrow"/></span>
+                </div>
+                <div id="accordion-question">
                     <div label='How does solar energy work?'>
+                        <p>In residential projects, the Sun’s energy is harnessed through the use of photovoltaic (PV) technology. A solar panel is a collection of silicon PV cells that absorb sunlight to produce electricity through the Photovoltaic Effect. This electricity can be used to immediately power the home, or be reserved in a battery storage system for future use. </p>
+                    </div>
                 </div>
-                <div id="accordion-answer">
-                    <p>In residential projects, the Sun’s energy is harnessed through the use of photovoltaic (PV) technology. A solar panel is a collection of silicon PV cells that absorb sunlight to produce electricity through the Photovoltaic Effect. This electricity can be used to immediately power the home, or be reserved in a battery storage system for future use. </p>
-                </div>
-                </div>
+
+
             </div>
         </div>
     </div>
