@@ -7,7 +7,9 @@ from datetime import datetime
 
 
 template_dir = '../src/components/'
-app = Flask(__name__, template_folder=template_dir)
+#app = Flask(__name__, template_folder=template_dir)
+app = Flask(__name__, static_url_path='', static_folder='../build')
+
 
 @app.route('/solar-results', methods=['POST'])
 def run_model():
