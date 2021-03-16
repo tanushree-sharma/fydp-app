@@ -598,7 +598,7 @@ def batterySolve(postalCode, roofSize, usage, month, heating, storage, DoD, budg
 template_dir = '../src/components/'
 app = Flask(__name__, template_folder=template_dir)
 
-@app.route('https://soli-home.herokuapp.com/solar-results', methods=['POST'])
+@app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
     roofSize = request.form.get('roof_size') or 1000
