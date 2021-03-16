@@ -1780,3 +1780,12 @@ input[type=text]:disabled {
   height: 3.7vh;
   color: white;
 }
+
+.faqItem {
+  margin-left:2.5rem;
+  margin-bottom: 0.8rem;
+}
+.faqItem2 {
+  margin-left:2.5rem;
+  margin-bottom: 0.5rem;
+}
