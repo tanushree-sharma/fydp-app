@@ -7,11 +7,9 @@ from datetime import datetime
 
 
 template_dir = '../src/components/'
-#app = Flask(__name__, template_folder=template_dir)
-app = Flask(__name__, static_url_path='', static_folder='../build')
+app = Flask(__name__, template_folder=template_dir)
 
-
-@app.route('/solar-results', methods=['POST'])
+@app.route('https://soli-home.herokuapp.com/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
     roofSize = request.form.get('roof_size') or 1000
