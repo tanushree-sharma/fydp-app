@@ -598,6 +598,10 @@ def batterySolve(postalCode, roofSize, usage, month, heating, storage, DoD, budg
 template_dir = '../src/components/'
 app = Flask(__name__, template_folder=template_dir)
 
+@app.route("/")
+def home():
+    return render_template('test.html')
+
 @app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
