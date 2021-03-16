@@ -596,7 +596,7 @@ def batterySolve(postalCode, roofSize, usage, month, heating, storage, DoD, budg
 
 
 template_dir = '../src/components/'
-app = Flask(__name__, template_folder=template_dir)
+app = Flask(__name__)
 
 @app.route("/")
 def home():
