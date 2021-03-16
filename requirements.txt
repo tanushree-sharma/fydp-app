@@ -3,6 +3,6 @@ DateTime==4.3
 Flask==1.1.2
 gunicorn==20.0.4
 json5==0.9.5
-numpy==1.1
+numpy==1.19.5
 pandas==0.25.3
 PuLP==2.4
