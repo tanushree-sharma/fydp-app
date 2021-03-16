@@ -34,7 +34,6 @@
         }
 
         function openAboutSection1() {
-            console.log("this is running????");
             document.getElementById("aboutDownFAQArrow1").style.display = "None";
             document.getElementById("aboutUpFAQArrow1").style.display = "Block";
             document.getElementById("aboutFAQAnswer1").style.display = "Block";
@@ -210,8 +209,8 @@
         <div id="faqDiv">
             <div id="aboutFAQSectionContainer1">
                 <div id="aboutFAQIcon1">
-                    <img src="{{ url_for('static',filename='faqArrowDown.png') }}"  alt="faq-arrow" id="aboutDownFAQArrow1" onClick=openAboutSection1()/>
-                    <img src="{{ url_for('static',filename='faqArrowUp.png') }}"  alt="faq-arrow" id="aboutUpFAQArrow1" onClick=closeAboutSection1()/>
+                    <img src="{{ url_for('static',filename='faqArrowDown.png') }}"  alt="faq-arrow" id="aboutDownFAQArrow1" onClick=openAboutSection1() />
+                    <img src="{{ url_for('static',filename='faqArrowUp.png') }}"  alt="faq-arrow" id="aboutUpFAQArrow1" onClick= closeAboutSection1() />
                 </div>
                 <div id="aboutFAQQuestion1">
                     <p class="FAQ-Question"> How does solar energy work?</p>
