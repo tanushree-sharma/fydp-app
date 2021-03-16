@@ -602,6 +602,10 @@ app = Flask(__name__)
 def home():
     return render_template('Homepage.html')
 
+@app.route("/start-saving")
+def startSaving():
+    return render_template('startSaving.html')
+
 @app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
