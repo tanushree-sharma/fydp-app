@@ -1633,6 +1633,11 @@ select:invalid {
 
   margin-top: 5vh;
 }
+
+.toni {
+  width: 2.5vw;
+  height: 2.5vw;
+}
 #aboutFAQSectionContainer1, #aboutFAQSectionContainer2, #aboutFAQSectionContainer3, #aboutFAQSectionContainer4, #aboutFAQSectionContainer5, 
 #dataFAQSectionContainer1, #dataFAQSectionContainer2,
 #resultsFAQSectionContainer1, #resultsFAQSectionContainer2, #resultsFAQSectionContainer3, #resultsFAQSectionContainer4, #resultsFAQSectionContainer5,
