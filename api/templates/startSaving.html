@@ -900,7 +900,7 @@
                         value="notchecked" onClick=lockBudget() /> <label for="checkbox"></label><span
                         class="checkbox"></span> </label>
 
-                <div id="generate-box" onMouseOver={()=> { finalCheckSolarErrors(); }}>
+                <div id="generate-box" onMouseOver=finalCheckSolarErrors()>
                     <input type="submit" class="resultsButton" id="results-button1" value="Generate Results"
                         onMouseOver=checkSolarValues() />
                 </div>
@@ -1050,7 +1050,7 @@
                 <p id="solarerror-title"> </p>
                 <div class="error-container">
                     <div id="left">
-                        <img src={warning} class="one-error" id="default-warning" alt="warning"></img>
+                        <img src="{{ url_for('static',filename='warning.png') }}" class="one-error" id="default-warning" alt="warning"></img>
                     </div>
                     <div id="right">
                         <p id="modal-text"></p>
@@ -1068,7 +1068,7 @@
                 <p id="batteryerror-title"> </p>
                 <div class="error-container">
                     <div id="left">
-                        <img src={warning} class="one-error" id="defaultbattery-warning" alt="warning"></img>
+                        <img src="{{ url_for('static',filename='warning.png') }}" class="one-error" id="defaultbattery-warning" alt="warning"></img>
                     </div>
                     <div id="right">
                         <p id="batterymodal-text"></p>
@@ -1087,7 +1087,7 @@
                 <p id="error-title"> Invalid Input(s)</p>
                 <div class="error-container">
                     <div id="left">
-                        <img src={warning} class="other-errors" id="error-warning" alt="warning"></img>
+                        <img src="{{ url_for('static',filename='warning.png') }}" class="other-errors" id="error-warning" alt="warning"></img>
                     </div>
                     <div id="right">
                         <p id="error-text"></p>
