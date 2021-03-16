@@ -1700,6 +1700,14 @@ select:invalid {
   color: #000000;
 }
 
+.FAQ-bullet {
+  margin-left: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+.FAQ-bullet2 {
+  margin-left: 2.5rem;
+  margin-bottom: 0.5rem;
+}
 input[type="checkbox"]:checked ~ .field-inputs-budget {
   background-color : #d1d1d1; 
 }
