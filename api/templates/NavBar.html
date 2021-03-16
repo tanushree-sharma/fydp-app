@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/App.css') }}">
+    </head>
+<body>
+    <div class="sticky">
+        <div class="navs">
+            <a href="/"> <img src="{{ url_for('static',filename='logo.png') }}" id="logo" alt="logo"></img> </a>
+            <ul class="nav-right">
+                <li><a href="/" id="home">Home</a></li>
+                <li><a href="/start-saving" id="form">Start Saving</a></li>
+                <li><a href="/faq" id="faq">Solar FAQ</a></li> 
+            </ul>
+        </div>
+    </div>
+
+<script type="module" src="../static/js/Navbar.js"></script>
+
+</body>
+</html>

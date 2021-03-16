@@ -2,8 +2,15 @@
 <html>
     <head>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/App.css') }}">
+        <script src="jquery.js"></script>
+        <script>
+            $(function() {
+                $("#navigation").load("NavBar.html");
+            });
+        </script>
     </head>
 <body>
+    <div id="navigation"></div>
     <div id="main">
         <h1 id="mainText">Unlock your potential </h1>
         <h1 id="mainText"> solar savings</h1>
@@ -16,7 +23,7 @@
 
         <img src="{{ url_for('static',filename='homepageGraphic2.png') }}" alt ="graphic" id="mainGraphic"/>
 
-        <Link to="scrollTo" spy={true} smooth={true}> <img src={scrollArrow} alt="scroll" id="scrollArrow" class="bounce"/> </Link>
+        <Link to="scrollTo" spy={true} smooth={true}> <img src="{{ url_for('static',filename='ScrollArrow.png') }}" alt="scroll" id="scrollArrow" class="bounce"/> </Link>
 
         <img src="{{ url_for('static',filename='customAnalysisIcon.png') }}" alt ="Custom Analysis" id="customAnalysisIcon"/>
         <img src="{{ url_for('static',filename='longTermSavingsIcon.png') }}"alt ="Long Term Savings" id="longTermSavingsIcon"/>
@@ -41,7 +48,7 @@
 
     </div>
 
-<script type="module" src="../static/js/mainHomepage.js"></script>
+<script type="module" src="../static/js/Homepage.js"></script>
 
 </body>
 </html>

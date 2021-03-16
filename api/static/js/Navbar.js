@@ -32,19 +32,6 @@ class Navbar extends Component {
                 faqID.classList.remove("selected");
             }
         }
-
-        return (
-            <div class="sticky">
-                <div class="navs">
-                    <a href="/"> <img src={logo} id="logo" alt="logo"></img> </a>
-                    <ul class="nav-right">
-                        <li><a href="/" id="home">Home</a></li>
-                        <li><a href="/start-saving" id="form">Start Saving</a></li>
-                        <li><a href="/faq" id="faq">Solar FAQ</a></li> 
-                    </ul>
-                </div>
-            </div>
-        );
     }
 }
 
