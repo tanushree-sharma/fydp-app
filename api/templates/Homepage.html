@@ -62,7 +62,7 @@
 
         <img src="{{ url_for('static',filename='homepageGraphic2.png') }}" alt ="graphic" id="mainGraphic"/>
 
-        <img src="{{ url_for('static',filename='ScrollArrow.png') }}" alt="scroll" id="scrollArrow" class="bounce" onClick=scrollTo() />
+        <img onclick="scrollTo()" src="{{ url_for('static',filename='ScrollArrow.png') }}" alt="scroll" id="scrollArrow" class="bounce"/>
 
         <img src="{{ url_for('static',filename='customAnalysisIcon.png') }}" alt ="Custom Analysis" id="customAnalysisIcon"/>
         <img src="{{ url_for('static',filename='longTermSavingsIcon.png') }}"alt ="Long Term Savings" id="longTermSavingsIcon"/>
