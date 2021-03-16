@@ -4,6 +4,7 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 .App {
@@ -182,7 +183,7 @@ ul.nav-right {
 #scrollTo {
   position: absolute;
   left: 0%;
-  top: 101%;
+  top: 51%;
   color: red;
 }
 
