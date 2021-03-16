@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import AccordionSection from './AccordionSection';
 
+const e = React.createElement;
+
 class Accordion extends Component {
   static propTypes = {
     allowMultipleOpen: PropTypes.bool,
@@ -54,7 +56,7 @@ class Accordion extends Component {
       state: { openSections },
     } = this;
 
-    return (
+    return e(
       <div id="accordion">
         {children.map(child => (
           <AccordionSection
@@ -70,4 +72,5 @@ class Accordion extends Component {
   }
 }
 
-export default Accordion;
+const domContainer = document.querySelector('#FAQComponent');
+ReactDOM.render(e(Accordion), domContainer);

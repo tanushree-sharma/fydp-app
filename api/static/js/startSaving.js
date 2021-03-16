@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import graphic from '../question_img.png'
 import warning from '../warning.png'
-import Footer from '../components/Footer'
+import Footer from '../../../src/components/Footer'
 
 class startSaving extends Component {
     render() {

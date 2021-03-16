@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/App.css') }}">
+    <script>
+        window.onload = function () {
+            var currentUrl = window.location.pathname;
+            var home = "/";
+            var form = "/start-saving";
+            var faq = "/faq";
+            var homeID = document.getElementById("home");
+            var formID = document.getElementById("form");
+            var faqID = document.getElementById("faq");
+
+            console.log("Current URL: " + currentUrl);
+
+            if (currentUrl.localeCompare(form) == 0) {
+                console.log("form");
+                homeID.classList.remove("selected");
+                formID.classList.add("selected");
+                faqID.classList.remove("selected");
+            } else if (currentUrl.localeCompare(faq) == 0) {
+                console.log("faq");
+                homeID.classList.remove("selected");
+                formID.classList.remove("selected");
+                faqID.classList.add("selected");
+            } else {
+                console.log("home");
+                homeID.classList.add("selected");
+                formID.classList.remove("selected");
+                faqID.classList.remove("selected");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="sticky">
+        <div class="navs">
+            <a href="/"> <img src="{{ url_for('static',filename='logo.png') }}" id="logo" alt="logo"></img> </a>
+            <ul class="nav-right">
+                <li><a href="/" id="home">Home</a></li>
+                <li><a href="/start-saving" id="form">Start Saving</a></li>
+                <li><a href="/faq" id="faq">Solar FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="FAQComponent"></div>
+
+    <script type="module" src="../static/js/startSaving.js"></script>
+    <script type="module" src="../static/js/Navbar.js"></script>
+     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="../static/js/Accordion.js"></script>
+
+</body>
+
+</html>
