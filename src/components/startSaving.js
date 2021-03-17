@@ -789,8 +789,10 @@ class startSaving extends Component {
                     </div>
                     <div class="help-tip" id="q6">
                         <p>
-                            <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
-                            <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this estimate.</span>
+                            Visit our <a href="/faq" target="_blank">FAQ page</a> to learn more about selecting a reasonable budget.
+                            <br></br>
+                            <br></br>
+                            If you don't have a budget check the circle to the right.
                         </p>
                     </div>
 

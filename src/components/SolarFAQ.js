@@ -85,6 +85,12 @@ class SolarFAQ extends Component {
                             <p>Soli recommends an installation size with an initial investment cost that does not exceed your budget.</p>
                         </div>
 
+                        <div label='How do I select an appropriate budget?'>
+                           <p>The specified budget for a solar installation will go towards the fixed installation costs and the variable cost, dependent on the size of the system.</p><br></br> 
+                           <p>The fixed installation cost is approximately $2,000 - $3,000. The variable cost is approximately $2.80 per watt installed. Most residential solar panels are 250 - 400 watts, making the cost of each solar panel within the range of $700 - $1,120.</p><br></br> 
+                           <p>For reference, with a monthly usage of 722 kWh, the average cost of a residential solar installation is $15,000 - $20,000.</p>
+                        </div>
+
                         <div label='Can I trust Soli with my data?'>
                            <p>Absolutely! Soli only uses your data to generate your custom analysis. None of the informaiton you provide will be stored or used elsewhere.</p>
                         </div>
