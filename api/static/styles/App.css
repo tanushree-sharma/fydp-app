@@ -184,12 +184,6 @@ ul.nav-right {
   }
 }
 
-#about {
-  position: absolute;
-  left: 5.5%;
-  top: 71.5%;
-  color: white;
-}
 
 #customAnalysisIcon {
   position: absolute;
@@ -197,7 +191,7 @@ ul.nav-right {
   left: 8%;
   top: 61.5%;
 }
-#customAnalysisLabel {
+#customAnalysisLabel, #about {
   font-family: "Mulish", sans-serif;
   font-style: normal;
   font-weight: 600;
