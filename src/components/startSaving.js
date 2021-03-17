@@ -845,7 +845,7 @@ class startSaving extends Component {
                             <input class="field-inputs-budget" id="budget1" type="text" name="budget" placeholder="15000" onBlur={() => { checkingSolarInputs(); }} />
                         </label>
 
-                        <label class="no-budget"> No budget <input type="checkbox" name="checkbox" id="checkbox" value="notchecked" onClick={() => { lockBudget(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
+                        <label class="no-budget"> Don't have a budget <input type="checkbox" name="checkbox" id="checkbox" value="notchecked" onClick={() => { lockBudget(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
 
                         <div id="generate-box" onMouseOver={() => { finalCheckSolarErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button1" value="Generate Results" onMouseOver={() => { checkSolarValues(); }} />
@@ -950,7 +950,7 @@ class startSaving extends Component {
                             <input class="field-inputs-budget" id="budget2" type="text" name="budget" placeholder="15000" onBlur={() => { checkingBatteryInputs(); }} />
                         </label>
 
-                        <label class="no-budget-battery"> No budget <input type="checkbox" name="checkbox-battery" id="checkbox-battery" value="notchecked" onClick={() => { lockBudget2(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
+                        <label class="no-budget-battery"> Don't have a budget <input type="checkbox" name="checkbox-battery" id="checkbox-battery" value="notchecked" onClick={() => { lockBudget2(); }}/> <label for="checkbox"></label><span class="checkbox" ></span> </label>
 
                         <div id="generate-box2" onMouseOver={() => { finalCheckBatteryErrors(); }}>
                             <input type="submit" class="resultsButton" id="results-button2" value="Generate Results" onMouseOver={() => { checkBatteryValues(); }} />
