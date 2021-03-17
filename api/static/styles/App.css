@@ -1813,6 +1813,14 @@ input[type=text]:disabled {
 
 #FAQFooter {
   position: absolute;
+  clear: both;
+  bottom: 2%;
+  color: #80807f;
+  font-family: "Mulish";
+  font-weight: 500;
+  font-size: 2vh;
+  line-height: 5vh;
+  width: 100%;
   left: -20%;
 }
 
