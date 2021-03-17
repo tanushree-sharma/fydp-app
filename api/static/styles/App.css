@@ -191,7 +191,28 @@ ul.nav-right {
   left: 8%;
   top: 61.5%;
 }
-#customAnalysisLabel, #about {
+
+#about {
+  font-family: "Mulish", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2vw;
+  line-height: 2vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+
+  position: absolute;
+  width: 12.215vw;
+  height: 69vh;
+  left: 5.5%;
+  top: 68.5%;
+  white-space: nowrap;
+}
+
+#customAnalysisLabel {
   font-family: "Mulish", sans-serif;
   font-style: normal;
   font-weight: 600;
