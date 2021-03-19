@@ -284,7 +284,6 @@ class SolarFAQ extends Component {
                             <p class="FAQ-Answer"><strong>Budget</strong></p>
                             <p class="FAQ-Answer">Soli recommends an installation size with an initial investment cost that does not exceed your budget.</p>
                         </div>
-
                     </div>
                     <div id="dataFAQSectionContainer2">
                         <div id="dataFAQIcon2">
