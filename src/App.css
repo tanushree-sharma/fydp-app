@@ -1696,8 +1696,8 @@ select:invalid {
   line-height: 3vh;
   align-items: center;
   letter-spacing: 0.05em;
-
-  color: #000000;
+  color: black;
+  margin-left: 0.15em;
 }
 
 input[type="checkbox"]:checked ~ .field-inputs-budget {
