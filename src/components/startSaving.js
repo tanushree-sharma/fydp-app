@@ -99,7 +99,9 @@ class startSaving extends Component {
             }
             else {
                 var value = parseInt(document.getElementById('budget1').value, 10);
-                value = isNaN(value) ? 0 : value;
+                if (isNaN(value)) {
+                    value = 15000;
+                }
                 value = value + 500;
                 document.getElementById('budget1').value = value;
             }
@@ -110,7 +112,9 @@ class startSaving extends Component {
             }
             else {
                 var value = parseInt(document.getElementById('budget1').value, 10);
-                value = isNaN(value) ? 0 : value;
+                if (isNaN(value)) {
+                    value = 15000;
+                }
                 if (value >= 500) {
                     value = value - 500;
                 }
@@ -124,7 +128,9 @@ class startSaving extends Component {
             }
             else {
                 var value = parseInt(document.getElementById('budget2').value, 10);
-                value = isNaN(value) ? 0 : value;
+                if (isNaN(value)) {
+                    value = 15000;
+                }
                 value = value + 500;
                 document.getElementById('budget2').value = value;
             }
@@ -135,7 +141,9 @@ class startSaving extends Component {
             }
             else {
                 var value = parseInt(document.getElementById('budget2').value, 10);
-                value = isNaN(value) ? 0 : value;
+                if (isNaN(value)) {
+                    value = 15000;
+                }
                 if (value >= 500) {
                     value = value - 500;
                 }
