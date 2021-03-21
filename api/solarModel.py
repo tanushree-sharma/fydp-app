@@ -124,21 +124,30 @@ def solve(postalCode, roofSize, usage, month, heating, budget):
 
     print("Z = ", value(model.objective))
     print("Optimal Number of Solar Panels: ", y.varValue)
-    print("Rounded Optimal Number of Solar Panels: ", math.ceil(y.varValue))
-    print("Optimal Number of Watts to Install: ", y.varValue * P)
-    print("Total Capital Cost: $", y.varValue*C + F)
+    print("Rounded Optimal Number of Solar Panels: ", math.floor(y.varValue))
+    print("Optimal Number of Watts to Install: ", math.floor(y.varValue) * P)
+    print("Total Capital Cost: $", math.floor(y.varValue)*C + F)
 
     o = [{'name':name, 'shadow price':c.pi, 'slack': c.slack}
     for name, c in model.constraints.items()]
     print(pd.DataFrame(o))
 
+    slackBudget = math.floor(pd.DataFrame(o).at[0,'slack'])
+    slackArea = math.floor(pd.DataFrame(o).at[1, 'slack'])
+    slackDemand = math.floor(max(pd.DataFrame(o).at[2, 'slack'], pd.DataFrame(o).at[3, 'slack'], pd.DataFrame(o).at[4, 'slack'], pd.DataFrame(o).at[5, 'slack']))
+    
+    print(slackBudget)
+    print(slackArea)
+    print(slackDemand)
+
+    numPanels = math.floor(y.varValue)
+
     #check for non-negative y value
-    if y.varValue > 0:
+    if numPanels > 0:
 
         # returning values needed for front end in a list
-        numPanels = math.ceil(y.varValue)
-        installationSize = round((y.varValue * P) / 1000,1)
-        capitalCost = math.ceil(y.varValue * C + F)
+        installationSize = round((numPanels * P) / 1000,1)
+        capitalCost = math.ceil(numPanels * C + F)
         
         # calculating payback period
         costsWithoutSolar = []
@@ -283,6 +292,6 @@ def solve(postalCode, roofSize, usage, month, heating, budget):
     reducedCO2 = format(reducedCO2, ',')
     treesPlanted = format(treesPlanted, ',')
 
-    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted, costsWithoutSolar, costsWithSolar]
+    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted, costsWithoutSolar, costsWithSolar, slackBudget, slackArea, slackDemand]
 
     return(solution) 
