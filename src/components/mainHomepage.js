@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-scroll'
-import graphic from '../homepageGraphic2.png'
+import graphic from '../homepageGraphic.png'
 import carbonFootprint from '../carbonFootprintIcon2.png'
 import customAnalysis from '../customAnalysisIcon.png'
 import longTermSavings from '../longTermSavingsIcon.png'
