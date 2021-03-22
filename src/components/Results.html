@@ -1027,6 +1027,83 @@
   left: 0;
 } 
 
+.help-tip-ei {
+  position: absolute;
+  font-weight: normal;
+  color: #C26C49;
+  font-weight: 400;
+  font-size: 2vh;
+  letter-spacing: 0.05em;
+  text-align: center;
+  cursor: default;
+  left: 25.5%;
+  top:80%;
+  font-family: "Roboto";
+}
+
+
+.help-tip-ei:before {
+  content:"carbon emissions";
+  font-weight: normal;
+  color: #C26C49;
+  font-weight: 300;
+  font-size: 2vh;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+.help-tip-ei:hover p {
+  display: block;
+  transform-origin: 100% 0%;
+
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+.help-tip-ei p { 
+  /* The tooltip    */
+  display: none;
+  text-align: center;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  padding: 10%;
+  width: 20vw;
+  position: absolute;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -7px;
+  color: #000;
+  font-family: "Roboto";
+  letter-spacing: 0.06em;
+  font-size: 1vw;
+  line-height: 1.4;
+  z-index: 9998 !important;
+  left: -75%;
+} 
+
+.help-tip-ei p:before { 
+  /* The pointer of the tooltip */
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-bottom-color: #e5e5e5;
+  left: 50%;
+  top: -12px;
+} 
+
+ .help-tip-ei p:after { 
+  /* Prevents the tooltip from being hidden */
+  width: 100%;
+  height: 40px;
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+} 
+
+
+
 
 #recSS {
   top: 51.25%;
@@ -1037,7 +1114,7 @@
 }
 
 #EI {
-  top: 78.8%;
+  top: 139%;
 }
 
 #savings-25-year {
@@ -1109,19 +1186,23 @@
     </div>
 
     <div class="help-tip-ii" id="recSS">
-        <p> What you can expect to pay at the time of installation.</p>
+        <p> What you can expect to pay at the time of installation. Includes cost of panels and fixed installation costs.</p>
     </div>
 
     <div class="help-tip-pp" id="recSS">
-        <p> Length of time to recover the cost of the initial investment.</p>
+        <p> Length of time to recover the cost of the initial investment. </p>
     </div>
 
     <div class="help-tip-th" id="savings-25-year">
-        <p> Solar panels have an average lifespan of 25-30 years.</p>
+        <p> Cumulative savings over lifespan of solar panels (25-30 years).</p>
     </div>
 
     <div class="help-tip-ms" id="savings-monthly">
-        <p> What you can expect to save on your electricity bill/ month given seasonal cost saving fluctuations. </p>
+        <p> Average amount you can expect to save on your electricity bill/ month given seasonal cost saving fluctuations.</p>
+    </div>
+
+    <div class="help-tip-ei" id="EI">
+        <p> The amount of CO2 emission from grid electricity you’ll prevent from being released into the atmosphere</p>
     </div>
 
 
@@ -1316,7 +1397,7 @@
     
     <div class="carbon-footprint">
         <div id="carbon-text">
-            <p id="carbon-upper"> reduce carbon emissions by </p>
+            <p id="carbon-upper"> reduce &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; by </p>
             <p id="carbon-data"> {{reducedCO2}} <span id="carbon-lower"> metric tonnes </span></p>
         </div>
         <div id="carbon-icon">
