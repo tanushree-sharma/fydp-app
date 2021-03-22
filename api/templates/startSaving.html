@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/App.css') }}">
     <title> Soli </title>
-    <link rel="shortcut icon" href="{{ url_for('static',filename='sunLogo.png') }}"/>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='sunLogo.png') }}" />
     <script>
         window.onload = function () {
             var currentUrl = window.location.pathname;
@@ -835,10 +835,11 @@
             </div>
             <div class="help-tip" id="q6">
                 <p>
-                    <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup
-                        id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
-                    <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this
-                        estimate.</span>
+                    Visit our <a href="/faq" target="_blank">FAQ page</a> to learn more about selecting a reasonable
+                    budget.
+                    <br></br>
+                    <br></br>
+                    If you don't have a budget check the circle to the right.
                 </p>
             </div>
 
@@ -898,7 +899,7 @@
                         onBlur=checkingSolarInputs() />
                 </label>
 
-                <label class="no-budget"> No budget <input type="checkbox" name="checkbox" id="checkbox"
+                <label class="no-budget"> I don't have a budget <input type="checkbox" name="checkbox" id="checkbox"
                         value="notchecked" onClick=lockBudget() /> <label for="checkbox"></label><span
                         class="checkbox"></span> </label>
 
@@ -940,10 +941,11 @@
             </div>
             <div class="help-tip" id="q7">
                 <p>
-                    <b> Tip:</b> The average cost of a residential solar installation is $15,000 - $20,000<sup
-                        id="budgetTipNote">*</sup> for a monthly usage of 722 kWh. <br></br>
-                    <span id="budgetTipNote"> <sup> * </sup> visit our <a href="/faq">FAQs</a> to learn more about this
-                        estimate.</span>
+                    Visit our <a href="/faq" target="_blank">FAQ page</a> to learn more about selecting a reasonable
+                    budget.
+                    <br></br>
+                    <br></br>
+                    If you don't have a budget check the circle to the right.
                 </p>
             </div>
 
@@ -1015,7 +1017,7 @@
                         onBlur=checkingBatteryInputs() />
                 </label>
 
-                <label class="no-budget-battery"> No budget <input type="checkbox" name="checkbox-battery"
+                <label class="no-budget-battery"> I don't have a budget <input type="checkbox" name="checkbox-battery"
                         id="checkbox-battery" value="notchecked" onClick=lockBudget2() /> <label
                         for="checkbox"></label><span class="checkbox"></span> </label>
 
@@ -1052,7 +1054,8 @@
                 <p id="solarerror-title"> </p>
                 <div class="error-container">
                     <div id="left">
-                        <img src="{{ url_for('static',filename='warning.png') }}" class="one-error" id="default-warning" alt="warning"></img>
+                        <img src="{{ url_for('static',filename='warning.png') }}" class="one-error" id="default-warning"
+                            alt="warning"></img>
                     </div>
                     <div id="right">
                         <p id="modal-text"></p>
@@ -1070,7 +1073,8 @@
                 <p id="batteryerror-title"> </p>
                 <div class="error-container">
                     <div id="left">
-                        <img src="{{ url_for('static',filename='warning.png') }}" class="one-error" id="defaultbattery-warning" alt="warning"></img>
+                        <img src="{{ url_for('static',filename='warning.png') }}" class="one-error"
+                            id="defaultbattery-warning" alt="warning"></img>
                     </div>
                     <div id="right">
                         <p id="batterymodal-text"></p>
@@ -1089,7 +1093,8 @@
                 <p id="error-title"> Invalid Input(s)</p>
                 <div class="error-container">
                     <div id="left">
-                        <img src="{{ url_for('static',filename='warning.png') }}" class="other-errors" id="error-warning" alt="warning"></img>
+                        <img src="{{ url_for('static',filename='warning.png') }}" class="other-errors"
+                            id="error-warning" alt="warning"></img>
                     </div>
                     <div id="right">
                         <p id="error-text"></p>
