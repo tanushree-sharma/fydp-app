@@ -30,7 +30,7 @@
 
 #logo {
   position: absolute;
-  top: 18%;
+  top: 20%;
   margin-left: 5.5%;
   width: 9vw;
 }
@@ -90,8 +90,8 @@ ul.nav-right {
 #mainGraphic {
   position: absolute;
   width: 53vw;
-  left: 46%;
-  top: 5%;
+  left: 44%;
+  top: 7%;
 }
 
 #mainText {
@@ -104,7 +104,7 @@ ul.nav-right {
   position: relative;
   left: 5%;
   right: 55%;
-  top: 13%;
+  top: 15%;
   bottom: 55.21%;
 }
 
@@ -119,7 +119,7 @@ ul.nav-right {
   position: relative;
   left: 5%;
   right: 61.42%;
-  top: 13.7%;
+  top: 15.7%;
   bottom: 46.48%;
 }
 
@@ -135,7 +135,7 @@ ul.nav-right {
   height: 4%;
   left: 5%;
   right: 61.42%;
-  top: 26.2%;
+  top: 29.2%;
   bottom: 46.48%;
 
   border-radius: 3.214vw;
@@ -1706,30 +1706,30 @@ input[type="checkbox"]:checked ~ .field-inputs-budget {
 
 .no-budget  { 
   position: absolute; 
-  left: 68.5%;
-  top: 122.5%;
+  left: 61%;
+  top: 122.8%;
   padding-left: 45px; 
   margin-bottom: 15px; 
   cursor: pointer; 
 
   font-family: "Roboto";
-  font-size: 0.8vw;
+  font-size: 1.05vw;
   font-weight: 200;
-  color: #80807f;
+  color: #000000;
 } 
 
 .no-budget-battery  { 
   position: absolute; 
-  left: 68.5%;
-  top: 148.7%;
+  left: 61%;
+  top: 148.8%;
   padding-left: 45px; 
   margin-bottom: 15px; 
   cursor: pointer; 
 
   font-family: "Roboto";
-  font-size: 0.8vw;
+  font-size: 1.05vw;
   font-weight: 200;
-  color: #80807f;
+  color: #000000;
 } 
 
 /* Hide the default checkbox */ 
@@ -1740,25 +1740,25 @@ input[type=checkbox] {
 /* creating a custom checkbox  */ 
 .checkbox { 
   position: absolute; 
-  top: 17%; 
+  top: 0%; 
   left: 100%; 
-  height: 1.7vh; 
-  width: 1.7vh; 
+  height: 2.2vh; 
+  width: 2.2vh; 
   background-color: white;
   border-radius: 50%;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
 }
 
 /* creating a custom checkbox  */ 
 .checkbox-battery { 
   position: absolute; 
-  top: 17%; 
+  top: 0%; 
   left: 100%; 
-  height: 1.7vh; 
-  width: 1.7vh; 
+  height: 2.2vh; 
+  width: 2.2vh; 
   background-color: white;
   border-radius: 50%;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
 }
 
 .no-budget input:checked ~ .checkbox { 
