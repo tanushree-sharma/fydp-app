@@ -1713,7 +1713,7 @@ input[type="checkbox"]:checked ~ .field-inputs-budget {
   cursor: pointer; 
 
   font-family: "Roboto";
-  font-size: 1.05vw;
+  font-size: 1vw;
   font-weight: 200;
   color: #000000;
 } 
@@ -1727,7 +1727,7 @@ input[type="checkbox"]:checked ~ .field-inputs-budget {
   cursor: pointer; 
 
   font-family: "Roboto";
-  font-size: 1.05vw;
+  font-size: 1vw;
   font-weight: 200;
   color: #000000;
 } 
