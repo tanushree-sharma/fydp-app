@@ -287,5 +287,3 @@ def solve(postalCode, roofSize, usage, month, heating, budget):
     solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted, costsWithoutSolar, costsWithSolar]
 
     return(solution) 
-
-solve('L7E', 2000, 800, 4, 1, 13000)
