@@ -12,8 +12,8 @@
     <script type="text/javascript" src="jspdf.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">    
-    <link rel="shortcut icon" href="{{ url_for('static',filename='sunLogo.png') }}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='sunLogo.png') }}" />
 
     <title> Soli </title>
 
@@ -110,7 +110,7 @@
     .footer {
         position: absolute;
         clear: both;
-        top: 185%;
+        top: 200%;
         left: 0%;
         color: #80807f;
         width: 100%;
@@ -341,11 +341,13 @@
         width: 600px;
         overflow-x: scroll;
     }
+
     /* Let's get this party started */
     .chartAreaWrapper::-webkit-scrollbar {
         width: 5vw;
         height: 1.3vh;
     }
+
     /* Handle */
     .chartAreaWrapper::-webkit-scrollbar-thumb {
         background: #80807f;
@@ -375,6 +377,7 @@
         letter-spacing: 0.05em;
         color: #666666;
     }
+
     .chartLegend2 {
         position: absolute;
         top: -7%;
@@ -580,6 +583,23 @@
         width: 4vw;
     }
 
+    #learn-more {
+        position: absolute;
+        top: 160%;
+        left: 25.5%;
+        height: 4vh;
+        width: 50vw;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2vh;
+        text-align: center;
+        vertical-align: middle;
+        letter-spacing: 0.05em;
+        color: black;
+        padding-top: 2vh;
+    }
+
     #return {
         font-family: "Roboto";
         font-style: normal;
@@ -590,7 +610,7 @@
         position: absolute;
         width: 15.5%;
         height: 8%;
-        top: 163%;
+        top: 180%;
         left: 31.5%;
 
         border-radius: 5.844vw;
@@ -600,9 +620,11 @@
         text-align: center;
         display: inline-block;
     }
+
     #return:hover {
         border: 3px solid #faebbc;
     }
+
     .download {
         font-family: "Roboto";
         font-style: normal;
@@ -613,7 +635,7 @@
         position: absolute;
         width: 15.5%;
         height: 8%;
-        top: 163%;
+        top: 180%;
         left: 54%;
 
         border-radius: 5.844vw;
@@ -636,10 +658,20 @@
         top: 150%;
         left: 5%;
     }
+
+    #learn-more a:link {
+        color: #C26C49;
+        background-color: transparent;
+    }
+
+    #learn-more a:visited {
+        color: #C26C49;
+        background-color: transparent;
+    }
 </style>
 
 <body>
-    
+
     <script type="text/javascript">
         function genPDF() {
             window.scrollTo(0, 0);
@@ -696,7 +728,7 @@
     </div>
 
     <p id="season-savings-title"> Average Monthly Savings by Season </p>
-    
+
     <div class="season-savings-container">
         <div>
             <p class="season"> Spring </p>
@@ -715,17 +747,20 @@
             <p class="season-savings"> ${{winterSavings}} <span class="seasonal-units"> /month </span> </p>
         </div>
     </div>
-    
+
     <!-- graph -->
     <div class="chartWrapper">
         <div class="chartAreaWrapper">
-        <div class="chartAreaWrapper2">
-            <canvas id="chart-Test" height="180" width="400"></canvas>
-        </div>
+            <div class="chartAreaWrapper2">
+                <canvas id="chart-Test" height="180" width="400"></canvas>
+            </div>
         </div>
         <canvas id="axis-Test" height="180" width="0"></canvas>
-        <div> <p class='chartTitle'> Yearly Cost of Electricity </p></div>
-        <div> <pre class='chartLegend1'> Cost Without Solar </div>
+        <div>
+            <p class='chartTitle'> Yearly Cost of Electricity </p>
+        </div>
+        <div>
+            <pre class='chartLegend1'> Cost Without Solar </div>
         <div> <pre class='chartLegend2'> Cost With Solar</div>
         <div class= "chartLegendBlue"></div>
         <div class= "chartLegendYellow"></div>
@@ -756,7 +791,7 @@
             }
             const xData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
             const xDataLast5 = [20, 21, 22, 23, 24];
-        
+
             var chartData = {
                 labels: xData,
                 datasets: [{
@@ -896,7 +931,7 @@
         </div>
     </div>
 
-    <div>editor</div>
+    <div id="learn-more"> To learn more about how your custom analysis is calculated, <a href="/faq/#results" target="_blank"> click here!</a> </div>
 
     <script>
         window.onload = function () {
