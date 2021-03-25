@@ -628,6 +628,10 @@ def startSaving():
 def faq():
     return render_template('faq.html')
 
+@app.route("/faq/#results")
+def faqResults():
+    return render_template('faq.html')
+
 @app.route('/solar-results', methods=['POST'])
 def run_model():
     postalCode = request.form.get('postal_code') or "M3N"
