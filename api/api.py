@@ -129,21 +129,30 @@ def solarSolve(postalCode, roofSize, usage, month, heating, budget):
 
     print("Z = ", value(model.objective))
     print("Optimal Number of Solar Panels: ", y.varValue)
-    print("Rounded Optimal Number of Solar Panels: ", math.ceil(y.varValue))
-    print("Optimal Number of Watts to Install: ", y.varValue * P)
-    print("Total Capital Cost: $", y.varValue*C + F)
+    print("Rounded Optimal Number of Solar Panels: ", math.floor(y.varValue))
+    print("Optimal Number of Watts to Install: ", math.floor(y.varValue) * P)
+    print("Total Capital Cost: $", math.floor(y.varValue)*C + F)
 
     o = [{'name':name, 'shadow price':c.pi, 'slack': c.slack}
     for name, c in model.constraints.items()]
     print(pd.DataFrame(o))
 
+    slackBudget = math.floor(pd.DataFrame(o).at[0,'slack'])
+    slackArea = math.floor(pd.DataFrame(o).at[1, 'slack'])
+    slackDemand = math.floor(max(pd.DataFrame(o).at[2, 'slack'], pd.DataFrame(o).at[3, 'slack'], pd.DataFrame(o).at[4, 'slack'], pd.DataFrame(o).at[5, 'slack']))
+
+    print(slackBudget)
+    print(slackArea)
+    print(slackDemand)
+
+    numPanels = math.floor(y.varValue)
+
     #check for non-negative y value
-    if y.varValue > 0:
+    if numPanels > 0:
 
         # returning values needed for front end in a list
-        numPanels = math.ceil(y.varValue)
-        installationSize = round((y.varValue * P) / 1000,1)
-        capitalCost = math.ceil(y.varValue * C + F)
+        installationSize = round((numPanels * P) / 1000,1)
+        capitalCost = math.ceil(numPanels * C + F)
         
         # calculating payback period
         costsWithoutSolar = []
@@ -288,7 +297,7 @@ def solarSolve(postalCode, roofSize, usage, month, heating, budget):
     reducedCO2 = format(reducedCO2, ',')
     treesPlanted = format(treesPlanted, ',')
 
-    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted, costsWithoutSolar, costsWithSolar]
+    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted, costsWithoutSolar, costsWithSolar, slackBudget, slackArea, slackDemand]
 
     return(solution)
 
@@ -417,22 +426,31 @@ def batterySolve(postalCode, roofSize, usage, month, heating, storage, DoD, budg
     #status = model.optimize()
     model.solve()
     print("Z = ", value(model.objective))
-    print("Optimal Number of Solar Panels: ", y.varValue)
-    print("Optimal Number of Watts to Install: ", y.varValue * P)
-    print("Total Capital Cost: $", y.varValue*C + F)
+    print("Rounded Optimal Number of Solar Panels: ", math.floor(y.varValue))
+    print("Optimal Number of Watts to Install: ", math.floor(y.varValue) * P)
+    print("Total Capital Cost: $", math.floor(y.varValue)*C + F)
 
     # sensitivity analysis
     o = [{'name':name, 'shadow price':c.pi, 'slack': c.slack}
     for name, c in model.constraints.items()]
     print(pd.DataFrame(o))
 
+    slackBudget = math.floor(pd.DataFrame(o).at[0,'slack'])
+    slackArea = math.floor(pd.DataFrame(o).at[1, 'slack'])
+    slackDemand = math.floor(max(pd.DataFrame(o).at[2, 'slack'], pd.DataFrame(o).at[3, 'slack'], pd.DataFrame(o).at[4, 'slack'], pd.DataFrame(o).at[5, 'slack']))
+
+    print(slackBudget)
+    print(slackArea)
+    print(slackDemand)
+
+    numPanels = math.floor(y.varValue)
+
     #check for non-negative y value
-    if y.varValue > 0:
+    if numPanels > 0:
 
         # returning values needed for front end in a list
-        numPanels = y.varValue
-        installationSize = round((y.varValue * P) / 1000,1)
-        capitalCost = math.ceil(y.varValue * C + F)
+        installationSize = round((numPanels * P) / 1000,1)
+        capitalCost = math.ceil(numPanels * C + F)
         
         # calculating payback period
         costsWithoutSolar = []
@@ -590,7 +608,7 @@ def batterySolve(postalCode, roofSize, usage, month, heating, storage, DoD, budg
     reducedCO2 = format(reducedCO2, ',')
     treesPlanted = format(treesPlanted, ',')
 
-    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted, costsWithoutSolar, costsWithSolar]
+    solution = [installationSize, capitalCost, paybackPeriod, totalSavings, springSavings, summerSavings, fallSavings, winterSavings, reducedCO2, treesPlanted, costsWithoutSolar, costsWithSolar, slackBudget, slackArea, slackDemand]
 
     return(solution) 
 
@@ -658,12 +676,15 @@ def run_model():
     treesPlanted = solution[9]
     costsWithoutSolar = solution[10]
     costsWithSolar = solution[11]
+    slackBudget = solution[12]
+    slackArea = solution[13]
+    slackDemand = solution[14]
 
     form = "solar"
 
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
     springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted,
-    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, form=form)
+    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, slackBudget=slackBudget, slackArea = slackArea, slackDemand = slackDemand, form=form)
 
 @app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
@@ -719,12 +740,15 @@ def run_BattteryModel():
     treesPlanted = solution[9]
     costsWithoutSolar = solution[10]
     costsWithSolar = solution[11]
+    slackBudget = solution[12]
+    slackArea = solution[13]
+    slackDemand = solution[14]
 
     form = "battery"
 
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
     springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted,
-    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, form=form)
+    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, slackBudget=slackBudget, slackArea = slackArea, slackDemand = slackDemand, form=form)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=TRUE)
