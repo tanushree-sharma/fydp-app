@@ -628,9 +628,9 @@ def startSaving():
 def faq():
     return render_template('faq.html')
 
-@app.route("/faq/#results")
+@app.route("/faq-results")
 def faqResults():
-    return render_template('faq.html')
+    return render_template(url_for('faq', _anchor='results'))
 
 @app.route('/solar-results', methods=['POST'])
 def run_model():
