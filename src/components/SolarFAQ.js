@@ -8,6 +8,8 @@ import faqArrowUp from '../faqArrowUp.png'
 
 class SolarFAQ extends Component {
     render() {
+
+
         window.addEventListener('load', function () {
             var oldURL = document.referrer
             var resultsSolar = "http://localhost:3000/solar-results";
@@ -26,6 +28,7 @@ class SolarFAQ extends Component {
                 }
             }
         });
+
         function openAboutSection1() {
             document.getElementById("aboutDownFAQArrow1").style.display = "None";
             document.getElementById("aboutUpFAQArrow1").style.display = "Block";
@@ -96,6 +99,16 @@ class SolarFAQ extends Component {
             document.getElementById("dataDownFAQArrow2").style.display = "Block";
             document.getElementById("dataUpFAQArrow2").style.display = "None";
             document.getElementById("dataFAQAnswer2").style.display = "None";
+        }
+        function openDataSection3() {
+            document.getElementById("dataDownFAQArrow3").style.display = "None";
+            document.getElementById("dataUpFAQArrow3").style.display = "Block";
+            document.getElementById("dataFAQAnswer3").style.display = "Block";
+        }
+        function closeDataSection3() {
+            document.getElementById("dataDownFAQArrow3").style.display = "Block";
+            document.getElementById("dataUpFAQArrow3").style.display = "None";
+            document.getElementById("dataFAQAnswer3").style.display = "None";
         }
 
         function openResultsSection1() {
@@ -231,7 +244,7 @@ class SolarFAQ extends Component {
                             <img src={faqArrowUp} alt="faq-arrow" id="aboutUpFAQArrow4" onClick={() => { closeAboutSection4(); }} />
                         </div>
                         <div id="aboutFAQQuestion4">
-                            <p class="FAQ-Question"> Are there any government rebates for solar investments? </p>
+                            <p class="FAQ-Question" id="budget"> Are there any government rebates for solar investments? </p>
                         </div>
                         <div id="aboutFAQAnswer4">
                             <p class="FAQ-Answer"> As of February 2021, under Ontario’s current provincial government, there are no active rebate programs for homeowners with solar energy systems.</p>
@@ -309,10 +322,26 @@ class SolarFAQ extends Component {
                             <img src={faqArrowUp} alt="faq-arrow" id="dataUpFAQArrow2" onClick={() => { closeDataSection2(); }} />
                         </div>
                         <div id="dataFAQQuestion2">
-                            <p class="FAQ-Question" id="results"> Can I trust Soli with my data?</p>
+
+                            <p class="FAQ-Question" > How do I select an appropriate budget?</p>
                         </div>
                         <div id="dataFAQAnswer2">
-                            <p class="FAQ-Answer" >Absolutely! Soli only uses your data to generate your custom analysis. None of the informaiton you provide will be stored or used elsewhere.</p>
+                            <p class="FAQ-Answer">The specified budget for a solar installation will go towards the fixed installation costs and the variable cost, dependent on the size of the system.</p><br></br>
+                            <p class="FAQ-Answer">The fixed installation cost is approximately $2,000 - $3,000. The variable cost is approximately $2.80 per watt installed. Most residential solar panels are 250 - 400 watts, making the cost of each solar panel within the range of $700 - $1,120.</p><br></br>
+                            <p class="FAQ-Answer">For reference, with a monthly usage of 722 kWh, the average cost of a residential solar installation is $15,000 - $20,000.</p>
+                        </div>
+                    </div>
+                    <div id="dataFAQSectionContainer3">
+                        <div id="dataFAQIcon3">
+                            <img src={faqArrowDown} alt="faq-arrow" id="dataDownFAQArrow3" onClick={() => { openDataSection3(); }} />
+                            <img src={faqArrowUp} alt="faq-arrow" id="dataUpFAQArrow3" onClick={() => { closeDataSection3(); }} />
+                        </div>
+                        <div id="dataFAQQuestion3">
+                            <p class="FAQ-Question" id="results"> Can I trust Soli with my data?</p>
+                        </div>
+                        <div id="dataFAQAnswer3">
+                            <p class="FAQ-Answer">Absolutely! Soli only uses your data to generate your custom analysis. None of the informaiton you provide will be stored or used elsewhere.</p>
+
                         </div>
                     </div>
 
