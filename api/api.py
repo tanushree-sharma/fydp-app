@@ -630,7 +630,7 @@ def faq():
 
 @app.route("/faq-results")
 def faqResults():
-    return redirect(url_for('faq',_anchor='results'))
+    return redirect(url_for('hello_world',_anchor='my_anchor'))
 
 @app.route('/solar-results', methods=['POST'])
 def run_model():
