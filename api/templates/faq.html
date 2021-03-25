@@ -361,8 +361,8 @@
             <p id="myResults"> My Results </p>
             <div id="resultsFAQSectionContainer1">
                 <div id="resultsFAQIcon1">
-                    <img src={faqArrowDown} alt="faq-arrow" id="resultsDownFAQArrow1" onClick={() => { openResultsSection1(); }} />
-                    <img src={faqArrowUp} alt="faq-arrow" id="resultsUpFAQArrow1" onClick={() => { closeResultsSection1(); }} />
+                    <img src="{{ url_for('static',filename='faqArrowDown.png') }}" alt="faq-arrow" id="resultsDownFAQArrow1" onClick= openResultsSection1() />
+                    <img src="{{ url_for('static',filename='faqArrowUp.png') }}" alt="faq-arrow" id="resultsUpFAQArrow1" onClick= closeResultsSection1() />
                 </div>
                 <div id="resultsFAQQuestion1">
                     <p class="FAQ-Question"> What do each of the results sections mean?</p>
