@@ -1728,6 +1728,9 @@ select:invalid {
   margin-left: 2.5rem;
   margin-bottom: 0.5rem;
 }
+.FAQ-bullet3 {
+  margin-bottom: 0.5rem;
+}
 input[type="checkbox"]:checked ~ .field-inputs-budget {
   background-color : #d1d1d1; 
 }

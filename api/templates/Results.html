@@ -148,7 +148,7 @@
     .footer {
         position: absolute;
         clear: both;
-        top: 185%;
+        top: 200%;
         left: 0%;
         color: #80807f;
         width: 100%;
@@ -618,6 +618,23 @@
         width: 4vw;
     }
 
+    #learn-more {
+        position: absolute;
+        top: 160%;
+        left: 25.5%;
+        height: 4vh;
+        width: 50vw;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2vh;
+        text-align: center;
+        vertical-align: middle;
+        letter-spacing: 0.05em;
+        color: black;
+        padding-top: 2vh;
+    }
+
     #return {
         font-family: "Roboto";
         font-style: normal;
@@ -628,7 +645,7 @@
         position: absolute;
         width: 15.5%;
         height: 8%;
-        top: 163%;
+        top: 180%;
         left: 31.5%;
 
         border-radius: 5.844vw;
@@ -651,7 +668,7 @@
         position: absolute;
         width: 15.5%;
         height: 8%;
-        top: 163%;
+        top: 180%;
         left: 54%;
 
         border-radius: 5.844vw;
@@ -877,6 +894,18 @@
         background: #faebbc;
         color: black;
         outline: none;
+    }
+
+    #learn-more a:link {
+        color: #C26C49;
+        background-color: transparent;
+    }
+
+    #learn-more a:visited {
+        color: #C26C49;
+        background-color: transparent;
+    }
+    
 </style>
 
 <body>
@@ -1138,6 +1167,7 @@
     </div>
 
     <div>editor</div>
+    <div id="learn-more"> To learn more about how your custom analysis is calculated, <a href="/faq/#results" target="_blank"> click here!</a> </div>
 
     <script>
         window.onload = function () {
