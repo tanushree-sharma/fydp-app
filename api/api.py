@@ -79,7 +79,7 @@ def solarSolve(postalCode, roofSize, usage, month, heating, budget):
         E.append([yearly_decrease_spring, yearly_decrease_summer, yearly_decrease_fall, yearly_decrease_winter])
 
     # convert m into present value (remain constant throughout seasons)
-    i = 0.00206
+    i = 0.045
     for t in range(1,T):
         quarterly_maintainence = (2.5/((1+i) ** t))
         m.append([quarterly_maintainence, quarterly_maintainence, quarterly_maintainence, quarterly_maintainence])
@@ -105,7 +105,7 @@ def solarSolve(postalCode, roofSize, usage, month, heating, budget):
     H = [H_0, H_1, H_2, H_3]
 
     # initializing
-    model = LpProblem('Solar Model', LpMinimize)
+    model = LpProblem('SolarModel', LpMinimize)
 
     # initializing decision variable
 
@@ -375,7 +375,7 @@ def batterySolve(postalCode, roofSize, usage, month, heating, storage, DoD, budg
         E.append([yearly_decrease_spring, yearly_decrease_summer, yearly_decrease_fall, yearly_decrease_winter])
 
     # convert m into present value (remain constant throughout seasons)
-    i = 0.00206
+    i = 0.045
     for t in range(1,T):
         quarterly_maintainence = (2.5/((1+i) ** t))
         m.append([quarterly_maintainence, quarterly_maintainence, quarterly_maintainence, quarterly_maintainence])
@@ -402,7 +402,7 @@ def batterySolve(postalCode, roofSize, usage, month, heating, storage, DoD, budg
 
     # initializing
     #model = Model()
-    model = LpProblem('Solar Battery Model', LpMinimize)
+    model = LpProblem('SolarBatteryModel', LpMinimize)
 
     # initializing decision variable
     #y = model.add_var(name='y', var_type=INTEGER)  # number of solar panels
