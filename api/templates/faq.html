@@ -43,7 +43,7 @@
             if (oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0) {
                 // automatically expanding results section if coming from results page link
                 var currentUrl = window.location.href;
-                var anchor = currentUrl.split("/")[4];
+                var anchor = currentUrl.split("/")[3];
                 console.log("anchor: " + anchor);
                 var fromResults = "faq#results";
 
