@@ -14,15 +14,19 @@ class SolarFAQ extends Component {
             var resultsBattery = "http://localhost:3000/battery-results"
 
             var currentUrl = window.location.href;
-            currentUrl = currentUrl.split("/");
-            var anchor = currentUrl[4];
+            var temp = currentUrl.split("/");
+            var anchor = temp[4];
             var fromResults = "#results";
 
-            if ((oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0) && currentUrl.length == 4) {
+            console.log(anchor);
+            console.log(temp.length);
+
+            if ((oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0) && temp.length == 5) {
                 // automatically expanding results section if coming from results page link
 
                 // can add one for budget too for the route from the budget inline tip
                 if (anchor.localeCompare(fromResults) == 0) {
+                    console.log("open results");
                     openResultsSection1();
                 }
             }
