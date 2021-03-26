@@ -9,8 +9,7 @@ class Navbar extends Component {
             var home = "/";
             var form = "/start-saving";
             var faq = "/faq";
-            var faqResults = "/faq/#results";
-            var faqBudget = "/faq/#budget";
+            var faqOther = "/faq/";
             var homeID = document.getElementById("home");
             var formID = document.getElementById("form");
             var faqID = document.getElementById("faq");
@@ -27,12 +26,7 @@ class Navbar extends Component {
                 homeID.classList.remove("selected");
                 formID.classList.remove("selected");
                 faqID.classList.add("selected");
-            } else if (currentUrl.localeCompare(faqBudget) == 0) {
-                console.log("faq");
-                homeID.classList.remove("selected");
-                formID.classList.remove("selected");
-                faqID.classList.add("selected");
-            } else if (currentUrl.localeCompare(faqResults) == 0) {
+            } else if (currentUrl.localeCompare(faqOther) == 0) {
                 console.log("faq");
                 homeID.classList.remove("selected");
                 formID.classList.remove("selected");
