@@ -11,17 +11,22 @@ class SolarFAQ extends Component {
         window.addEventListener('load', function () {
             var oldURL = document.referrer
             var resultsSolar = "http://localhost:3000/solar-results";
-            var resultsBattery = "http://localhost:3000/battery-results"
+            var resultsBattery = "http://localhost:3000/solarbattery-results"
 
-            if (oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0) {
+            var currentUrl = window.location.href;
+            var temp = currentUrl.split("/");
+            var anchor = temp[4];
+            var fromResults = "#results";
+
+            console.log(anchor);
+            console.log(temp.length);
+
+            if ((oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0) && temp.length == 5) {
                 // automatically expanding results section if coming from results page link
-                var currentUrl = window.location.href;
-                var anchor = currentUrl.split("/")[4];
-                var fromResults = "#results";
-
 
                 // can add one for budget too for the route from the budget inline tip
                 if (anchor.localeCompare(fromResults) == 0) {
+                    console.log("open results");
                     openResultsSection1();
                 }
             }
@@ -312,7 +317,7 @@ class SolarFAQ extends Component {
                             <p class="FAQ-Question" id="results"> Can I trust Soli with my data?</p>
                         </div>
                         <div id="dataFAQAnswer2">
-                            <p class="FAQ-Answer" >Absolutely! Soli only uses your data to generate your custom analysis. None of the informaiton you provide will be stored or used elsewhere.</p>
+                            <p class="FAQ-Answer" >Absolutely! Soli only uses your data to generate your custom analysis. None of the information you provide will be stored or used elsewhere.</p>
                         </div>
                     </div>
 
