@@ -13,13 +13,12 @@ class SolarFAQ extends Component {
             var resultsSolar = "http://localhost:3000/solar-results";
             var resultsBattery = "http://localhost:3000/battery-results"
 
-            if (oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0) {
+            var currentUrl = window.location.href;
+            var anchor = currentUrl.split("/")[4];
+            var fromResults = "#results";
+
+            if ((oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0) && currentUrl.length  == 4) {
                 // automatically expanding results section if coming from results page link
-                var currentUrl = window.location.href;
-                var anchor = currentUrl.split("/")[4];
-                var fromResults = "#results";
-
-
                 // can add one for budget too for the route from the budget inline tip
                 if (anchor.localeCompare(fromResults) == 0) {
                     openResultsSection1();
