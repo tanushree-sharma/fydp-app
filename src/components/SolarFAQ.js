@@ -11,7 +11,7 @@ class SolarFAQ extends Component {
         window.addEventListener('load', function () {
             var oldURL = document.referrer
             var resultsSolar = "http://localhost:3000/solar-results";
-            var resultsBattery = "http://localhost:3000/battery-results"
+            var resultsBattery = "http://localhost:3000/solarbattery-results"
 
             var currentUrl = window.location.href;
             var temp = currentUrl.split("/");
