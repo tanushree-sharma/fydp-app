@@ -14,15 +14,14 @@ class SolarFAQ extends Component {
             var resultsBattery = "http://localhost:3000/solarbattery-results"
             var startSaving = "http://localhost:3000/start-saving";
 
-            if (oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0 || oldURL.localeCompare(startSaving) == 0) {
+            var currentUrl = window.location.href;
+            var anchor = currentUrl.split("/")[4];
+            var fromResults = "#results";
+            var fromBudget = "#budget";
+
+            if ((oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0 || oldURL.localeCompare(startSaving) == 0) && currentUrl.length  == 4) {
+                
                 // automatically expanding results section if coming from results page link
-                var currentUrl = window.location.href;
-                var anchor = currentUrl.split("/")[4];
-                var fromResults = "#results";
-                var fromBudget = "#budget";
-
-
-                //link from Results page
                 if (anchor.localeCompare(fromResults) == 0) {
                     openResultsSection1();
                 }

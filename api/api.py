@@ -57,12 +57,15 @@ def run_model():
     treesPlanted = solution[9]
     costsWithoutSolar = solution[10]
     costsWithSolar = solution[11]
+    slackBudget = solution[12]
+    slackArea = solution[13]
+    slackDemand = solution[14]
 
     form = "solar"
 
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
     springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted,
-    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, form=form)
+    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, slackBudget=slackBudget, slackArea = slackArea, slackDemand = slackDemand, form=form)
 
 @app.route('/solarbattery-results', methods=['POST'])
 def run_BattteryModel():
@@ -118,12 +121,15 @@ def run_BattteryModel():
     treesPlanted = solution[9]
     costsWithoutSolar = solution[10]
     costsWithSolar = solution[11]
+    slackBudget = solution[12]
+    slackArea = solution[13]
+    slackDemand = solution[14]
 
     form = "battery"
 
     return render_template('Results.html', installationSize = installationSize, capitalCost = capitalCost, paybackPeriod = paybackPeriod, totalSavings = totalSavings,
     springSavings = springSavings, summerSavings = summerSavings, fallSavings = fallSavings, winterSavings = winterSavings, reducedCO2 = reducedCO2, treesPlanted = treesPlanted,
-    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, form=form)
+    costsWithoutSolar = costsWithoutSolar, costsWithSolar = costsWithSolar, slackBudget=slackBudget, slackArea = slackArea, slackDemand = slackDemand, form=form)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=TRUE)
