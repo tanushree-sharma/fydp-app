@@ -338,7 +338,7 @@ class SolarFAQ extends Component {
                             <p class="FAQ-Question" id="results"> Can I trust Soli with my data?</p>
                         </div>
                         <div id="dataFAQAnswer3">
-                            <p class="FAQ-Answer">Absolutely! Soli only uses your data to generate your custom analysis. None of the informaiton you provide will be stored or used elsewhere.</p>
+                            <p class="FAQ-Answer">Absolutely! Soli only uses your data to generate your custom analysis. None of the information you provide will be stored or used elsewhere.</p>
 
                         </div>
                     </div>
