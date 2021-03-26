@@ -11,7 +11,7 @@ class SolarFAQ extends Component {
         window.addEventListener('load', function () {
             var oldURL = document.referrer
             var resultsSolar = "http://localhost:3000/solar-results";
-            var resultsBattery = "http://localhost:3000/battery-results"
+            var resultsBattery = "http://localhost:3000/solarbattery-results"
             var startSaving = "http://localhost:3000/start-saving";
 
             if (oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0 || oldURL.localeCompare(startSaving) == 0) {
@@ -327,7 +327,7 @@ class SolarFAQ extends Component {
                             <img src={faqArrowUp} alt="faq-arrow" id="dataUpFAQArrow2" onClick={() => { closeDataSection2(); }} />
                         </div>
                         <div id="dataFAQQuestion2">
-                            <p class="FAQ-Question"> How do I select an appropriate budget?</p>
+                            <p class="FAQ-Question" id="results"> How do I select an appropriate budget?</p>
                         </div>
                         <div id="dataFAQAnswer2">
                             <p class="FAQ-Answer">The specified budget for a solar installation will go towards the fixed installation costs and the variable cost, dependent on the size of the system.</p><br></br>
@@ -371,7 +371,7 @@ class SolarFAQ extends Component {
                             <br></br>
                             <p class="FAQ-Answer"><strong>Environmental Impact:</strong></p>
                             <p class="FAQ-Answer" style={{marginBottom: '0.5rem' }}>Using solar energy in place of electricity from the grid will reduce your carbon emissions overtime. Soli quantifies this in terms of metric tonnes of carbon, and the equivalent in tree plantings.</p>
-                            <p class="FAQ-Answer" style={{marginLeft: '2.5rem', marginBottom: '0.5rem' }}><strong> Carbon Reduction</strong> → To calculate the estimated amount of carbon reduced, the difference in electricity usage from the grid with and without solar panels is calculated and multiplied by a factor that represents the amount of emissions in CO2/kWh from grid electricity.</p>
+                            <p class="FAQ-Answer" style={{marginLeft: '2.5rem', marginBottom: '0.5rem' }}><strong> Carbon Reduction</strong> → To calculate the estimated amount of carbon reduced, the difference in electricity usage from the grid with and without solar panels is calculated and multiplied by a factor that represents the amount of emissions in CO2/kWh from grid electricity. Please note that Soli does not consider emissions from the total lifecycle of solar panels.</p>
                             <p class="FAQ-Answer" style={{marginLeft: '2.5rem', marginBottom: '0.5rem' }}><strong> Tree Plantings</strong> → The equivalency of the carbon reduction in tree plantings is calculated by multiplying the estimated amount of carbon reduction by a factor that represents the number of trees needed to offset 1 tonne of CO2. </p>
                         </div>
                     </div>
