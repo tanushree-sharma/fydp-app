@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
@@ -12,69 +11,23 @@
     <script type="text/javascript" src="jspdf.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ url_for('static',filename='sunLogo.png') }}" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">    
+    <link rel="shortcut icon" href="{{ url_for('static',filename='sunLogo.png') }}"/>
     <title> Soli </title>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var result = document.getElementById("result").textContent;
-            result = result.split(" ")[1];
-            console.log(result);
-
-            var modal = document.getElementById("zeroModal");
-            var dismiss = document.getElementById("dismiss");
-            var slackBudget = document.getElementById("slackBudget").innerHTML;
-            var slackArea = document.getElementById("slackArea").innerHTML;
-            var slackDemand = document.getElementById("slackDemand").innerHTML;
-            var errorText = document.getElementById("error-text");
-
-            if (result == 0) {
-                if (slackBudget == 0) {
-                    errorText.innerHTML += "The budget that you have entered is less than the average cost of one solar panel.";
-                } else if (slackArea == 0) {
-                    errorText.innerHTML += "The roof size that you have entered is less than the size of one solar panel.";
-                } else if (slackDemand == 0) {
-                    errorText.innerHTML += "The electricity usage that you have entered is less than the output capacity of one solar panel.";
-                } else {
-                    console.log("no errors?");
-                }
-
-
-                modal.style.display = "block";
-                dismiss.onclick = function () {
-                    modal.style.display = "none";
-                }
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-
-
-            }
-        }, false);
-    </script>
-
 </head>
-
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
     * {
         margin: 0;
         padding: 0;
     }
-
     html,
     body {
         margin: 0;
         max-width: 100%;
         overflow-x: hidden;
     }
-
     .App {
         display: flex;
         width: 100vw;
@@ -82,7 +35,6 @@
         min-height: 100vh;
         overflow-x: hidden;
     }
-
     .sticky {
         height: 50px;
         line-height: 80px;
@@ -91,7 +43,6 @@
         top: 0px;
         z-index: 9998 !important;
     }
-
     .navs {
         position: absolute;
         background-color: white;
@@ -99,15 +50,12 @@
         font-family: 'Roboto';
         top: 0%;
     }
-
     #logo {
         position: absolute;
         top: 18%;
         margin-left: 5.5%;
         width: 9vw;
     }
-
-
     ul.nav-right {
         width: 100vw;
         list-style: none;
@@ -118,7 +66,6 @@
         float: right;
         overflow-x: hidden;
     }
-
     .nav-right li {
         display: inline-block;
         width: 10%;
@@ -126,7 +73,6 @@
         padding: 0;
         letter-spacing: 0.01em;
     }
-
     .nav-right a {
         text-align: center;
         margin: 0;
@@ -134,11 +80,9 @@
         text-decoration: none;
         color: #80807f;
     }
-
     .nav-right a:hover {
         color: #80807F;
     }
-
     .nav-right a.selected {
         font-weight: 600;
         text-decoration: none;
@@ -146,11 +90,10 @@
         border-bottom: 0.8vh solid #ABB8D4;
         color: #80807F;
     }
-
     .footer {
         position: absolute;
         clear: both;
-        top: 200%;
+        top: 185%;
         left: 0%;
         color: #80807f;
         width: 100%;
@@ -162,48 +105,39 @@
         padding-bottom: 4.5vh;
         letter-spacing: 0.008em;
     }
-
     #results-title {
         position: absolute;
         width: 80vw;
         height: 6.7vh;
         left: 10%;
         top: 21.8%;
-
         font-family: "Mulish";
         font-style: normal;
         font-weight: bold;
         font-size: 1.6vw;
         font-weight: 600;
         line-height: 5vh;
-
         align-items: center;
         text-align: center;
         letter-spacing: 0.1em;
-
         color: #000000;
         border-bottom: 0.8vh solid #5c77ac;
     }
-
     #system-size-title {
         position: absolute;
         width: 30vw;
         height: 3vh;
         left: 13%;
         top: 38.3%;
-
         font-family: "Mulish";
         font-style: normal;
         font-weight: bold;
         font-size: 2.5vh;
         align-items: center;
         text-align: left;
-
         white-space: nowrap;
-
         color: #5C77AC;
     }
-
     .system-container {
         position: absolute;
         display: flex;
@@ -213,7 +147,6 @@
         top: 43.3%;
         left: 15%;
     }
-
     .system-container div {
         font-family: "Roboto";
         font-style: normal;
@@ -222,11 +155,9 @@
         letter-spacing: 0.05em;
         text-align: center;
         color: #C26C49;
-
         width: 100%;
         padding: 1vh;
     }
-
     .system-container .system-data {
         font-family: "Roboto";
         font-style: normal;
@@ -234,12 +165,9 @@
         font-size: 5vh;
         letter-spacing: 0.05em;
         color: black;
-
         text-align: center;
-
         padding-bottom: 2%;
     }
-
     #system-kW {
         font-family: "Roboto";
         font-style: normal;
@@ -248,7 +176,6 @@
         letter-spacing: 0.05em;
         color: black;
     }
-
     #system-years {
         font-family: "Roboto";
         font-style: normal;
@@ -257,31 +184,26 @@
         letter-spacing: 0.05em;
         color: black;
     }
-
     #savings-title {
         position: absolute;
         width: 7vw;
         height: 3vh;
         left: 13%;
         top: 60%;
-
         font-family: "Mulish";
         font-style: normal;
         font-weight: bold;
         font-size: 2.5vh;
         align-items: center;
         text-align: left;
-
         color: #5C77AC;
     }
-
     .savings {
         position: absolute;
         top: 73%;
         left: 15%;
         text-align: center;
     }
-
     .savings #total-savings {
         font-family: "Roboto";
         font-style: normal;
@@ -291,7 +213,6 @@
         color: black;
         text-align: center;
     }
-
     .savings #savings-subtext {
         font-family: "Roboto";
         font-style: normal;
@@ -300,9 +221,6 @@
         letter-spacing: 0.05em;
         color: black;
     }
-
-
-
     #season-savings-title {
         position: absolute;
         width: 13vw;
@@ -315,11 +233,9 @@
         letter-spacing: 0.05em;
         text-align: center;
         color: #C26C49;
-
         padding-left: 5%;
         padding-right: 5%;
     }
-
     .season-savings-container {
         position: absolute;
         top: 92%;
@@ -330,9 +246,7 @@
         display: grid;
         grid-template-columns: 10vw 10vw;
         white-space: nowrap;
-
     }
-
     .season-savings-container .season {
         font-family: "Roboto";
         font-style: normal;
@@ -340,97 +254,82 @@
         font-size: 2vh;
         letter-spacing: 0.05em;
         text-align: left;
-
         padding-left: 2%;
         padding-bottom: 7%;
-
         color: black;
     }
-
     .season-savings-container .season-savings {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 400;
         font-size: 2.5vh;
         text-align: left;
-
         padding-left: 10%;
-
         color: black;
     }
-
     .season-savings-container .seasonal-units {
         font-weight: normal;
         font-size: 1.5vh;
         text-align: left;
     }
-
     .chartWrapper {
         position: absolute;
         top: 70.5%;
         left: 43%;
     }
-
     .chartWrapper>canvas {
         position: absolute;
         left: 0;
         top: 0;
         pointer-events: none;
     }
-
     .chartAreaWrapper {
         width: 600px;
         overflow-x: scroll;
     }
-
     /* Let's get this party started */
     .chartAreaWrapper::-webkit-scrollbar {
         width: 5vw;
         height: 1.3vh;
     }
-
     /* Handle */
     .chartAreaWrapper::-webkit-scrollbar-thumb {
         background: #80807f;
         border-radius: 5px;
     }
-
     .chartTitle {
         position: absolute;
         top: -15%;
         left: 40%;
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 2vh;
         letter-spacing: 0.05em;
         color: black;
     }
-
     .chartLegend1 {
         position: absolute;
         top: -7%;
         left: 35%;
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 1.5vh;
         letter-spacing: 0.05em;
         color: #666666;
     }
-
     .chartLegend2 {
         position: absolute;
         top: -7%;
         left: 63%;
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 1.5vh;
         letter-spacing: 0.05em;
         color: #666666;
     }
-
     .chartLegendBlue {
         position: absolute;
         top: -6.5%;
@@ -439,7 +338,6 @@
         width: 1.5vw;
         background-color: #abb8d4;
     }
-
     .chartLegendYellow {
         position: absolute;
         top: -6.5%;
@@ -448,19 +346,17 @@
         width: 1.5vw;
         background-color: #f6d673;
     }
-
     .chartXAxisTitle {
         position: absolute;
         top: 105%;
         left: 53.5%;
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 1.5vh;
         letter-spacing: 0.05em;
         color: #666666;
     }
-
     .chartYAxisTitle {
         transform: rotate(-90deg);
         position: absolute;
@@ -468,31 +364,26 @@
         left: -10%;
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 1.5vh;
         letter-spacing: 0.05em;
         color: #666666;
     }
-
     #environmental-title {
         position: absolute;
         width: 25vw;
         height: 3vh;
         left: 12.8%;
         top: 133%;
-
         font-family: "Mulish";
         font-style: normal;
         font-weight: bold;
         font-size: 2.5vh;
         align-items: center;
         text-align: left;
-
         color: #5C77AC;
-
         white-space: nowrap;
     }
-
     .carbon-footprint {
         position: absolute;
         left: 20%;
@@ -501,7 +392,7 @@
         height: 10vh;
 
         display: inline-block;
-        
+
     }
 
     .carbon-footprint #carbon-text {
@@ -515,17 +406,14 @@
     #carbon-text #carbon-upper {
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 2vh;
         text-align: left;
         letter-spacing: 0.05em;
-
         padding-left: 7%;
         padding-bottom: 2%;
-
         color: black;
     }
-
     #carbon-text #carbon-data {
         font-family: "Roboto";
         font-style: normal;
@@ -536,19 +424,19 @@
 
         padding-left: 7%;
 
+        text-align: left;
         text-align: left; 
     }
 
     #carbon-text #carbon-lower {
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 2vh;
         text-align: left;
         letter-spacing: 0.05em;
         color: black;
     }
-
     .carbon-footprint #carbon-icon {
         width: 10vw;
         height: 10vh;
@@ -559,37 +447,29 @@
     #carbon-icon #co2 {
         width: 4vw;
     }
-
     #equal {
         position: absolute;
         top: 141%;
         left: 49.75%;
-
         font-family: "Mulish";
         font-style: normal;
         font-weight: bold;
         font-size: 3.5vh;
-
         color: black;
     }
-
     .trees {
         position: absolute;
         left: 56%;
         top: 139%;
         width: 25vw;
         height: 10vh;
-
         display: inline-block;
     }
-
     .trees #trees-text {
         width: 20vw;
         height: 10vh;
-
         float: left;
     }
-
     #trees-text #trees-data {
         font-family: "Roboto";
         font-style: normal;
@@ -597,66 +477,41 @@
         font-size: 5vh;
         letter-spacing: 0.05em;
         color: black;
-
         padding-left: 7%;
         margin: auto;
         padding: 3.5%;
-
         text-align: left;
     }
-
     #trees-text #trees-subtext {
         font-family: "Roboto";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 2vh;
         text-align: left;
         letter-spacing: 0.05em;
         color: black;
     }
-
     .trees #trees-icon {
         width: 5vw;
         height: 10vh;
         margin-left: 20vw;
     }
-
     #trees-icon #plant {
         padding-left: 5%;
         padding-top: 4%;
         width: 4vw;
     }
-
-    #learn-more {
-        position: absolute;
-        top: 160%;
-        left: 25.5%;
-        height: 4vh;
-        width: 50vw;
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 2vh;
-        text-align: center;
-        vertical-align: middle;
-        letter-spacing: 0.05em;
-        color: black;
-        padding-top: 2vh;
-    }
-
     #return {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 600;
         font-size: 1.5vw;
         line-height: 1.5vw;
-
         position: absolute;
         width: 15.5%;
         height: 8%;
-        top: 180%;
+        top: 163%;
         left: 31.5%;
-
         border-radius: 5.844vw;
         background-color: white;
         border: 3px solid #f6d673;
@@ -664,24 +519,20 @@
         text-align: center;
         display: inline-block;
     }
-
     #return:hover {
         border: 3px solid #faebbc;
     }
-
     .download {
         font-family: "Roboto";
         font-style: normal;
         font-weight: 600;
         font-size: 1.5vw;
         line-height: 1.5vw;
-
         position: absolute;
         width: 15.5%;
         height: 8%;
-        top: 180%;
+        top: 163%;
         left: 54%;
-
         border-radius: 5.844vw;
         background-color: #f6d673;
         border: none;
@@ -689,20 +540,31 @@
         text-align: center;
         display: inline-block;
     }
-
     .download:hover {
         background: #faebbc;
         color: black;
         outline: none;
     }
-
     #which-form {
         position: absolute;
         color: white;
         top: 150%;
         left: 5%;
     }
-
+/* old help tip 
+    .help-tip {
+  position: absolute;
+  text-align: center;
+  background-color: #f6d673;
+  border-radius: 50%;
+  width: 1.3vw;
+  height: 1.3vw;
+  font-size: 0.8vw;
+  line-height: 1.33vw;
+  font-family: "Roboto";
+  cursor: default;
+  left: 57.25%;
+} */
 .help-tip-is {
   position: absolute;
   font-weight: normal;
@@ -716,8 +578,6 @@
   top:80%;
   font-family: "Roboto";
 }
-
-
 .help-tip-is:before {
   content: "Installation Size";
   font-weight: normal;
@@ -730,11 +590,9 @@
 .help-tip-is:hover p {
   display: block;
   transform-origin: 100% 0%;
-
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
-
 .help-tip-is p { 
   /* The tooltip    */
   display: none;
@@ -754,7 +612,6 @@
   z-index: 9998 !important;
   left: -82%;
 } 
-
 .help-tip-is p:before { 
   /* The pointer of the tooltip */
   position: absolute;
@@ -766,7 +623,6 @@
   left: 50%;
   top: -12px;
 } 
-
  .help-tip-is p:after { 
   /* Prevents the tooltip from being hidden */
   width: 100%;
@@ -776,7 +632,6 @@
   top: -40px;
   left: 0;
 } 
-
 .help-tip-ii {
   position: absolute;
   font-weight: normal;
@@ -790,8 +645,6 @@
   top:80%;
   font-family: "Roboto";
 }
-
-
 .help-tip-ii:before {
   content: "Initial Investment";
   font-weight: normal;
@@ -804,12 +657,9 @@
 .help-tip-ii:hover p {
   display: block;
   transform-origin: 100% 0%;
-
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
-
-
 .help-tip-ii p { 
   /* The tooltip    */
   display: none;
@@ -829,7 +679,6 @@
   z-index: 9998 !important;
   left: -75%;
 } 
-
 .help-tip-ii p:before { 
   /* The pointer of the tooltip */
   position: absolute;
@@ -841,7 +690,6 @@
   left: 50%;
   top: -12px;
 } 
-
  .help-tip-ii p:after { 
   /* Prevents the tooltip from being hidden */
   width: 100%;
@@ -851,7 +699,6 @@
   top: -40px;
   left: 0;
 } 
-
 .help-tip-pp {
   position: absolute;
   font-weight: normal;
@@ -865,8 +712,6 @@
   top:80%;
   font-family: "Roboto";
 }
-
-
 .help-tip-pp:before {
   content: "Payback Period";
   font-weight: normal;
@@ -879,12 +724,9 @@
 .help-tip-pp:hover p {
   display: block;
   transform-origin: 100% 0%;
-
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
-
-
 .help-tip-pp p { 
   /* The tooltip    */
   display: none;
@@ -904,7 +746,6 @@
   z-index: 9998 !important;
   left: -75%;
 } 
-
 .help-tip-pp p:before { 
   /* The pointer of the tooltip */
   position: absolute;
@@ -916,7 +757,6 @@
   left: 50%;
   top: -12px;
 } 
-
  .help-tip-pp p:after { 
   /* Prevents the tooltip from being hidden */
   width: 100%;
@@ -926,8 +766,6 @@
   top: -40px;
   left: 0;
 } 
-
-
 .help-tip-th {
   position: absolute;
   font-weight: normal;
@@ -940,8 +778,6 @@
   left: 13.5%;
   font-family: "Roboto";
 }
-
-
 .help-tip-th:before {
   content: "over 25 year time horizon";
   font-weight: normal;
@@ -955,12 +791,9 @@
 .help-tip-th:hover p {
   display: block;
   transform-origin: 100% 0%;
-
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
-
-
 .help-tip-th p { 
   /* The tooltip    */
   display: none;
@@ -980,7 +813,6 @@
   z-index: 9998 !important;
   left: -40%;
 } 
-
 .help-tip-th p:before { 
   /* The pointer of the tooltip */
   position: absolute;
@@ -992,7 +824,6 @@
   left: 50%;
   top: -12px;
 } 
-
  .help-tip-th p:after { 
   /* Prevents the tooltip from being hidden */
   width: 100%;
@@ -1002,7 +833,6 @@
   top: -40px; 
   left: 0;
 } 
-
 .help-tip-ms {
   position: absolute;
   font-weight: normal;
@@ -1016,8 +846,6 @@
   top:80%;
   font-family: "Roboto";
 }
-
-
 .help-tip-ms:before {
   content:"Savings by Season";
   font-weight: normal;
@@ -1030,12 +858,9 @@
 .help-tip-ms:hover p {
   display: block;
   transform-origin: 100% 0%;
-
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
-
-
 .help-tip-ms p { 
   /* The tooltip    */
   display: none;
@@ -1055,7 +880,6 @@
   z-index: 9998 !important;
   left: -60%;
 } 
-
 .help-tip-ms p:before { 
   /* The pointer of the tooltip */
   position: absolute;
@@ -1067,7 +891,6 @@
   left: 50%;
   top: -12px;
 } 
-
  .help-tip-ms p:after { 
   /* Prevents the tooltip from being hidden */
   width: 100%;
@@ -1077,7 +900,6 @@
   top: -40px;
   left: 0;
 } 
-
 .help-tip-ei {
   position: absolute;
   font-weight: normal;
@@ -1091,8 +913,6 @@
   top:80%;
   font-family: "Roboto";
 }
-
-
 .help-tip-ei:before {
   content:"reduce carbon emissions by";
   font-weight: normal;
@@ -1105,12 +925,9 @@
 .help-tip-ei:hover p {
   display: block;
   transform-origin: 100% 0%;
-
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
-
-
 .help-tip-ei p { 
   /* The tooltip    */
   display: none;
@@ -1130,7 +947,6 @@
   z-index: 9998 !important;
   left: -30%;
 } 
-
 .help-tip-ei p:before { 
   /* The pointer of the tooltip */
   position: absolute;
@@ -1142,7 +958,6 @@
   left: 50%;
   top: -12px;
 } 
-
  .help-tip-ei p:after { 
   /* Prevents the tooltip from being hidden */
   width: 100%;
@@ -1152,252 +967,27 @@
   top: -40px;
   left: 0;
 } 
-
-
-
-
 #recSS {
   top: 51.25%;
 }
-
 #SS {
   top: 51.25%;
 }
-
 #EI {
   top: 137.75%;
 }
-
 #savings-25-year {
   top: 79%;
 }
-
 #savings-monthly {
   top: 90%;
 }
-
 #budgetTipNote {
   font-size: 0.7vw;
 }
-
-
-
-    #slackBudget {
-        position: absolute;
-        color: white;
-        top: 150%;
-        left: 5%;
-    }
-
-    #slackArea {
-        position: absolute;
-        color: white;
-        top: 150%;
-        left: 5%;
-    }
-
-    #slackDemand {
-        position: absolute;
-        color: white;
-        top: 150%;
-        left: 5%;
-    }
-
-    /* The Modal (background) */
-    .modal {
-        display: none;
-        /* Hidden by default */
-        position: fixed;
-        /* Stay in place */
-        z-index: 1;
-        /* Sit on top */
-        padding-top: 15%;
-        /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%;
-        /* Full width */
-        height: 100%;
-        /* Full height */
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4);
-        /* Black w/ opacity */
-    }
-
-    /* Modal Content */
-    #modal-top-border {
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 1.5vh;
-        background-color: #f6d673;
-    }
-
-    .modal-content {
-        position: relative;
-        background-color: #fbfbfb;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 40vw;
-        height: 30vh;
-        text-align: left;
-    }
-
-    #modal-title{
-        position: absolute;
-        top: 15%;
-        left: 20%;
-        width: 80%;
-        height: 3vh;
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 2.2vh;
-        letter-spacing: 0.05em;
-        color: #000000;
-    }
-
-    #preError-text {
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 300;
-        font-size: 1.7vmin;
-        letter-spacing: 0.05em;
-        margin-top: 1vh;
-        margin-bottom: 2vh;
-        color: #80807f;
-    }
-    #error-text {
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.7vmin;
-        letter-spacing: 0.05em;
-        margin-bottom: 2vh;
-        color: #80807f;
-    }
-    #postError-text {
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 300;
-        font-size: 1.7vmin;
-        letter-spacing: 0.05em;
-        margin-bottom: 4vh;
-        color: #80807f;
-    }
-
-
-    #default-warning {
-        position: absolute;
-        left: 0%;
-        width: 8vw;
-        height: 13vh;
-        float: left;
-        vertical-align: middle;
-    }
-
-    .error-container {
-        position: absolute;
-        top: 25%;
-        left: 0%;
-        width: 100%;
-        background-color: #FBFBFB;
-    }
-
-    .error-container #left {
-        width: 20%;
-        float: left;
-    }
-
-    .error-container #right {
-        margin-left: 20%;
-        margin-right: 3%;
-        min-height: 10vh;
-    }
-
-    .one-error {
-        top: 0%;
-    }
-
-    .multiple-errors {
-        top: 6%;
-    }
-
-    #buttondiv {
-        position: absolute;
-        left: 0%;
-        top: 95%;
-        width: 100%;
-        height: 7vh;
-        
-        border-top: 1px solid #80807f;
-    }
-
-    #dismiss {
-        position: absolute;
-        background: #ffffff;
-        border: 1px solid #f6d673;
-        box-sizing: border-box;
-        border-radius: 2vh;
-
-        width: 9vw;
-        height: 4vh;
-
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 600;
-        font-size: 1.5vh;
-
-        left: 50%;
-        bottom: 5%;
-    }
-
-    #update {
-        position: absolute;
-        background: #f6d673;
-        border: 1px solid #f6d673;
-        box-sizing: border-box;
-        border-radius: 2vh;
-
-        width: 9vw;
-        height: 4vh;
-
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 600;
-        font-size: 1.5vh;
-
-        left: 75%;
-        bottom: 5%;
-    }
-
-    #dismiss:hover {
-        border: 1px solid #faebbc;
-    }
-
-    #update:hover {
-        background: #faebbc;
-        color: black;
-        outline: none;
-      
-    #learn-more a:link {
-        color: #C26C49;
-        background-color: transparent;
-    }
-
-    #learn-more a:visited {
-        color: #C26C49;
-        background-color: transparent;
-    }
 </style>
-
 <body>
-
+    
     <script type="text/javascript">
         function genPDF() {
             window.scrollTo(0, 0);
@@ -1411,7 +1001,6 @@
             });
         }
     </script>
-
     <!-- nav bar -->
     <div class="sticky">
         <div class="navs">
@@ -1423,17 +1012,15 @@
             </ul>
         </div>
     </div>
-
     <div id="downloadContent">
         <!-- title -->
         <p id="results-title"> Your Soli Analysis </p>
-
         <!-- recommended system size -->
         <p id="system-size-title"> Recommended System Specifications </p>
         <div class="system-container" id="system-container">
             <div>
-                <p class="system-data" id="result"> {{installationSize}} <span id="system-kW"> kW </span></p
-
+                <p class="system-data"> {{installationSize}} <span id="system-kW"> kW </span></p>
+                <!-- <p> Installation Size </p> -->
             </div>
             <div>
                 <p class="system-data"> ${{capitalCost}} </p>
@@ -1444,46 +1031,33 @@
                 <!-- <p> Payback Period </p> -->
             </div>
         </div>
-
     </div>
     <div class="help-tip-is" id="recSS">
         <p> Amount of recommended solar panel capacity to install in kW.</p>
     </div>
-
     <div class="help-tip-ii" id="recSS">
         <p> What you can expect to pay at the time of installation. Includes cost of panels and fixed installation costs.</p>
     </div>
-
     <div class="help-tip-pp" id="recSS">
         <p> Length of time to recover the cost of the initial investment. </p>
     </div>
-
     <div class="help-tip-th" id="savings-25-year">
         <p> Cumulative savings over lifespan of solar panels (25-30 years).</p>
     </div>
-
     <div class="help-tip-ms" id="savings-monthly">
         <p> Average amount you can expect to save on your electricity bill/ month given seasonal cost saving fluctuations.</p>
     </div>
-
     <div class="help-tip-ei" id="EI">
         <p> The amount of CO2 emission from grid electricity you’ll prevent from being released into the atmosphere.</p>
     </div>
-
-
-
-
     <!-- savings -->
     <p id="savings-title"> Savings </p>
     <div class="savings">
         <p id="total-savings"> ${{totalSavings}} </p>
         <!-- <p id="savings-subtext"> over &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; time horizon</p> -->
     </div>
-
-
    <p id="season-savings-title"> Average Monthly </p>
     
-
     <div class="season-savings-container">
         <div>
             <p class="season"> Spring </p>
@@ -1502,38 +1076,31 @@
             <p class="season-savings"> ${{winterSavings}} <span class="seasonal-units"> /month </span> </p>
         </div>
     </div>
-
+    
     <!-- graph -->
     <div class="chartWrapper">
         <div class="chartAreaWrapper">
-            <div class="chartAreaWrapper2">
-                <canvas id="chart-Test" height="180" width="400"></canvas>
-            </div>
+        <div class="chartAreaWrapper2">
+            <canvas id="chart-Test" height="180" width="400"></canvas>
+        </div>
         </div>
         <canvas id="axis-Test" height="180" width="0"></canvas>
-        <div>
-            <p class='chartTitle'> Yearly Cost of Electricity </p>
-        </div>
-        <div>
-            <pre class='chartLegend1'> Cost Without Solar </div>
+        <div> <p class='chartTitle'> Yearly Cost of Electricity </p></div>
+        <div> <pre class='chartLegend1'> Cost Without Solar </div>
         <div> <pre class='chartLegend2'> Cost With Solar</div>
         <div class= "chartLegendBlue"></div>
         <div class= "chartLegendYellow"></div>
         <div> <p class='chartXAxisTitle'> Year </p></div>
         <div> <p class='chartYAxisTitle'> Cost ($) </p></div>
     </div>
-
     <script type="text/javascript">
         var costsWithoutSolarOg = {{ costsWithoutSolar| safe }}
         var costsWithSolarOg = {{ costsWithSolar| safe }}
-
         // need to seperate the last 5 to make scrolling work properly
         const costWithSolar = costsWithSolarOg.slice(0, 20)
         const costWithSolarLast5 = costsWithSolarOg.slice(20, 25)
         const costWithoutSolar = costsWithoutSolarOg.slice(0, 20)
         const costWithoutSolarLast5 = costsWithoutSolarOg.slice(20, 25)
-
-
         $(document).ready(function () {
             function addData(numData, chart) {
                 for (var i = 0; i < numData; i++) {
@@ -1546,7 +1113,7 @@
             }
             const xData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
             const xDataLast5 = [20, 21, 22, 23, 24];
-
+        
             var chartData = {
                 labels: xData,
                 datasets: [{
@@ -1560,7 +1127,6 @@
                     backgroundColor: "#f6d673"
                 }]
             };
-
             $(function () {
                 var rectangleSet = false;
                 Chart.defaults.global.defaultFontFamily = 'Roboto';
@@ -1583,7 +1149,6 @@
                             callbacks: {
                                 label: function (tooltipItem, data) {
                                     var label = data.datasets[tooltipItem.datasetIndex].label || '';
-
                                     if (label) {
                                         label += ': $';
                                     }
@@ -1622,25 +1187,18 @@
                             onComplete: function () {
                                 if (!rectangleSet) {
                                     var scale = window.devicePixelRatio;
-
                                     var sourceCanvas = chartTest.chart.canvas;
                                     var copyWidth = chartTest.scales['y-axis-0'].width - 10;
                                     var copyHeight = chartTest.scales['y-axis-0'].height + chartTest.scales['y-axis-0'].top + 10;
-
                                     var targetCtx = document.getElementById("axis-Test").getContext("2d");
-
                                     targetCtx.scale(scale, scale);
                                     targetCtx.canvas.width = copyWidth * scale;
                                     targetCtx.canvas.height = copyHeight * scale;
-
                                     targetCtx.canvas.style.width = `${copyWidth}px`;
                                     targetCtx.canvas.style.height = `${copyHeight}px`;
                                     targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
-
                                     var sourceCtx = sourceCanvas.getContext('2d');
-
                                     // Normalize coordinate system to use css pixels.
-
                                     sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
                                     rectangleSet = true;
                                 }
@@ -1649,7 +1207,6 @@
                                 if (rectangleSet === true) {
                                     var copyWidth = chartTest.scales['y-axis-0'].width;
                                     var copyHeight = chartTest.scales['y-axis-0'].height + chartTest.scales['y-axis-0'].top + 10;
-
                                     var sourceCtx = chartTest.chart.canvas.getContext('2d');
                                     sourceCtx.clearRect(0, 0, copyWidth, copyHeight);
                                 }
@@ -1661,7 +1218,6 @@
             });
         });
     </script>
-
     <!-- environmental impact -->
     <p id="environmental-title"> Environmental Impact </p>
     
@@ -1674,9 +1230,7 @@
             <img src="{{ url_for('static',filename='co2.png') }}" id="co2" alt="co2">
         </div>
     </div>
-
     <p id="equal"> = </p>
-
     <div class="trees">
         <div id="trees-text">
             <p id="trees-data"> {{treesPlanted}} <span id="trees-subtext"> tree plantings </span></p>
@@ -1685,9 +1239,7 @@
             <img src="{{ url_for('static',filename='handplant.png') }}" id="plant" alt="plant">
         </div>
     </div>
-
-    <div id="learn-more"> To learn more about how your custom analysis is calculated, <a href="/faq/#results" target="_blank"> click here!</a> </div>
-
+    <div>editor</div>
     <script>
         window.onload = function () {
             var whichForm = document.getElementById("which-form").innerHTML;
@@ -1695,43 +1247,12 @@
             localStorage.setItem("whichForm", whichForm);
         }
     </script>
-
     <button class="download" onClick="genPDF()"> Download </button>
     <button id="return" onclick="history.back(-1)"> Go Back</button>
-
     <p id="which-form">{{form}}</p>
-    <p id="slackBudget"> {{slackBudget}}</p>
-    <p id="slackArea"> {{slackArea}} </p>
-    <p id="slackDemand"> {{slackDemand}}</p>
-
     <div class="footer">
             <a>SoliⒸ2021</a> &nbsp;&nbsp;|&nbsp;&nbsp;
             <a>Management Engineering Capstone Design Project</a>
     </div>
-
-    <div id="zeroModal" class="modal">
-        <div class="modal-content">
-            <div id="modal-top-border"></div>
-            <p id="modal-title"> No Solar Recommendation </p>
-            <div class="error-container">
-                <div id="left">
-                    <img src="{{ url_for('static',filename='warning.png') }}" class="one-error" id="default-warning" alt="warning"></img>
-                </div>
-                <div id="right">
-                    <p id="preError-text"> Your inputs do not allow for a solar investment. This is due to the following reason:</p>
-                    <p id="error-text"></p>
-                    <p id="postError-text"> Please consider updating fields to view a better solution.</p>
-                </div>
-                <div id="buttondiv">
-                    <button class="modalSubmit" id="dismiss"> Dismiss </button>
-                    <button id="update" onclick="history.back(-1)"> Update Fields </button>
-               </div>
-            </div>
-        </div>
-    </div>
-    
-
-
 </body>
-
 </html>

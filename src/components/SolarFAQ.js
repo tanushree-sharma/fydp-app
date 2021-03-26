@@ -8,8 +8,6 @@ import faqArrowUp from '../faqArrowUp.png'
 
 class SolarFAQ extends Component {
     render() {
-
-
         window.addEventListener('load', function () {
             var oldURL = document.referrer
             var resultsSolar = "http://localhost:3000/solar-results";
@@ -28,6 +26,7 @@ class SolarFAQ extends Component {
                 }
             }
         });
+       
 
         function openAboutSection1() {
             document.getElementById("aboutDownFAQArrow1").style.display = "None";
