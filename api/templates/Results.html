@@ -275,7 +275,8 @@
 
     .savings {
         position: absolute;
-        top: 73%;
+        width: 12vw;
+        top: 72%;
         left: 14%;
         text-align: center;
     }
@@ -527,6 +528,7 @@
         color: black;
 
         padding-left: 7%;
+        margin-top: 4%;
 
         text-align: left;
     }
@@ -545,6 +547,7 @@
         width: 10vw;
         height: 10vh;
         margin-left: 19vw;
+        margin-top: -2%;
     }
 
     #carbon-icon #co2 {
@@ -905,7 +908,468 @@
         color: #C26C49;
         background-color: transparent;
     }
-    
+
+    .help-tip-is {
+        position: absolute;
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        cursor: default;
+        left: 22%;
+        top: 80%;
+        font-family: "Roboto";
+    }
+
+    .help-tip-is:before {
+        content: "Installation Size";
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .help-tip-is:hover p {
+        display: block;
+        transform-origin: 100% 0%;
+        -webkit-animation: fadeIn 0.3s ease-in-out;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .help-tip-is p {
+        /* The tooltip    */
+        display: none;
+        text-align: center;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+        padding: 10%;
+        width: 20vw;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        right: -7px;
+        color: #000;
+        font-family: "Roboto";
+        letter-spacing: 0.06em;
+        font-size: 1vw;
+        line-height: 1.4;
+        z-index: 9998 !important;
+        left: -82%;
+    }
+
+    .help-tip-is p:before {
+        /* The pointer of the tooltip */
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #e5e5e5;
+        left: 50%;
+        top: -12px;
+    }
+
+    .help-tip-is p:after {
+        /* Prevents the tooltip from being hidden */
+        width: 100%;
+        height: 40px;
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 0;
+    }
+
+    .help-tip-ii {
+        position: absolute;
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        cursor: default;
+        left: 45.25%;
+        top: 80%;
+        font-family: "Roboto";
+    }
+
+    .help-tip-ii:before {
+        content: "Initial Investment";
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .help-tip-ii:hover p {
+        display: block;
+        transform-origin: 100% 0%;
+        -webkit-animation: fadeIn 0.3s ease-in-out;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .help-tip-ii p {
+        /* The tooltip    */
+        display: none;
+        text-align: center;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+        padding: 10%;
+        width: 20vw;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        right: -7px;
+        color: #000;
+        font-family: "Roboto";
+        letter-spacing: 0.06em;
+        font-size: 1vw;
+        line-height: 1.4;
+        z-index: 9998 !important;
+        left: -75%;
+    }
+
+    .help-tip-ii p:before {
+        /* The pointer of the tooltip */
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #e5e5e5;
+        left: 50%;
+        top: -12px;
+    }
+
+    .help-tip-ii p:after {
+        /* Prevents the tooltip from being hidden */
+        width: 100%;
+        height: 40px;
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 0;
+    }
+
+    .help-tip-pp {
+        position: absolute;
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        cursor: default;
+        left: 70%;
+        top: 80%;
+        font-family: "Roboto";
+    }
+
+    .help-tip-pp:before {
+        content: "Payback Period";
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .help-tip-pp:hover p {
+        display: block;
+        transform-origin: 100% 0%;
+        -webkit-animation: fadeIn 0.3s ease-in-out;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .help-tip-pp p {
+        /* The tooltip    */
+        display: none;
+        text-align: center;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+        padding: 10%;
+        width: 20vw;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        right: -7px;
+        color: #000;
+        font-family: "Roboto";
+        letter-spacing: 0.06em;
+        font-size: 1vw;
+        line-height: 1.4;
+        z-index: 9998 !important;
+        left: -75%;
+    }
+
+    .help-tip-pp p:before {
+        /* The pointer of the tooltip */
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #e5e5e5;
+        left: 50%;
+        top: -12px;
+    }
+
+    .help-tip-pp p:after {
+        /* Prevents the tooltip from being hidden */
+        width: 100%;
+        height: 40px;
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 0;
+    }
+
+    .help-tip-th {
+        position: absolute;
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        cursor: default;
+        left: 13.5%;
+        font-family: "Roboto";
+    }
+
+    .help-tip-th:before {
+        content: "over 25 year time horizon";
+        font-weight: normal;
+        color: #000000;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        top: 82%;
+    }
+
+    .help-tip-th:hover p {
+        display: block;
+        transform-origin: 100% 0%;
+        -webkit-animation: fadeIn 0.3s ease-in-out;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .help-tip-th p {
+        /* The tooltip    */
+        display: none;
+        text-align: center;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+        padding: 8%;
+        width: 20vw;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        right: -7px;
+        color: #000;
+        font-family: "Roboto";
+        letter-spacing: 0.06em;
+        font-size: 1vw;
+        line-height: 1.4;
+        z-index: 9998 !important;
+        left: -40%;
+    }
+
+    .help-tip-th p:before {
+        /* The pointer of the tooltip */
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #e5e5e5;
+        left: 50%;
+        top: -12px;
+    }
+
+    .help-tip-th p:after {
+        /* Prevents the tooltip from being hidden */
+        width: 100%;
+        height: 40px;
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 0;
+    }
+
+    .help-tip-ms {
+        position: absolute;
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        cursor: default;
+        left: 15.5%;
+        top: 80%;
+        font-family: "Roboto";
+    }
+
+    .help-tip-ms:before {
+        content: "Savings by Season";
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 1.2vw;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .help-tip-ms:hover p {
+        display: block;
+        transform-origin: 100% 0%;
+        -webkit-animation: fadeIn 0.3s ease-in-out;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .help-tip-ms p {
+        /* The tooltip    */
+        display: none;
+        text-align: center;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+        padding: 10%;
+        width: 20vw;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        right: -7px;
+        color: #000;
+        font-family: "Roboto";
+        letter-spacing: 0.06em;
+        font-size: 1vw;
+        line-height: 1.4;
+        z-index: 9998 !important;
+        left: -60%;
+    }
+
+    .help-tip-ms p:before {
+        /* The pointer of the tooltip */
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #e5e5e5;
+        left: 50%;
+        top: -12px;
+    }
+
+    .help-tip-ms p:after {
+        /* Prevents the tooltip from being hidden */
+        width: 100%;
+        height: 40px;
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 0;
+    }
+
+    .help-tip-ei {
+        position: absolute;
+        font-weight: normal;
+        color: #C26C49;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+        cursor: default;
+        left: 21.5%;
+        top: 80%;
+        font-family: "Roboto";
+    }
+
+    .help-tip-ei:before {
+        content: "reduce carbon emissions by";
+        font-weight: normal;
+        color: #000000;
+        font-weight: 400;
+        font-size: 2vh;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .help-tip-ei:hover p {
+        display: block;
+        transform-origin: 100% 0%;
+        -webkit-animation: fadeIn 0.3s ease-in-out;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .help-tip-ei p {
+        /* The tooltip    */
+        display: none;
+        text-align: center;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+        padding: 9%;
+        width: 20vw;
+        position: absolute;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        right: -7px;
+        color: #000;
+        font-family: "Roboto";
+        letter-spacing: 0.06em;
+        font-size: 1vw;
+        line-height: 1.4;
+        z-index: 9998 !important;
+        left: -30%;
+    }
+
+    .help-tip-ei p:before {
+        /* The pointer of the tooltip */
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: #e5e5e5;
+        left: 50%;
+        top: -12px;
+    }
+
+    .help-tip-ei p:after {
+        /* Prevents the tooltip from being hidden */
+        width: 100%;
+        height: 40px;
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 0;
+    }
+
+    #recSS {
+        top: 51.25%;
+    }
+
+    #SS {
+        top: 51.25%;
+    }
+
+    #EI {
+        top: 137.75%;
+    }
+
+    #savings-25-year {
+        top: 79%;
+    }
+
+    #savings-monthly {
+        top: 90%;
+    }
+
+    #budgetTipNote {
+        font-size: 0.7vw;
+    } 
 </style>
 
 <body>
@@ -945,27 +1409,48 @@
         <div class="system-container" id="system-container">
             <div>
                 <p class="system-data" id="result"> {{installationSize}} <span id="system-kW"> kW </span></p>
-                <p> Installation Size </p>
+                <!-- <p> Installation Size </p> -->
             </div>
             <div>
                 <p class="system-data"> ${{capitalCost}} </p>
-                <p> Initial Investment </p>
+                <!-- <p> Initial Investment </p> -->
             </div>
             <div>
                 <p class="system-data"> {{paybackPeriod}} <span id="system-years"> years </span></p>
-                <p> Payback Period </p>
+                <!-- <p> Payback Period </p> -->
             </div>
         </div>
+    </div>
+
+    <div class="help-tip-is" id="recSS">
+        <p> Amount of recommended solar panel capacity to install in kW.</p>
+    </div>
+    <div class="help-tip-ii" id="recSS">
+        <p> What you can expect to pay at the time of installation. Includes cost of panels and fixed installation
+            costs.</p>
+    </div>
+    <div class="help-tip-pp" id="recSS">
+        <p> Length of time to recover the cost of the initial investment. </p>
+    </div>
+    <div class="help-tip-th" id="savings-25-year">
+        <p> Cumulative savings over lifespan of solar panels (25-30 years).</p>
+    </div>
+    <div class="help-tip-ms" id="savings-monthly">
+        <p> Average amount you can expect to save on your electricity bill/ month given seasonal cost saving
+            fluctuations.</p>
+    </div>
+    <div class="help-tip-ei" id="EI">
+        <p> The amount of CO2 emission from grid electricity you’ll prevent from being released into the atmosphere.</p>
     </div>
 
     <!-- savings -->
     <p id="savings-title"> Savings </p>
     <div class="savings">
         <p id="total-savings"> ${{totalSavings}} </p>
-        <p id="savings-subtext"> over 25-year time horizon</p>
+        <!-- <p id="savings-subtext"> over 25-year time horizon</p> -->
     </div>
 
-    <p id="season-savings-title"> Average Monthly Savings by Season </p>
+    <p id="season-savings-title"> Average Monthly </p>
     
     <div class="season-savings-container">
         <div>
@@ -1149,7 +1634,7 @@
     
     <div class="carbon-footprint">
         <div id="carbon-text">
-            <p id="carbon-upper"> reduce carbon emissions by </p>
+            <!-- <p id="carbon-upper"> reduce carbon emissions by </p> -->
             <p id="carbon-data"> {{reducedCO2}} <span id="carbon-lower"> metric tonnes </span></p>
         </div>
         <div id="carbon-icon">
