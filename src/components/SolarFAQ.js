@@ -14,15 +14,21 @@ class SolarFAQ extends Component {
             var resultsBattery = "http://localhost:3000/solarbattery-results"
             var startSaving = "http://localhost:3000/start-saving";
 
+
             var currentUrl = window.location.href;
-            var anchor = currentUrl.split("/")[4];
+            var temp = currentUrl.split("/");
+            var anchor = temp[4];
             var fromResults = "#results";
             var fromBudget = "#budget";
 
+
             if ((oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0 || oldURL.localeCompare(startSaving) == 0) && currentUrl.length  == 4) {
-                
-                // automatically expanding results section if coming from results page link
+
+            console.log(anchor);
+            console.log(temp.length);
+
                 if (anchor.localeCompare(fromResults) == 0) {
+                    console.log("open results");
                     openResultsSection1();
                 }
               
@@ -32,7 +38,6 @@ class SolarFAQ extends Component {
                 }
             }
         });
-
         function openAboutSection1() {
             document.getElementById("aboutDownFAQArrow1").style.display = "None";
             document.getElementById("aboutUpFAQArrow1").style.display = "Block";
