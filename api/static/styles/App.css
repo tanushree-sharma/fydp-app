@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap");
 
 * {
   margin: 0;
@@ -418,6 +418,10 @@ ul.nav-right {
   width: 100%;
   top: 100.7%;
   left: 0.25%;
+  font-family: "Mulish";
+  font-weight: 300;
+  font-size: 2vh;
+  letter-spacing: 0.008em;
 }
 
 .footer-ss {
@@ -426,7 +430,7 @@ ul.nav-right {
   top: 210%;
   color: #80807f;
   font-family: "Mulish";
-  font-weight: 500;
+  font-weight: 300;
   font-size: 1vw;
   line-height: 10vh;
   width: 100%;
@@ -602,7 +606,7 @@ ul.nav-right {
   bottom: 2%;
   color: #80807f;
   font-family: "Mulish";
-  font-weight: 500;
+  font-weight: 300;
   font-size: 2vh;
   line-height: 5vh;
   width: 100%;
@@ -1833,7 +1837,7 @@ input[type=text]:disabled {
   bottom: 0.8%;
   color: #80807f;
   font-family: "Mulish";
-  font-weight: 500;
+  font-weight: 300;
   font-size: 2vh;
   line-height: 5vh;
   width: 100%;
