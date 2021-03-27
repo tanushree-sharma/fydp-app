@@ -413,6 +413,13 @@ ul.nav-right {
   height: 200vh;
 }
 
+.footer-hp {
+  position: absolute;
+  width: 100%;
+  top: 190%;
+  left: 3%;
+}
+
 .footer-ss {
   position: absolute;
   clear: both;
