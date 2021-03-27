@@ -12,22 +12,29 @@ class SolarFAQ extends Component {
             var oldURL = document.referrer
             var resultsSolar = "http://localhost:3000/solar-results";
             var resultsBattery = "http://localhost:3000/solarbattery-results"
+            var startSaving = "http://localhost:3000/start-saving";
+
 
             var currentUrl = window.location.href;
             var temp = currentUrl.split("/");
             var anchor = temp[4];
             var fromResults = "#results";
+            var fromBudget = "#budget";
+
+
+            if ((oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0 || oldURL.localeCompare(startSaving) == 0) && currentUrl.length  == 4) {
 
             console.log(anchor);
             console.log(temp.length);
 
-            if ((oldURL.localeCompare(resultsSolar) == 0 || oldURL.localeCompare(resultsBattery) == 0) && temp.length == 5) {
-                // automatically expanding results section if coming from results page link
-
-                // can add one for budget too for the route from the budget inline tip
                 if (anchor.localeCompare(fromResults) == 0) {
                     console.log("open results");
                     openResultsSection1();
+                }
+              
+                //link from Start Savings page
+                if (anchor.localeCompare(fromBudget) == 0) {
+                    openDataSection2();
                 }
             }
         });
@@ -101,6 +108,16 @@ class SolarFAQ extends Component {
             document.getElementById("dataDownFAQArrow2").style.display = "Block";
             document.getElementById("dataUpFAQArrow2").style.display = "None";
             document.getElementById("dataFAQAnswer2").style.display = "None";
+        }
+        function openDataSection3() {
+            document.getElementById("dataDownFAQArrow3").style.display = "None";
+            document.getElementById("dataUpFAQArrow3").style.display = "Block";
+            document.getElementById("dataFAQAnswer3").style.display = "Block";
+        }
+        function closeDataSection3() {
+            document.getElementById("dataDownFAQArrow3").style.display = "Block";
+            document.getElementById("dataUpFAQArrow3").style.display = "None";
+            document.getElementById("dataFAQAnswer3").style.display = "None";
         }
 
         function openResultsSection1() {
@@ -236,7 +253,7 @@ class SolarFAQ extends Component {
                             <img src={faqArrowUp} alt="faq-arrow" id="aboutUpFAQArrow4" onClick={() => { closeAboutSection4(); }} />
                         </div>
                         <div id="aboutFAQQuestion4">
-                            <p class="FAQ-Question"> Are there any government rebates for solar investments? </p>
+                            <p class="FAQ-Question" id="budget"> Are there any government rebates for solar investments? </p>
                         </div>
                         <div id="aboutFAQAnswer4">
                             <p class="FAQ-Answer"> As of February 2021, under Ontario’s current provincial government, there are no active rebate programs for homeowners with solar energy systems.</p>
@@ -314,10 +331,24 @@ class SolarFAQ extends Component {
                             <img src={faqArrowUp} alt="faq-arrow" id="dataUpFAQArrow2" onClick={() => { closeDataSection2(); }} />
                         </div>
                         <div id="dataFAQQuestion2">
-                            <p class="FAQ-Question" id="results"> Can I trust Soli with my data?</p>
+                            <p class="FAQ-Question" id="results"> How do I select an appropriate budget?</p>
                         </div>
                         <div id="dataFAQAnswer2">
-                            <p class="FAQ-Answer" >Absolutely! Soli only uses your data to generate your custom analysis. None of the information you provide will be stored or used elsewhere.</p>
+                            <p class="FAQ-Answer">The specified budget for a solar installation will go towards the fixed installation costs and the variable cost, dependent on the size of the system.</p><br></br>
+                            <p class="FAQ-Answer">The fixed installation cost is approximately $2,000 - $3,000. The variable cost is approximately $2.80 per watt installed. Most residential solar panels are 250 - 400 watts, making the cost of each solar panel within the range of $700 - $1,120.</p><br></br>
+                            <p class="FAQ-Answer">For reference, with a monthly usage of 722 kWh, the average cost of a residential solar installation is $15,000 - $20,000.</p>
+                        </div>
+                    </div>
+                    <div id="dataFAQSectionContainer3">
+                        <div id="dataFAQIcon3">
+                            <img src={faqArrowDown} alt="faq-arrow" id="dataDownFAQArrow3" onClick={() => { openDataSection3(); }} />
+                            <img src={faqArrowUp} alt="faq-arrow" id="dataUpFAQArrow3" onClick={() => { closeDataSection3(); }} />
+                        </div>
+                        <div id="dataFAQQuestion3">
+                            <p class="FAQ-Question"> Can I trust Soli with my data?</p>
+                        </div>
+                        <div id="dataFAQAnswer3">
+                            <p class="FAQ-Answer">Absolutely! Soli only uses your data to generate your custom analysis. None of the information you provide will be stored or used elsewhere.</p>
                         </div>
                     </div>
 
@@ -344,7 +375,7 @@ class SolarFAQ extends Component {
                             <br></br>
                             <p class="FAQ-Answer"><strong>Environmental Impact:</strong></p>
                             <p class="FAQ-Answer" style={{marginBottom: '0.5rem' }}>Using solar energy in place of electricity from the grid will reduce your carbon emissions overtime. Soli quantifies this in terms of metric tonnes of carbon, and the equivalent in tree plantings.</p>
-                            <p class="FAQ-Answer" style={{marginLeft: '2.5rem', marginBottom: '0.5rem' }}><strong> Carbon Reduction</strong> → To calculate the estimated amount of carbon reduced, the difference in electricity usage from the grid with and without solar panels is calculated and multiplied by a factor that represents the amount of emissions in CO2/kWh from grid electricity.</p>
+                            <p class="FAQ-Answer" style={{marginLeft: '2.5rem', marginBottom: '0.5rem' }}><strong> Carbon Reduction</strong> → To calculate the estimated amount of carbon reduced, the difference in electricity usage from the grid with and without solar panels is calculated and multiplied by a factor that represents the amount of emissions in CO2/kWh from grid electricity. Please note that Soli does not consider emissions from the total lifecycle of solar panels.</p>
                             <p class="FAQ-Answer" style={{marginLeft: '2.5rem', marginBottom: '0.5rem' }}><strong> Tree Plantings</strong> → The equivalency of the carbon reduction in tree plantings is calculated by multiplying the estimated amount of carbon reduction by a factor that represents the number of trees needed to offset 1 tonne of CO2. </p>
                         </div>
                     </div>
