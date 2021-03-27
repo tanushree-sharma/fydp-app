@@ -14,20 +14,20 @@
             var formID = document.getElementById("form");
             var faqID = document.getElementById("faq");
 
-            console.log("Current URL: " + currentUrl);
+            //console.log("Current URL: " + currentUrl);
             
             if (currentUrl.localeCompare(form) == 0) {
-                console.log("form");
+                //console.log("form");
                 homeID.classList.remove("selected");
                 formID.classList.add("selected");
                 faqID.classList.remove("selected");
             } else if (currentUrl.localeCompare(faq) == 0) {
-                console.log("faq");
+                //console.log("faq");
                 homeID.classList.remove("selected");
                 formID.classList.remove("selected");
                 faqID.classList.add("selected");
             } else {
-                console.log("home");
+                //console.log("home");
                 homeID.classList.add("selected");
                 formID.classList.remove("selected");
                 faqID.classList.remove("selected");

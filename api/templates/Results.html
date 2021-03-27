@@ -20,7 +20,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             var result = document.getElementById("result").textContent;
             result = result.split(" ")[1];
-            console.log(result);
+            //console.log(result);
 
             var modal = document.getElementById("zeroModal");
             var dismiss = document.getElementById("dismiss");
@@ -37,7 +37,7 @@
                 } else if (slackDemand == 0) {
                     errorText.innerHTML += "The electricity usage that you have entered is less than the output capacity of one solar panel.";
                 } else {
-                    console.log("no errors?");
+                    //console.log("no errors?");
                 }
 
 
@@ -1659,7 +1659,7 @@
     <script>
         window.onload = function () {
             var whichForm = document.getElementById("which-form").innerHTML;
-            console.log(whichForm);
+            //console.log(whichForm);
             localStorage.setItem("whichForm", whichForm);
         }
     </script>
