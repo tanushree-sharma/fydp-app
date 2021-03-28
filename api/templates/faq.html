@@ -41,24 +41,15 @@
             }
     
             var oldURL = document.referrer
-            // var resultsSolar = "https://www.soli-home.ca/solar-results";
-            // var resultsBattery = "https://www.soli-home.ca/solarbattery-results";
-            // var startSaving = "https://www.soli-home.ca/start-saving";
-
             var currentUrl = window.location.href;
-            // var temp = currentUrl.split("/");
-            // var anchor = temp[4];
-            // var fromResults = "faq#results";
-            // var fromBudget = "faq#budget";
 
-            console.log("oldURL: " + oldURL);
-            console.log("currentURL: " + currentUrl);
-            console.log(oldURL.includes("results"));
-            console.log(oldURL.includes("start-saving"));
-            console.log(currentUrl.includes("#results"));
-            console.log(currentUrl.includes("#budget"));
+            // console.log("oldURL: " + oldURL);
+            // console.log("currentURL: " + currentUrl);
+            // console.log(oldURL.includes("results"));
+            // console.log(oldURL.includes("start-saving"));
+            // console.log(currentUrl.includes("#results"));
+            // console.log(currentUrl.includes("#budget"));
             
-
             if (oldURL.includes("results") || oldURL.includes("start-saving")) {
                 // automatically expanding results section if coming from results page link
                 // link from results
