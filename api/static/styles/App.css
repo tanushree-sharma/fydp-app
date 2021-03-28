@@ -344,7 +344,6 @@ ul.nav-right {
   width: 13vw;
   left: 80%;
   top: 61.2%;
-  background-color: green;
 }
 #integrateStorageLabel {
   font-family: "Mulish", sans-serif;
@@ -357,7 +356,6 @@ ul.nav-right {
   text-align: center;
 
   color: #5c77ac;
-  background-color: green;
 
   position: absolute;
   width: 12.215vw;
@@ -379,7 +377,6 @@ ul.nav-right {
   font-size: 1.3vw;
   line-height: 1.5vw;
   text-align: center;
-  background-color: green;
 
   color: #000000;
 }
@@ -419,7 +416,7 @@ ul.nav-right {
 
 .footer-hp {
   position: absolute;
-  width: 100%;
+  width: 90%;
   top: 100.7%;
   left: 0.25%;
   font-family: "Mulish";
