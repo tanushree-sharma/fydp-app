@@ -96,7 +96,7 @@ ul.nav-right {
   width: 100%;
   height: 200vh;
   scroll-behavior: smooth;
-  overflow-y: visible;
+  overflow-x:hidden;
 }
 
 #mainGraphic {
