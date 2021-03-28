@@ -104,7 +104,6 @@ ul.nav-right {
   width: 53vw;
   left: 44%;
   top: 7%;
-  background-color: gray;
 }
 
 #mainText {
@@ -345,6 +344,7 @@ ul.nav-right {
   width: 13vw;
   left: 80%;
   top: 61.2%;
+  background-color: green;
 }
 #integrateStorageLabel {
   font-family: "Mulish", sans-serif;
@@ -357,6 +357,7 @@ ul.nav-right {
   text-align: center;
 
   color: #5c77ac;
+  background-color: green;
 
   position: absolute;
   width: 12.215vw;
@@ -378,6 +379,7 @@ ul.nav-right {
   font-size: 1.3vw;
   line-height: 1.5vw;
   text-align: center;
+  background-color: green;
 
   color: #000000;
 }
