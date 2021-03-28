@@ -610,11 +610,11 @@ ul.nav-right {
   font-weight: 300;
   font-size: 2vh;
   line-height: 5vh;
-  width: 100%;
+  width: 90%;
 }
 
 .footer-left {
-  width: 100vw;
+  width: 90vw;
   list-style: none;
   text-align: left;
   margin-left: 3%;
